@@ -1,0 +1,56 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 25352
+ * Date: 2018/5/15
+ * Time: 10:51
+ */
+namespace app\index\model;
+
+use think\Model;
+use think\Db;
+
+
+class CategoryModel extends Model
+{
+    // 设置当前模型对应的完整数据表名称
+    protected $table = 'oa_category';
+
+
+    //查询
+    public function getList($cid=0)
+    {
+        if($cid >0)
+        {
+            return $this->where("branch_id",$cid)->where("status",1)->select();
+        }else{
+            return $this->where("branch_id",0)->where("status",1)->select();
+        }
+
+    }
+    //查询
+    public function getAllList($cid=0)
+    {
+        if($cid >0)
+        {
+            return $this->where("branch_id",$cid)->select();
+        }else{
+            return $this->where("branch_id",0)->select();
+        }
+
+    }
+    //新建
+    public function createData($data)
+    {
+        $data['created_at'] = date("Y-m-d H:i:s");
+        $data['updated_at'] = date("Y-m-d H:i:s");
+        $this->save($data);
+        return $this->getLastInsID();
+    }
+    //修改
+    public function updateData($data,$id)
+    {
+        $data['updated_at'] = date("Y-m-d H:i:s");
+        return $this->update($data,"id=".$id);
+    }
+}

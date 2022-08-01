@@ -1,0 +1,34 @@
+<style type="text/css">
+    .layui-tab-brief>.layui-tab-more li.layui-this:after, .layui-tab-brief>.layui-tab-title .layui-this:after{
+        border-bottom: 2px solid #c7782e;
+    }
+    .layui-this a{
+        color: #c7782e;
+        font-weight:bold;
+    }
+    .titleBox{
+        background: #fff;
+    }
+</style>
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+        <li {if [title]==1} class="layui-this" {/if}>
+        <a href="{:url('/doc/getdoc')}" >
+            <i class="layui-icon layui-icon-list"></i> 搜索列表</a>
+        </li>
+        <li {if [title]==3} class="layui-this" {/if}>
+        <a href="{:url('/doc/addonedoc')}" >
+            <i class="layui-icon layui-icon-form"></i> 添加单个文件</a>
+        </li>
+        <li {if [title]==2} class="layui-this" {/if}>
+        <a href="{:url('/doc/addalldoc')}" >
+            <i class="layui-icon layui-icon-carousel"></i> 批量添加文件</a>
+        </li>
+    </ul>
+</div>
+
+<script>
+
+    $(".sliderList").removeClass("sliderLists");
+    $("#slider5").addClass("sliderLists");
+</script>

@@ -1,0 +1,103 @@
+{include file='nobodyheader' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+    .showimg{
+        height: 80px;
+    }
+    .layui-table-cell{
+        height: auto;
+
+    }
+</style>
+<div class="contetnBox">
+    <div class="" style="background: white ; padding: 15px;">
+        <div class="layui-tab  layui-tab-brief"  lay-filter="docDemoTabBrief">
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <table class="layui-hide" id="stu_table" lay-filter="stu_table">
+
+                    </table>
+                    <script type="text/html" id="doAction">
+                        <div class="layui-btn-container">
+                            <button class="layui-btn layui-btn-primary" lay-event="addfile">
+                                <i class="layui-icon layui-icon-add-1"></i>添加文件
+                            </button>
+                        </div>
+                    </script>
+                    <script type="text/html" id="oneAction">
+                        <a  href="javascript:void(0)" lay-event="showOne">
+                            <i class="layui-icon layui-icon-edit"></i>编辑
+                        </a>
+                    </script>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        var table;
+        layui.use(['table','element'], function(){
+            table = layui.table;
+            var element = layui.element;
+
+            table.render({
+                elem: '#stu_table'
+                ,url:"{:url('/file/getFile')}?stu_id={$stu_id}"
+                ,toolbar: '#doAction'
+                ,title: '用户数据表'
+                ,cols: [[
+                    {field:'num', title:'ID'}
+                    ,{field:'number',width:150,  title:'件号'}
+                    ,{field:'name',width:250, title:'文件名称'}
+                    ,{field:'ocname',width:250, title:'文件类别'}
+                    ,{field:'within_time', title: '形成时间'}
+                    ,{field:'item_num', title:'件数'}
+                    ,{field:'page_num', title:'页数'}
+                    ,{field:'showimg',width:100,title:'电子文件',event:'showimg',style:'cursor: pointer;'}
+                    ,{fixed: 'right', toolbar: '#oneAction', title:'操作'}
+                ]]
+            });
+            table.on('toolbar(stu_table)', function(obj){
+                switch(obj.event){
+                    case 'addfile':
+                        layer.open({
+                            type: 2,
+                            title:"添加文件",
+                            area: ['60%', '100%'],
+                            fixed: true, //不固定
+                            maxmin: false,
+                            scrollbar:false,
+                            shadeClose:true,
+                            content: "{:url('/doc/adddoc')}?id={$stu_id}",
+                            anim:2
+                        });
+                        break;
+                }
+            });
+
+            table.on('tool(stu_table)', function(obj){
+                switch(obj.event){
+                    case 'showimg':
+                        var id = obj.data.id;
+                        window.open("{:url('/doc/getonedoc')}?id="+id)
+
+                        break;
+                };
+            });
+        });
+    </script>
+</body>
+</html>

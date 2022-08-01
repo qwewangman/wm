@@ -1,0 +1,97 @@
+{include file='nobodyheader' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+</style>
+<div class="contetnBox">
+    <div class="" style="background: white ; padding: 15px;">
+        <div class="layui-tab  layui-tab-brief"  lay-filter="docDemoTabBrief">
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <table class="layui-hide" id="stu_table" lay-filter="stu_table">
+
+                    </table>
+
+                    <script type="text/html" id="doAction">
+                        <div class="layui-btn-container">
+
+                            <button class="layui-btn layui-btn-primary" lay-event="reveive">
+                                <i class="layui-icon layui-icon-password"></i>确认收档
+                            </button>
+                            <button class="layui-btn layui-btn-primary" lay-event="change">
+                                <i class="layui-icon layui-icon-password"></i>案卷变更
+                            </button>
+                        </div>
+                    </script>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        var table;
+        layui.use(['table','element'], function(){
+            table = layui.table;
+            var element = layui.element;
+
+            table.render({
+                elem: '#stu_table'
+                ,url:"{:url('/file/getChange')}?stu_id={$stu_id}"
+                ,toolbar: '#doAction'
+                ,title: '用户数据表'
+                ,cols: [[
+                    {field:'num',width:"5%", title:'ID'}
+                    ,{field:'created_at',width:"15%", title:'变更时间'}
+                    ,{field:'name',width:"15%",  title:'变更项目'}
+                    ,{field:'before',width:"20%",  title:'变更前'}
+                    ,{field:'after',width:"25%",  title:'变更后'}
+                    ,{field:'content',width:"20%",  title:'变更原因'}
+                ]]
+            });
+
+            table.on('toolbar(stu_table)', function(obj){
+                switch(obj.event){
+                    case 'reveive':
+                        layer.open({
+                            type: 2,
+                            title:"确认收档",
+                            area: ['60%', '100%'],
+                            fixed: true, //不固定
+                            maxmin: false,
+                            scrollbar:false,
+                            shadeClose:true,
+                            content: "{:url('/file/receivefile')}?id={$stu_id}",
+                            anim:2
+                        });
+                        break;
+                    case 'change':
+                        layer.open({
+                            type: 2,
+                            title:"案卷变动",
+                            area: ['60%', '100%'],
+                            fixed: true, //不固定
+                            maxmin: false,
+                            scrollbar:false,
+                            shadeClose:true,
+                            content: "{:url('/file/changefile')}?id={$stu_id}",
+                            anim:2
+                        });
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

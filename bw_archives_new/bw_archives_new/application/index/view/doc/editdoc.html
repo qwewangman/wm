@@ -1,0 +1,283 @@
+{include file='nobodyheader'}
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+<style type="text/css">
+    .contetnBox{
+        background-color: #ffffff;
+    }
+    .newRightBox{
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0 20px;
+    }
+    .layui-form-label{
+        font-size: 14px;
+    }
+    .layui-elem-field legend{
+        font-size: 16px;
+        color: #f09c4e;
+    }
+</style>
+<div class="contetnBox">
+    <div class="newRightBox">
+        <form class="layui-form" action="{:url('/doc/update/'.$id)}" lay-filter="myallform">
+
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">类　　别：</label>
+                    <div class="layui-input-inline">
+                        <select name="category_id" lay-filter="category_id" id="category_id" lay-verify="required">
+                            <option value="" selected>请选择类别</option>
+                            {foreach name='c_arr' item='v'}
+                            <option value="{$v.id}" >{$v.name}</option>
+                            {/foreach}
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">文件名称：</label>
+                    <div class="layui-input-inline">
+                        <select name="name"  id="name" lay-filter="name" lay-verify="required" lay-search>
+                            <option value="">请选择名称</option>
+                            {foreach name='c_arr2' item='v'}
+                            <option value="{$v.name}" >{$v.name}</option>
+                            {/foreach}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+
+                <div class="layui-inline">
+                    <label class="layui-form-label">形成日期：</label>
+                    <div class="layui-input-inline" style="width: 80px;">
+                        <select name="nian" id="weizhi1">
+                            <option value="" selected>年</option>
+                            {for start="(date('Y'))" end="1999" comparison="gt" step="-1"}
+                            <option value="{$i}" >{$i}</option>
+                            {/for}
+                        </select>
+                    </div>
+                    <div class="layui-input-inline" style="width: 60px;">
+                        <select name="yue" id="weizhi2">
+                            <option value="" selected>月</option>
+                            {for start="1" end="13" }
+                            <option value="{$i}" >{$i}</option>
+                            {/for}
+                        </select>
+                    </div>
+                    <div class="layui-input-inline" style="width: 65px;">
+
+                        <select name="ri" id="weizhi3">
+                            <option value="" selected>日</option>
+                            {for start="1" end="32" }
+                            <option value="{$i}" >{$i}</option>
+                            {/for}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <label class="layui-form-label">文件备注：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="name_sub" id="name_sub" placeholder="填写附属信息，如年份"  autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">件　　数：</label>
+                    <div class="layui-input-inline">
+                        <input type="number" name="item_num" id="item_num"  autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">页　　数：</label>
+                    <div class="layui-input-inline">
+                        <input type="number" name="page_num"  id="page_num" lay-verify="page_num" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-form-item"  id="date-div">
+
+            </div>
+
+            <div class="layui-form-item">
+
+                <label class="layui-form-label">附件上传：</label>
+                <div class="layui-input-block">
+                    <div class="layui-upload">
+                        <button type="button" class="layui-btn layui-btn-normal" id="testList">选择图片</button>
+                        <div class="layui-upload-list">
+                            <table class="layui-table">
+                                <thead>
+                                <tr><th>文件</th>
+                                    <th>大小</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr></thead>
+                                <tbody id="demoList"></tbody>
+                            </table>
+                        </div>
+                        <button type="button" class="layui-btn" id="testListAction">开始上传</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+
+                <label class="layui-form-label">备　　注：</label>
+                <div class="layui-input-block">
+
+                    <textarea placeholder="请输入备注" name="content" class="layui-textarea"></textarea>
+                </div>
+            </div>
+
+            <hr>
+            <div class="layui-form-item" style="text-align: center">
+                <div class="layui-input-block" style="margin-left: 0px;">
+                    <input type="hidden" name="student_id" value="{$stu_info['student_id']}">
+                    <button class="layui-btn" lay-submit="" lay-filter="myform">确认添加文件</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="application/javascript">
+    var laydate;
+    layui.use('laydate', function(){
+        laydate = layui.laydate;
+        laydate.render({
+            elem: '#within_time' //指定元素
+        });
+        laydate.render({
+            elem: '#formal_time' //指定元素
+        });
+    });
+    layui.use(['form'], function(){
+        var form = layui.form;
+        form.on('select(category_id)', function(data){
+            var str = '<option value="">请选择名称</option>';
+            var id = data.value; //院系id
+            if(id > 0)
+            {
+                $.post("{:url('/system/getcategorylist')}",{id:id},function(res){
+                    var length = res.length;
+                    for (var i=0;i<length;i++) {
+                        str += '<option value="'+res[i].name+'">'+res[i].name+'</option>';
+                    }
+                    layui.$("#name").html(str);
+                    form.render();
+                },'json');
+            }else{
+                layui.$("#name").html(str);
+                form.render();
+            }
+
+        });
+
+        form.val("myallform", {
+            "category_id": "{$stu_info['category_id']}"
+            , "name": "{$stu_info['name']}"
+            , "nian": "{$stu_info['nian']}"
+            , "yue": "{$stu_info['yue']}"
+            , "ri": "{$stu_info['ri']}"
+            , "name_sub": "{$stu_info['name_sub']}"
+            , "item_num": "{$stu_info['item_num']}"
+            , "page_num": "{$stu_info['page_num']}"
+            , "content": "{$stu_info['content']}"
+            , "formal_time": "{$stu_info['formal_time']}"
+        });
+        form.on('select(name)', function(data){
+            var id = data.value; //院系id
+            if(id == 116)
+            {
+                var str = '<div class="layui-inline">';
+                str     += '<label class="layui-form-label">正式党员：</label>';
+                str     += '<div class="layui-input-inline">';
+                str     += '<input type="text" name="formal_time" id="formal_time"  lay-verify="required|date" autocomplete="off" class="layui-input">';
+                str     += '</div>';
+                str     += '</div>';
+                $("#date-div").html(str);
+
+                laydate.render({
+                    elem: '#formal_time' //指定元素
+                });
+
+            }else{
+                var str = '';
+                $("#date-div").html(str);
+            }
+        });
+    });
+
+    layui.use('upload', function(){
+        var $ = layui.jquery
+            ,upload = layui.upload;
+
+        //多文件列表示例
+        var demoListView = $('#demoList')
+            ,uploadListIns = upload.render({
+            elem: '#testList'
+            ,url: "{:url('/system/upload')}?range="+(new Date().getTime())
+            ,accept: 'images'
+            ,multiple: true
+            ,auto: true
+            ,data:{
+                id: function(){
+                    return (new Date().getTime())+""+Math.random().toString(36).substr(2, 15);
+                }
+            }
+            ,choose: function(obj){
+                var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
+                //读取本地文件
+                obj.preview(function(index, file, result){
+                    var tr = $(['<tr id="upload-'+ index +'">'
+                        ,'<td><img src="'+result+'" style=" height: 100px"></td>'
+                        ,'<td>'+ (file.size/1014).toFixed(1) +'kb</td>'
+                        ,'<td>等待上传</td>'
+                        ,'<td>'
+                        ,'<button class="layui-btn layui-btn-xs demo-reload layui-hide">重传</button>'
+                        ,'<button class="layui-btn layui-btn-xs layui-btn-danger demo-delete">删除</button>'
+                        ,'</td>'
+                        ,'</tr>'].join(''));
+
+                    //单个重传
+                    tr.find('.demo-reload').on('click', function(){
+                        obj.upload(index, file);
+                    });
+
+                    //删除
+                    tr.find('.demo-delete').on('click', function(){
+                        delete files[index]; //删除对应的文件
+                        tr.remove();
+                        uploadListIns.config.elem.next()[0].value = ''; //清空 input file 值，以免删除后出现同名文件不可选
+                    });
+
+                    demoListView.append(tr);
+                });
+            }
+            ,done: function(res, index, upload){
+                if(res.code == 200){ //上传成功
+                    var tr = demoListView.find('tr#upload-'+ index)
+                        ,tds = tr.children();
+                    tds.eq(2).html('<span style="color: #5FB878;">上传成功</span>');
+                    tds.eq(3).html('<input type="hidden" name="imgs[]" value="'+res.data.src+'">'); //清空操作
+                    return delete this.files[index]; //删除文件队列已经上传成功的文件
+                }
+                this.error(index, upload);
+            }
+            ,error: function(index, upload){
+                var tr = demoListView.find('tr#upload-'+ index)
+                    ,tds = tr.children();
+                tds.eq(2).html('<span style="color: #FF5722;">上传失败</span>');
+                tds.eq(3).find('.demo-reload').removeClass('layui-hide'); //显示重传
+            }
+        });
+
+
+    });
+</script>
+</body>
+</html>

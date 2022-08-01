@@ -1,0 +1,32 @@
+{include file='nobodyheader' }
+<div class="layui-upload">
+    <button type="button" class="layui-btn" id="uploadimg">电子版上传</button>
+    <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
+        预览图：
+        <div class="layui-upload-list" id="imglist"></div>
+    </blockquote>
+</div>
+
+<script type="application/javascript">
+    var upload;
+    layui.use(['form','upload','laydate'], function(){
+        upload = layui.upload;
+        upload.render({
+            elem: '#uploadimg'
+            ,url: "{:url('/system/upload')}"
+            ,multiple: true
+            ,before: function(obj){
+                //预读本地文件示例，不支持ie8
+                obj.preview(function(index, file, result){
+                    $('#imglist').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img">')
+                });
+            }
+            ,done: function(res){
+                //上传完毕
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

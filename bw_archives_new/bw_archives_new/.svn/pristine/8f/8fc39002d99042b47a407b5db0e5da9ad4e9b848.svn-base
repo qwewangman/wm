@@ -1,0 +1,52 @@
+{include file='nobodyheader' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+    .anjuan .jp span{
+        padding: 5px;
+        border: 1px solid #000;
+    }
+    .anjuan .name{
+        text-align: center;
+        font-size: 24px;
+        padding: 0 10px;
+        font-weight: bold;
+    }
+    .anjuan .wenj{
+        padding: 10px 10px 0;
+    }
+    .anjuan .wenj .xiahua{
+        padding: 0 5px;
+    }
+</style>
+<div class="layui-col-md3">
+    <div class="anjuan">
+        <div class="wenj"><span class="title1">迁档原因：</span><span class="xiahua">{$info.type}</span></div>　　
+        <div class="wenj"><span class="title1">迁档方式：</span><span class="xiahua">{$info.qdtype}</span></div>
+        <div class="wenj"><span class="title1">寄件人：</span><span class="xiahua">{$info.jiname}</span></div>
+        <div class="wenj"><span class="title1">寄件人电话：</span><span class="xiahua">{$info.jiphone}</span></div>
+        <div class="wenj"><span class="title1">收件人：</span><span class="xiahua">{$info.shouname}</span></div>
+        <div class="wenj"><span class="title1">收件人电话：</span><span class="xiahua">{$info.shouphone}</span></div>
+        <div class="wenj"><span class="title1">收件人邮编：</span><span class="xiahua">{$info.shoucode}</span></div>
+        <div class="wenj"><span class="title1">收件人地址：</span><span class="xiahua">{$info.shouaddress}</span></div>
+        <div class="wenj"><span class="title1">内件数量：</span><span class="xiahua">{$info.shounum}</span></div>
+        <div class="wenj"><span class="title1">迁档日期：</span><span class="xiahua">{$info.qdrq}</span></div>
+        <div class="wenj"><span class="title1">快递单号：</span><span class="xiahua">{$info.postnum}</span></div>
+    </div>
+</div>
+    <script>
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>设施农业温湿度控制系统</title>
+
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+
+
+</head>
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">设施农业温湿度控制系统 <!--• <span id="ltype" style="cursor: pointer;color: #8D8D8D">{if session('type') == 2}研究生{else /}本科{/if}[点击切换]</span>--></div>
+    <div class="fl_right">
+        <div class="fl_left user">{:session('user_name')}</div>
+        <a href="{:url('/login_out')}"  style="color: white;"><div class="fl_right signOut">退出</div></a>
+<!--        <a href="{:url('/api/login')}"  style="color: white"><div class="fl_right signOut">后台</div></a>-->
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<script type="application/javascript">
+    var layer,form,table;
+    layui.use(['form','layer','table'], function(){
+        layer = layui.layer;
+        form = layui.form;
+        table = layui.table;
+    });
+    $("#ltype").click(function () {
+        layer.confirm('是否切换学生档案类型？', {
+            btn: ['本科生', '研究生', '取消'] //可以无限个按钮
+            ,btn3: function(index, layero){
+                layer.close(index);
+            }
+        }, function(index, layero){
+            setType(1);
+        }, function(index){
+            setType(2);
+        });
+    });
+
+    function  setType(type) {
+        $.ajax({
+            url:"{:url('/system/settype')}",
+            dataType:"json",
+            type:"POST",
+            data:{type:type},
+            success:function(data){
+                if(data.code == 200){
+                    layer.msg('成功', {icon: 1});
+                    window.location.reload();
+                }else{
+                    layer.msg(data.msg, {icon: 2});
+                }
+            },
+            error:function(data){
+                layer.msg("失败", {icon: 2});
+            }
+        });
+    }
+</script>

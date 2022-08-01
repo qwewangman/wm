@@ -1,0 +1,50 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 25352
+ * Date: 2018/5/14
+ * Time: 13:41
+ */
+
+namespace app\index\model;
+
+use think\Model;
+use think\Db;
+
+
+class FileModel extends Model
+{
+    protected $table = 'oa_students';
+
+
+    //未在档
+    public function getStudentsList($data,$where)
+    {
+
+        $num = $data['limit'];
+        if($data['page']<=0) $data['page']=1;
+        $p = ($data['page']-1)*$num;
+        $lmt = "$p,".$num;
+
+
+        $arr = array();
+        $arr['count'] = $this->where($where)->select();
+        $arr['content'] = $this->where($where)->limit($lmt)->select();
+        return $arr;
+
+    }
+
+    public function getFilesOnce($file_number)
+    {
+
+        $student      = Db::query('select * from oa_students as s   JOIN department as d on s.courtyard = d.id join major as m on s.major = m.id  where s.id="'.$file_number.'"');        //获取卷号学生基本信息
+        $file_within  = Db::query('select * from oa_file_within  where  s_id ="'.$file_number.'" ORDER BY within_time  asc');                                                                             //获取卷内文件
+//        $bdjl         = Db::query('select * from oa_change as ch LEFT JOIN oa_mailing as m on ch.out_company = m.files_number where s_id = "'.$file_number.'" order by create_time asc ');    //获取状态记录(时间排序)
+
+        $result = array('stu'=>$student,'fw'=>$file_within);
+        return $result;
+    }
+
+
+
+}

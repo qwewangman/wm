@@ -1,0 +1,43 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 25352
+ * Date: 2018/5/15
+ * Time: 10:51
+ */
+namespace app\index\model;
+
+use think\Model;
+use think\Db;
+
+
+class MajorModel extends Model
+{
+    // 设置当前模型对应的完整数据表名称
+    protected $table = 'major';
+
+
+
+
+    //查询院系
+    public function getMajorList($id)
+    {
+        return $this->where('department_id='.$id)->select();
+    }
+
+    //获取专业id
+    public function getMajorId($name,$id)
+    {
+        return $this->where("m_name='".$name."' and department_id =".$id)->find();
+    }
+
+
+
+
+
+
+
+
+
+
+}

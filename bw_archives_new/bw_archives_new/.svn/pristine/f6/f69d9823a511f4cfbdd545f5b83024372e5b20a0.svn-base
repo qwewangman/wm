@@ -1,0 +1,76 @@
+$(function(){
+	// e.stopPropagation();
+	$('.sliderBox').css('min-height',$(window).height());
+	$('.seaInput').click(function(e){
+		e.stopPropagation();
+		//$(this).css({'color':'#c7782e'});
+		//$(this).siblings('span').css('color','#c7782e')
+	})
+	$('.selectBox>.seaInput').click(function(e){
+		e.stopPropagation();
+		//$(this).css({'backgroundImage':'URL(ROOT_PATH/imgs/arrow_down_y.png)'});
+		$(this).siblings('.selectDeta').toggle();
+	})
+	$('.seDeList').click(function(e){
+		e.stopPropagation();
+		var that=$(this).html()
+        var id  =$(this).attr('title')
+		$(this).parent('.selectDeta').siblings('.seaInput').html(that)
+        $(this).parent('.selectDeta').siblings('.bxzyx').val(id)
+		$(this).parent('.selectDeta').fadeOut();
+		//$('.selectBox>.seaInput').css({'backgroundImage':'URL(ROOT_PATH/imgs/arrow_down_b.png)'});
+		//$('.seaInput').css({'color':'#666'});
+		//$('.seaInput').siblings('span').css('color','#666')
+	})
+	//$('body').click(function(){
+	//	$('.selectBox>.seaInput').css({'backgroundImage':'URL(ROOT_PATH/imgs/arrow_down_b.png)'});
+	//	$('.seaInput').css({'color':'#666'});
+	//	$('.seaInput').siblings('span').css('color','#666')
+	//})
+	$('.checkBox').click(function(e){
+		e.stopPropagation();
+		$(this).parent('.stuList').toggleClass('stuLists');
+		$(this).parents('a').attr('href','javascript:void(0);')
+	})
+	//$('.stuList').click(function(){
+	//	$(this).parent('a').attr('href','https://www.baidu.com/')
+	//})
+	$('.depBtn').click(function(){
+		$(this).addClass('depBtns').siblings().removeClass('depBtns')
+	})
+	var nWidth=$('table').width();
+	//if(nWidth<=1214){
+	//	$('.tableBox').css('overflow-x','scroll')
+	//}else{
+	//	$('.tableBox').css('overflow-x','hidden')
+	//}
+	$(window).resize(function() {
+		var nWidth=$('table').width();
+		//if(nWidth<=1214){
+		//	$('.tableBox').css('overflow-x','scroll')
+		//}else{
+		//	$('.tableBox').css('overflow-x','hidden')
+		//}
+	});
+	$('.addText').click(function(e){
+        e.stopPropagation();
+		$(this).siblings('.alertBox').css('display','flex');
+	})
+    $('.alert').click(function(e){
+        e.stopPropagation();
+    })
+	$('.alertBox').click(function(){
+		$(this).css('display','none');
+	})
+	$('.alertInputs').click(function(e){
+		e.stopPropagation();
+		$(this).find('.alertSelect').toggle();
+	})
+	$('.alertSelList').click(function(e){
+        e.stopPropagation();
+        $(this).parent('.alertSelect').css('display','none');
+        var that=$(this).html();
+        $(this).parent('.alertSelect').siblings('.alertText').html(that);
+
+    })
+})

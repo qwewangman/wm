@@ -1,0 +1,33 @@
+<style type="text/css">
+    .layui-tab-brief>.layui-tab-more li.layui-this:after, .layui-tab-brief>.layui-tab-title .layui-this:after{
+        border-bottom: 2px solid #c7782e;
+    }
+    .layui-this a{
+        color: #c7782e;
+    }
+    .titleBox{
+        background: #fff;
+    }
+</style>
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+        <li {if [title]==1} class="layui-this" {/if}>
+        <a href="{:url('/file/getlist')}?pagestyle=1" >搜素列表</a>
+        </li>
+        <li {if [title]==2} class="layui-this" {/if}>
+        <a href="{:url('/file/add')}" >立卷</a>
+        </li>
+        <li {if [title]==4} class="layui-this" {/if}>
+        <a href="{:url('/file/upload')}" >批量立卷</a>
+        </li>
+        <li {if [title]==5} class="layui-this" {/if}>
+        <a href="{:url('/file/ccwz')}" >生成存储位置</a>
+        </li>
+    </ul>
+</div>
+
+<script>
+
+    $(".sliderList").removeClass("sliderLists");
+    $("#slider2").addClass("sliderLists");
+</script>

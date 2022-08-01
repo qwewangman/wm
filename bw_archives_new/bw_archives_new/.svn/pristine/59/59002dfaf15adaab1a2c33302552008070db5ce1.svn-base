@@ -1,0 +1,37 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 25352
+ * Date: 2018/5/14
+ * Time: 13:41
+ */
+
+namespace app\index\model;
+
+use think\Model;
+use think\Db;
+
+
+class FileJoinModel extends Model
+{
+    protected $table = 'oa_file_join';
+    //查询单条
+    public function getFileStudentId($student_id,$status){
+        $arr['content'] = $this->where('student_id',$student_id)
+        ->where('status','neq',$status)
+        ->find();
+        return $arr;
+    }
+    // 添加
+    public function AddStudentJoin($data)
+    {
+        $this->insert($data);
+        $finId = $this->getLastInsID();
+        return $finId;
+    }
+    //查询操作人员姓名
+    public function getAdminName($id){
+        $arr['name'] = Db::table('oa_admin')->where("id",$id)->find();
+        return $arr;
+    }
+}

@@ -1,0 +1,503 @@
+<?php
+
+namespace app\index\controller;
+use think;
+use think\Db;
+use think\Route;
+use app\index\controller\Base;
+use TCPDF;
+use app\index\model\FilewithinModel;
+
+
+use app\index\model\StudentsModel;
+use app\index\model\DepartmentModel;
+use app\index\model\FileModel;
+use app\index\model\MajorModel;
+
+class File extends Base
+{
+    public function ajgl()
+    {
+        $d = new DepartmentModel();
+        $dep = $d->getDepartList();//所有舞系
+        $this->assign('departlist',$dep);
+        return view('ajgl');
+    }
+
+    public function system()
+    {
+        //材料的父级目录
+        $res = Db::table('oa_catelog')->where('branch_id',0)->where('status',0)->select();
+        $result = array();
+        //循环材料的父级目录
+        foreach($res as $k=>$v)
+        {
+            //把属于当前父级目录的子目录 以数组的形式存入父级目录目录里，并且status状态是0（未删除）
+            $v['cent'] = Db::table('oa_catelog')->where('branch_id',$v['id'])->where('status',0)->select();
+            foreach ($v['cent'] as $kk=>&$vv){
+                $vv['class_num'] = $kk+1;
+            }
+            $result[]  = $v;
+        }
+        //院系目录
+        $department = Db::table('department')->where('status',1)->field('d_name,id')->select();
+        $deparjor = array();
+        foreach ($department as $key=>$val){
+            $val['major'] = Db::table('major')->where('department_id',$val['id'])->where('status',0)->select();
+            foreach ($val['major'] as $k=>&$v){
+                $v['key'] = $k+1;
+            }
+            $deparjor[] = $val;
+        }
+
+        $d = new DepartmentModel();
+        $dep = $d->getDepartList();//所有舞系
+        $this->assign('departlist',$dep);
+        $this->assign('result',$result); //材料
+        $this->assign('deparjor',$deparjor); //专业
+        return view('system');
+    }
+    public function YxDelar()
+    {
+        $data  = input('param.');
+
+        $id    = $data['id'];
+
+        $result = Db::table('major')->where('id',$id)->update(['status' => '1']);
+
+        if($result){
+            $this->success('删除成功', url('/system'));
+        } else {
+            $this->error('操作失败,稍后重试');
+        }
+    }
+    public function fileList()
+    {
+        $data  = input('param.');
+        $type = !empty($data['type']) ? $data['type'] : 2;
+        $where = ' 1=1 ';
+        if(!empty($data['key']))
+        {
+            if ($data['key']['courtyard'] > 0)
+            {
+                $where .= "  and courtyard = '".$data['key']['courtyard']."'"; //院系id
+            }
+            if($data['key']['major']  > 0)
+            {
+                $where .= "  and major = '".$data['key']['major']."'";  //专业id
+            }
+            if(!empty($data['key']['sc_number']))
+            {
+                $where .= "  and sc_number = '".$data['key']['sc_number']."'";  //学号
+            }
+            if(!empty($data['key']['file_number']))
+            {
+                $where .= "  and file_number = '".$data['key']['file_number']."'";  //卷号
+            }
+            if(!empty($data['key']['user_name']))
+            {
+                $where .= "  and user_name = '".$data['key']['user_name']."'";  //姓名
+            }
+        }
+        $f = new FileModel();
+        $wzd = $f->getStudentsList($data,$where,$type);
+
+        $count = count($wzd['count']);
+
+        $result = array();
+        $obj = new FilewithinModel();
+        foreach($wzd['content'] as $k=>$v)
+        {
+            $student_within = Db::table('oa_file_within')->where('file_number',$v['file_number'])->where('status',0)->find();
+            if ($student_within){
+                $v['stu_within'] = '暂未接收';
+            }else{
+                $within_type_whole = Db::table('oa_file_within')->where('file_number',$v['file_number'])->find();
+                if (empty($within_type_whole)){
+                    $v['stu_within'] = '空档案';
+                }else{
+                    $v['stu_within'] = '已接收';
+                }
+            }
+
+            $v['url'] = '<a class="layui-btn layui-btn-xs" lay-event="edit">文件接收</a><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">档案变动</a>';
+            $d = Db::table('department')->where('id', $v['courtyard'])->field('d_name')->find();
+            $v['d_name'] = $d['d_name'];
+            $m = Db::table('major')->where('id', $v['major'])->field('m_name')->find();
+            $v['m_name'] = $m['m_name'];
+
+            if($v['status'] == 0)
+            {
+                $v['status'] = '未接收';
+                $v['url'] = '<a class="layui-btn layui-btn-xs" lay-event="edit">文件接收</a><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">档案变动</a><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="borrow">借阅记录</a>';
+            }else if($v['status'] == 1)
+            {
+                $v['status'] = '在档';
+                $material = Db::table('oa_file_within')->where('s_id', $v['id'])->where('status',1)->count(); //计算这个用户有多少没借出的材料
+                if ($material > 0){
+                    $v['url'] = '<!--<a class="layui-btn layui-btn-xs" lay-event="edit">文件接收</a>--><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">档案变动</a><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="borrow">借阅记录</a>';
+                }else{
+                    $v['url'] = '<!--<a class="layui-btn layui-btn-xs" lay-event="edit">文件接收</a>--><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">档案变动</a><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="borrow">借阅记录</a>';
+                }
+            }else if($v['status'] == 2){
+
+                $file_surplus = $obj->fileSurplus($v['id']);
+                if ($file_surplus == 0){
+                    $v['status'] = '已全部借出';
+                }else{
+                    $v['status'] = '借出';
+                }
+                $material_not = Db::table('oa_file_within')->where('s_id',$v['id'])->where('status',1)->select(); //查询未借出的材料
+                if (!empty($material_not)){
+                    $v['url'] = '<!--<a class="layui-btn layui-btn-xs" lay-event="edit">文件接收</a>--><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">档案变动</a><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="borrow">借阅记录</a>';
+                }else{
+                    $v['url'] = '<!--<a class="layui-btn layui-btn-xs" lay-event="edit">文件接收</a>--><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">档案变动</a><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="borrow">借阅记录</a>';
+                }
+            }else{
+                switch ($v['status']){
+                    case 5: $v['status'] = '在档-转研究生';
+                        break;
+                    case 6: $v['status'] = '在档-毕业暂存';
+                        break;
+                    case 7: $v['status'] = '在档-村官暂存';
+                        break;
+                }
+                $material = Db::table('oa_file_within')->where('s_id', $v['id'])->where('status',1)->count(); //计算这个用户有多少没借出的材料
+                if ($material > 0){
+                    $v['url'] = '<!--<a class="layui-btn layui-btn-xs" lay-event="edit">文件接收</a>--><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">档案变动</a><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="borrow">借阅记录</a>';
+                }else{
+                    $v['url'] = '<!--<a class="layui-btn layui-btn-xs" lay-event="edit">文件接收</a>--><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">档案变动</a><a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="borrow">借阅记录</a>';
+                }
+            }
+            $v['num']     = Db::table('oa_file_within')->where('s_id', $v['id'])->count();
+            $v['page'] = $data['page'];
+            $url = url('/profile',['id'=>$v['id']]);
+            $v['user_name'] = "<a href='$url'>".$v['user_name']."</a>";
+            $result[]=$v;
+        }
+        $result = array("code"=>0,"msg"=>"","count"=>$count,"data"=>$result,"page"=>$data['page']);
+        echo json_encode($result);
+    }
+    public function fileLists()
+    {
+        $data  = input('param.');
+        $where = ' 1=1 ';
+        if(!empty($data['key']))
+        {
+            if ($data['key']['courtyard'] > 0)
+            {
+                $where .= "  and courtyard = '".$data['key']['courtyard']."'"; //院系id
+            }
+            if($data['key']['major']  > 0)
+            {
+                $where .= "  and major = '".$data['key']['major']."'";  //专业id
+            }
+            if(!empty($data['key']['sc_number']))
+            {
+                $where .= "  and sc_number = '".$data['key']['sc_number']."'";  //学号
+            }
+            if(!empty($data['key']['file_number']))
+            {
+                $where .= "  and file_number = '".$data['key']['file_number']."'";  //卷号
+            }
+            if(!empty($data['key']['user_name']))
+            {
+                $where .= "  and user_name = '".$data['key']['user_name']."'";  //姓名
+            }
+        }
+        $f = new FileModel();
+        $wzd = $f->getStudentsList($data,$where);
+
+
+        $count = count($wzd['count']);
+
+        $result = array();
+        foreach($wzd['content'] as $k=>$v)
+        {
+            $v['url'] = '<a class="layui-btn layui-btn-xs" lay-event="edit">打印</a>';
+            $d = Db::table('department')->where('id', $v['courtyard'])->field('d_name')->find();
+            $v['d_name'] = $d['d_name'];
+            $m = Db::table('major')->where('id', $v['major'])->field('m_name')->find();
+            $v['m_name'] = $m['m_name'];
+            if($v['status'] == 0)
+            {
+                $v['status'] = '未接收';
+            }else if($v['status'] == 1)
+            {
+                $v['status'] = '在档';
+            }else if($v['status'] == 2){
+                $v['status'] = '借出';
+            }
+            $v['addtime'] = date('Y-m-d',strtotime($v['addtime']));
+            $v['num']      = Db::table('oa_file_within')->where('s_id', $v['id'])->count();
+            $result[]=$v;
+        }
+        $result = array("code"=>0,"msg"=>"","count"=>$count,"data"=>$result);
+        echo json_encode($result);
+    }
+
+    public function change_record(){
+        $d = new DepartmentModel();
+        $dep = $d->getDepartList();
+        $c = Db::table('oa_catelog')->where('branch_id', 0)->field('id,class_num,class_name')->order('id')->select();
+        $this->assign('c',$c); //材料
+        $this->assign('departlist',$dep); //院系
+        return view('record');
+    }
+
+    public function dyFile()
+    {
+        $data = input('param.');
+        $files = New FileModel();
+        $result = $files->getFilesOnce($data['dyid']);
+        $file_name      = $result['stu'][0]['user_name'];
+        $file_number    = $result['stu'][0]['file_number'];
+        $sc_number      = $result['stu'][0]['sc_number'];
+        $file_address   = $result['stu'][0]['file_derice'];
+        $addtime        = date("Y年m月d日",strtotime($result['stu'][0]['addtime']));
+//        $file_num       = $result['stu'][0]['file_num'];
+        $file_num       = Db::table('oa_file_within')->where('s_id',$data['dyid'][0])->count();
+        $yx             = $result['stu'][0]['d_name'];
+        $zy             = $result['stu'][0]['m_name'];
+        $lj_time           = date('Y年m月d日');
+
+        //实例化
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        // 设置文档信息
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Nicola Asuni');
+        $pdf->SetTitle('案卷信息');
+        $pdf->SetSubject('TCPDF Tutorial');
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+
+        // 设置页眉和页脚信息
+//        $pdf->SetHeaderData('', '', '电脑人机工程评估报告', '', array(0,64,255), array(0,64,128));
+//        $pdf->setFooterData(array(0,64,0), array(0,64,128));
+
+        // 设置页眉和页脚字体
+        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+        // 设置默认等宽字体
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+        // 设置间距
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+        // 设置分页
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+        // set image scale factor
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+        // set some language-dependent strings (optional)
+        if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
+            require_once(dirname(__FILE__).'/lang/eng.php');
+            $pdf->setLanguageArray($l);
+        }
+
+        // ---------------------------------------------------------
+
+        // set default font subsetting mode
+        $pdf->setFontSubsetting(true);
+
+        //设置字体
+        $pdf->SetFont('dejavusans', '', 14, '', true);
+        $pdf->SetFont('stsongstdlight', '', 10);
+
+        // Add a page
+        // This method has several options, check the source code documentation for more information.
+        $pdf->AddPage();
+
+        // set text shadow effect
+        $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
+
+        $n = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+        // 内容
+        foreach($result['fw'] as $k=>&$v)
+        {
+//            if($v['within_type'] == 1){
+//                $lb[]   = '一 学前材料';
+//            }else if($v['within_type'] == 6){
+//                $lb[]   = '二 大学材料';
+//            }else if($v['within_type'] == 11){
+//                $lb[]   = '三 党团材料';
+//            }else if($v['within_type'] == 18){
+//                $lb[]   = '四 大学奖励材料';
+//            }else if($v['within_type'] == 22){
+//                $lb[]   = '五 大学处罚材料';
+//            }
+            $wjmuarr = Db::table('oa_catelog')->field('id,class_num,class_name')->select(); //所有材料
+            //print_r($v);die;
+            foreach($wjmuarr as $kk=>$vv)
+            {
+                if($v['within_type'] == $vv['id']) //判断材料类型
+                {
+                    //$xh[$k]['class_num'] = $vv['class_num'];
+                    $v['within_type'] = $vv['class_name'];
+                }
+                //$wjmu[] = $v['within_name'];  //材料名称
+            }
+            //$v['within_time'] = date("Y年m月d日",strtotime($v['within_time']));
+            $js[]   = $v['within_num'];
+            $ys[]   = $v['page_num'];
+        }
+        //$n_xh = $this->array_unset_tt($xh,'class_name');
+        //$n_xh = array_values($n_xh);
+        $n_within_type = $this->array_unset_tt($result['fw'],'within_type');
+        $n_within_type = array_values($n_within_type);
+        foreach ($n_within_type as $k=>&$v){
+            foreach ($result['fw'] as $kk=>$vv){
+                if ($v['within_type'] == $vv['within_type']){
+                    $time = explode('/',$vv['within_time']);
+                    $vv['nian'] = $time[0] != '' ? $time[0] : '';
+                    $vv['yue'] = $time[1] != '' ? $time[1] : '';
+                    $vv['ri'] = $time[2] != '' ? $time[2] : '';
+                    $v['cent'][] = $vv;
+                }
+            }
+        }
+        $count = count($n_within_type);
+        $html = <<<EOD
+<h1 style="text-align: center;line-height:150px">北京舞蹈学院学生档案</h1>
+<div style="text-indent:130px;">
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2>卷 $n 名 $n $file_name</h2>
+<h2>卷 $n 号 $n $file_number</h2>
+<h2>学 $n 号 $n $sc_number</h2>
+<h2>存放位置 $n $file_address</h2>
+<h2>立卷时间 $n $addtime</h2>
+<h2>总 &nbsp;件 &nbsp;数 $n $file_num</h2>
+</div>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p> <span>$lj_time $n$n</span>  <span>案卷管理 $n$n </span> 学生档案  </p>
+<p>__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.</p>
+<p></p>
+<p>卷号:$file_number $n 存放位置:$file_address $n 学号:$sc_number &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 卷名:$file_name </p>
+
+<p></p>
+<h3 style="text-align: center;">北京舞蹈学院学生档案卷内目录</h3>
+<p><span style="text-align: center;">(本科)</span><p></p>  <span><p  style="text-align:left">院系:$yx $n $n $n 专业:$zy</p> <p  style="text-align:right">卷名:$file_name</p></span></p>
+
+
+EOD;
+
+
+
+
+        // Print text using writeHTMLCell()
+        $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
+
+
+
+        $pdf->MultiCell(30, 10, "序号", $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+        //$pdf->MultiCell(30, 10, "类别", $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+        $pdf->MultiCell(30, 10, "文件题名", $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+        $pdf->MultiCell(60, 10, "形成日期", $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+        $pdf->MultiCell(30, 10, "件数", $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+        $pdf->MultiCell(30, 10, "页数", $border=1, $align='C',$fill=false, $ln=1, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+
+
+        //$pdf->MultiCell(30, 15, $file_number, $border=1, $align='C',$fill=true, $ln=1, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+        for ($i = 0; $i < $count; $i++)
+        {
+            $pdf->MultiCell(30, 15, $this->numeral($i+1), $border=1, $align='C',$fill=true, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(30, 15, $n_within_type[$i]['within_type'], $border=1, $align='C',$fill=true, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(20, 15, '年', $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(20, 15, '月', $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(20, 15, '日', $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(30, 15, '', $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(30, 15, '', $border=1, $align='C',$fill=false, $ln=1, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $nn = count($n_within_type[$i]['cent']);
+            for ($j = 0; $j < $nn; $j++){
+   /*序号*/             $pdf->MultiCell(30, 15, $j+1, $border=1, $align='C',$fill=true, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+   /*文件题名*/         $pdf->MultiCell(30, 15, $n_within_type[$i]['cent'][$j]['within_name'], $border=1, $align='C',$fill=true, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+   /*形成日期(年)*/     $pdf->MultiCell(20, 15, $n_within_type[$i]['cent'][$j]['nian'], $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+   /*形成日期(月)*/     $pdf->MultiCell(20, 15, $n_within_type[$i]['cent'][$j]['yue'], $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+   /*形成日期(日)*/     $pdf->MultiCell(20, 15, $n_within_type[$i]['cent'][$j]['ri'], $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+   /*件数*/             $pdf->MultiCell(30, 15, $n_within_type[$i]['cent'][$j]['within_num'], $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+   /*页数*/             $pdf->MultiCell(30, 15, $n_within_type[$i]['cent'][$j]['page_num'], $border=1, $align='C',$fill=false, $ln=1, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            }
+            /*$pdf->MultiCell(30, 15, $lb[$i], $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(30, 15, $wjmu[$i], $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(30, 15, $xcrq[$i], $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(30, 15, $js[$i], $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(30, 15, $ys[$i], $border=1, $align='C',$fill=false, $ln=1, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);*/
+        }
+
+
+
+        // ---------------------------------------------------------
+        //        http://archives.test.ez366.com/index.php/yelPdf.html
+        // Close and output PDF document
+        // This method has several options, check the source code documentation for more information.
+        $dtime = date('Y-m-d');
+        $pdf->Output($dtime.'.pdf', 'I');
+
+        //============================================================+
+        // END OF FILE
+        //============================================================+
+
+        print_r($pdf);die;
+
+    }
+
+    public function array_unset_tt($arr,$key){  //二维数组根据某字段去重
+        $res = array();
+        foreach ($arr as $value) {
+            if(isset($res[$value[$key]])){
+                unset($value[$key]);
+            }
+            else{
+                $res[$value[$key]] = $value;
+            }
+        }
+        return $res;
+    }
+
+    public function numeral($key){
+        switch ($key){
+            case 1: $key = '一';
+                break;
+            case 2: $key = '二';
+                break;
+            case 3: $key = '三';
+                break;
+            case 4: $key = '四';
+                break;
+            case 5: $key = '五';
+                break;
+            case 6: $key = '六';
+                break;
+            case 7: $key = '七';
+                break;
+            case 8: $key = '八';
+                break;
+            case 9: $key = '九';
+                break;
+            case 10: $key = '十';
+                break;
+        }
+        return $key;
+    }
+
+
+
+
+
+
+
+}

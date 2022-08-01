@@ -1,0 +1,45 @@
+
+<div class="sliderBox fl_left">
+    <a href="{:url('/home')}" class="sliderList" id="slider1">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">首页</span>
+        <span class="clear"></span>
+    </a>
+    <a href="{:url('/file/getlist')}" class="sliderList" id="slider2">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-container"></span>
+        <span class="fl_left sliderThree block">案卷管理</span>
+        <span class="clear"></span>
+    </a>
+    <a href="{:url('/system')}" class="sliderList"  id="slider3">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-1"></span>
+        <span class="fl_left sliderThree block">案卷交接</span>
+        <span class="clear"></span>
+    </a>
+    <a href="{:url('/system/setdepart')}" class="sliderList"  id="slider4">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-setting"></span>
+        <span class="fl_left sliderThree block">院系设置</span>
+        <span class="clear"></span>
+    </a>
+    <a href="{:url('/system/category')}" class="sliderList"  id="slider5">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-setting"></span>
+        <span class="fl_left sliderThree block">类目设置</span>
+        <span class="clear"></span>
+    </a>
+    <a href="{:url('/system/getcode')}" class="sliderList"  id="slider6">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-detail"></span>
+        <span class="fl_left sliderThree block">编号规则</span>
+        <span class="clear"></span>
+    </a>
+    <a href="{:url('/system/user')}" class="sliderList"  id="slider7">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-detail"></span>
+        <span class="fl_left sliderThree block">管理设置</span>
+        <span class="clear"></span>
+    </a>
+</div>

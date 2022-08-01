@@ -1,0 +1,177 @@
+{if $id>0}
+{include file='nobodyheader' }
+{else /}
+{include file='header' }
+{/if}
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+</style>
+<div class="contetnBox">
+    {if $id<=0}
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">类目管理</div>
+        </div>
+        <div class="" style="background: white ; padding: 15px;">
+
+            <div class="layui-tab">
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+
+                        <table class="layui-hide" id="cate_table" lay-filter="cate_table">
+
+                        </table>
+                        <script type="text/html" id="doAction">
+                            <div class="layui-btn-container">
+                                <button class="layui-btn layui-btn-sm" lay-event="add">添加类目</button>
+                            </div>
+                        </script>
+                        <script type="text/html" id="oneAction">
+                            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                            <a class="layui-btn layui-btn-xs" lay-event="showCategory">查看子类目</a>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {else /}
+    <div class="" style="background: white ; padding: 15px;">
+
+        <div class="layui-tab">
+
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+
+                    <table class="layui-hide" id="cate_table" lay-filter="cate_table">
+
+                    </table>
+                    <script type="text/html" id="doAction">
+                        <div class="layui-btn-container">
+                            <button class="layui-btn layui-btn-sm" lay-event="add">添加类目</button>
+                        </div>
+                    </script>
+                    <script type="text/html" id="oneAction">
+                        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                        <!--<a class="layui-btn layui-btn-xs" lay-event="showCategory">查看子类目</a>
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    {/if}
+</div>
+<script>
+    var table;
+    layui.use('table', function(){
+        table = layui.table;
+
+        table.render({
+            elem: '#cate_table'
+            ,url:"{:url('/system/getcategory')}?id={$id}"
+            ,defaultToolbar:['filter','exports']
+            ,title: '用户数据表'
+            ,toolbar: '#doAction'
+            ,cols: [[
+                {field:'id',width:'10%',title:'ID'}
+                ,{field:'name',width:'40%',  title:'名称'}
+                ,{field:'status',width:'30%',  title:'状态'}
+                ,{toolbar: '#oneAction',width:'20%',  title:'操作'}
+            ]]
+            ,page: false
+        });
+
+        table.on('toolbar(cate_table)', function(obj){
+            switch(obj.event){
+                case 'add':
+                    layer.prompt({
+                        title:'添加类目'
+                        ,formType:2
+                        ,value: '请填写类目名称'
+                    }, function(value, index){
+                        $.post("{:url('/system/updatecategory')}",{id:0,fid:"{$id}",type:4,value:value},function(res){
+                            if(res.code == 200)
+                            {
+                                alert("成功！");
+                                window.location.reload();
+                            }
+                        },'json');
+                    });
+                    break;
+            }
+        });
+
+        table.on('tool(cate_table)', function(obj){
+            switch(obj.event){
+                case 'edit':
+                    layer.prompt({
+                        title:'编辑类目名称'
+                        ,formType:2
+                        ,value: obj.data.name
+                    }, function(value, index){
+                        $.post("{:url('/system/updatecategory')}",{id:obj.data.id,type:1,value:value},function(res){
+                            if(res.code == 200)
+                            {
+                                alert("更改成功！");
+                                window.location.reload();
+                            }
+                        },'json');
+                    });
+                    break;
+                case 'del':
+                    layer.confirm('确认禁用吗？禁用之后，需要调用的地方将不显示', function(index){
+                        $.post("{:url('/system/updatecategory')}",{id:obj.data.id,type:2},function(res){
+                            if(res.code == 200)
+                            {
+                                alert("更改成功！");
+                                window.location.reload();
+                            }
+                        },'json');
+                    });
+                    break;
+                case 'nodel':
+                    layer.confirm('确认启用吗？启用之后，需要调用的地方将显示', function(index){
+                        $.post("{:url('/system/updatecategory')}",{id:obj.data.id,type:3},function(res){
+                            if(res.code == 200)
+                            {
+                                alert("更改成功！");
+                                window.location.reload();
+                            }
+                        },'json');
+                    });
+                    break;
+                case 'showCategory':
+                    var index = layer.open({
+                        type: 2,
+                        title:"查看子类目",
+                        area: ['900px', '100%'],
+                        fixed: true, //不固定
+                        maxmin: false,
+                        scrollbar:false,
+                        shadeClose:false,
+                        content: "{:url('/system/category')}?id="+obj.data.id,
+                        anim:2
+                    });
+                    break;
+            };
+        });
+    });
+    $(".sliderList").removeClass("sliderLists");
+    $("#slider5").addClass("sliderLists");
+</script>
+</body>
+</html>

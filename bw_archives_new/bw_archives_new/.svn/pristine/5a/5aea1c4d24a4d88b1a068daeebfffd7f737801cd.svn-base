@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="__STATIC__/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__STATIC__/css/style.min.css?v=4.0.0" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+
+</head>
+<style>
+    .btn-primary{
+        border-color: #f09c4e;
+        background-color: #f09c4e;
+    }
+    .btn-primary:hover{
+        background-color: #f09c4e;
+        border-color: #18a689;
+    }
+</style>
+<body class="gray-bg">
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <a href="{:url('/login_out')}"  style="color: white"><div class="fl_right signOut">退出</div></a>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="layui-row layui-col-space15">
+    {include file='layout'}
+    <div class="titleBox">
+        <div class="title fl_left">详情</div>
+        <a href="javascript:history.back(-1)"><div class="fl_right" style="width: 110px;height: 34px;border: solid 1px #666666;line-height: 34px;text-align: center;margin-top: 20px;color: #333;">返回</div></a>
+        <div class="clear"></div>
+    </div>
+    <div class="layui-col-md4">
+        <div class="layui-card">
+            <div class="layui-card-header">个人资料</div>
+            <div class="layui-card-body">
+                <div style="padding-left: 10px;">
+                    <img alt="" class="img-responsive" src="__STATIC__{$info.stu_photo}">
+                </div>
+                <h4><strong>{$info.user_name}</strong>&nbsp&nbsp<strong>{$info.sex}</strong></h4>
+                <p><i class="fa fa-map-marker"></i>{$info.stu_address != '' ? $info.stu_address : '未填写住址'}</p>
+                <h5>
+                    关于我
+                </h5>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>
+                            卷号: {$info.file_number}<br>
+                            学号: {$info.sc_number}<br>
+                            年级: {$info.grade}<br>
+                            班级: {$info.class}<br>
+                            院系: {$info.courtyard}<br>
+                            专业: {$info.major}<br>
+                            身份证号: {$info.card}<br>
+                            存放位置: {$info.file_derice}<br>
+                            电话号:<br> {foreach name='phone' item='v'}
+                            {$v}<br>
+                            {/foreach}
+                        </p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>
+                            学历: {$info.record}<br>
+                            入档号: {$info.filing_number}<br>
+                            案卷状态: {$info.status}<br>
+                            民族: {$info.nation}<br>
+                            国籍: {$info.country}<br>
+                            立卷日期: {$info.addtime}<br>
+                            录取类别: {$info.student_type}<br>
+                            卷内文件状态: {$info.stu_within}<br>
+                            备注: {$info.content}<br>
+                            {$stu_change_info_join.addtime}
+                        </p>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span class="bar"></span>
+                        <h5><strong>{$num.file}</strong> 材料:</h5>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="line"></span>
+                        <h5><strong>{$num.change}</strong> 动态:</h5>
+                    </div>
+                </div>
+                <input type="hidden" value="{$info.status == '未在档' ? 0 : 1}" id="student_type">
+                <input type="hidden" value="{$info.stu_within == '暂未接收' ? 0 : 1}" id="within_type">
+                <input type="hidden" value="{$info.id}" id="user_id">
+                <div class="user-button">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="{:url('/file_show')}?id={$info.id}"><button type="button" id="shift_out" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> 查看文件</button></a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="{:url('/details')}?id={$info.id}"><button type="button" id="receive" class="btn btn-default btn-sm btn-block" disabled><i class="fa fa-coffee"></i> 文件接收</button></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">变动记录</div>
+            <div class="layui-card-body">
+                <table class="layui-table"  id="LAY_table_user"  lay-data="{ url:'', page:true, id:'idTest'}" lay-filter="demo">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="wrapper wrapper-content">
+    <div class="row animated fadeInRight">
+        {include file='layout'}
+        <div class="col-sm-4">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>个人资料</h5>
+                </div>
+                <div>
+                    <div class="ibox-content no-padding border-left-right">
+                        <img alt="image" class="img-responsive" src="__STATIC__{$info.stu_photo}">
+                    </div>
+                    <div class="ibox-content profile-content">
+                        <h4><strong>{$info.user_name}</strong>&nbsp&nbsp<strong>{$info.sex}</strong></h4>
+                        <p><i class="fa fa-map-marker"></i>{$info.stu_address != '' ? $info.stu_address : '未填写住址'}</p>
+                        <h5>
+                            关于我
+                        </h5>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p>
+                                    卷号: {$info.file_number}<br>
+                                    学号: {$info.sc_number}<br>
+                                    年级: {$info.grade}<br>
+                                    班级: {$info.class}<br>
+                                    院系: {$info.courtyard}<br>
+                                    专业: {$info.major}<br>
+                                    身份证号: {$info.card}<br>
+                                    存放位置: {$info.file_derice}<br>
+                                    电话号:<br> {foreach name='phone' item='v'}
+                                            {$v}<br>
+                                            {/foreach}
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>
+                                    学历: {$info.record}<br>
+                                    入档号: {$info.filing_number}<br>
+                                    案卷状态: {$info.status}<br>
+                                    民族: {$info.nation}<br>
+                                    国籍: {$info.country}<br>
+                                    立卷日期: {$info.addtime}<br>
+                                    录取类别: {$info.student_type}<br>
+                                    卷内文件状态: {$info.stu_within}<br>
+                                    备注: {$info.content}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row m-t-lg">
+                            <div class="col-sm-4">
+                                <span class="bar">5,3,9,6,5,9,7,3,5,2</span>
+                                <h5><strong>{$num.file}</strong> 材料</h5>
+                            </div>
+                            <div class="col-sm-4">
+                                <span class="line">5,3,9,6,5,9,7,3,5,2</span>
+                                <h5><strong>{$num.change}</strong> 动态</h5>
+                            </div>
+                        </div>
+                        <input type="hidden" value="{$info.status == '未在档' ? 0 : 1}" id="student_type">
+                        <input type="hidden" value="{$info.stu_within == '暂未交接' ? 0 : 1}" id="within_type">
+                        <div class="user-button">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <button type="button" id="shift_out" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> 迁出档案</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="{:url('/details')}?id={$info.id}"><button type="button" id="receive" class="btn btn-default btn-sm btn-block" disabled><i class="fa fa-coffee"></i> 文件接收</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>最新动态</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="profile.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="profile.html#">选项1</a>
+                            </li>
+                            <li><a href="profile.html#">选项2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
+                    <div>
+                        <div class="feed-activity-list">
+
+                            <div class="feed-element" id="stu_change_info_join" style="display: none">
+                                <a href="profile.html#" class="pull-left">
+                                    <img alt="" class="img-circle" src="__STATIC__{$info.stu_photo}">
+                                </a>
+                                <div class="media-body ">
+                                    &lt;!&ndash;<small class="pull-right text-navy">1天前</small>&ndash;&gt;
+                                    <strong id="join">{$stu_change_info_join.student_name}</strong> {$stu_change_info_join.student_name != '' ? '文件交接成功' : ''} &lt;!&ndash;<strong>灞波儿奔</strong>&ndash;&gt;
+                                    <br>
+                                    <small class="text-muted">{$stu_change_info_join.addtime}</small>
+                                    &lt;!&ndash;<div class="actions">
+                                        <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 赞 </a>
+                                        <a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> 收藏</a>
+                                    </div>&ndash;&gt;
+                                </div>
+                            </div>
+
+                            <div class="feed-element" id="stu_change_info_lj" style="display: none">
+                                <a href="profile.html#" class="pull-left">
+                                    <img alt="" class="img-circle" src="__STATIC__{$info.stu_photo}">
+                                </a>
+                                <div class="media-body ">
+                                    &lt;!&ndash;<small class="pull-right text-navy">1天前</small>&ndash;&gt;
+                                    <strong id="lj">{$stu_change_info_lj.student_name}</strong> {$stu_change_info_lj.student_name != '' ? '立卷成功' : ''} &lt;!&ndash;<strong>灞波儿奔</strong>&ndash;&gt;
+                                    <br>
+                                    <small class="text-muted">{$stu_change_info_lj.addtime}</small>
+                                    &lt;!&ndash;<div class="actions">
+                                        <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 赞 </a>
+                                        <a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> 收藏</a>
+                                    </div>&ndash;&gt;
+                                </div>
+                            </div>
+
+                            &lt;!&ndash;<div class="feed-element">
+                                <a href="profile.html#" class="pull-left">
+                                    <img alt="image" class="img-circle" src="__STATIC__{$info.stu_photo}">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="pull-right">5分钟前</small>
+                                    <strong>作家崔成浩</strong> 发布了一篇文章
+                                    <br>
+                                    <small class="text-muted">今天 10:20 来自 iPhone 6 Plus</small>
+
+                                </div>
+                            </div>
+
+                            <div class="feed-element">
+                                <a href="profile.html#" class="pull-left">
+                                    <img alt="image" class="img-circle" src="__STATIC__{$info.stu_photo}">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="pull-right">2小时前</small>
+                                    <strong>作家崔成浩</strong> 抽奖中了20万
+                                    <br>
+                                    <small class="text-muted">今天 09:27 来自 Koryolink iPhone</small>
+                                    <div class="well">
+                                        抽奖，人民币2000元，从转发这个微博的粉丝中抽取一人。11月16日平台开奖。随手一转，万一中了呢？
+                                    </div>
+                                    <div class="pull-right">
+                                        <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 赞 </a>
+                                        <a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> 收藏</a>
+                                        <a class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> 评论</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feed-element">
+                                <a href="profile.html#" class="pull-left">
+                                    <img alt="image" class="img-circle" src="__STATIC__{$info.stu_photo}">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="pull-right">2天前</small>
+                                    <strong>天猫</strong> 上传了2张图片
+                                    <br>
+                                    <small class="text-muted">11月7日 11:56 来自 微博 weibo.com</small>
+                                    <div class="photos">
+                                        <a href="http://24.media.tumblr.com/20a9c501846f50c1271210639987000f/tumblr_n4vje69pJm1st5lhmo1_1280.jpg">
+                                            <img alt="image" class="feed-photo" src="img/p1.jpg">
+                                        </a>
+                                        <a href="http://37.media.tumblr.com/9afe602b3e624aff6681b0b51f5a062b/tumblr_n4ef69szs71st5lhmo1_1280.jpg">
+                                            <img alt="image" class="feed-photo" src="img/p3.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feed-element">
+                                <a href="profile.html#" class="pull-left">
+                                    <img alt="image" class="img-circle" src="__STATIC__{$info.stu_photo}">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="pull-right text-navy">5小时前</small>
+                                    <strong>在水一方Y</strong> 关注了 <strong>那二十年的单身</strong>.
+                                    <br>
+                                    <small class="text-muted">今天 10:39 来自 iPhone客户端</small>
+                                    <div class="actions">
+                                        <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 赞 </a>
+                                        <a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> 收藏</a>
+                                    </div>
+                                </div>
+                            </div>&ndash;&gt;
+
+                        </div>
+
+                        &lt;!&ndash;<button class="btn btn-primary btn-block m"><i class="fa fa-arrow-down"></i> 显示更多</button>&ndash;&gt;
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>-->
+<script src="__STATIC__/js/jquery.min.js?v=2.1.4"></script>
+<script src="__STATIC__/js/bootstrap.min.js?v=3.3.5"></script>
+<script src="__STATIC__/js/content.min.js?v=1.0.0"></script>
+<script src="__STATIC__/js/plugins/peity/jquery.peity.min.js"></script>
+<script src="__STATIC__/js/demo/peity-demo.min.js"></script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</body>
+<script type="text/javascript">
+    var student_type = $('#within_type').val();
+    if (student_type == 0){
+        //$('#shift_out').removeClass('btn-primary');
+        //$('#shift_out').addClass('btn-default');
+        $('#receive').removeClass('btn-default');
+        $('#receive').addClass('btn-primary');
+        //$('#shift_out').attr('disabled',true);
+        $('#receive').removeAttr('disabled');
+    }
+    $('.bar').text('5,3,9,6,5,9,7,3,5,2');
+    $('.line').text('5,3,9,6,5,9,7,3,5,2');
+    /*var join = $("#join").text();
+    var lj = $("#lj").text();
+    if (join != ''){
+        $("#stu_change_info_join").show();
+    }
+    if (lj != ''){
+        $("#stu_change_info_lj").show();
+    }*/
+</script>
+<script>
+    layui.use(['form', 'laydate','upload'], function(){
+        var form = layui.form;
+        form.on('select(yx)', function(data){
+            var str = '<option value="0">请选专业</option>';
+            var id = data.value; //院系id
+            $.post("{:url('/getZy')}",{id:id},function(res){
+                var length = res.length;
+                for (var i=0;i<length;i++) {
+                    str += '<option value="'+res[i].id+'">'+res[i].m_name+'</option>';
+                }
+                layui.$("#zy").html(str);
+                form.render();
+            },'json');
+        });
+    });
+    var id = $("#user_id").val();
+    layui.use('table', function(){
+        var table = layui.table;
+        //监听表格复选框选择
+//                  -------------------------------------------------------------------
+//方法级渲染
+        table.render({
+            elem: '#LAY_table_user'
+            ,url: "{:url('/record_odd')}?id="+id //数据接口
+            ,cols: [[  //表头
+                {field:'sc_number', title: '学号', fixed:true}
+                ,{field:'user_name', title: '姓名'}
+                ,{field:'addtime', title: '变动执行时间',sort:true}
+                ,{field:'tys', title: '状态'}
+                ,{field:'url', title: '操作'}
+            ]]
+            ,id: 'testReload'   //设定容器唯一ID
+            ,page:true  //开启分页
+        });
+
+        var $ = layui.$, active = {
+            reload: function(){
+                var courtyard = $('#courtyard');  //院系id
+                var zy = $('#zy');  //专业id
+                var user_name = $('#user_name'); //姓名
+                var file_number = $('#file_number'); //学号
+                //执行重载
+                table.reload('testReload', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    ,where: {   //设定异步数据接口的额外参数，任意设
+                        key: {
+                            courtyard: courtyard.val(),
+                            major: zy.val(),
+                            user_name: user_name.val(),
+                            file_number: file_number.val()
+                        }
+                    }
+                });
+            }
+        };
+//                               --------------------------------------------------------------------
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+</script>
+</html>

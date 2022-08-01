@@ -1,0 +1,67 @@
+
+<style type="text/css">
+    .layui-tab-brief>.layui-tab-more li.layui-this:after, .layui-tab-brief>.layui-tab-title .layui-this:after{*/
+        /*border-bottom: 2px solid #c7782e;*/
+    }
+    .layui-this a{
+        color: #c7782e;
+    }
+    .titleBox{
+        background: #fff;
+    }
+
+</style>
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+        <li  class="layui-this">
+        <a href="" >搜素</a>
+        </li>
+        <li  class="layui-this" >
+        <a href="{:url('/file/fill')}" >立卷</a>
+        </li>
+        <li  class="layui-this">
+        <a href="{:url('/file/search')}" >批量立卷</a>
+        </li>
+        <li  class="layui-this" >
+        <a href="" >数据导入</a>
+        </li>
+        <li  class="layui-this" >
+        <a href="" >生成存储位置</a>
+        </li>
+
+    </ul>
+</div>
+
+<div class="layui-tab">
+    <div style="margin-left: 13%;">
+    <ul class="layui-tab-title">
+        <li class="layui-this">搜索</li>
+        <li>立卷</li>
+        <li>批量立卷</li>
+        <li>数据导入</li>
+        <li>生成存储位置</li>
+    </ul>
+    </div>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">{include file='file/filelist2'}</div>
+        <div class="layui-tab-item">{include file='file/fill'}</div>
+        <div class="layui-tab-item">{include file='file/fill'}</div>
+        <div class="layui-tab-item">{include file='file/upload'}</div>
+        <div class="layui-tab-item">{include file='file/ccwz'}</div>
+    </div>
+</div>
+
+<script>
+    //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function(){
+        var element = layui.element;
+
+
+    });
+</script>
+
+<script>
+
+    $(".sliderList").removeClass("sliderLists");
+    $("#slider4").addClass("sliderLists");
+</script>

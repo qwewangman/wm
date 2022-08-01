@@ -1,0 +1,141 @@
+
+{include file='header' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">文件管理</div>
+        </div>
+        <div class="" style="background: white ; padding: 15px;">
+
+            <div class="layui-tab">
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+
+                        <table class="layui-hide" id="stu_table" lay-filter="stu_table">
+
+                        </table>
+                        <script type="text/html" id="oneAction">
+
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="setdate" style="display: none">
+        <form style="    padding: 20px;" class="layui-form" action="{:url('/change/setjieyue')}" lay-filter="jieyue">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">归还日期：</label>
+                <div class="layui-input-inline" >
+                    <input type="text" name="true_time" class="layui-input" id="true_time" lay-verify="required" >
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="text-align: center">
+                <input type="hidden" name="id" id="jid" value="">
+                <input type="hidden" name="sid" id="jsid" value="">
+                <input type="hidden" name="number" id="number" value="">
+                <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+            </div>
+            <div style="height: 250px">
+
+            </div>
+        </form>
+    </div>
+</div>
+    <script>
+        var table,laydate;
+        layui.use('laydate', function() {
+             laydate = layui.laydate;
+
+
+        });
+        layui.use('table', function(){
+            table = layui.table;
+
+            table.render({
+                elem: '#stu_table'
+                ,url:"{:url('/change/getjielist')}"
+                ,defaultToolbar:['filter','exports']
+                ,title: '用户数据表'
+                ,cols: [[
+                    {type: 'checkbox', fixed: 'left'}
+                    ,{field:'dname', width:120, fixed:true, title:'卷名'}
+                    ,{field:'file_number', width:120, fixed:true, title:'卷号'}
+                    ,{field:'number', width:120,fixed:true, title:'借阅号'}
+                    ,{field:'type', width:100 , title:'借阅类型'}
+                    ,{field:'file_type', width:100 , title:'全卷借阅？',event:"showfile",style:"color:#c7782e"}
+                    ,{field:'name', width:100, title:'借阅人'}
+                    ,{field:'phone', width:130, title:'联系方式'}
+                    ,{field:'start_time', width:200, title:'开始时间'}
+                    ,{field:'end_time',width:200, title:'结束时间'}
+                    ,{field:'true_time',width:200, title:'归还日期',event:"guihuan"}
+                    ,{field:'content', width:120, title:'借阅原因'}
+                    ,{field:'statuscon',width:120, title:'状态'}
+                ]]
+                ,page: true
+                ,limit:10
+                ,limits:[10,50,100]
+            });
+            table.on('tool(stu_table)', function(obj){
+                var jid     = obj.data.id;
+                var jsid     = obj.data.student_id;
+                var number     = obj.data.number;
+                switch(obj.event){
+                    case 'guihuan':
+                        $("#jid").val(jid);
+                        $("#jsid").val(jsid);
+                        $("#number").val(number);
+                        layer.open({
+                            type: 1,
+                            title:"归还",
+                            skin: 'layui-layer-rim', //加上边框
+                            area: ['420px', '240px'], //宽高
+                            content: $("#setdate").html()
+                        });
+                        //日期时间范围
+                        laydate.render({
+                            elem: '#true_time'
+                            ,type: 'datetime'
+                            ,range: false
+                        });
+                        break;
+
+                    case 'showfile':
+                        var docstr     = obj.data.docstr;
+                        layer.open({
+                            type: 1,
+                            title:"文件借阅",
+                            skin: 'layui-layer-rim', //加上边框
+                            area: ['420px', '240px'], //宽高
+                            content: docstr
+                        });
+                        break;
+                };
+            });
+        });
+
+
+        $(".sliderList").removeClass("sliderLists");
+        $("#slider7").addClass("sliderLists");
+    </script>
+</body>
+</html>

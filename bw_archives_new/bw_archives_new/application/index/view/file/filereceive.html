@@ -1,0 +1,86 @@
+{include file='nobodyheader'}
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+<style type="text/css">
+    .contetnBox{
+        background-color: #ffffff;
+        padding: 20px;
+    }
+    .newRightBox{
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0 20px;
+    }
+    .layui-elem-field legend{
+        font-size: 16px;
+        color: #f09c4e;
+    }
+</style>
+<div class="contetnBox">
+    <form class="layui-form layui-form-pane" action="{:url('/file/doreceive')}" lay-filter="myallform">
+
+
+        <div class="layui-form-item" pane="">
+            <label class="layui-form-label">接收案卷</label>
+            <div class="layui-input-block">
+                <input type="radio" name="rtype" value="正常接收" title="正常接收" checked>
+                <input type="radio" name="rtype" value="换档接收" title="换档接收" >
+                <input type="radio" name="rtype" value="退档接收" title="退档接收" >
+            </div>
+        </div>
+        <div class="layui-form-item" pane="">
+            <label class="layui-form-label">案卷状态</label>
+            <div class="layui-input-block">
+                <input type="radio" name="status" value="1" title="正常" checked>
+                <input type="radio" name="status" value="6" title="毕业暂存" >
+                <input type="radio" name="status" value="7" title="村官暂存" >
+            </div>
+        </div>
+        <div class="layui-form-item" pane="">
+            <label class="layui-form-label">存放位置</label>
+            <div class="layui-input-block">
+                <div class="layui-input-inline" style="width: 40px;margin-left: 10px;">
+                    <input type="text" name="weizhi1" id="weizhi1"  placeholder="柜" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid">-</div>
+                <div class="layui-input-inline" style="width: 40px;margin-left: 0px;">
+                    <input type="text" name="weizhi2" id="weizhi2"   placeholder="层" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid">-</div>
+                <div class="layui-input-inline" style="width: 50px;margin-left: 0px;">
+                    <input type="text" name="weizhi3"  id="weizhi3"   placeholder="号" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入原因" name="note" class="layui-textarea"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <input type="hidden" name="id" value="{$stu_info.id}">
+            <input type="hidden" name="filing_number" value="{$stu_info.filing_number}">
+            <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+        </div>
+        <div style="height: 150px">
+
+        </div>
+    </form>
+</div>
+<script type="application/javascript">
+
+    layui.use(['form'], function(){
+        var form = layui.form;
+
+        form.val("myallform", {
+            "status":"{$stu_info['status']}"
+            ,"note":"{$stu_info['note']}"
+            ,"weizhi1": "{:isset($stu_info['file_derice'][0])?$stu_info['file_derice'][0]:''}"
+            ,"weizhi2": "{:isset($stu_info['file_derice'][1])?$stu_info['file_derice'][1]:''}"
+            ,"weizhi3": "{:isset($stu_info['file_derice'][2])?$stu_info['file_derice'][2]:''}"
+        });
+    });
+</script>
+</body>
+</html>

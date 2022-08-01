@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+</head>
+<style>
+    .layui-btn-disableds{
+        border: 1px solid #e6e6e6;
+        background-color: #FBFBFB;
+        color: #C9C9C9;
+        cursor: not-allowed;
+        opacity: 1;
+        height: 28px;
+        line-height: 28px;
+        padding: 0 10px;
+        font-size: 12px;
+    }
+</style>
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <a href="{:url('/login_out')}"  style="color: white"><div class="fl_right signOut">退出</div></a>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="contetnBox">
+    {include file="layout"}
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">{$user_info.file_number}</div>
+            <a href="{:url('/ajgl')}"><div class="fl_right back">返回</div></a>
+            <div class="clear"></div>
+        </div>
+        <div class="details">
+            <div class="deTitle">
+                <div class="tOne">
+                    <div class="name">{$user_info.user_name}</div>
+                    <div>&nbsp&nbsp&nbsp&nbsp</div>
+                    <div class="state">{$user_info.status == 1 || $user_info.status == 2 ? '<span style="font-size:14px;color: green"><span class="layui-badge-dot layui-bg-green"></span>&nbsp在档</span>' : '<span style="font-size:14px;color: red;"><span class="layui-badge-dot layui-bg-red"></span>&nbsp未收取</span>'}</div>
+                </div>
+            </div>
+            <div class="deaBox">
+                <div class="deaHead jb_info">基本信息</div>
+                <div class="tableBox">
+                    <table class="layui-hide" id="LAY_table_user" lay-filter="demo">
+
+                    </table>
+                    <script type="text/html" id="barDemo">
+                        <a href='#'>   <button lay-event="detail">案卷接收</button></a>
+                        <a href='#'>   <button lay-event="del">文件录入</button></a>
+                    </script>
+                </div>
+                <script>
+                    var id = '';
+                    function get_query_str(){
+                        var location_url = window.location.href;
+                        var parameter_str = location_url.split('?')[1];
+                        parameter_str = parameter_str.split('#')[0];
+                        var $_GET = {};
+                        var parameter_arr = parameter_str.split('&');
+                        var tmp_arr;
+                        for(var i = 0, len = parameter_arr.length; i <= len -1; i++){
+                            tmp_arr = parameter_arr[i].split('=');
+                            $_GET[tmp_arr[0]] = decodeURIComponent(tmp_arr[1]);
+                        }
+                        return $_GET;
+                    }
+                    var data = get_query_str();
+                    //用户id
+                    id = data.id;
+                    $(document).on('click','.aj_change',function () {
+                        if (isNaN(id)){
+                            return false;
+                        }
+                        $.ajax({
+                            type : "get",
+                            url  : "{:url('/ajchange')}",
+                            data : {id:id},
+                            success:function (res) {
+                                if (res == 1){
+                                    $('.aj_status').text("在档");
+                                    $('.aj_status').css('color','#666');
+                                    $('.aj_change').removeClass('layui-btn layui-btn-sm');
+                                    $('.aj_change').addClass('layui-btn-disableds');
+                                    $('.aj_change').attr("disabled","disabled");
+                                    $('.lr_show').removeClass('layui-btn-disableds');
+                                    $('.lr_show').addClass('layui-btn layui-btn-sm');
+                                    $('.lr_show').removeAttr("disabled");
+                                    $('.state').text('');
+                                    $('.state').append('<span style="font-size:14px;color: green"><span class="layui-badge-dot layui-bg-green"></span>&nbsp在档</span>');
+                                }
+                            }
+                        });
+                    });
+                    layui.use('table', function(){
+                        var table = layui.table;
+                        //方法级渲染
+                        table.render({
+                            elem: '#LAY_table_user'
+                            ,url: "{:url('/getFile')}?id="+id
+                            ,cols: [[
+                                {field:'user_name', title: '姓名'}
+                                ,{field:'sc_number', title: '学号'}
+                                ,{field:'d_name', title: '院系'}
+                                ,{field:'m_name', title: '专业'}
+                                ,{field:'grade', title: '年级'}
+                                ,{field:'class', title: '班级'}
+                                ,{field:'teacher', title: '导师'}
+                                ,{field:'stat', title: '状态'}
+                                ,{field:'url', title: '操作'}
+                            ]]
+                            ,id: 'testReload'
+                        });
+
+                        //监听工具条
+                        table.on('tool(demo)', function(obj){
+
+                            if(obj.event === 'del'){  //文件录入
+                                var url = "{:url('/addInside')}?id="+id;
+                                window.location.href = url
+                            }
+                        });
+                        $('.demoTable .layui-btn').on('click', function(){
+                            var type = $(this).data('type');
+                            active[type] ? active[type].call(this) : '';
+                        });
+                    });
+                </script>
+                <div class="deaHead jn_text"><span>卷内文件</span></div>
+                <div class="tableBox" style="border: 1px solid #e8e8e8;">
+                    <div>
+                        <table class="layui-hide" id="test">
+
+                        </table>
+                        <div class="addText"><button style="float: right" class="layui-btn layui-btn-normal layui-btn-radius" id="s">确定录入</button></div>
+                    </div>
+                    <input type="hidden" id="ids" value="{$user_info.id}"/>
+                    <script type="text/html" id="checkboxTpl">
+                        <input type="checkbox" name="lock" value="{{d.id}}" title="接收" lay-filter="lockDemo" >
+                    </script>
+                </div>
+                <script>
+                    layui.use('table', function(){
+                        var id = '';
+                        function GetRequest() {
+                            var url = location.search; //获取url中"?"符后的字串
+                            var theRequest = new Object();
+                            if (url.indexOf("?") != -1) {
+                                var str = url.substr(1);
+                                strs = str.split("&");
+                                for(var i = 0; i < strs.length; i ++) {
+                                    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+                                }
+                            }
+                            return theRequest;
+                        }
+                        $(document).ready(function () {
+                            data = GetRequest();
+                            if (data.id != null){
+                                id = data.id;
+                            }
+                        });
+                        var url = "{:url('/getShInside')}?id="+id;
+                        var table = layui.table
+                            ,form = layui.form;
+                        table.render({
+                            elem: '#test'
+                            ,url: url
+                            ,cols: [[
+                                {field:'user_name', title:'姓名'}
+                                ,{field:'within_number', title:'件号'}
+                                ,{field:'lb_name', title:'文件类别', templet: '#usernameTpl'}
+                                ,{field:'wh_name', title:'文件目录'}
+                                ,{field:'within_time', title: '形成时间'}
+                                ,{field:'within_num', title:'件数'}
+                                ,{field:'page_num', title:'页数'}
+                                ,{field:'lock', title:'操作', width:110, templet: '#checkboxTpl', unresize: true}
+                            ]]
+                            ,page: true
+                        });
+                        //监听性别操作
+                        form.on('switch(sexDemo)', function(obj){
+                            layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+                        });
+                        var standards = ''
+                        //监听锁定操作
+                        form.on('checkbox(lockDemo)', function(obj){
+//                                    layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+                            $("input:checkbox[name='lock']:checked").each(function() { // 遍历name=standard的多选框
+                                standards += ',' + $(this).val();
+                            });
+                        });
+                        $('#s').click(function()
+                        {
+                            $.post("{:url('/sHenHe')}",{id:standards},function(res){
+                                if(res.code == 1)
+                                {
+                                    alert('接收成功');
+                                    history.go(0)
+                                }
+                                form.render();
+                            },'json');
+                        })
+                    });
+                </script>
+                <div class="deaHead da_state">档案记录</div>
+                <div class="tableBox">
+                    <table cellspacing="0" cellpadding="0" class="layui-hide" id="file_status">
+
+                    </table>
+                </div>
+                <script>
+                    layui.use('table', function(){
+                        var id = '';
+                        function GetRequest() {
+                            var url = location.search; //获取url中"?"符后的字串
+                            var theRequest = new Object();
+                            if (url.indexOf("?") != -1) {
+                                var str = url.substr(1);
+                                strs = str.split("&");
+                                for(var i = 0; i < strs.length; i ++) {
+                                    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+                                }
+                            }
+                            return theRequest;
+                        }
+                        $(document).ready(function () {
+                            data = GetRequest();
+                            if (data.id != null){
+                                id = data.id;
+                            }
+                        });
+                        var url = "{:url('/getShInsides')}?id="+id;
+                        var table = layui.table
+                            ,form = layui.form;
+                        table.render({
+                            elem: '#file_status'
+                            ,url: url
+                            ,cols: [[
+                                {field:'user_name',title:'姓名'}
+                                ,{field:'within_number',title:'件号'}
+                                ,{field:'lb_name', title:'文件类别', templet: '#usernameTpl'}
+                                ,{field:'wh_name', title:'文件目录'}
+                                ,{field:'within_time', title: '形成时间'}
+                                ,{field:'within_num', title:'件数'}
+                                ,{field:'page_num', title:'页数'}
+                                ,{field:'status',title:'状态'}
+                            ]]
+                            ,page: true
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+</body>
+</html>

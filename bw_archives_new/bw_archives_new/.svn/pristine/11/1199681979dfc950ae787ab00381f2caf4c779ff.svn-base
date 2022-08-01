@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+    <style>
+        .layui-tab-title{position:relative;left:0;height:40px;white-space:nowrap;font-size:0;border-bottom-width:1px;border-bottom-style:solid;transition:all .2s;-webkit-transition:all .2s;width:500px;margin: 0 auto}
+        .laytable-cell-2-id ,.laytable-cell-3-id,.laytable-cell-4-id{display: none;}
+    </style>
+</head>
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <a href="{:url('/login_out')}"  style="color: white"><div class="fl_right signOut">退出</div></a>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="contetnBox">
+    {include file='layout'}
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">变动记录</div>
+        </div>
+        <div class="" style="background: white ; padding: 50px 30px;">
+            <!------------------------------------------------------------------------------------------------------------------->
+            <div class="layui-btn-group demoTable">
+
+            </div>
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form">
+                    <div class="demoTable" style="margin-left: -30px">
+                        <label class="layui-form-label">院系专业</label>
+                        <div class="layui-input-inline">
+                            <select name="courtyard" lay-filter="yx" id="courtyard">
+                                <option value="" selected>请选择院系</option>
+                                {foreach name='departlist' item='v'}
+                                <option value="{$v.id}" >{$v.d_name}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                        <div class="layui-input-inline">
+                            <select name="major"  id="zy">
+                                <option value="">请选专业</option>
+                            </select>
+                        </div>
+                        <div class="layui-form-mid layui-word-aux"></div>
+                        姓名：
+                        <div class="layui-inline">
+                            <input class="layui-input" name="user_name" id="user_name" autocomplete="off">
+                        </div>
+                        学号：
+                        <div class="layui-inline">
+                            <input class="layui-input" name="file_number" id="file_number" autocomplete="off">
+                        </div>
+                        <div class="layui-btn" data-type="reload" style="width: 100px">搜索</div>
+                    </div>
+                </form>
+                <table class="layui-table"  id="LAY_table_user"  lay-data="{ url:'', page:true, id:'idTest'}" lay-filter="demo">
+                </table>
+                <script type="text/html" id="barDemo">
+                    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">详情</a>
+                </script>
+                <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                <script>
+                    layui.use(['form', 'laydate','upload'], function(){
+                        var form = layui.form;
+                        form.on('select(yx)', function(data){
+                            var str = '<option value="0">请选专业</option>';
+                            var id = data.value; //院系id
+                            $.post("{:url('/getZy')}",{id:id},function(res){
+                                var length = res.length;
+                                for (var i=0;i<length;i++) {
+                                    str += '<option value="'+res[i].id+'">'+res[i].m_name+'</option>';
+                                }
+                                layui.$("#zy").html(str);
+                                form.render();
+                            },'json');
+                        });
+                    });
+                    layui.use('table', function(){
+                        var table = layui.table;
+                        //监听表格复选框选择
+//                  -------------------------------------------------------------------
+//方法级渲染
+                        table.render({
+                            elem: '#LAY_table_user'
+                            ,url: "{:url('/record')}" //数据接口
+                            ,cols: [[  //表头
+                                {field:'sc_number', title: '学号', sort:true, fixed:true}
+                                ,{field:'j_uname', title: '姓名'}
+                                ,{field:'file_number', title: '卷号'}
+                                ,{field:'lj_date', title: '立卷日期'}
+                                ,{field:'teacher',title:'导师'}
+                                ,{field:'phone',title:'联系电话'}
+                                ,{field:'tys', title: '状态'}
+                                ,{field:'url', title: '操作'}
+                            ]]
+                            ,id: 'testReload'   //设定容器唯一ID
+                            ,page:true  //开启分页
+                        });
+
+                        var $ = layui.$, active = {
+                            reload: function(){
+                                var courtyard = $('#courtyard');  //院系id
+                                var zy = $('#zy');  //专业id
+                                var user_name = $('#user_name'); //姓名
+                                var file_number = $('#file_number'); //学号
+                                //执行重载
+                                table.reload('testReload', {
+                                    page: {
+                                        curr: 1 //重新从第 1 页开始
+                                    }
+                                    ,where: {   //设定异步数据接口的额外参数，任意设
+                                        key: {
+                                            courtyard: courtyard.val(),
+                                            major: zy.val(),
+                                            user_name: user_name.val(),
+                                            file_number: file_number.val()
+                                        }
+                                    }
+                                });
+                            }
+                        };
+//                               --------------------------------------------------------------------
+                        $('.demoTable .layui-btn').on('click', function(){
+                            var type = $(this).data('type');
+                            active[type] ? active[type].call(this) : '';
+                        });
+                    });
+                </script>
+                <!------------------------------------------------------javascriptEnd------------------------------------------------------------->
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

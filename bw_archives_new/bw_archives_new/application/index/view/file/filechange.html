@@ -1,0 +1,359 @@
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+    .anjuan{
+        font-size: 14px;
+        background: antiquewhite;
+        font-family: "Songti SC";
+        box-shadow: 2px 2px 5px #888888;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .anjuan .jp{
+        padding: 20px 15px;
+        text-align: right;
+    }
+    .anjuan .jp span{
+        padding: 5px;
+        border: 1px solid #000;
+    }
+    .anjuan .name{
+        text-align: center;
+        font-size: 24px;
+        padding: 0 10px;
+        font-weight: bold;
+    }
+    .anjuan .wenj{
+        padding: 10px 10px 0;
+    }
+    .anjuan .wenj .xiahua{
+        padding: 0 5px;
+    }
+    .action{
+        text-align: center;
+        padding: 10px 0;
+        border-top: 1px solid #000;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .batch{
+        background: #1dc5a3;border:none;color: #fff;
+    }
+    .action a{
+        padding: 0 5px;
+    }
+    .title1{
+        font-weight: bold;
+    }
+    .layui-container{
+        padding: 0 15px 0 0;
+    }
+    #pagediv{
+        text-align: center;
+    }
+    #pagestyle{
+        position: absolute;
+        right: 50px;
+        margin-top: -50px;
+    }
+    .thisstyle{
+        background: bisque;
+    }
+</style>
+
+<div class="contetnBox">
+        <div class="" style="background: white ; padding: 15px;">
+            <fieldset class="layui-elem-field ">
+                <legend>搜索案卷</legend>
+                <div class="layui-field-box">
+
+                    <form class="layui-form">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <div class="layui-input-inline" style="width: 80px;">
+                                    <select name="sstype" id="sstype">
+                                        <option value="1" selected>学号</option>
+                                        <option value="3" >身份证</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <div class="layui-input-inline">
+                                    <input class="layui-input" name="number" id="number" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="layui-inline" >
+                                <a class="layui-btn layui-btn-primary btu-color"  href="javascript:void(0)" id="sch">
+                                    <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>搜索
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                    <div id="stu_div">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="layui-elem-field ">
+                <legend>单卷接收</legend>
+
+                <div class="layui-field-box">
+                    <div class="layui-tab layui-tab-card" lay-filter="docDemoTabBrief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">
+                                <i class="layui-icon layui-icon-download-circle"></i> 报到收卷
+                            </li>
+                            <li >
+                                <i class="layui-icon layui-icon-download-circle"></i> 邮政转递收卷
+                            </li>
+                            <li>
+                                <i class="layui-icon layui-icon-template" ></i> 报道未收卷
+                            </li>
+                            <li>
+                                <i class="layui-icon layui-icon-read"></i> 补交收卷
+                            </li>
+                            {if session('type') == 2}
+                            <li>
+                                <i class="layui-icon layui-icon-read"></i> 本科应届升研收卷
+                            </li>
+                            {/if}
+                        </ul>
+                        <div class="layui-tab-content">
+                            <div class="layui-tab-item layui-show">
+                                <form class="layui-form" action="" lay-filter="jiangji">
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">卷　　数：</label>
+                                            <div class="layui-input-block">
+                                                <input type="radio" name="type" value="因病保留" title="一卷" checked>
+                                                <input type="radio" name="type" value="入伍保留" title="二卷" >
+                                                <input type="radio" name="type" value="其他原因" title="三卷" >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">其他说明：</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="请输入原因" name="note" class="layui-textarea"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item" style="text-align: center">
+                                        <input type="hidden" name="ctype" value="jiangji">
+                                        <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+                                        <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+                                    </div>
+                                    <div style="height: 250px">
+
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="layui-tab-item">
+                                <form class="layui-form" action="" lay-filter="baoliu">
+                                    <div class="layui-form-item" pane="">
+                                        <label class="layui-form-label">卷　　数：</label>
+                                        <div class="layui-input-block">
+                                            <input type="radio" name="type" value="因病保留" title="一卷" checked>
+                                            <input type="radio" name="type" value="入伍保留" title="二卷" >
+                                            <input type="radio" name="type" value="其他原因" title="三卷" >
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">其他说明：</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="请输入原因" name="note" class="layui-textarea"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item" style="text-align: center">
+                                        <input type="hidden" name="ctype" value="baoliu">
+                                        <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+                                        <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+                                    </div>
+                                    <div style="height: 250px">
+
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="layui-tab-item">
+                                <form class="layui-form" action="" lay-filter="xiuxue">
+                                    <div class="layui-form-item" pane="">
+                                        <label class="layui-form-label">状    态：</label>
+                                        <div class="layui-input-block">
+                                            <input type="radio" name="type" value="因病休学" title="不符合要求退档" checked>
+                                            <input type="radio" name="type" value="因事休学" title="档案未携带" >
+                                            <input type="radio" name="type" value="其他特殊原因" title="应届附中升学" >
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">原    因：</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="说明" name="note" class="layui-textarea"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item" style="text-align: center">
+                                        <input type="hidden" name="ctype" value="xiuxue">
+                                        <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+                                    </div>
+                                    <div style="height: 250px">
+
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="layui-tab-item">
+                                <form class="layui-form" action="" lay-filter="huifu">
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">状态：</label>
+                                        <div class="layui-input-block">
+                                            <input type="radio" name="type" value="因病休学" title="学前档案" checked>
+                                            <input type="radio" name="type" value="因事休学" title="军人档案" >
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">卷　　数：</label>
+                                            <div class="layui-input-block">
+                                                <input type="radio" name="type" value="因病保留" title="一卷" checked>
+                                                <input type="radio" name="type" value="入伍保留" title="二卷" >
+                                                <input type="radio" name="type" value="其他原因" title="三卷" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">原    因：</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="说明" name="note" class="layui-textarea"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item" style="text-align: center">
+                                        <input type="hidden" name="ctype" value="huifu">
+                                        <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+                                        <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+                                    </div>
+                                    <div style="height: 250px">
+
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="layui-tab-item">
+                                <form class="layui-form" action="" lay-filter="baoliu">
+                                    <div class="layui-form-item" pane="">
+                                        <label class="layui-form-label">卷　　数：</label>
+                                        <div class="layui-input-block">
+                                            <input type="radio" name="type" value="因病保留" title="一卷" checked>
+                                            <input type="radio" name="type" value="入伍保留" title="二卷" >
+                                            <input type="radio" name="type" value="其他原因" title="三卷" >
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">其他说明：</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="请输入原因" name="note" class="layui-textarea"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item" style="text-align: center">
+                                        <input type="hidden" name="ctype" value="baoliu">
+                                        <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+                                        <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+                                    </div>
+                                    <div style="height: 250px">
+
+                                    </div>
+                                </form>
+                            </div>
+
+                    </div>
+                </div>
+        </div>
+            </fieldset>
+    </div>
+
+</div>
+
+<script type="application/javascript">
+    layui.use('form', function(){
+        var form = layui.form;
+
+        form.on('select(grade)', function(data){
+            var str     = "";
+            var id = data.value; //院系id
+            if(id > 0)
+            {
+                $.post("{:url('/system/getyx')}",{year:id},function(res){
+                    var length = res.length;
+                    for (var i=0;i<length;i++) {
+                        str += '<input type="checkbox" name="depart[]" value="'+res[i].id+'" title="'+res[i].name+'" lay-skin="primary"><br>';
+                    }
+                    layui.$("#depart").html(str);
+                    form.render();
+                },'json');
+            }else{
+                layui.$("#depart").html(str);
+                form.render();
+            }
+
+        });
+    });
+
+    $('#sch').click(function(){
+        var sstype      = $("#sstype").val();
+        var number      = $("#number").val();
+
+        var data    = {};
+        if(sstype==1)
+        {
+            data    = {"sc_number":number};
+        }else if(sstype == 2){
+            data    = {"file_number":number};
+        }else{
+            data    = {"card":number};
+        }
+        $.post("{:url('/file/searchSnum')}",data,function(res){
+            if(res){
+                var  html = '<div class="layui-card"> <div class="layui-card-body"><div class="layui-row"><div class="layui-col-md4">';
+
+                html += "<p>姓　名："+res.name+"</p>";
+                html += "<p>性　别："+res.sex+"</p>";
+                html += "<p>卷　号："+res.file_number+"</p>";
+                html += "<p>学　号："+res.sc_number+"</p>";
+                html += "<p>身份证："+res.card+"</p>";
+                html += '</div><div class="layui-col-md4">';
+                html += "<p>院　系："+res.dname+"</p>";
+                html += "<p>专　业："+res.mname+"</p>";
+                html += "<p>年　级："+res.grade+"</p>";
+                html += "<p>手机号："+res.phone+"</p>";
+                html += "<p>存放位置："+(res.file_derice==null?"-":res.file_derice)+"</p>";
+
+                html += '</div></div></div> </div>';
+                $("#stu_div").html(html);
+                $("#student_id").val(res.id);
+            }else{
+                layer.msg('暂无该学生信息');
+            }
+        },'json');
+
+    });
+</script>
+</body>
+</html>

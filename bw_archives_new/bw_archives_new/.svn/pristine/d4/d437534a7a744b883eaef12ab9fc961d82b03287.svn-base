@@ -1,0 +1,2704 @@
+---------------------------------------------------------------
+[ 2018-08-27T18:05:21+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/LmBj.html
+[ info ] 192.168.1.32/index.php/LmBj.html [运行时间：0.073034s][吞吐率：13.69req/s] [内存消耗：3,538.69kb] [文件加载：57]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'admin',
+    2 => 'LmBj',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Admin->LmBj[ D:\www\bw_archives_new\application\index\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\admin\lmbj.html [ array (
+  0 => 'result',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000847s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.025061s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000501s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000443s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000684s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000545s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000638s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:06:20+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.126982s][吞吐率：7.88req/s] [内存消耗：3,514.91kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'referer' => 'http://192.168.1.32/index.php/LmBj.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010010s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.026445s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000579s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000527s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000446s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000435s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000698s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000491s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000551s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000633s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.018116s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016771s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000253s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000354s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000203s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000201s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:06:21+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.167107s][吞吐率：5.98req/s] [内存消耗：3,514.90kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010869s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.069491s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000544s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000451s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000420s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000436s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000690s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000573s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000509s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000701s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.019167s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000254s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.014362s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000206s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000202s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000196s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000188s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000192s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000175s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000139s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000173s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:06:36+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/LmBj.html
+[ info ] 192.168.1.32/index.php/LmBj.html [运行时间：0.073163s][吞吐率：13.67req/s] [内存消耗：3,538.48kb] [文件加载：57]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'admin',
+    2 => 'LmBj',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Admin->LmBj[ D:\www\bw_archives_new\application\index\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\admin\lmbj.html [ array (
+  0 => 'result',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010986s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.017523s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000492s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000441s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000417s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000396s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000618s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000431s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000544s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.001233s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:06:40+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.121987s][吞吐率：8.20req/s] [内存消耗：3,514.91kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'referer' => 'http://192.168.1.32/index.php/LmBj.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010349s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.015614s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000453s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000471s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000427s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000660s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000797s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000728s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000620s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016837s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016066s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000187s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000193s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000154s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000129s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:06:41+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.119874s][吞吐率：8.34req/s] [内存消耗：3,514.90kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010650s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.025502s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000742s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000687s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000709s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000639s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000931s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000648s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000747s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000639s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000564s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000837s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015545s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.015017s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000173s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000139s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000126s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:07:01+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.110222s][吞吐率：9.07req/s] [内存消耗：3,514.92kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'referer' => 'http://192.168.1.32/index.php/system.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010462s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.016941s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000437s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000433s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000674s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000486s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000541s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000363s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000629s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.023268s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.017699s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000419s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000141s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000128s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:07:01+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.098432s][吞吐率：10.16req/s] [内存消耗：3,514.90kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000579s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.017592s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000517s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000628s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000842s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000613s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000436s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000351s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000573s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014793s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.015683s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000139s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000145s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000155s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000126s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:07:02+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/change_record.html
+[ info ] 192.168.1.32/index.php/change_record.html [运行时间：0.069891s][吞吐率：14.31req/s] [内存消耗：2,495.09kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'change_record',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'referer' => 'http://192.168.1.32/index.php/system.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->change_record[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\record.html [ array (
+  0 => 'c',
+  1 => 'departlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009741s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016227s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.015433s ]
+[ sql ] [ SQL ] SELECT `id`,`class_num`,`class_name` FROM `oa_catelog` WHERE  `branch_id` = 0 ORDER BY `id` [ RunTime:0.000445s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:07:03+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/record.html?page=1&limit=10
+[ info ] 192.168.1.32/index.php/record.html?page=1&limit=10 [运行时间：0.120105s][吞吐率：8.33req/s] [内存消耗：2,624.34kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'admin',
+    2 => 'record',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://192.168.1.32/index.php/change_record.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Admin->record[ D:\www\bw_archives_new\application\index\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000466s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_change` [ RunTime:0.023105s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_change` WHERE  (   1=1  ) ORDER BY id desc LIMIT 0,10 [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_change` WHERE  (   1=1  ) LIMIT 1 [ RunTime:0.000113s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.022697s ]
+[ sql ] [ SQL ] SELECT `file_number`,`sc_number`,`courtyard`,`major` FROM `oa_students` WHERE  `id` = 61 LIMIT 1 [ RunTime:0.000404s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.018774s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016503s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 42 LIMIT 1 [ RunTime:0.000186s ]
+[ sql ] [ SQL ] SELECT `file_number`,`sc_number`,`courtyard`,`major` FROM `oa_students` WHERE  `id` = 63 LIMIT 1 [ RunTime:0.000141s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 8 LIMIT 1 [ RunTime:0.000123s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000099s ]
+[ sql ] [ SQL ] SELECT `file_number`,`sc_number`,`courtyard`,`major` FROM `oa_students` WHERE  `id` = 60 LIMIT 1 [ RunTime:0.000109s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000093s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 41 LIMIT 1 [ RunTime:0.000094s ]
+[ sql ] [ SQL ] SELECT `file_number`,`sc_number`,`courtyard`,`major` FROM `oa_students` WHERE  `id` = 59 LIMIT 1 [ RunTime:0.000107s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000095s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 41 LIMIT 1 [ RunTime:0.000091s ]
+[ sql ] [ SQL ] SELECT `file_number`,`sc_number`,`courtyard`,`major` FROM `oa_students` WHERE  `id` = 58 LIMIT 1 [ RunTime:0.000106s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000096s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 40 LIMIT 1 [ RunTime:0.000119s ]
+[ sql ] [ SQL ] SELECT `file_number`,`sc_number`,`courtyard`,`major` FROM `oa_students` WHERE  `id` = 57 LIMIT 1 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000093s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 38 LIMIT 1 [ RunTime:0.000092s ]
+[ sql ] [ SQL ] SELECT `file_number`,`sc_number`,`courtyard`,`major` FROM `oa_students` WHERE  `id` = 56 LIMIT 1 [ RunTime:0.000120s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000092s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 39 LIMIT 1 [ RunTime:0.000093s ]
+[ sql ] [ SQL ] SELECT `file_number`,`sc_number`,`courtyard`,`major` FROM `oa_students` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000105s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000091s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 38 LIMIT 1 [ RunTime:0.000121s ]
+[ sql ] [ SQL ] SELECT `file_number`,`sc_number`,`courtyard`,`major` FROM `oa_students` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000105s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000093s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 37 LIMIT 1 [ RunTime:0.000090s ]
+[ sql ] [ SQL ] SELECT `file_number`,`sc_number`,`courtyard`,`major` FROM `oa_students` WHERE  `id` = 53 LIMIT 1 [ RunTime:0.000105s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000122s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 37 LIMIT 1 [ RunTime:0.000093s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:07:05+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.105118s][吞吐率：9.51req/s] [内存消耗：3,514.94kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'referer' => 'http://192.168.1.32/index.php/change_record.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010690s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.014607s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000427s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000655s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000460s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000812s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015040s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000536s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.017967s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000372s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000285s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000253s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000202s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000315s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000199s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:07:06+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.100478s][吞吐率：9.95req/s] [内存消耗：3,514.90kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000558s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.016612s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000489s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000457s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000654s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000469s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000522s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000412s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000752s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016482s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016491s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000193s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000394s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000170s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000193s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000190s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000162s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000205s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000190s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000162s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000128s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:10:01+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.109434s][吞吐率：9.14req/s] [内存消耗：4,321.24kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000666s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.017204s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000521s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000449s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000465s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000687s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000494s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000548s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000440s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000644s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016385s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016563s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000419s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000509s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000194s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000183s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:10:12+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.114049s][吞吐率：8.77req/s] [内存消耗：4,320.71kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002676s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.017162s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000517s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000452s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000690s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000496s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000547s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000648s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016623s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016928s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000351s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000388s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000201s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000166s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000130s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:10:14+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.108320s][吞吐率：9.23req/s] [内存消耗：3,514.90kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009639s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.020658s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000491s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000669s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000937s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000736s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000512s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000558s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000483s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000435s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000650s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016086s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016282s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000250s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000315s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000156s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000145s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000141s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000130s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:10:24+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.112457s][吞吐率：8.89req/s] [内存消耗：4,321.24kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009700s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.020538s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000448s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000435s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000688s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.001627s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000669s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000507s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000389s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000645s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.018301s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016431s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000197s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000198s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000128s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:11:37+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.108190s][吞吐率：9.24req/s] [内存消耗：4,321.24kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000557s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.018215s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000430s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000412s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000881s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.001599s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.001066s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000593s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.018121s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.017185s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000193s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000193s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000132s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000274s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:14:10+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.114794s][吞吐率：8.71req/s] [内存消耗：4,320.87kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000663s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.020573s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000478s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.001044s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000937s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000638s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000400s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016674s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.018888s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000343s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.001009s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000335s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:14:12+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.105761s][吞吐率：9.46req/s] [内存消耗：3,515.05kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010193s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.018042s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000704s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000507s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000409s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000612s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000444s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000423s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000641s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.017513s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.017372s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000551s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000188s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000125s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:14:43+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.116080s][吞吐率：8.61req/s] [内存消耗：4,321.24kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009996s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.016393s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000486s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000420s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000452s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000429s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000682s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000493s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000546s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000501s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000435s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000642s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016643s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016129s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000361s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000636s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000396s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000253s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000250s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000197s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000202s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000139s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000139s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000128s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:15:48+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.116711s][吞吐率：8.57req/s] [内存消耗：4,313.24kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010407s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.016254s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000483s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000405s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000659s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000471s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000520s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000459s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000401s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000632s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.017296s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016297s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000285s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000188s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000197s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000209s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000192s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000139s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000150s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:16:12+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.117019s][吞吐率：8.55req/s] [内存消耗：4,313.02kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009928s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.019656s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000499s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000452s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000460s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000436s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000688s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000500s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000518s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000647s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.017375s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016078s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000194s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000199s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000194s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000195s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000187s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000238s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:16:49+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.112221s][吞吐率：8.91req/s] [内存消耗：4,320.71kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001791s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.017292s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000549s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000535s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000740s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000465s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000444s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000386s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000599s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.017246s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.015661s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000256s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000383s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000195s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000190s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000190s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:17:09+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.112828s][吞吐率：8.86req/s] [内存消耗：4,313.02kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010259s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.018688s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000499s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000459s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000456s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000439s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000680s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000495s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000617s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000395s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000618s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.017763s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.017658s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000594s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000462s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000254s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000139s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000203s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000202s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000130s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:17:23+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/lmbj
+[ info ] 192.168.1.32/index.php/lmbj [运行时间：0.086323s][吞吐率：11.58req/s] [内存消耗：3,539.96kb] [文件加载：57]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'admin',
+    2 => 'LmBj',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Admin->LmBj[ D:\www\bw_archives_new\application\index\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\admin\lmbj.html [ array (
+  0 => 'result',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010565s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.017576s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000507s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000436s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000448s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000679s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000484s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000485s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000418s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000637s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:17:35+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.094594s][吞吐率：10.57req/s] [内存消耗：3,511.23kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'referer' => 'http://192.168.1.32/index.php/lmbj',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000414s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.014662s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000491s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000451s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000452s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000556s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000762s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000494s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000546s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000482s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000421s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000636s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.017057s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.018122s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000198s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000193s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000175s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000149s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000132s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:17:36+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.108706s][吞吐率：9.20req/s] [内存消耗：3,511.21kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000509s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.016833s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000444s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000456s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000644s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000482s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000372s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000351s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000564s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014462s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.026156s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000241s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:18:46+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.133977s][吞吐率：7.46req/s] [内存消耗：4,313.02kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000643s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.052620s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000512s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000439s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000686s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000491s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000546s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000562s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000501s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000621s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016573s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.015965s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000254s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000199s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000600s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000382s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000129s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:20:21+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.118268s][吞吐率：8.46req/s] [内存消耗：3,511.21kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010504s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.020137s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000504s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000449s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000649s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000611s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000816s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000457s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000487s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000408s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000358s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000552s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016951s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016894s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000371s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000375s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000206s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000195s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000178s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:20:57+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.117836s][吞吐率：8.49req/s] [内存消耗：4,313.02kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000617s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.019065s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000496s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000397s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000906s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000685s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000526s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000418s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000355s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000578s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016996s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.018935s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000126s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:26:09+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.114649s][吞吐率：8.72req/s] [内存消耗：2,784.74kb] [文件加载：54]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010442s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.016912s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000496s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000471s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000626s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000459s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000588s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.017298s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000357s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.015692s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000350s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000443s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000318s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000227s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:31:02+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.120035s][吞吐率：8.33req/s] [内存消耗：2,801.98kb] [文件加载：54]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011051s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.018742s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000512s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000456s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000459s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000438s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000661s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000462s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000549s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000396s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000646s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.018849s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000874s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016921s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000202s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000197s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000136s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:33:54+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.112223s][吞吐率：8.91req/s] [内存消耗：2,800.99kb] [文件加载：54]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011739s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.017305s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000465s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000695s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000500s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000564s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000619s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000910s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.001129s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016635s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016314s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000198s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000181s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000188s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000182s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000141s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000128s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:34:43+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.110580s][吞吐率：9.04req/s] [内存消耗：2,803.87kb] [文件加载：54]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010780s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.022222s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000437s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000426s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000683s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000448s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000536s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000375s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000592s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.018180s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000351s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.017843s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000507s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000184s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000186s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000196s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000186s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000163s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000126s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:35:45+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.118429s][吞吐率：8.44req/s] [内存消耗：4,323.20kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010569s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.017371s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000467s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000380s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000386s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000367s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000621s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000469s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000509s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000460s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000352s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000638s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.017426s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.017140s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000403s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000204s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000163s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000151s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000127s ]
+---------------------------------------------------------------
+[ 2018-08-27T18:36:27+08:00 ] 192.168.1.32 192.168.1.32 GET /index.php/system.html
+[ info ] 192.168.1.32/index.php/system.html [运行时间：0.128673s][吞吐率：7.77req/s] [内存消耗：4,298.89kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives_new\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'system',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=qckqgcorqu7itm2roakn137ik3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => '192.168.1.32',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->system[ D:\www\bw_archives_new\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives_new\public/../application/index\view\file\system.html [ array (
+  0 => 'departlist',
+  1 => 'result',
+  2 => 'deparjor',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010934s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.019475s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000571s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000536s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 13  AND `status` = 0 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 36  AND `status` = 0 [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 52  AND `status` = 0 [ RunTime:0.000674s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 270  AND `status` = 0 [ RunTime:0.000493s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 348  AND `status` = 0 [ RunTime:0.000547s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 462  AND `status` = 0 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 514  AND `status` = 0 [ RunTime:0.000426s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 516  AND `status` = 0 [ RunTime:0.000670s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.017958s ]
+[ sql ] [ SQL ] SELECT `d_name`,`id` FROM `department` WHERE  `status` = 1 [ RunTime:0.000915s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.017241s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 1  AND `status` = 0 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 2  AND `status` = 0 [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 3  AND `status` = 0 [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 4  AND `status` = 0 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 5  AND `status` = 0 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 6  AND `status` = 0 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 7  AND `status` = 0 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 8  AND `status` = 0 [ RunTime:0.000201s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 9  AND `status` = 0 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 10  AND `status` = 0 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 11  AND `status` = 0 [ RunTime:0.000195s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 12  AND `status` = 0 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 13  AND `status` = 0 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 14  AND `status` = 0 [ RunTime:0.000149s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 15  AND `status` = 0 [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 16  AND `status` = 0 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 17  AND `status` = 0 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 18  AND `status` = 0 [ RunTime:0.000147s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 19  AND `status` = 0 [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 20  AND `status` = 0 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `major` WHERE  `department_id` = 21  AND `status` = 0 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000136s ]

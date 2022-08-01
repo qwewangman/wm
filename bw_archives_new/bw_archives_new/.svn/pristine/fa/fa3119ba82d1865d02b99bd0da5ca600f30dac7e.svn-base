@@ -1,0 +1,107 @@
+
+{include file='header' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">编号规则说明</div>
+        </div>
+        <div class="" style="background: white ; padding: 15px;">
+
+            <div class="layui-tab">
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-table">
+                            <colgroup>
+                                <col width="150">
+                                <col width="200">
+                                <col>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>名称</th>
+                                <th>编号规则</th>
+                                <th>说明</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>学号</td>
+                                <td>年份+10位流水号</td>
+                                <td>教务处提供的14位学号</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>卷号</td>
+                                <td>B2012-001 或 Y2012-01</td>
+                                <td>B-代表本科生，2012-代表2012级学生，001-代表流水号，Y-代表研究生</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>件号</td>
+                                <td>B2012-001-01 或 Y2012-01-01</td>
+                                <td>B2012-001 代表卷号 01-代表流水号</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>收档号</td>
+                                <td>BS2012001 或 YS2012001</td>
+                                <td>B/S-本科和研究生 S-代表接收整卷档案 2012-代表2012级 001-流水号</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>收件号</td>
+                                <td>BSJ2012001 或 YSJ2012001</td>
+                                <td>B/S-本科和研究生 SJ-代表接收文件档案 2012-代表2012级 001-流水号</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>迁档号</td>
+                                <td>BQ2012001 或 SQ2012001</td>
+                                <td>B/S-本科和研究生 Q-代表迁出整卷档案 2012-代表2012级 001-流水号</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>借阅号</td>
+                                <td>1J2012001 或 2J2012001</td>
+                                <td>1-代表校内  2-代表校外 2012-年份 001-流水号</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>快递单位</td>
+                                <td>D01</td>
+                                <td>快递单位编号</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+
+        $(".sliderList").removeClass("sliderLists");
+        $("#slider6").addClass("sliderLists");
+    </script>
+</body>
+</html>

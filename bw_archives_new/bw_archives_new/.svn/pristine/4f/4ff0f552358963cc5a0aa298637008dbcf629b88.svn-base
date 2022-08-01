@@ -1,0 +1,184 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:81:"D:\phpStudy\WWW\bw_archives_new\public/../application/index\view\admin\JyAdd.html";i:1531907876;s:76:"D:\phpStudy\WWW\bw_archives_new\public/../application/index\view\layout.html";i:1531815678;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+
+    <style>
+        .layui-tab-title{position:relative;left:0;height:40px;white-space:nowrap;font-size:0;border-bottom-width:1px;border-bottom-style:solid;transition:all .2s;-webkit-transition:all .2s;width:500px;margin: 0 auto}
+    </style>
+
+</head>
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <div class="fl_right signOut"><a href="<?php echo url('/login_out'); ?>"  style="color: white">退出</a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="contetnBox">
+
+    <div class="sliderBox fl_left">
+    <a href="<?php echo url('/home'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">首页</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/ajgl'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">档案管理</span>
+        <span class="clear"></span>
+    </a>
+    <a href="" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">系统设置</span>
+        <span class="clear"></span>
+    </a>
+    <!--<a href="<?php echo url('/lijuan'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-home"></span>-->
+        <!--<span class="fl_left sliderThree block">立卷</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/addFile'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-container"></span>-->
+        <!--<span class="fl_left sliderThree block">档案接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/inside'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-export"></span>-->
+        <!--<span class="fl_left sliderThree block">卷内文件接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/ajy'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-detail"></span>-->
+        <!--<span class="fl_left sliderThree block">案卷借阅</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/DaBd'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案变动</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+
+    <!--<a href="<?php echo url('/LmBj'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案类目</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+</div>
+
+    <div class="rightBox fl_right">
+
+        <div class="titleBox">
+
+            <div class="title fl_left">档案接收</div>
+            <!--<div class="fl_right detaBox">-->
+            <!--<div class="detaBtn fl_left"><a href="<?php echo url('/addExcel'); ?>" style="color: #333">批量导入</a></div>-->
+            <!--</div>-->
+            <div class="clear"></div>
+        </div>
+        <!--<div class="details">-->
+
+        <div class="" style="background: white ; padding: 50px 30px; overflow: hidden">
+            <a type="reset" class="layui-btn layui-btn-primary" style="float: left" href="<?php echo url('/ajgl'); ?>">返回</a>
+            <div class="layui-input-block">
+
+            </div>
+
+
+
+
+            <!------------------------------------------------------------------------------------------------------------------->
+
+            <div class="layui-tab">
+
+                <div class="layui-tab-content">
+                    <!--                个人                    -->
+                    <div class="layui-tab-item layui-show">
+
+                        <table class="layui-hide" id="LAY_table_user" lay-filter="demo">
+
+                        </table>
+                        <script>
+                            function get_query_str(){
+                                var location_url = window.location.href;
+
+                                var parameter_str = location_url.split('?')[1];
+                                parameter_str = parameter_str.split('#')[0];
+                                var $_GET = {};
+
+                                var parameter_arr = parameter_str.split('&');
+
+                                var tmp_arr;
+                                for(var i = 0, len = parameter_arr.length; i <= len -1; i++){
+                                    tmp_arr = parameter_arr[i].split('=');
+                                    $_GET[tmp_arr[0]] = decodeURIComponent(tmp_arr[1]);
+                                }
+                                return $_GET;
+                                /*window.$_GET = $_GET;*/
+                            }
+                            var data = get_query_str();
+                            //用户id
+                            id = data.id;
+                            layui.use('table', function(){
+                                var table = layui.table;
+
+                                //方法级渲染
+                                table.render({
+                                    elem: '#LAY_table_user'
+                                    ,url: "<?php echo url('/getFile'); ?>?id="+id
+                                    ,cols: [[
+                                        {checkbox: true, fixed: true}
+                                        ,{field:'d_name', title: '院系',fixed: true}
+                                        ,{field:'m_name', title: '专业'}
+                                        ,{field:'class', title: '班级'}
+                                        ,{field:'sc_number', title: '学号'}
+                                        ,{field:'user_name', title: '姓名'}
+                                        ,{field:'stat', title: '状态'}
+                                        ,{field:'url', title: '操作'}
+                                    ]]
+                                    ,id: 'testReload'
+
+                                });
+                                $('.demoTable .layui-btn').on('click', function(){
+                                    var type = $(this).data('type');
+                                    active[type] ? active[type].call(this) : '';
+                                });
+                            });
+
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!------------------------------------------------------javascriptEnd------------------------------------------------------------->
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

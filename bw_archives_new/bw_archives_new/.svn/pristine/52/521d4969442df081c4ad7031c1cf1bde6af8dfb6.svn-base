@@ -1,0 +1,80 @@
+.details{
+	padding:0 20px;
+	box-sizing: border-box;
+}
+.back{
+	width: 110px;
+	height: 34px;
+	border: solid 1px #666666;
+	line-height: 34px;
+	text-align: center;
+	margin-top: 20px;
+	color: #333;
+}
+.deTitle{
+  	padding-top: 25px;
+  	display: -webkit-flex; /* Safari */
+  	display: flex;
+  	flex-wrap:wrap;
+  	justify-content: space-between;
+  	align-items: center;
+}
+.tOne{
+	display: -webkit-flex; /* Safari */
+  	display: flex;
+  	flex-wrap:wrap;
+  	justify-content: flex-start;
+  	align-items: center;
+}
+.tTwo{
+	width: 120px;
+	height: 36px;
+	border-radius: 4px;
+	border: solid 1px #c7782e;
+	color: #000;
+	text-align: center;
+	line-height: 36px;
+	cursor: pointer;
+}
+.name{
+	font-size: 24px;
+	color: #000;
+}
+.state{
+	color: #32b16c;
+	font-size: 18px;
+}
+.cir{
+	width: 6px;
+	height: 6px;
+	background-color: #32b16c;
+	border-radius: 50%;
+	margin:0 6px 0 22px;
+}
+.deaHead{
+	text-indent: 22px;
+	color: #c7782e;
+	line-height: 63px;
+}
+.jb_info{
+	background: url(../imgs/courier.png) left center no-repeat;
+	background-size: 11px;
+}
+.jn_text{
+	background: url(../imgs/text.png) left center no-repeat;
+	background-size: 13px;
+}
+.da_state{
+	background: url(../imgs/history.png) left center no-repeat;
+	background-size: 16px;
+}
+.addText{
+	width: 1500px;
+	height: 50px;
+	border: 1px #c7782e;
+	text-align: center;
+	line-height: 50px;
+	margin:10px auto;
+	color: #666;
+	cursor: pointer;
+}

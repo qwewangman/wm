@@ -1,0 +1,65 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 25352
+ * Date: 2018/5/14
+ * Time: 13:41
+ */
+
+namespace app\index\model;
+
+use think\Model;
+use think\Db;
+
+
+class FileJoinModel extends Model
+{
+    protected $table = 'oa_file_join';
+    //查询单条
+    public function getFileStudentId($student_id){
+        $arr = $this->where('student_id',$student_id)->find();
+        return $arr;
+    }
+    // 添加
+    public function AddStudentJoin($data)
+    {
+        $this->insert($data);
+        $finId = $this->getLastInsID();
+        return $finId;
+    }
+    //查询操作人员姓名
+    public function getAdminName($id){
+        $arr['name'] = Db::table('oa_admin')->field('user_name')->where("id",$id)->find();
+        return $arr;
+    }
+
+    //获取已提交数量
+    public  function  getCount($st=2)
+    {
+        $info = $this->where("status",$st)->count();
+
+        return $info;
+    }
+    //获取已提交列表
+    public  function  getList($st=2)
+    {
+        $info = $this->alias('fj')->where("fj.status",'=',$st)
+            ->join(['oa_students'=>'s'],'fj.student_id = s.id','LEFT')
+            ->join(['oa_depart'=>'d'],'s.depart = d.id','LEFT')
+            ->join(['oa_major'=>'m'],'s.major = m.id','LEFT')
+            ->field("fj.id,fj.student_id,s.name,file_number,file_derice,sc_number,file_num,brithday,country,nation,native,sex,d.name AS dname,m.name AS mname,grade,class,card,phone,photo,address,s.type,s.addtime,s.status,fj.created_at,receive_time")
+            ->select();
+
+        return $info;
+    }
+
+
+    //更改状态
+    public function setReceive($data,$ids)
+    {
+        $data['updated_at'] = date("Y-m-d H:i:s");
+        $data['receive_time'] = date("Y-m-d H:i:s");
+        return $this->where("id","IN",$ids)->update($data);
+    }
+
+}

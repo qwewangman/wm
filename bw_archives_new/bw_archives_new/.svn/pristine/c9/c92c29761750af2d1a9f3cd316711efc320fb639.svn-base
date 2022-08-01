@@ -1,0 +1,160 @@
+{include file='nobodyheader'}
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+<style type="text/css">
+    .contetnBox{
+        background-color: #ffffff;
+    }
+    .newRightBox{
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0 20px;
+    }
+    .layui-form-label{
+        font-size: 14px;
+    }
+    .layui-elem-field legend{
+        font-size: 16px;
+        color: #f09c4e;
+    }
+</style>
+<div class="contetnBox">
+    <div class="newRightBox">
+        <div class="layui-form" lay-filter="layuiadmin-form-admin" style="padding: 20px 30px 0 0;">
+            <div class="layui-form-item">
+                <label class="layui-form-label">登录名</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="loginname" value="" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">手机</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="telphone" value="" lay-verify="phone" placeholder="请输入号码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">邮箱</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="email" value="" lay-verify="email" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">角色</label>
+                <div class="layui-input-inline">
+                    <select name="role">
+                        <option value="1">超级管理员</option>
+                    </select>
+                </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">审核状态</label>
+                <div class="layui-input-inline">
+                    <input type="checkbox" lay-filter="switch" name="switch" lay-skin="switch" lay-text="通过|待审核">
+
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"></label>
+                <div class="layui-input-inline">
+                    <input type="button" lay-submit="" lay-filter="LAY-user-back-submit" value="确认" class="layui-btn">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    layui.use(['form'], function(){
+        var form = layui.form;
+        form.on('select(yx)', function(data){
+            var str = '<option value="0">请选专业</option>';
+            var id = data.value; //院系id
+            if(id > 0)
+            {
+                $.post("{:url('/system/getzy')}",{id:id},function(res){
+                    var length = res.length;
+                    for (var i=0;i<length;i++) {
+                        str += '<option value="'+res[i].id+'">'+res[i].name+'</option>';
+                    }
+                    layui.$("#zy").html(str);
+                    form.render();
+                },'json');
+            }else{
+                layui.$("#zy").html(str);
+                form.render();
+            }
+
+        });
+        form.verify({
+
+            vphone: function(value, item){ //value：表单的值、item：表单的DOM对象
+                if(value != "")
+                {
+                    if(!/^((1[3456789][0-9])|(14[57])|(17[0678])|(19[7]))\d{8}$/.test(value)){
+                        return '手机号格式错误';
+                    }
+                }
+
+            }
+            ,vdate: function(value, item){ //value：表单的值、item：表单的DOM对象
+                if(value != "")
+                {
+                    if(!/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/.test(value)){
+                        return '日期格式错误';
+                    }
+                }
+
+            }
+            ,vxue: function(value, item){ //value：表单的值、item：表单的DOM对象
+                if(!/^[0-9]{14}$/.test(value)){
+                    return '学号格式错误，长度14位';
+                }
+            }
+            ,vcard: function(value, item){ //value：表单的值、item：表单的DOM对象
+                if(value != "")
+                {
+                    if(!/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(value)){
+                        return '身份证格式错误';
+                    }else{
+                        if(!IdentityCodeValid(value))
+                        {
+                            return '身份证格式校验有误';
+                        }
+                    }
+                }
+
+            }
+        });
+        /*
+        form.on('submit(myform)', function(data){
+
+            $.post("{:url('file/save')}",data.field,function(res){
+                if(res.code == 200)
+                {
+                    layer.alert('保存成功', {icon: 6},function () {
+                        window.location.reload();
+                    });
+                }else{
+                    layer.msg("保存失败，code:"+res.code+",错误信息："+res.msg);
+                }
+            },'json');
+        });
+        */
+
+    });
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#brithday' //指定元素
+            ,value: '1999-09-10'
+            ,isInitValue: false //是否允许填充初始值，默认为 true
+        });
+        laydate.render({
+            elem: '#addtime' //指定元素
+        });
+    });
+</script>
+</body>
+</html>

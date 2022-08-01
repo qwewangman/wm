@@ -1,0 +1,120 @@
+<?php
+// +----------------------------------------------------------------------
+// | ThinkPHP [ WE CAN DO IT JUST THINK ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2006~2016 http://thinkphp.cn All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+// +----------------------------------------------------------------------
+// | Author: liu21st <liu21st@gmail.com>
+// +----------------------------------------------------------------------
+
+
+
+use think\Route;
+//登陆
+
+Route::rule('/index','index/index/index');
+Route::rule('/login_do','index/index/login_do');
+Route::rule('/login_out','index/index/login_out');
+
+//首页
+Route::rule('/home','index/index/home');
+
+
+//案卷管理
+Route::group('file', function () {
+    //立卷
+    Route::get('add', 'index/file/addFile');
+    //立卷
+    Route::get('edit/:id', 'index/file/editFile');
+    //案卷列表
+    Route::get('getlist', 'index/file/getFileList');
+    //案卷数据ajax
+    Route::get('filelist', 'index/file/fileList');
+    //获取一条数据
+    Route::get('getone','index/file/profile');
+    //保存
+    Route::rule('/save','index/file/saveFile');
+    //更新
+    Route::rule('/update/:id','index/file/updateFile');
+    //判断是否存在学号
+    Route::rule('/havnum','index/file/isHavNum');
+    //交接
+    Route::rule('/join','index/file/join');
+    //接收页面
+    Route::rule('/receive','index/file/receive');
+    //接收列表
+    Route::rule('/getreceivelist','index/file/getReceiveList');
+    //确认接收
+    Route::rule('/setreceive','index/file/setReceive');
+    //查看案卷变动
+    Route::rule('/change','index/file/change');
+    //查看案卷变动
+    Route::rule('/getchange','index/file/getChange');
+    //查看文件
+    Route::rule('/file','index/file/file');
+    Route::rule('/getfile','index/file/getFile');
+    //打印
+    Route::rule('/print','index/file/printFile');
+
+});
+//系统接口
+Route::group('system', function () {
+    //获取专业
+    Route::rule('/getzy','index/admin/getZy');
+    //获取编码规则
+    Route::rule('/getcode','index/admin/getCodeRule');
+    //设置院系
+    Route::rule('/setdepart','index/admin/setDepart');
+    //设置院系
+    Route::rule('/getdepart','index/admin/getDepart');
+    //设置院系
+    Route::rule('/updatedepart','index/admin/updateDepart');
+
+    //设置院系专业
+    Route::rule('/setmajor','index/admin/setMajor');
+    //设置院系专业
+    Route::rule('/getmajor','index/admin/getMajor');
+    //设置院系专业
+    Route::rule('/updatemajor','index/admin/updateMajor');
+
+    //类目管理
+    Route::rule('/category','index/admin/category');
+    //设置类目管理
+    Route::rule('/getcategory','index/admin/getCategory');
+    //设置类目管理
+    Route::rule('/updatecategory','index/admin/updateCategory');
+
+    //管理员管理
+    Route::rule('/user','index/admin/userList');
+    //设置管理员管理
+    Route::rule('/getuser','index/admin/getUser');
+    //设置管理员管理
+    Route::rule('/updateuser','index/admin/updateUser');
+    //设置管理员管理
+    Route::rule('/adduser','index/admin/addUser');
+    //设置管理员管理
+    Route::rule('/saveuser','index/admin/saveUser');
+    //邮寄地址管理
+    Route::rule('/post','index/admin/post');
+    //邮寄地址管理
+    Route::rule('/getpost','index/admin/getPost');
+
+});
+
+//附中
+Route::rule('/search_s_num','index/admin/search_s_num');    //搜索学生学号
+
+
+
+
+
+
+
+
+
+
+
+
+

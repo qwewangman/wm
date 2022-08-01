@@ -1,0 +1,207 @@
+
+{include file='/index/head' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+    .anjuan{
+        font-size: 14px;
+        background: antiquewhite;
+        font-family: "Songti SC";
+        box-shadow: 2px 2px 5px #888888;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .anjuan .jp{
+        padding: 20px 15px;
+        text-align: right;
+    }
+    .anjuan .jp span{
+        padding: 5px;
+        border: 1px solid #000;
+    }
+    .anjuan .name{
+        text-align: center;
+        font-size: 24px;
+        padding: 0 10px;
+        font-weight: bold;
+    }
+    .anjuan .wenj{
+        padding: 10px 10px 0;
+    }
+    .anjuan .wenj .xiahua{
+        padding: 0 5px;
+    }
+    .action{
+        text-align: center;
+        padding: 10px 0;
+        border-top: 1px solid #000;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .batch{
+        background: #1dc5a3;border:none;color: #fff;
+    }
+    .action a{
+        padding: 0 5px;
+    }
+    .title1{
+        font-weight: bold;
+    }
+    .layui-container{
+        padding: 0 15px 0 0;
+    }
+    #pagediv{
+        text-align: center;
+    }
+    #pagestyle{
+        position: absolute;
+        right: 50px;
+        margin-top: -50px;
+    }
+    .thisstyle{
+        background: bisque;
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            {include file='setfile' title='1' }
+        </div>
+        <div class="" style="background: white ; padding: 15px;">
+
+            <div class="layui-tab">
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">名称</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="sensor_name" id="sensor_name" autocomplete="off">
+
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">IP</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="sensor_ip" id="sensor_ip" autocomplete="off">
+
+                                    </div>
+                                </div>
+
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">状　态</label>
+                                    <div class="layui-input-inline">
+                                        <select name="status" lay-filter="nj" id="status">
+                                            <option value="-1" selected>请选择状态</option>
+                                            <option value="0" >启用</option>
+                                            <option value="1">关闭</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="layui-form-item" style="text-align: center;">
+                                <div class="layui-inline" style="margin-left: 9px">
+                                    <a class="layui-btn layui-btn-primary btu-color"  href="javascript:void(0)" id="sch">
+                                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>搜索
+                                    </a>
+                                    <a class="layui-btn layui-btn-primary "  href="{:url('/file/getlist')}">
+                                        <i class="layui-icon layui-icon-refresh"></i>重置搜索
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+
+                        <fieldset class="layui-elem-field layui-field-title">
+                            <legend style="text-align:center">传感器列表</legend>
+                        </fieldset>
+
+                        <table class="layui-hide" id="stu_table" lay-filter="stu_table">
+
+                        </table>
+
+                        <script type="text/html" id="doAction">
+                            <div class="layui-btn-container">
+                                <button class="layui-btn layui-btn-sm" lay-event="add"></button>
+                            </div>
+                        </script>
+
+                        <script type="text/html" id="oneAction">
+
+                            <a  href="javascript:void(0)" lay-event="showOne">
+                                <i class="layui-icon layui-icon-edit"></i>编辑
+                            </a>
+                            <a  href="javascript:void(0)" lay-event="addfile">
+                                <i class="layui-icon layui-icon-add-1"></i>添加
+                            </a>
+                            <a  href="javascript:void(0)" lay-event="change">
+                                <i class="layui-icon layui-icon-engine"></i>变更
+                            </a>
+                            <a  href="javascript:void(0)" lay-event="list">
+                                <i class="layui-icon layui-icon-file"></i>卷内文件
+                            </a>
+                            <a  href="javascript:void(0)" lay-event="addchange">
+                                <i class="layui-icon layui-icon-log"></i>操作记录
+                            </a>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var table;
+    layui.use('table', function() {
+        table = layui.table;
+
+        table.render({
+            elem: '#stu_table'
+            , url: "{:url('/file/getlist')}"
+            , toolbar: '#doAction'
+            , defaultToolbar: ['filter']
+            , title: '用户数据表'
+            , cols: [[
+                {field: 'id', width: '10%', title: 'ID'}
+                , {
+                    field: 'sensor_name',
+                    width: '25%',
+                    event: 'edit1',
+                    style: 'color: #1E0FBE;cursor: pointer;',
+                    title: '名称'
+                }
+                , {
+                    field: 'sensor_ip',
+                    width: '25%',
+                    event: 'edit2',
+                    style: 'color: #1E0FBE;cursor: pointer; ',
+                    title: 'IP'
+                }
+                , {field: 'status', width: '20%', title: '状态'}
+                , {toolbar: '#oneAction', width: '20%', title: '操作'}
+            ]],
+            data:[{
+                "sensor_name":1,
+                "IP":2,
+                'status':3,
+            }]
+            , page: true
+        });
+    });
+</script>
+</body>
+</html>

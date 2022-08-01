@@ -1,0 +1,565 @@
+---------------------------------------------------------------
+[ 2018-07-12T08:45:22+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] www.archives01.com/ [运行时间：0.072030s][吞吐率：13.88req/s] [内存消耗：1,474.59kb] [文件加载：46]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\www\bw_archives\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\www\bw_archives\public/../application/index\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-12T08:45:23+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/captcha.html
+[ info ] www.archives01.com/index.php/captcha.html [运行时间：0.659113s][吞吐率：1.52req/s] [内存消耗：1,245.42kb] [文件加载：39]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\www\bw_archives\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-12T08:45:37+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/login_do.html
+[ info ] www.archives01.com/index.php/login_do.html [运行时间：0.169937s][吞吐率：5.88req/s] [内存消耗：2,370.98kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'login_do',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=akgacvgdjk2k5rqspnjqhv5k74',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://www.archives01.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '50',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'admin_name' => 'admin',
+  'admin_pwd' => 'a00000',
+  'verifyCode' => 'trcvu',
+)
+[ info ] [ RUN ] app\index\controller\Index->login_do[ D:\www\bw_archives\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010601s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_admin` [ RunTime:0.119289s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_admin` WHERE  `admin_name` = 'admin'  AND `admin_password` = 'a00000' [ RunTime:0.000888s ]
+---------------------------------------------------------------
+[ 2018-07-12T08:45:37+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/home.html
+[ info ] www.archives01.com/index.php/home.html [运行时间：0.071507s][吞吐率：13.98req/s] [内存消耗：2,333.99kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'home',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=akgacvgdjk2k5rqspnjqhv5k74',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/login_do.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->home[ D:\www\bw_archives\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives\public/../application/index\view\index\home.html [ array (
+  0 => 'dcl',
+  1 => 'kc',
+  2 => 'bks',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010435s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.020396s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` WHERE  `status` = 0 LIMIT 1 [ RunTime:0.000318s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` WHERE  (  status in (1,2) ) LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` LIMIT 1 [ RunTime:0.000222s ]
+---------------------------------------------------------------
+[ 2018-07-12T08:45:43+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ info ] www.archives01.com/index.php/ajgl.html [运行时间：0.060502s][吞吐率：16.53req/s] [内存消耗：2,426.34kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'ajgl',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=akgacvgdjk2k5rqspnjqhv5k74',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/home.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->ajgl[ D:\www\bw_archives\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives\public/../application/index\view\file\ajgl.html [ array (
+  0 => 'departlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000591s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.026295s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000370s ]
+---------------------------------------------------------------
+[ 2018-07-12T08:45:43+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ info ] www.archives01.com/index.php/fileList.html?page=1&limit=10 [运行时间：0.102744s][吞吐率：9.73req/s] [内存消耗：2,392.07kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'fileList',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=akgacvgdjk2k5rqspnjqhv5k74',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/ajgl.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->fileList[ D:\www\bw_archives\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010487s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.012510s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000429s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000415s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014879s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.009989s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.010049s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 14 LIMIT 1 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 13 LIMIT 1 [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 12 LIMIT 1 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000285s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000186s ]
+---------------------------------------------------------------
+[ 2018-07-12T08:47:49+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/Lmbj.html
+[ info ] www.archives01.com/index.php/Lmbj.html [运行时间：0.075526s][吞吐率：13.24req/s] [内存消耗：2,504.82kb] [文件加载：57]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'admin',
+    2 => 'LmBj',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=akgacvgdjk2k5rqspnjqhv5k74',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/ajgl.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Admin->LmBj[ D:\www\bw_archives\application\index\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives\public/../application/index\view\admin\lmbj.html [ array (
+  0 => 'result',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010339s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.024891s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 0  AND `status` = 0 [ RunTime:0.000358s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 1  AND `status` = 0 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 6  AND `status` = 0 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 11  AND `status` = 0 [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 18  AND `status` = 0 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_catelog` WHERE  `branch_id` = 22  AND `status` = 0 [ RunTime:0.000194s ]
+---------------------------------------------------------------
+[ 2018-07-12T08:48:00+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/wjjs.html
+[ info ] www.archives01.com/index.php/wjjs.html [运行时间：0.071761s][吞吐率：13.94req/s] [内存消耗：2,442.35kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'wjjs',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=akgacvgdjk2k5rqspnjqhv5k74',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/Lmbj.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->wjjs[ D:\www\bw_archives\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives\public/../application/index\view\file\wjjs.html [ array (
+  0 => 'departlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010482s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.032979s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000302s ]
+---------------------------------------------------------------
+[ 2018-07-12T08:48:00+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getInsideList.html?page=1&limit=10
+[ info ] www.archives01.com/index.php/getInsideList.html?page=1&limit=10 [运行时间：0.078604s][吞吐率：12.72req/s] [内存消耗：2,439.99kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'admin',
+    2 => 'getInsideList',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=akgacvgdjk2k5rqspnjqhv5k74',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/wjjs.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Admin->getInsideList[ D:\www\bw_archives\application\index\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011180s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.007680s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) [ RunTime:0.000403s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.008086s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.008008s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.000287s ]
+---------------------------------------------------------------
+[ 2018-07-12T08:48:00+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getInsideList.html?page=1&limit=10
+[ info ] www.archives01.com/index.php/getInsideList.html?page=1&limit=10 [运行时间：0.064027s][吞吐率：15.62req/s] [内存消耗：2,439.99kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'admin',
+    2 => 'getInsideList',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=akgacvgdjk2k5rqspnjqhv5k74',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/wjjs.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Admin->getInsideList[ D:\www\bw_archives\application\index\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000560s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.008830s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) [ RunTime:0.000400s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014833s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.008887s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.000277s ]
+---------------------------------------------------------------
+[ 2018-07-12T08:48:01+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/JnDwJs.html?page=1&limit=10
+[ info ] www.archives01.com/index.php/JnDwJs.html?page=1&limit=10 [运行时间：0.056242s][吞吐率：17.78req/s] [内存消耗：2,412.64kb] [文件加载：54]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'admin',
+    2 => 'JnDwJs',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=akgacvgdjk2k5rqspnjqhv5k74',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/wjjs.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Admin->JnDwJs[ D:\www\bw_archives\application\index\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007199s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.008458s ]
+[ sql ] [ SQL ] SELECT `id`,`user_name` FROM `oa_students` WHERE  `type` = 2 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 2  AND `status` = 0 [ RunTime:0.000433s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 3  AND `status` = 0 [ RunTime:0.000358s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 12  AND `status` = 0 [ RunTime:0.000341s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 13  AND `status` = 0 [ RunTime:0.000338s ]
+---------------------------------------------------------------
+[ 2018-07-12T13:54:23+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] account.test.com/ [运行时间：0.043791s][吞吐率：22.84req/s] [内存消耗：1,473.80kb] [文件加载：46]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'account.test.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\www\bw_archives\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\www\bw_archives\public/../application/index\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-12T13:54:24+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/captcha.html
+[ info ] account.test.com/index.php/captcha.html [运行时间：0.338738s][吞吐率：2.95req/s] [内存消耗：1,270.31kb] [文件加载：39]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://account.test.com/',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'account.test.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\www\bw_archives\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File

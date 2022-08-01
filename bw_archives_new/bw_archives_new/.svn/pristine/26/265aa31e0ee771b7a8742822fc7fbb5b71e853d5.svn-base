@@ -1,0 +1,197 @@
+
+{include file='header' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+
+            {include file='setlayout' title='4' }
+        </div>
+        <div class="" style="background: white ; padding: 15px;">
+
+            <div class="layui-tab">
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">省　份</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="province" id="province" autocomplete="off">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item" style="text-align: center;">
+                                <div class="layui-inline" style="margin-left: 9px">
+                                    <a class="layui-btn layui-btn-primary btu-color"  href="javascript:void(0)" id="sch">
+                                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>搜索
+                                    </a>
+                                    <!--<a class="layui-btn layui-btn-primary "  href="{:url('/file/getlist')}">-->
+                                        <!--<i class="layui-icon layui-icon-refresh"></i>重置搜索-->
+                                    <!--</a>-->
+                                </div>
+                            </div>
+                        </form>
+
+                        <table class="layui-hide" id="user_table" lay-filter="user_table">
+
+                        </table>
+
+                        <script type="text/html" id="doAction">
+                            <div class="layui-btn-container">
+                                <button class="layui-btn layui-btn-sm" lay-event="add">添加邮寄地址</button>
+                                <button class="layui-btn layui-btn-sm" lay-event="addAll">批量添加邮寄地址</button>
+                                <!--<a href="{:url('/system/addall')}" class="layui-btn">批量添加邮寄地址</a>-->
+                            </div>
+                        </script>
+                        <script type="text/html" id="oneAction">
+                            <a class="layui-btn layui-btn-xs" lay-event="fileChange">修改</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var table;
+    layui.use('table', function(){
+        table = layui.table;
+//#oneAction
+        table.render({
+            elem: '#user_table'
+            ,url:"{:url('/system/getpost')}"
+            ,toolbar: '#doAction'
+            ,defaultToolbar:['filter','exports']
+            ,title: '用户数据表'
+            ,cols: [[
+                {field:'id',width:'5%',title:'ID'}
+                ,{field:'province',width:'5%', title:'省份'}
+                ,{field:'city',width:'10%', title:'市区'}
+                ,{field:'name',width:'20%', title:'档案接收部门名称'}
+                ,{field:'address',width:'20%',  title:'具体地址'}
+                ,{field:'code',width:'15%',  title:'邮编'}
+                ,{field:'contact',width:'15%',  title:'联系方式'}
+                ,{toolbar: '#oneAction',width:'15%',  title:'操作'}
+            ]]
+            ,page: true
+
+        });
+        table.on('toolbar(user_table)', function(obj){
+            switch(obj.event){
+                case 'add':
+                    layer.open({
+                        type: 2,
+                        title:"添加",
+                        area: ['400px', '500px'],
+                        fixed: true, //不固定
+                        maxmin: false,
+                        scrollbar:false,
+                        shadeClose:true,
+                        content: "{:url('/system/addpost')}",
+                        anim:2
+                        ,end: function(index, layero){
+                            window.location.reload();
+                        }
+                    });
+                    break;
+                case 'addAll':
+                    layer.open({
+                        type: 2,
+                        title:"批量添加",
+                        area: ['400px', '500px'],
+                        fixed: true, //不固定
+                        maxmin: false,
+                        scrollbar:false,
+                        shadeClose:true,
+                        content: "{:url('/system/addall')}",
+                        anim:2
+                        ,end: function(index, layero){
+                            window.location.reload();
+                        }
+                    });
+                    break;
+            }
+        });
+        table.on('tool(user_table)', function(obj){
+            var id = obj.data.id;
+            switch(obj.event){
+
+                case 'fileChange':
+                    layer.open({
+                        type: 2,
+                        title:"修改",
+                        area: ['400px', '500px'],
+                        fixed: true, //不固定
+                        maxmin: false,
+                        scrollbar:false,
+                        shadeClose:true,
+                        content: "{:url('/system/updatepost')}?id="+id,
+                        anim:2
+                        ,end: function(index, layero){
+                            window.location.reload();
+                        }
+                    });
+                    break;
+                case "del":
+
+                    layer.confirm('真的删除行么', function(index){
+                        obj.del(); //删除对应行（tr）的DOM结构
+                        layer.close(index);
+                        //向服务端发送删除指令
+                        $.ajax({
+                            url:"/system/deleteAddress",
+                            type:"post",
+                            data:{
+                                id:id
+                            },
+                            success:function(res){
+                                if(res>0){
+                                    layer.msg("删除成功");
+                                }
+
+                            },
+                            error:function(e){
+                                layer.msg("error");
+                            }
+                        });
+                    });
+                    break;
+            };
+        });
+    });
+
+    //搜索--按照省份
+    $('#sch').click(function(){
+        var province        = $("#province").val();
+        table.reload('user_table', {
+            url:"{:url('/system/getpost')}"
+            ,page: {
+                curr: 1 //重新从第 1 页开始
+            }
+            ,where: {province:province} //设定异步数据接口的额外参数
+        });
+    });
+    $(".sliderList").removeClass("sliderLists");
+    $("#slider2").addClass("sliderLists");
+</script>
+</body>
+</html>

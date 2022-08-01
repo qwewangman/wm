@@ -1,0 +1,33 @@
+{include file='header' }
+<div class="contetnBox">
+    <div class="newRightBox">
+        <div style="width: 70% ; margin: 0 auto">
+            <table class="layui-hide" id="file_list">
+
+            </table>
+            <script>
+                layui.use('table', function(){
+                    var table = layui.table;
+
+                    table.render({
+                        elem: '#file_list'
+                        ,url:"{:url('')}"
+                        ,cellMinWidth: 80
+                        ,cols: [[
+                            {field:'number', title:'文件件号'}
+                            ,{field:'name', title:'文件名称'}
+                            ,{field:'ocname', title:'文件类别'}
+                            ,{field:'within_time', title: '形成时间'}
+                            ,{field:'item_num', title:'件数'}
+                            ,{field:'page_num', title:'页数'}
+                            ,{field:'status', title:'状态'}
+
+                        ]]
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</div>
+</body>
+</html>

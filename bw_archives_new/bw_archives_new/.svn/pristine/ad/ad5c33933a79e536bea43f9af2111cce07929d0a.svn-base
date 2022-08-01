@@ -1,0 +1,72 @@
+<div class="sliderBox fl_left">
+    <a href="{:url('/home')}" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">首页</span>
+        <span class="clear"></span>
+    </a>
+    <a href="{:url('/ajgl')}" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">案卷管理</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="{:url('/wjjs')}" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">文件接收</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="{:url('/LmBj')}" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">文件类目</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">设置</span>
+        <span class="clear"></span>
+    </a>
+    <!--<a href="{:url('/lijuan')}" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-home"></span>-->
+        <!--<span class="fl_left sliderThree block">立卷</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="{:url('/addFile')}" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-container"></span>-->
+        <!--<span class="fl_left sliderThree block">档案接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="{:url('/inside')}" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-export"></span>-->
+        <!--<span class="fl_left sliderThree block">卷内文件接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="{:url('/ajy')}" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-detail"></span>-->
+        <!--<span class="fl_left sliderThree block">案卷借阅</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="{:url('/DaBd')}" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案变动</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+
+    <!--<a href="{:url('/LmBj')}" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案类目</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+</div>

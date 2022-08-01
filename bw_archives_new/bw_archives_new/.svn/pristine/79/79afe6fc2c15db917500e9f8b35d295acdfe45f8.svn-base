@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+
+</head>
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <div class="fl_right signOut"><a href="{:url('/login_out')}"  style="color: white">退出</a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="contetnBox">
+
+    {include file='layout'}
+
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">卷内文件添加</div>
+
+            <div class="clear"></div>
+        </div>
+        <!--<div class="details">-->
+
+        <div class="newRightBox">
+            <div style="width: 60% ; margin: 0 auto">
+                <!------------------------------------------------------------------------------------------------------------------->
+                <form class="layui-form" action="{:url('/addFileW')}" method="post">
+
+                    <input type="hidden" name="s_id" value="{$id}"/>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">材料名称</label>
+                        <div class="layui-input-inline">
+                            <select name="within_type"   lay-filter="yx">
+                                <option value=""> 选择 </option>
+                                {foreach name='c' item='v'}
+                                <option value="{$v.id}" >{$v.class_num}.{$v.class_name}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                        <div class="layui-input-inline">
+                            <select name="within_name"   id="zy">
+                                <option value="">选择</option>
+                            </select>
+                        </div>
+                        <div class="layui-form-mid layui-word-aux"></div>
+                    </div>
+
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">形成时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="within_time" lay-verify="" autocomplete="off" placeholder="请输入时间" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">件数</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="within_num" lay-verify="" autocomplete="off" placeholder="请输入件数" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">页数</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="page_num" lay-verify="" autocomplete="off" placeholder="请输入页数" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">备注</label>
+                        <div class="layui-input-block">
+                            <textarea placeholder="请输入内容" class="layui-textarea" name="within_contet"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <script>
+
+
+                layui.use(['form', 'laydate','upload'], function(){
+                    var form = layui.form;
+                    form.on('select(yx)', function(data){
+                        var str = '<option value="0">请选</option>';
+                        var id = data.value;
+                        $.post("{:url('/getZcl')}",{id:id},function(res){
+                            var length = res.length;
+                            for (var i=0;i<length;i++) {
+                                str += '<option value="'+res[i].id+'">'+res[i].class_num+ '.'+ res[i].class_name+'</option>';
+                            }
+                            layui.$("#zy").html(str);
+                            form.render();
+                        },'json');
+                    });
+                })
+
+
+                layui.use(['form', 'layedit', 'laydate'], function(){
+                    var form = layui.form
+                            ,layer = layui.layer
+                            ,layedit = layui.layedit
+                            ,laydate = layui.laydate;
+
+                    //日期
+                    laydate.render({
+                        elem: '#date'
+                    });
+                    laydate.render({
+                        elem: '#date1'
+                    });
+
+                    //创建一个编辑器
+                    var editIndex = layedit.build('LAY_demo_editor');
+
+                    //自定义验证规则
+                    form.verify({
+                        title: function(value){
+                            if(value.length < 0){
+                                return '不能为空';
+                            }
+                        }
+                        ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+                        ,content: function(value){
+                            layedit.sync(editIndex);
+                        }
+                    });
+
+                    //监听指定开关
+                    form.on('switch(switchTest)', function(data){
+                        layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                            offset: '6px'
+                        });
+                        layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+                    });
+
+                    //监听提交
+                    form.on('submit(demo1)', function(data){
+//                            layer.alert(JSON.stringify(data.field), {
+//                                title: '最终的提交信息'
+//                            })
+//                            return false;
+                    });
+                });
+
+
+
+            </script>
+
+
+
+            <!------------------------------------------------------------------------------------------------------------------->
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

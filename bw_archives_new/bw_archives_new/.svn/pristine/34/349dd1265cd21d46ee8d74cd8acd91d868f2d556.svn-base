@@ -1,0 +1,44 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 25352
+ * Date: 2018/5/15
+ * Time: 10:51
+ */
+namespace app\index\model;
+
+use think\Model;
+use think\Db;
+
+
+class DepartmentModel extends Model
+{
+    // 设置当前模型对应的完整数据表名称
+    protected $table = 'department';
+
+
+
+
+    //查询院系
+    public function getDepartList()
+    {
+        return $this->select();
+    }
+
+    //获取院系id
+    public function getDepId($id)
+    {
+        $dep = $this->where("id='".$id."'")->field('d_name')->find();
+        return $dep['d_name'];
+    }
+
+
+
+
+
+
+
+
+
+
+}

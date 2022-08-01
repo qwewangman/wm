@@ -1,0 +1,834 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:80:"D:\phpStudy\PHPTutorial\WWW\AAA\public/../application/index\view\admin\bdcl.html";i:1528958812;s:76:"D:\phpStudy\PHPTutorial\WWW\AAA\public/../application/index\view\layout.html";i:1528957817;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+</head>
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <div class="fl_right signOut"><a href="<?php echo url('/login_out'); ?>"  style="color: white">退出</a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div class="contetnBox">
+
+    <div class="sliderBox fl_left">
+    <a href="<?php echo url('/home'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">首页</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/ajgl'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">案卷管理</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">文件接收</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">文件类目</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">设置</span>
+        <span class="clear"></span>
+    </a>
+    <!--<a href="<?php echo url('/lijuan'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-home"></span>-->
+        <!--<span class="fl_left sliderThree block">立卷</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/addFile'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-container"></span>-->
+        <!--<span class="fl_left sliderThree block">档案接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/inside'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-export"></span>-->
+        <!--<span class="fl_left sliderThree block">卷内文件接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/ajy'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-detail"></span>-->
+        <!--<span class="fl_left sliderThree block">案卷借阅</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/DaBd'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案变动</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+
+    <!--<a href="<?php echo url('/LmBj'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案类目</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+</div>
+
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">变动处理</div>
+            <!--<div class="fl_right detaBox">-->
+            <!--<div class="detaBtn fl_left"><a href="<?php echo url('/addExcel'); ?>" style="color: #333">批量导入</a></div>-->
+            <!--</div>-->
+            <div class="clear"></div>
+        </div>
+        <!--<div class="details">-->
+
+        <div class="" style="background: white ; padding: 50px 30px; overflow: hidden">
+
+
+            <!------------------------------------------------------------------------------------------------------------------->
+
+            <div class="layui-tab">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">迁出</li>
+                    <li>保留学籍</li>
+                    <li>降级</li>
+                    <li>院系变更</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                        -->
+                        <div class="newRightBox">
+                            <div style="width: 60% ; margin: 0 auto">
+                                <!------------------------------------------------------------------------------------------------------------------->
+                                <form class="layui-form" action="<?php echo url('/qcAdd'); ?>" method="post">
+
+                                    <input type="hidden" name="s_id" value="<?php echo $id; ?>"/>
+                                    <input type="hidden" name="tys" value="1"/>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">学号</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="sc_number" lay-verify="" autocomplete="off" value="<?php echo $xh; ?>" class="layui-input" disabled="">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">姓名</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="user_name" lay-verify="" autocomplete="off" value="<?php echo $name; ?>"  class="layui-input" disabled="">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">迁档原因</label>
+                                        <div class="layui-input-block">
+                                            <input type="radio" name="yuanyin" value="毕业" title="毕业" checked="">
+                                            <input type="radio" name="yuanyin" value="退学" title="退学">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">迁档日期</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" name="q_date" id="Jdate" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">迁档批次</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="q_pc" lay-verify="" autocomplete="off" placeholder="请输入" class="layui-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">交接人</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="j_uname" lay-verify="" autocomplete="off" placeholder="请输入姓名" class="layui-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">文件形成日期</label>
+                                        <div class="layui-input-inline">
+                                            <select name="nian">
+                                                <option value="">年</option>
+                                                <?php $__FOR_START_5237__=1970;$__FOR_END_5237__=2100;for($i=$__FOR_START_5237__;$i < $__FOR_END_5237__;$i+=1){ ?>
+                                                    <option value="<?php echo $i; ?>"><?php echo $i; ?>年</option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="yue">
+                                                <option value="">月</option>
+                                                <?php $__FOR_START_21203__=1;$__FOR_END_21203__=13;for($i=$__FOR_START_21203__;$i < $__FOR_END_21203__;$i+=1){ ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>月</option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="ri">
+                                                <option value="">日</option>
+                                                <?php $__FOR_START_3883__=1;$__FOR_END_3883__=32;for($i=$__FOR_START_3883__;$i < $__FOR_END_3883__;$i+=1){ ?>
+                                                    <option value="<?php echo $i; ?>"><?php echo $i; ?>日</option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">备注</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="请输入内容" class="layui-textarea" name="content"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--<script src="__STATIC__/js/jquery-2.1.1.min.js"></script>-->
+
+                            <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                            <script>
+
+
+                                layui.use(['form', 'laydate','upload'], function(){
+                                    var form = layui.form;
+                                    form.on('select(yx)', function(data){
+                                        var str = '<option value="0">请选专业</option>';
+                                        var id = data.value;
+                                        $.post("<?php echo url('/getZy'); ?>",{id:id},function(res){
+                                            var length = res.length;
+                                            for (var i=0;i<length;i++) {
+                                                str += '<option value="'+res[i].id+'">'+res[i].m_name+'</option>';
+                                            }
+                                            layui.$("#zy").html(str);
+                                            form.render();
+                                        },'json');
+                                    });
+                                })
+
+
+                                layui.use(['form', 'layedit', 'laydate'], function(){
+                                    var form = layui.form
+                                            ,layer = layui.layer
+                                            ,layedit = layui.layedit
+                                            ,laydate = layui.laydate;
+
+                                    //日期
+                                    laydate.render({
+                                        elem: '#Jdate'
+                                    });
+                                    laydate.render({
+                                        elem: '#Hdate'
+                                    });
+
+                                    //创建一个编辑器
+                                    var editIndex = layedit.build('LAY_demo_editor');
+
+                                    //自定义验证规则
+                                    form.verify({
+                                        title: function(value){
+                                            if(value.length < 0){
+                                                return '不能为空';
+                                            }
+                                        }
+                                        ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+                                        ,content: function(value){
+                                            layedit.sync(editIndex);
+                                        }
+                                    });
+
+                                    //监听指定开关
+                                    form.on('switch(switchTest)', function(data){
+                                        layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                                            offset: '6px'
+                                        });
+                                        layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+                                    });
+
+                                    //监听提交
+                                    form.on('submit(demo1)', function(data){
+//                            layer.alert(JSON.stringify(data.field), {
+//                                title: '最终的提交信息'
+//                            })
+//                            return false;
+                                    });
+                                });
+
+
+
+                            </script>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                    </div>
+                    </div>
+                    <div class="layui-tab-item">
+
+                        <div class="newRightBox">
+                            <div style="width: 60% ; margin: 0 auto">
+                                <!------------------------------------------------------------------------------------------------------------------->
+                                <form class="layui-form" action="<?php echo url('/qcAdd'); ?>" method="post">
+
+                                    <input type="hidden" name="s_id" value="<?php echo $id; ?>"/>
+                                    <input type="hidden" name="tys" value="2"/>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">学号</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="sc_number" lay-verify="" autocomplete="off" value="<?php echo $xh; ?>" class="layui-input" disabled="">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">姓名</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="user_name" lay-verify="" autocomplete="off" value="<?php echo $name; ?>"  class="layui-input" disabled="">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">原因</label>
+                                        <div class="layui-input-block">
+                                            <input type="radio" name="yuanyin" value="服兵役" title="服兵役" checked="">
+                                            <input type="radio" name="yuanyin" value="休学" title="休学">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">文件形成日期</label>
+                                        <div class="layui-input-inline">
+                                            <select name="nian">
+                                                <option value="">年</option>
+                                                <?php $__FOR_START_30482__=1970;$__FOR_END_30482__=2100;for($i=$__FOR_START_30482__;$i < $__FOR_END_30482__;$i+=1){ ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>年</option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="yue">
+                                                <option value="">月</option>
+                                                <?php $__FOR_START_21808__=1;$__FOR_END_21808__=13;for($i=$__FOR_START_21808__;$i < $__FOR_END_21808__;$i+=1){ ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>月</option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="ri">
+                                                <option value="">日</option>
+                                                <?php $__FOR_START_7087__=1;$__FOR_END_7087__=32;for($i=$__FOR_START_7087__;$i < $__FOR_END_7087__;$i+=1){ ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>日</option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">备注</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="请输入内容" class="layui-textarea" name="content"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--<script src="__STATIC__/js/jquery-2.1.1.min.js"></script>-->
+
+                            <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                            <script>
+
+
+                                layui.use(['form', 'laydate','upload'], function(){
+                                    var form = layui.form;
+                                    form.on('select(yx)', function(data){
+                                        var str = '<option value="0">请选专业</option>';
+                                        var id = data.value;
+                                        $.post("<?php echo url('/getZy'); ?>",{id:id},function(res){
+                                            var length = res.length;
+                                            for (var i=0;i<length;i++) {
+                                                str += '<option value="'+res[i].id+'">'+res[i].m_name+'</option>';
+                                            }
+                                            layui.$("#zy").html(str);
+                                            form.render();
+                                        },'json');
+                                    });
+                                })
+
+
+                                layui.use(['form', 'layedit', 'laydate'], function(){
+                                    var form = layui.form
+                                            ,layer = layui.layer
+                                            ,layedit = layui.layedit
+                                            ,laydate = layui.laydate;
+
+                                    //日期
+                                    laydate.render({
+                                        elem: '#Jdate'
+                                    });
+                                    laydate.render({
+                                        elem: '#Hdate'
+                                    });
+
+                                    //创建一个编辑器
+                                    var editIndex = layedit.build('LAY_demo_editor');
+
+                                    //自定义验证规则
+                                    form.verify({
+                                        title: function(value){
+                                            if(value.length < 0){
+                                                return '不能为空';
+                                            }
+                                        }
+                                        ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+                                        ,content: function(value){
+                                            layedit.sync(editIndex);
+                                        }
+                                    });
+
+                                    //监听指定开关
+                                    form.on('switch(switchTest)', function(data){
+                                        layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                                            offset: '6px'
+                                        });
+                                        layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+                                    });
+
+                                    //监听提交
+                                    form.on('submit(demo1)', function(data){
+//                            layer.alert(JSON.stringify(data.field), {
+//                                title: '最终的提交信息'
+//                            })
+//                            return false;
+                                    });
+                                });
+
+
+
+                            </script>
+
+                            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        </div>
+
+
+
+                    </div>
+                    <div class="layui-tab-item">
+
+                        <div class="newRightBox">
+                            <div style="width: 60% ; margin: 0 auto">
+                                <!------------------------------------------------------------------------------------------------------------------->
+                                <form class="layui-form" action="<?php echo url('/qcAdd'); ?>" method="post">
+
+                                    <input type="hidden" name="s_id" value="<?php echo $id; ?>"/>
+                                    <input type="hidden" name="tys" value="3"/>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">学号</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="sc_number" lay-verify="" autocomplete="off" value="<?php echo $xh; ?>" class="layui-input" disabled="">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">姓名</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="user_name" lay-verify="" autocomplete="off" value="<?php echo $name; ?>"  class="layui-input" disabled="">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">变动后年级</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="class" lay-verify="" autocomplete="off"  placeholder="请输入"  class="layui-input">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">文件形成日期</label>
+                                        <div class="layui-input-inline">
+                                            <select name="nian">
+                                                <option value="">年</option>
+                                                <?php $__FOR_START_8544__=1970;$__FOR_END_8544__=2100;for($i=$__FOR_START_8544__;$i < $__FOR_END_8544__;$i+=1){ ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>年</option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="yue">
+                                                <option value="">月</option>
+                                                <?php $__FOR_START_23845__=1;$__FOR_END_23845__=13;for($i=$__FOR_START_23845__;$i < $__FOR_END_23845__;$i+=1){ ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>月</option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="ri">
+                                                <option value="">日</option>
+                                                <?php $__FOR_START_12851__=1;$__FOR_END_12851__=32;for($i=$__FOR_START_12851__;$i < $__FOR_END_12851__;$i+=1){ ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>日</option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">备注</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="请输入内容" class="layui-textarea" name="content"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--<script src="__STATIC__/js/jquery-2.1.1.min.js"></script>-->
+
+                            <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                            <script>
+
+
+                                layui.use(['form', 'laydate','upload'], function(){
+                                    var form = layui.form;
+                                    form.on('select(yx)', function(data){
+                                        var str = '<option value="0">请选专业</option>';
+                                        var id = data.value;
+                                        $.post("<?php echo url('/getZy'); ?>",{id:id},function(res){
+                                            var length = res.length;
+                                            for (var i=0;i<length;i++) {
+                                                str += '<option value="'+res[i].id+'">'+res[i].m_name+'</option>';
+                                            }
+                                            layui.$("#zy").html(str);
+                                            form.render();
+                                        },'json');
+                                    });
+                                })
+
+
+                                layui.use(['form', 'layedit', 'laydate'], function(){
+                                    var form = layui.form
+                                            ,layer = layui.layer
+                                            ,layedit = layui.layedit
+                                            ,laydate = layui.laydate;
+
+                                    //日期
+                                    laydate.render({
+                                        elem: '#Jdate'
+                                    });
+                                    laydate.render({
+                                        elem: '#Hdate'
+                                    });
+
+                                    //创建一个编辑器
+                                    var editIndex = layedit.build('LAY_demo_editor');
+
+                                    //自定义验证规则
+                                    form.verify({
+                                        title: function(value){
+                                            if(value.length < 0){
+                                                return '不能为空';
+                                            }
+                                        }
+                                        ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+                                        ,content: function(value){
+                                            layedit.sync(editIndex);
+                                        }
+                                    });
+
+                                    //监听指定开关
+                                    form.on('switch(switchTest)', function(data){
+                                        layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                                            offset: '6px'
+                                        });
+                                        layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+                                    });
+
+                                    //监听提交
+                                    form.on('submit(demo1)', function(data){
+//                            layer.alert(JSON.stringify(data.field), {
+//                                title: '最终的提交信息'
+//                            })
+//                            return false;
+                                    });
+                                });
+
+
+
+                            </script>
+
+                            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        </div>
+
+
+                    </div>
+                    <div class="layui-tab-item">
+
+                        <div class="newRightBox">
+                            <div style="width: 60% ; margin: 0 auto">
+                                <!------------------------------------------------------------------------------------------------------------------->
+                                <form class="layui-form" action="<?php echo url('/qcAdd'); ?>" method="post">
+
+                                    <input type="hidden" name="s_id" value="<?php echo $id; ?>"/>
+                                    <input type="hidden" name="tys" value="4"/>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">学号</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="sc_number" lay-verify="" autocomplete="off" value="<?php echo $xh; ?>" class="layui-input" disabled="">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">姓名</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="user_name" lay-verify="" autocomplete="off" value="<?php echo $name; ?>"  class="layui-input" disabled="">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">院系专业</label>
+                                        <div class="layui-input-inline">
+                                            <select name="courtyard" lay-filter="yx">
+                                                <option value="" selected>请选择院系</option>
+                                                <?php if(is_array($departlist) || $departlist instanceof \think\Collection || $departlist instanceof \think\Paginator): if( count($departlist)==0 ) : echo "" ;else: foreach($departlist as $key=>$v): ?>
+                                                <option value="<?php echo $v['id']; ?>" ><?php echo $v['d_name']; ?></option>
+                                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                                            </select>
+                                        </div>
+
+                                        <div class="layui-input-inline">
+                                            <select name="major"  id="zy">
+                                                <option value="">请选专业</option>
+                                            </select>
+                                        </div>
+                                        <div class="layui-form-mid layui-word-aux"></div>
+                                    </div>
+
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">文件形成日期</label>
+                                        <div class="layui-input-inline">
+                                            <select name="nian">
+                                                <option value="">年</option>
+                                                <?php $__FOR_START_25365__=1970;$__FOR_END_25365__=2018;for($i=$__FOR_START_25365__;$i < $__FOR_END_25365__;$i+=1){ ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>年</option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="yue">
+                                                <option value="">月</option>
+                                                <?php $__FOR_START_3206__=1;$__FOR_END_3206__=13;for($i=$__FOR_START_3206__;$i < $__FOR_END_3206__;$i+=1){ ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>月</option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="ri">
+                                                <option value="">日</option>
+                                                <?php $__FOR_START_29490__=1;$__FOR_END_29490__=32;for($i=$__FOR_START_29490__;$i < $__FOR_END_29490__;$i+=1){ ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>日</option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">备注</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="请输入内容" class="layui-textarea" name="content"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--<script src="__STATIC__/js/jquery-2.1.1.min.js"></script>-->
+
+                            <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                            <script>
+
+
+                                layui.use(['form', 'laydate','upload'], function(){
+                                    var form = layui.form;
+                                    form.on('select(yx)', function(data){
+                                        var str = '<option value="0">请选专业</option>';
+                                        var id = data.value;
+                                        $.post("<?php echo url('/getZy'); ?>",{id:id},function(res){
+                                            var length = res.length;
+                                            for (var i=0;i<length;i++) {
+                                                str += '<option value="'+res[i].id+'">'+res[i].m_name+'</option>';
+                                            }
+                                            layui.$("#zy").html(str);
+                                            form.render();
+                                        },'json');
+                                    });
+                                })
+
+
+                                layui.use(['form', 'layedit', 'laydate'], function(){
+                                    var form = layui.form
+                                            ,layer = layui.layer
+                                            ,layedit = layui.layedit
+                                            ,laydate = layui.laydate;
+
+                                    //日期
+                                    laydate.render({
+                                        elem: '#Jdate'
+                                    });
+                                    laydate.render({
+                                        elem: '#Hdate'
+                                    });
+
+                                    //创建一个编辑器
+                                    var editIndex = layedit.build('LAY_demo_editor');
+
+                                    //自定义验证规则
+                                    form.verify({
+                                        title: function(value){
+                                            if(value.length < 0){
+                                                return '不能为空';
+                                            }
+                                        }
+                                        ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+                                        ,content: function(value){
+                                            layedit.sync(editIndex);
+                                        }
+                                    });
+
+                                    //监听指定开关
+                                    form.on('switch(switchTest)', function(data){
+                                        layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                                            offset: '6px'
+                                        });
+                                        layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+                                    });
+
+                                    //监听提交
+                                    form.on('submit(demo1)', function(data){
+//                            layer.alert(JSON.stringify(data.field), {
+//                                title: '最终的提交信息'
+//                            })
+//                            return false;
+                                    });
+                                });
+
+
+
+                            </script>
+
+                            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <script>
+
+                window.onload = function(){
+                    if(location.href.indexOf('#reloaded')==-1){
+                        location.href=location.href+"#reloaded";
+                        location.reload();
+                    }
+                }
+
+
+                layui.use('element', function(){
+                    var $ = layui.jquery
+                            ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+                    //触发事件
+                    var active = {
+                        tabAdd: function(){
+                            //新增一个Tab项
+                            element.tabAdd('demo', {
+                                title: '新选项'+ (Math.random()*1000|0) //用于演示
+                                ,content: '内容'+ (Math.random()*1000|0)
+                                ,id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+                            })
+                        }
+                        ,tabDelete: function(othis){
+                            //删除指定Tab项
+                            element.tabDelete('demo', '44'); //删除：“商品管理”
+
+
+                            othis.addClass('layui-btn-disabled');
+                        }
+                        ,tabChange: function(){
+                            //切换到指定Tab项
+                            element.tabChange('demo', '22'); //切换到：用户管理
+                        }
+                    };
+
+                    $('.site-demo-active').on('click', function(){
+                        var othis = $(this), type = othis.data('type');
+                        active[type] ? active[type].call(this, othis) : '';
+                    });
+
+                    //Hash地址的定位
+                    var layid = location.hash.replace(/^#test=/, '');
+                    element.tabChange('test', layid);
+
+                    element.on('tab(test)', function(elem){
+                        location.hash = 'test='+ $(this).attr('lay-id');
+                    });
+
+                });
+            </script>
+
+
+
+            <!------------------------------------------------------javascriptEnd------------------------------------------------------------->
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

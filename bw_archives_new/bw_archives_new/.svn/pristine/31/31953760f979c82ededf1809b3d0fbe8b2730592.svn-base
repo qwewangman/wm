@@ -1,0 +1,272 @@
+{include file='nobodyheader'}
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+<style type="text/css">
+    .contetnBox{
+        background-color: #ffffff;
+    }
+    .newRightBox{
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0 20px;
+    }
+    .layui-form-label{
+        font-size: 14px;
+    }
+    .layui-elem-field legend{
+        font-size: 16px;
+        color: #f09c4e;
+    }
+</style>
+<div class="contetnBox">
+    <div class="newRightBox">
+        <form class="layui-form" action="{:url('/doc/saveall')}" lay-filter="myallform">
+
+            <fieldset class="layui-elem-field ">
+                <legend>选择案卷</legend>
+                <div class="layui-field-box">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">年　　级</label>
+                            <div class="layui-input-inline">
+                                <select name="grade" lay-filter="grade"  id="grade">
+                                    <option value="" selected>请选择年级</option>
+                                    {for start="(date('Y'))" end="1999" comparison="gt" step="-1"}
+                                    <option value="{$i}" >{$i}级</option>
+                                    {/for}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">院　　系</label>
+                            <div class="layui-input-inline">
+                                <select name="depart" lay-filter="yx" id="depart">
+                                    <option value="" selected>请选择院系</option>
+                                    {foreach name='departlist' item='v'}
+                                    <option value="{$v.id}" >{$v.name}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">专　　业</label>
+                            <div class="layui-input-inline">
+                                <select name="major"  id="zy">
+                                    <option value="">请选专业</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline" >
+                            <a class="layui-btn layui-btn-primary btu-color"  href="javascript:void(0)" id="sch">
+                                <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>搜索
+                            </a>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <table class="layui-hide" id="stu_table" lay-filter="stu_table">
+
+                    </table>
+                </div>
+            </fieldset>
+            <fieldset class="layui-elem-field ">
+                <legend>选择文件</legend>
+                <div class="layui-field-box">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">类　　别：</label>
+                            <div class="layui-input-inline">
+                                <select name="category_id" lay-filter="category_id" id="category_id" lay-verify="required">
+                                    <option value="" selected>请选择类别</option>
+                                    {foreach name='c_arr' item='v'}
+                                    <option value="{$v.id}" >{$v.name}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">文件名称：</label>
+                            <div class="layui-input-inline">
+                                <select name="name"  id="name" lay-filter="name" lay-verify="required" lay-search>
+                                    <option value="">请选择名称</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">文件备注：</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="name_sub" id="name_sub" placeholder="填写附属信息，如年份"  autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">件　　数：</label>
+                            <div class="layui-input-inline">
+                                <input type="number" name="item_num" id="item_num"  autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">页　　数：</label>
+                            <div class="layui-input-inline">
+                                <input type="number" name="page_num"  id="page_num" lay-verify="page_num" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">形成日期：</label>
+                            <div class="layui-input-inline" style="width: 250px;">
+                                <div class="layui-input-inline" style="width: 80px;">
+                                    <select name="nian" id="weizhi1">
+                                        <option value="" selected>年</option>
+                                        {for start="(date('Y'))" end="1999" comparison="gt" step="-1"}
+                                        <option value="{$i}" >{$i}</option>
+                                        {/for}
+                                    </select>
+                                </div>
+                                <div class="layui-input-inline" style="width: 60px;">
+                                    <select name="yue" id="weizhi2">
+                                        <option value="" selected>月</option>
+                                        {for start="1" end="13" }
+                                        <option value="{$i}" >{$i}</option>
+                                        {/for}
+                                    </select>
+                                </div>
+                                <div class="layui-input-inline" style="width: 65px;">
+
+                                    <select name="ri" id="weizhi3">
+                                        <option value="" selected>日</option>
+                                        {for start="1" end="32" }
+                                        <option value="{$i}" >{$i}</option>
+                                        {/for}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+
+                        <label class="layui-form-label">备　　注：</label>
+                        <div class="layui-input-block">
+
+                            <textarea placeholder="请输入备注" name="content" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="layui-form-item" style="text-align: center">
+                        <div class="layui-input-block" style="margin-left: 0px;">
+                            <input type="hidden" name="stu_ids" id="stu_ids" value="">
+                            <button class="layui-btn" lay-submit="" lay-filter="myform">批量添加文件</button>
+                        </div>
+                    </div>
+
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script type="application/javascript">
+    var laydate;
+    layui.use('laydate', function(){
+        laydate = layui.laydate;
+        laydate.render({
+            elem: '#within_time' //指定元素
+        });
+        laydate.render({
+            elem: '#formal_time' //指定元素
+        });
+    });
+    var table;
+    layui.use('table', function() {
+        table = layui.table;
+
+        table.render({
+            elem: '#stu_table'
+            , url: "{:url('/file/filealllist')}"
+            , height:300
+            , title: '用户数据表'
+            , id:'stu_table'
+            , cols: [[
+                {type: 'checkbox', fixed: 'left'}
+                , {field: 'file_number', width: 120, fixed: true, title: '卷号'}
+                , {field: 'name', width: 120, fixed: true, title: '姓名'}
+                , {field: 'sex', width: 60, title: '性别'}
+                , {field: 'sc_number', width: 160, title: '学号'}
+                , {field: 'dname',  title: '系别'}
+                , {field: 'grade', width: 80, title: '年级'}
+                , {field: 'addtime', width: 120, title: '立卷日期'}
+            ]]
+        });
+    });
+    layui.use(['form'], function(){
+        var form = layui.form;
+
+        form.on('select(yx)', function(data){
+            var str = '<option value="">请选专业</option>';
+            var id = data.value; //院系id
+            if(id > 0)
+            {
+                $.post("{:url('/system/getzy')}",{id:id},function(res){
+                    var length = res.length;
+                    for (var i=0;i<length;i++) {
+                        str += '<option value="'+res[i].id+'">'+res[i].name+'</option>';
+                    }
+                    layui.$("#zy").html(str);
+                    form.render();
+                },'json');
+            }else{
+                layui.$("#zy").html(str);
+                form.render();
+            }
+        });
+        form.on('select(category_id)', function(data){
+            var str = '<option value="0">请选择名称</option>';
+            var id = data.value; //院系id
+            if(id > 0)
+            {
+                $.post("{:url('/system/getcategorylist')}",{id:id},function(res){
+                    var length = res.length;
+                    for (var i=0;i<length;i++) {
+                        str += '<option value="'+res[i].name+'">'+res[i].name+'</option>';
+                    }
+                    layui.$("#name").html(str);
+                    form.render();
+                },'json');
+            }else{
+                layui.$("#name").html(str);
+                form.render();
+            }
+
+        });
+        form.on('submit(myform)', function(data){
+            var checkStatus = table.checkStatus('stu_table');
+            var data    = checkStatus.data;
+            if(data == false)
+            {
+                layer.alert("请选择案卷！");
+                return false;
+            }
+            var valids  = new Array();
+            for (var i=0;i<data.length;i++) {
+                valids.push(data[i]['id']);
+            }
+            var val_str     = valids.join(',');
+            $("#stu_ids").val(val_str);
+            return true;
+        });
+    });
+
+
+    $('#sch').click(function(){
+        var depart      = $("#depart").val();
+        var zy          = $("#zy").val();
+        var grade       = $("#grade").val();
+        table.reload('stu_table', {
+            url:"{:url('/file/filealllist')}"
+            ,where: {depart:depart,major:zy,grade:grade} //设定异步数据接口的额外参数
+        });
+    });
+</script>
+</body>
+</html>

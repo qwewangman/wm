@@ -1,0 +1,102 @@
+{include file='header'}
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/index.css">
+<script src="__STATIC__/js/echarts.min.js"></script>
+<script src="__STATIC__/js/ecStat.min.js"></script>
+<script src="__STATIC__/js/ecStat.js"></script>
+<script type="text/javascript" src="__STATIC__/js/echarts.min.js"></script>
+<script type="text/javascript" src="__STATIC__/js/ecolor.js"></script>
+
+<div class="contetnBox">
+    {include file='layout'}
+    <div class="rightBox fl_right">
+        <div class="heaTitle">
+            <div class="heaList heaList1"><span>待处理档案</span><i>{$dcl}</i></div>
+            <div class="heaList heaList2"><span>库存档案</span><i>{$kc}</i></div>
+            <div class="heaList heaList3"><span>本科生档案</span><i>{$bks}</i></div>
+            <div class="heaList heaList4"><span>研究生档案</span><i>{$yjs}</i></div>
+        </div>
+        <div class="yearNum">
+            <div class="yearNumTitle">年入库量</div>
+            <div id="container" style="width:100%;height:360px;"></div>
+        </div>
+        <div class="conteRtent">
+            <div class="mainOne">
+                <div class="yearNumTitle">库房</div>
+                <div id="main" style="width:100%;height:318px;"></div>
+            </div>
+            <div class="mainTwo">
+                <div class="yearNumTitle">年迁出量</div>
+                <div id="main2" style="width:100%;height:318px;"></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<input type="hidden" id="wjs" value=""/>
+<input type="hidden" id="zd" value=""/>
+<input type="hidden" id="jc" value=""/>
+<input type="hidden" id="qc" value=""/>
+
+<script type="text/javascript">
+    // 库房
+    var myChart = echarts.init(document.getElementById('main'), 'customed');
+    var option = {
+        tooltip: {},
+        xAxis: {
+            data: ["未接收","在档","借出","迁出"]
+        },
+        yAxis: {},
+        series: [{
+            name: '库存',
+            type: 'bar',
+            data: [5, 20, 36, 10]
+        }]
+    };
+    myChart.setOption(option);
+    // 年迁出量
+    var myChart2 = echarts.init(document.getElementById('main2'), 'customed');
+    var option2 = {
+        tooltip: {},
+        xAxis: {
+            data: ["自带","邮寄","接收挡位自取"]
+        },
+        yAxis: {},
+        series: [{
+            name: '迁出量',
+            type: 'bar',
+            data: [5, 20, 36]
+        }]
+    };
+
+    myChart2.setOption(option2);
+    // 年入库量
+    var dom = document.getElementById("container");
+    var myChart1 = echarts.init(dom, 'customed');
+    var app = {};
+    option1 = null;
+    option1 = {
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: [ '2012', '2013', '2014', '2015', '2016', '2017','2018']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [300, 932, 901, 934, 1290, 1330, 1320],
+            type: 'line',
+            areaStyle: {}
+        }]
+    };
+    ;
+    if (option1 && typeof option1 === "object") {
+        myChart1.setOption(option1, true);
+    }
+
+    $(".sliderList").removeClass("sliderLists");
+    $("#slider1").addClass("sliderLists");
+</script>
+</body>
+</html>

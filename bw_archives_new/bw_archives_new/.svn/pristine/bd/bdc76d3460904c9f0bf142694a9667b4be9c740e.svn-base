@@ -1,0 +1,41 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 25352
+ * Date: 2018/5/14
+ * Time: 13:41
+ */
+
+namespace app\index\model;
+
+use think\Model;
+use think\Db;
+
+
+
+class BorrowModel extends Model
+{
+    // 设置当前模型对应的完整数据表名称
+    protected $table = 'oa_borrow';
+
+
+    public function revert_within($data){
+        $borrow_info = $this->where('file_number',$data['file_number'])->where('j_number',$data['j_number'])->select(); //查询该借阅号的借阅记录
+        //添加归还时间
+        $result_upd = $this->where('file_number',$data['file_number'])->where('j_number',$data['j_number'])->update(['s_date'=>$data['s_date']]);
+        //修改学生状态
+        $result_stu = Db::table('oa_students')->where('file_number',$data['file_number'])->update(['status'=>1]);
+        //修改文件状态
+        foreach ($borrow_info as $v){
+            if ($v['j_on'] == 0){ //等于0 全部借阅
+                $result_within = Db::table('oa_file_within')->where('file_number',$data['file_number'])->update(['status'=>1]);
+            }else{
+                $result_within = Db::table('oa_file_within')->where('file_number',$data['file_number'])->where('id',$v['j_on'])->update(['status'=>1]);
+            }
+        }
+        if ($result_within && $result_upd && $result_stu){
+            return 1;
+        }
+    }
+
+}

@@ -1,0 +1,77 @@
+{include file='nobodyheader' }
+<style type="text/css">
+    .layui-upload-img {
+        width: 92px;
+        height: 92px;
+        margin: 0 10px 10px 0;
+        display: inline-block;
+    }
+    .divbg {
+        background: #e2e2e2;
+        text-align: center;
+        line-height: 80px;
+        cursor: pointer;
+    }
+    #imglist{
+        display: -webkit-inline-box;
+    }
+    .divbg i{
+        font-size: 45px;
+        color: #fff;
+    }
+</style>
+<div style="padding: 10px">
+    <div class="layui-upload">
+        <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
+            <div class="layui-upload-list" >
+                <div id="imglist"></div>
+                <div class="layui-upload-img divbg"  id="uploadimg">
+                    <i class="layui-icon layui-icon-add-1"></i>
+                </div>
+            </div>
+        </blockquote>
+        <div style="text-align: center;">
+
+            <button class="layui-btn" id="quer">确认</button>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    var upload;
+    layui.use(['form','upload','laydate'], function(){
+        upload = layui.upload;
+        upload.render({
+            elem: '#uploadimg'
+            ,url: "{:url('/system/upload')}"
+            ,multiple: true
+            ,before: function(obj){
+                //预读本地文件示例，不支持ie8
+                obj.preview(function(index, file, result){
+                    $('#imglist').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img"><input type="hidden" class="imgurl" id="img-'+index+'">')
+                });
+            }
+            ,done: function(res, index, upload){
+                if(res.code == 200){ //上传成功
+                   $('#img-'+ index).val(res.data.src); //清空操作
+                }
+            }
+        });
+    });
+    var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+
+    $("#quer").click(function () {
+        var imglist = new Array();
+        $(".imgurl").each(function () {
+            imglist.push($(this).val());
+        });
+
+        var img_str     = imglist.join(",");
+
+        parent.setImgVal(img_str);
+        parent.layer.close(index);
+    })
+
+</script>
+
+</body>
+</html>

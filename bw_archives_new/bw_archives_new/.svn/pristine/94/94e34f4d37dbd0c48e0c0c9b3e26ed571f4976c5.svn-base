@@ -1,0 +1,37 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 25352
+ * Date: 2018/5/14
+ * Time: 13:41
+ */
+
+namespace app\index\model;
+
+use think\Model;
+use think\Db;
+
+
+class FilewithinModel extends Model
+{
+    protected $table = 'oa_file_within';
+
+    public function getList($id)
+    {
+        $list = $this->alias('s')->where("s.student_id=".$id)
+            ->join(['oa_category'=>'oc'],'s.category_id = oc.id','LEFT')
+            ->field("s.*,oc.name AS ocname")
+            ->select();
+
+        return $list;
+    }
+    public function getBorrow($file_number){
+        $borrow_type = $this->where('file_number',$file_number)->where('status = 2 or status = 3')->select();
+        if ($borrow_type){
+            return 2;
+        }else{
+            return 1;
+        }
+    }
+
+}

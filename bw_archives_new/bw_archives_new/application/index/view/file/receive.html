@@ -1,0 +1,162 @@
+{include file='header' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            {include file='settitle' title='1' }
+        </div>
+
+        <div class="layui-tab layui-tab-card" lay-filter="docDemoTabBrief">
+
+        <ul class="layui-tab-title">
+            <li  class="layui-this">
+                <i class=""></i> 单卷接收
+            </li>
+            <li>
+                <i class=""></i> 批量案卷接收
+            </li>
+
+        </ul>
+            <div class="layui-tab-content" >
+                <div class="layui-tab-item layui-show">
+                    {include file='/file/filechange' }
+                </div>
+        <!--first start-->
+        <!--<div class="" style="background: white ; padding: 15px;">-->
+            <div class="layui-tab-item" style="background: white ; padding: 15px;">
+            <div class="layui-tab  layui-tab-brief "  lay-filter="docDemoTabBrief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">待接收({$num})</li>
+                    <li>已接收</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-hide" id="stu_table" lay-filter="stu_table">
+
+                        </table>
+                        <script type="text/html" id="doAction">
+                            <div class="layui-btn-container">
+                                <button class="layui-btn layui-btn-sm" lay-event="receive">接收档案</button>
+                            </div>
+                        </script>
+                    </div>
+                    <div class="layui-tab-item">
+                        <table class="layui-hide" id="stu_table2" lay-filter="stu_table2">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <!--</div>-->
+        <!--first end-->
+
+            </div>
+    </div>
+
+    </div>
+</div>
+    <script>
+        var table;
+        layui.use(['table','element'], function(){
+            table = layui.table;
+            var element = layui.element;
+
+            table.render({
+                elem: '#stu_table'
+                ,url:"{:url('/file/getreceivelist')}"
+                ,toolbar: '#doAction'
+                ,defaultToolbar:[]
+                ,title: '用户数据表'
+                ,cols: [[
+                    {type: 'checkbox', fixed: 'left'}
+                    ,{field:'file_number', fixed:true, title:'卷号'}
+                    ,{field:'name', fixed:true, title:'姓名'}
+                    ,{field:'sex',  title:'性别'}
+                    ,{field:'sc_number', width:160, title:'学号'}
+                    ,{field:'file_derice',  title:'存放位置'}
+                    ,{field:'dname',  title:'系别'}
+                    ,{field:'grade', title:'年级'}
+                    ,{field:'addtime', title:'立卷日期'}
+                    ,{field:'created_at', title:'提交时间'}
+                ]]
+            });
+            table.on('toolbar(stu_table)', function(obj){
+
+                var checkStatus = table.checkStatus(obj.config.id);
+                switch(obj.event){
+                    case 'receive':
+                        if(checkStatus.data.length>0)
+                        {
+                            layer.confirm('确认接收这些档案吗？', {
+                                btn: ['确认收到','取消'] //按钮
+                            }, function(){
+                                var data_arr = new Array();
+                                var stu_arr = new Array();
+                                var data_tmp    = checkStatus.data;
+
+                                for(var j = 0,len = data_tmp.length; j < len; j++){
+                                    data_arr.push(data_tmp[j]['id']);
+                                    stu_arr.push(data_tmp[j]['student_id']);
+                                }
+                                var ids     = data_arr.join(",");
+                                var stu_ids     = stu_arr.join(",");
+                                $.post("{:url('/file/setreceive')}",{id:ids,stu_ids:stu_ids},function(res){
+                                    if(res.code == 200)
+                                    {
+                                        layer.msg("接收成功！",function () {
+                                            window.location.reload();
+
+                                        });
+                                    }
+                                },'json');
+                            });
+                        }else{
+                            layer.msg("请选择档案！");
+                        }
+                        break;
+                }
+            });
+
+            table.render({
+                elem: '#stu_table2'
+                ,url:"{:url('/file/getreceivelist')}?st=3"
+                ,title: '用户数据表'
+                ,cols: [[
+                    {field:'file_number', fixed:true, title:'卷号'}
+                    ,{field:'name', fixed:true, title:'姓名'}
+                    ,{field:'sex',  title:'性别'}
+                    ,{field:'sc_number',width:160,  title:'学号'}
+                    ,{field:'file_derice',  title:'存放位置'}
+                    ,{field:'dname',  title:'系别'}
+                    ,{field:'grade', title:'年级'}
+                    ,{field:'addtime', title:'立卷日期'}
+                    ,{field:'join_date', title:'提交时间'}
+                    ,{field:'receive_time', title:'接收时间'}
+                ]]
+            });
+
+        });
+        layui.use('element', function(){
+            var element = layui.element;
+        });
+        $(".sliderList").removeClass("sliderLists");
+        $("#slider3").addClass("sliderLists");
+    </script>
+</body>
+</html>

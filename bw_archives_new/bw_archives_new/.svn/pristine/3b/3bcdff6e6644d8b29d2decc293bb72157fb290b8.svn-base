@@ -1,0 +1,296 @@
+
+{include file='header' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">案卷管理</div>
+        </div>
+        <div class="" style="background: white ; padding: 15px;">
+
+            <div class="layui-tab">
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">姓名</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="name" id="name" autocomplete="off">
+
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学号</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="sc_number" id="sc_number" autocomplete="off">
+
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">卷号</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="file_number" id="file_number" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">位置</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="file_derice" id="file_derice" autocomplete="off">
+                                    </div>
+                                </div>
+
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">年级</label>
+                                    <div class="layui-input-inline">
+                                        <select name="grade" lay-filter="grade"  id="grade">
+                                            <option value="" selected>请选择年级</option>
+                                            {for start="(date('Y'))" end="1999" comparison="gt" step="-1"}
+                                            <option value="{$i}" >{$i}级</option>
+                                            {/for}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">院系</label>
+                                    <div class="layui-input-inline">
+                                        <select name="depart" lay-filter="yx" id="depart">
+                                            <option value="" selected>请选择院系</option>
+                                            {foreach name='departlist' item='v'}
+                                            <option value="{$v.id}" >{$v.name}</option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">专业</label>
+                                    <div class="layui-input-inline">
+                                        <select name="major"  id="zy">
+                                            <option value="">请选专业</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">状态</label>
+                                    <div class="layui-input-inline">
+                                        <select name="status" lay-filter="nj" id="status">
+                                            <option value="-1" selected>请选择状态</option>
+                                            <option value="0" >未接收</option>
+                                            <option value="1">在档-正常</option>
+                                            <option value="2">借出</option>
+                                            <option value="3">已迁出</option>
+                                            <option value="4">已退档</option>
+                                            <option value="5">转研究生</option>
+                                            <option value="6">在档-毕业暂存</option>
+                                            <option value="7">在档-村官暂存</option>
+                                            <option value="8">借出-室内查阅</option>
+                                            <option value="9">借出-在线查阅</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="layui-form-item" style="text-align: center;">
+                                <div class="layui-inline" style="margin-left: 9px">
+                                    <a class="layui-btn layui-btn-primary btu-color"  href="javascript:void(0)" id="sch">
+                                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>搜索
+                                    </a>
+                                    <a class="layui-btn layui-btn-primary btu-color"  href="JavaScript:void(0)" id="addfile">
+                                        <i class="layui-icon layui-icon-add-1 layuiadmin-button-btn"></i>立卷
+                                    </a>
+                                    <!--<a class="layui-btn layui-btn-primary btu-color"  href="{:url('/addExcel')}">批量立卷</a>-->
+                                </div>
+                            </div>
+                        </form>
+                        <table class="layui-hide" id="stu_table" lay-filter="stu_table">
+
+                        </table>
+                        <script type="text/html" id="doAction">
+                            <div class="layui-btn-container">
+                                <button class="layui-btn layui-btn-sm" lay-event="print">打印</button>
+                            </div>
+                        </script>
+                        <script type="text/html" id="oneAction">
+                            <a class="layui-btn layui-btn-xs" lay-event="fileChange">案卷变动</a>
+                            <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="fileCon">查看文件</a>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        var table;
+        layui.use('table', function(){
+            table = layui.table;
+
+            table.render({
+                elem: '#stu_table'
+                ,url:"{:url('/file/filelist')}"
+                ,toolbar: '#doAction'
+                ,defaultToolbar:['filter','exports']
+                ,title: '用户数据表'
+                ,cols: [[
+                    {type: 'checkbox', fixed: 'left'}
+                    ,{field:'file_number', width:120, fixed:true, title:'卷号'}
+                    ,{field:'name', width:120,fixed:true, title:'姓名'}
+                    ,{field:'sex', width:60 , title:'性别'}
+                    ,{field:'sc_number', width:160, title:'学号'}
+                    ,{field:'file_derice', width:100, title:'存放位置'}
+                    ,{field:'dname', width:160, title:'系别'}
+                    ,{field:'grade',width:80, title:'年级'}
+                    ,{field:'addtime',width:120, title:'立卷日期'}
+                    ,{field:'file_num', width:80, title:'文件数'}
+                    ,{field:'status',width:120, title:'案卷状态'}
+                    ,{fixed: 'right', toolbar: '#oneAction', width:180, title:'操作'}
+                ]]
+                ,page: true
+                ,limit:10
+                ,limits:[10,50,100]
+            });
+            table.on('toolbar(stu_table)', function(obj){
+                switch(obj.event){
+                    case 'print':
+                        window.location.href="{:url('/file/print')}?stu_id=1"
+                        break;
+                }
+            });
+            table.on('tool(stu_table)', function(obj){
+                switch(obj.event){
+                    case 'fileChange':
+                        layer.open({
+                            type: 2,
+                            title:"案卷变动-"+obj.data.name,
+                            area: ['90%', '100%'],
+                            fixed: true, //不固定
+                            maxmin: false,
+                            scrollbar:false,
+                            shadeClose:true,
+                            content: "{:url('/file/change')}?stu_id="+obj.data.id,
+                            anim:2
+                            ,btn: [ '关闭']//'迁出','降级', '参军', '院系变更','借阅',
+                            ,yes: function(index, layero){
+                                //按钮【按钮一】的回调
+                            }
+                            ,btn2: function(index, layero){
+                                //按钮【按钮二】的回调
+
+                                //return false 开启该代码可禁止点击该按钮关闭
+                            }
+                            ,btn3: function(index, layero){
+                                //按钮【按钮三】的回调
+
+                                //return false 开启该代码可禁止点击该按钮关闭
+                            }
+                            ,cancel: function(){
+                                //右上角关闭回调
+
+                                //return false 开启该代码可禁止点击该按钮关闭
+                            }
+                        });
+
+                        break;
+                    case 'fileCon':
+                        layer.open({
+                            type: 2,
+                            title:"文件列表-"+obj.data.name,
+                            area: ['90%', '100%'],
+                            fixed: true, //不固定
+                            maxmin: false,
+                            scrollbar:false,
+                            shadeClose:true,
+                            content: "{:url('/file/file')}?stu_id="+obj.data.id,
+                            anim:2
+                        });
+                        break;
+                    case 'showOne':
+                        layer.open({
+                            type: 2,
+                            title:"学员信息",
+                            area: ['800px', '100%'],
+                            fixed: true, //不固定
+                            maxmin: false,
+                            scrollbar:false,
+                            shadeClose:true,
+                            content: "{:url('/file/getone')}?id="+obj.data.id,
+                            anim:2
+                        });
+                        break;
+                };
+            });
+        });
+        layui.use(['form'], function(){
+            var form = layui.form;
+            form.on('select(yx)', function(data){
+                var str = '<option value="">请选专业</option>';
+                var id = data.value; //院系id
+                if(id > 0)
+                {
+                    $.post("{:url('/system/getzy')}",{id:id},function(res){
+                        var length = res.length;
+                        for (var i=0;i<length;i++) {
+                            str += '<option value="'+res[i].id+'">'+res[i].name+'</option>';
+                        }
+                        layui.$("#zy").html(str);
+                        form.render();
+                    },'json');
+                }else{
+                    layui.$("#zy").html(str);
+                    form.render();
+                }
+            });
+        });
+        $('#sch').click(function(){
+            var depart      = $("#depart").val();
+            var zy          = $("#zy").val();
+            var file_number = $("#file_number").val();
+            var sc_number   = $("#sc_number").val();
+            var name        = $("#name").val();
+            var file_derice        = $("#file_derice").val();
+            var grade        = $("#grade").val();
+            var status        = $("#status").val();
+            table.reload('stu_table', {
+                url:"{:url('/file/filelist')}"
+                ,where: {depart:depart,major:zy,file_number:file_number,sc_number:sc_number,name:name,file_derice:file_derice,grade:grade,status:status} //设定异步数据接口的额外参数
+            });
+        });
+        $("#addfile").click(function () {
+
+            var index = layer.open({
+                type: 2,
+                title:"立卷",
+                area: ['800px', '100%'],
+                fixed: true, //不固定
+                maxmin: false,
+                scrollbar:false,
+                shadeClose:false,
+                content: "{:url('/file/add')}",
+                anim:2,
+                cancel: function(index, layero){
+                    layer.close(index);
+                    window.location.reload();
+                }
+            });
+        });
+        $(".sliderList").removeClass("sliderLists");
+        $("#slider2").addClass("sliderLists");
+    </script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\www\bw_archives_new\public/../application/index\view\admin\newfun.html";i:1532508870;s:67:"D:\www\bw_archives_new\public/../application/index\view\layout.html";i:1532313048;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+</head>
+
+
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <div class="fl_right signOut"><a href="<?php echo url('/login_out'); ?>"  style="color: white">退出</a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="contetnBox">
+    <div class="sliderBox fl_left">
+    <a href="<?php echo url('/home'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">首页</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/ajgl'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">档案管理</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/system'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">系统设置</span>
+        <span class="clear"></span>
+    </a>
+    <!--<a href="<?php echo url('/lijuan'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-home"></span>-->
+        <!--<span class="fl_left sliderThree block">立卷</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/addFile'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-container"></span>-->
+        <!--<span class="fl_left sliderThree block">档案接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/inside'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-export"></span>-->
+        <!--<span class="fl_left sliderThree block">卷内文件接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/ajy'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-detail"></span>-->
+        <!--<span class="fl_left sliderThree block">案卷借阅</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/DaBd'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案变动</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+
+    <!--<a href="<?php echo url('/LmBj'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案类目</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+</div>
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">案卷管理</div>
+            <div class="fl_right detaBox">
+                <div class="detaBtn fl_left">打印</div>
+                <div class="detaBtn fl_left">批量导入</div>
+                <div class="detaBtn fl_left">立卷</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="details">
+            <div class="searchBox">
+                <div class="fl_left seaTerm">
+                    <div class="fl_left selectBox inputBox">
+                        <span class="block fl_left">院系</span>
+                            <select name="courtyard" id="courtyard" lay-filter="yx" class="fl_right seaInput" onchange="changeSelect()" style=" appearance:none;-moz-appearance:none;-webkit-appearance:none;">
+                                <div class="selectDeta">
+                            <option value="" selected><div class="seDeList">请选择院系</div></option>
+                            <?php if(is_array($departlist) || $departlist instanceof \think\Collection || $departlist instanceof \think\Paginator): if( count($departlist)==0 ) : echo "" ;else: foreach($departlist as $key=>$v): ?>
+                            <option value="<?php echo $v['id']; ?>" ><div class="seDeList"><?php echo $v['d_name']; ?></div></option>
+                            <?php endforeach; endif; else: echo "" ;endif; ?>
+                                </div>
+                            </select>
+                    </div>
+                    <div class="fl_left selectBox inputBox">
+                        <span class="block fl_left">专业</span>
+                            <select name="major"  id="zy" class="fl_right seaInput" style=" appearance:none;-moz-appearance:none;-webkit-appearance:none;">
+                                <div class="selectDeta">
+                                <option value=""><div class="seDeList">请选择专业</div></option>
+                                </div>
+                            </select>
+                    </div>
+                    <div class="fl_left inputBox">
+                        <span class="block fl_left">姓名</span>
+                        <input type="text" name="" class="fl_right seaInput block">
+                        <div class="clear"></div>
+                    </div>
+                    <div class="fl_left inputBox">
+                        <span class="block fl_left">学号</span>
+                        <input type="text" name="" class="fl_right seaInput block">
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="fl_right seaBtn">搜索</div>
+                <div class="clear"></div>
+            </div>
+            <div class="depositBox">
+                <div class="depTitle fl_left">存放位置</div>
+                <div class="depBtnBox fl_left">
+                    <div class="depBtn depBtns fl_left">1-1</div>
+                    <div class="depBtn fl_left">1-2</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="stuListBox">
+                <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): if( count($data)==0 ) : echo "" ;else: foreach($data as $key=>$v): ?>
+                <a href="<?php echo url('/details'); ?>?id=<?php echo $v['id']; ?>">
+                    <div class="stuList">
+                        <div class="stuName"><?php echo $v['file_number']; ?></div>
+                        <p>姓名：<?php echo $v['user_name']; ?></p>
+                        <p>学号：<?php echo $v['sc_number']; ?></p>
+                        <p>院系：<?php echo $v['d_name']; ?></p>
+                        <p>专业：<?php echo $v['m_name']; ?></p>
+                        <p>存放位置：<?php echo $v['file_derice']; ?></p>
+                        <p>立卷日期：<?php echo $v['addtime']; ?></p>
+                        <div class="checkBox"></div>
+                    </div>
+                </a>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </div>
+            <div style="margin: 0 auto">
+                <div class="tcdPageCode">
+                    <span id="sum_page"><?php echo $sum_page; ?></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<script type="text/javascript" src="__STATIC__/js/jquery.page.js"></script>
+<script>
+
+    function changeSelect() {
+        var id = document.getElementById("courtyard").value;
+        var str = '<div class="selectDeta"><option value="0"><div class="seDeList">请选择专业</div></option>';
+
+        $.post("<?php echo url('/getZy'); ?>",{id:id},function(res){
+            var length = res.length;
+            for (var i=0;i<length;i++) {
+                str += '<option value="'+res[i].id+'"><div class="seDeList">'+res[i].m_name+'</div></option>';
+            }
+            str = str+'</div>';
+            $("#zy").html(str);
+        },'json');
+    }
+
+</script>
+<script type="text/javascript">
+    var tiaoshu=$("#sum_page").text();//数据的条数
+    var yexian=5;//每页几条数据
+    var ye=  Math.ceil(tiaoshu/yexian);//可以分为几页
+    var currentUrl01 = decodeURI(window.location.href);
+    var arr01 = currentUrl01.split("?");
+    $('#zongye').text(ye);
+    $('#dang').html(arr01[1]);
+
+    $(function () {
+        $('#tiao').val(arr01[1]);
+        setTimeout(function () {
+            $("#zhuan").click()
+        },10);
+    });
+    function bian(yeshu){
+        var stateObject = {};
+        var title = "";
+        var newUrl ="" ;
+        if(arr01[0]!=parseInt($('#dang').text())){
+            newUrl =arr01[0]+"?"+yeshu;
+            history.pushState(stateObject,title,newUrl);
+            $.get("<?php echo url('/newfunn'); ?>?id="+yeshu,function (res) {
+                alert(res);
+            });
+        }
+
+    }
+    //这里面获取数据  p 为当前页数
+    $(".tcdPageCode").createPage({
+        pageCount:ye,
+        current:1,
+        backFn:function(p){
+            bian(p);
+        }
+    });
+</script>
+</body>
+</html>

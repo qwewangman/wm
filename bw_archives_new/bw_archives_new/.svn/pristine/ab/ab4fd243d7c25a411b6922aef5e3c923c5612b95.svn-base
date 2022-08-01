@@ -1,0 +1,26 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 25352
+ * Date: 2018/5/14
+ * Time: 13:41
+ */
+
+namespace app\index\model;
+
+use think\Model;
+use think\Db;
+
+
+class FilewithinModel extends Model
+{
+    protected $table = 'oa_file_within';
+
+    public function fileSurplus($id){
+        $file_sum = Db::table('oa_file_within')->where('s_id',$id)->count();
+        $file_surplus = Db::table('oa_file_within')->where('s_id',$id)->where('status',2)->count();
+        $short = $file_sum - $file_surplus;
+        return $short;
+    }
+
+}

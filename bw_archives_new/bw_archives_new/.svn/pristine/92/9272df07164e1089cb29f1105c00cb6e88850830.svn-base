@@ -1,0 +1,178 @@
+.details{
+	padding: 30px;
+	box-sizing: border-box;
+}
+.detaBtn{
+	width: 102px;
+	line-height: 36px;
+	border-radius: 4px;
+	border: solid 1px #c7782e;
+	text-align: center;
+	color: #333;
+	margin-left: 28px;
+	cursor: pointer;
+}
+.searchBox{
+	/* overflow: hidden; */
+}
+.seaTerm{
+	/* overflow: hidden; */
+	max-width: 86%;
+}
+.inputBox{
+	width: 280px;
+	height: 36px;
+	border-radius: 4px;
+	border: solid 1px #e7e7eb;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+.inputBox>span{
+	height: 36px;
+	border-right: solid 1px #e7e7eb;
+	width: 50px;
+	text-align: center;
+	line-height: 36px;
+	color: #666;
+}
+.inputBox:hover{
+    border-color: #c7782e;
+}
+.inputBox:hover .inputBox>span{
+    color: #c7782e;
+}
+.seaInput{
+	width: 229px;
+	height: 36px;
+	text-indent: 8px;
+	line-height: 36px;
+}
+.selectBox>.seaInput{
+	background: url(../imgs/arrow_down_b.png) right 12px center no-repeat;
+	background-size: 10px;
+}
+.seaBtn{
+	width: 102px;
+	height: 36px;
+	background-color: #c7782e;
+	border-radius: 4px;
+	line-height: 36px;
+	text-align: center;
+	color: #fff;
+}
+.depositBox{
+	width: 100%;
+	min-height: 72px;
+	background-color: #fafafa;
+	overflow: hidden;
+	padding:0 20px;
+	box-sizing: border-box;
+	margin-bottom: 34px;
+}
+.depTitle{
+	line-height: 72px;
+	color: #333;
+}
+.depBtnBox{
+	overflow: hidden;
+	padding-top: 22px;
+	box-sizing: border-box;
+	margin-left: 24px;
+}
+.depBtn{
+	width: 53px;
+	height: 28px;
+	background-color: #fff;
+	border-radius: 14px;
+	line-height: 28px;
+	text-align: center;
+	margin-right: 10px;
+	color: #333;
+	cursor: pointer;
+}
+
+.depBtn:hover{
+    background-color: #c7782e;
+}
+
+.depBtns{
+	background-color: #c7782e;
+	color: #fff;
+}
+.stuListBox{
+	display: -webkit-flex; /* Safari */
+  	display: flex;
+  	flex-wrap:wrap;
+  	justify-content: flex-start;
+  	align-items: flex-start;
+  	margin-bottom: 20px;
+}
+.stuList{
+	width: 276px;
+	height: 292px;
+	background-color: #f7f8fa;
+	margin-right: 30px;
+	padding:26px;
+	box-sizing: border-box;
+	position: relative;
+	margin-bottom: 30px;
+}
+.stuLists{
+	background-color: #fffaf0;
+}
+.checkBox{
+	width: 26px;
+	height: 26px;
+	border-radius: 4px;
+	position: absolute;
+	top:12px;
+	right: 20px;
+	background: url(../imgs/checkbox_g.png) center center no-repeat;
+	background-size: 26px;
+	cursor: pointer;
+}
+.stuListBox>.checkBox:hover{
+    background: #fffaf0;
+}
+.stuLists>.checkBox{
+	background: url(../imgs/checkbox_y.png) center center no-repeat;
+	background-size: 26px;
+}
+.stuName{
+	font-size: 24px;
+	color: #333;
+	font-weight: bold;
+	margin-bottom: 28px;
+}
+.stuList>p{
+	color: #666;
+	margin-bottom: 8px;
+}
+.selectBox{
+	position: relative;
+}
+.selectDeta{
+	width: 282px;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 15px 0px 
+		rgba(112, 112, 112, 0.19);
+	border-radius: 4px;
+	position: absolute;
+	top:38px;
+	left: 0px;
+	z-index: 9;
+	display: none;
+}
+.seDeList{
+	cursor: pointer;
+	line-height: 31px;
+	text-indent: 10px;
+}
+.seDeList:hover{
+	background-color: #ebedf0;
+}
+
+
+
+
+

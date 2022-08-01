@@ -1,0 +1,369 @@
+
+{include file='header' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">大棚管理</div>
+
+        </div>
+        <div class="" style="background: white ; padding: 15px;">
+
+            <div class="layui-tab">
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">名称</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="name" id="name" autocomplete="off">
+
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">编号</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="sc_number" id="sc_number" autocomplete="off">
+
+                                    </div>
+                                </div>
+
+<!--                                <div class="layui-inline">-->
+<!--                                    <label class="layui-form-label">卷号</label>-->
+<!--                                    <div class="layui-input-inline">-->
+<!--                                        <input class="layui-input" name="file_number" id="file_number" autocomplete="off">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="layui-inline">-->
+<!--                                    <label class="layui-form-label">身份证号</label>-->
+<!--                                    <div class="layui-input-inline">-->
+<!--                                        <input class="layui-input" name="file_derice" id="file_derice" autocomplete="off">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="layui-inline">-->
+<!--                                    <label class="layui-form-label">年级</label>-->
+<!--                                    <div class="layui-input-inline">-->
+<!--                                        <select name="grade" lay-filter="grade"  id="grade">-->
+<!--                                            <option value="" selected>请选择年级</option>-->
+<!--                                            {for start="(date('Y'))" end="1999" comparison="gt" step="-1"}-->
+<!--                                            <option value="{$i}" >{$i}级</option>-->
+<!--                                            {/for}-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="layui-inline">-->
+<!--                                    <label class="layui-form-label">院系</label>-->
+<!--                                    <div class="layui-input-inline">-->
+<!--                                        <select name="depart" lay-filter="yx" id="depart">-->
+<!--                                            <option value="" selected>请选择院系</option>-->
+<!--                                            {foreach name='departlist' item='v'}-->
+<!--                                            <option value="{$v.id}" >{$v.name}</option>-->
+<!--                                            {/foreach}-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="layui-inline">-->
+<!--                                    <label class="layui-form-label">专业</label>-->
+<!--                                    <div class="layui-input-inline">-->
+<!--                                        <select name="major"  id="zy">-->
+<!--                                            <option value="">请选专业</option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="layui-inline">-->
+<!--                                    <label class="layui-form-label">批次</label>-->
+<!--                                    <div class="layui-input-inline">-->
+
+<!--                                    </div>-->
+<!--                                </div>-->
+
+                            </div>
+                            <div class="layui-form-item" style="text-align: center;">
+                                <div class="layui-inline" style="margin-left: 9px">
+                                    <a class="layui-btn layui-btn-primary btu-color"  href="javascript:void(0)" id="sch">
+                                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>搜索
+                                    </a>
+                                    <a class="layui-btn layui-btn-primary "  href="{:url('/change/getout')}">
+                                        <i class="layui-icon layui-icon-refresh"></i>重置搜索
+                                    </a>
+
+                                </div>
+                            </div>
+                        </form>
+                        <table class="layui-hide"  id="stu_table" lay-filter="stu_table">
+
+                        </table>
+                        <script type="text/html" id="doAction">
+                            <div class="layui-btn-container">
+                                <button class="layui-btn layui-btn-sm" lay-event="print">打印</button>
+                            </div>
+                        </script>
+                        <script type="text/html" id="oneAction">
+
+                            <a class="layui-btn layui-btn-xs" lay-event="check">查看</a>
+                            <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="fileCon">改派</a>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        var table;
+        layui.use('table', function(){
+            table = layui.table;
+            table.render({
+                elem: '#stu_table'
+                ,url:"{:url('/change/getoutlist')}"
+
+                ,defaultToolbar:['filter','exports']
+                ,title: '用户数据表'
+                ,cols: [[
+                    {type: 'checkbox', fixed: 'left'}
+                    ,{field:'file_number', width:220, fixed:true, title:'名称'}
+                    ,{field:'name', width:220,fixed:true, title:'编号'}
+                    ,{fixed: 'right', toolbar: '#oneAction', width:220, title:'操作'}
+
+                ]]
+                ,page: true
+                ,limit:10
+                ,limits:[10,50,100]
+            });
+
+            table.on('tool(stu_table)', function(obj){
+                switch(obj.event){
+                    case 'check':
+                        var  index= layer.open({
+                            type: 2,
+                            title:"迁出查询-"+obj.data.name,
+                            area: ['50%', '50%'],
+                            fixed: true, //不固定
+                            maxmin: false,
+                            scrollbar:false,
+                            shadeClose:true,
+                            content: "{:url('/file/movefile')}?stu_id="+obj.data.id,
+                            anim:2
+                            ,btn: [ '关闭']//'迁出','降级', '参军', '院系变更','借阅',
+                            ,yes: function(index, layero){
+                                layer.close(index);
+                            }
+                        });
+
+                        break;
+                    case 'fileCon':
+                        layer.open({
+                            type: 2,
+                            title:"改派-"+obj.data.name,
+                            area: ['90%', '100%'],
+                            fixed: true, //不固定
+                            maxmin: false,
+                            scrollbar:false,
+                            shadeClose:true,
+                            content: "{:url('/file/changesend')}?stu_id="+obj.data.id,
+                            anim:2
+                        });
+                        break;
+                    case 'showOne':
+                        layer.open({
+                            type: 2,
+                            title:"学员信息",
+                            area: ['800px', '100%'],
+                            fixed: true, //不固定
+                            maxmin: false,
+                            scrollbar:false,
+                            shadeClose:true,
+                            content: "{:url('/file/getone')}?id="+obj.data.id,
+                            anim:2
+                        });
+                        break;
+                };
+            });
+        });
+        layui.use(['form'], function(){
+            var form = layui.form;
+            form.on('select(yx)', function(data){
+                var str = '<option value="">请选专业</option>';
+                var id = data.value; //院系id
+                if(id > 0)
+                {
+                    $.post("{:url('/system/getzy')}",{id:id},function(res){
+                        var length = res.length;
+                        for (var i=0;i<length;i++) {
+                            str += '<option value="'+res[i].id+'">'+res[i].name+'</option>';
+                        }
+                        layui.$("#zy").html(str);
+                        form.render();
+                    },'json');
+                }else{
+                    layui.$("#zy").html(str);
+                    form.render();
+                }
+            });
+        });
+        $('#sch').click(function(){
+            var name = $("#name").val();
+            var sc_number   = $("#sc_number").val();
+            var file_number        = $("#file_number").val();
+            var file_derice    = $("#file_derice").val();
+            var grade       = $("#grade").val();
+            var depart      = $("#depart").val();
+            var zy      = $("#zy").val();
+            //var batch      = $("#batch").val();
+
+            table.reload('stu_table', {
+                url:"{:url('/change/getoutlist')}"
+                ,page: {
+                    curr: 1 //重新从第 1 页开始
+                }
+                ,where: {name:name,sc_number:sc_number,file_number:file_number,file_derice:file_derice,grade:grade,depart:depart,zy:zy} //设定异步数据接口的额外参数
+            });
+        });
+
+        //---------------------------------------
+
+        /*var count=1;
+        var limit =  10;
+        $(document).ready(function() {
+            getDataFirst(1,limit);
+        });
+        $('#sch').click(function(){
+            getDataFirst(1,limit);
+        });
+        function getDataFirst(curr,limit) {
+                var depart      = $("#depart").val();
+                var zy          = $("#zy").val();
+                var file_number = $("#file_number").val();
+                var sc_number   = $("#sc_number").val();
+                var name        = $("#name").val();
+                var file_derice        = $("#file_derice").val();
+                var grade        = $("#grade").val();
+                var batch  =$("#batch").val();
+
+            $.get("{:url('/change/getoutlist')}", {
+                page: curr,
+                limit: limit,
+                depart: depart,
+                major: zy,
+                file_number: file_number,
+                sc_number: sc_number,
+                name: name,
+                file_derice: file_derice,
+                grade: grade,
+                batch: batch
+            }, function (res) {
+                if (res.code == 0) {
+                    count   = res.count;
+                    var data = res.data;
+                    var getTpl = datatpl.innerHTML, view = document.getElementById('condiv');
+
+                    layui.use(['laytpl'], function() {
+                        var laytpl = layui.laytpl;
+                        laytpl(getTpl).render(data, function (html) {
+                            view.innerHTML = html;
+                        });
+                    });
+
+                    layui.use(['laypage'], function() {
+                        var laypage = layui.laypage;
+
+                        laypage.render({
+                            elem: 'pagediv'
+                            ,count:count
+                            ,limit:limit
+                            ,layout: [ 'prev', 'page', 'next', 'skip']
+                            ,jump: function(obj,first){
+                                var curr =  obj.curr;
+                                if(!first) {
+                                    getData(curr,limit);
+                                }
+                            }
+                        });
+                    });
+                    initData();
+                }
+            }, 'json');
+        }
+
+        function getData(curr,limit) {
+            var depart      = $("#depart").val();
+            var zy          = $("#zy").val();
+            var file_number = $("#file_number").val();
+            var sc_number   = $("#sc_number").val();
+            var name        = $("#name").val();
+            var file_derice        = $("#file_derice").val();
+            var grade        = $("#grade").val();
+            var batch  =$("#batch").val();
+            $.get("{:url('/change/getoutlist')}", {
+                page: curr,
+                limit: limit,
+                depart: depart,
+                major: zy,
+                file_number: file_number,
+                sc_number: sc_number,
+                name: name,
+                file_derice: file_derice,
+                grade: grade,
+                batch: batch
+            }, function (res) {
+                if (res.code == 0) {
+                    var data = res.data;
+                    var getTpl = datatpl.innerHTML, view = document.getElementById('condiv');
+
+                    layui.use(['laytpl'], function() {
+                        var laytpl = layui.laytpl;
+                        laytpl(getTpl).render(data, function (html) {
+                            view.innerHTML = html;
+                        });
+                    });
+                    initData();
+                }
+            }, 'json');
+        }*/
+
+        //========================================
+        $("#addfile").click(function () {
+
+            var index = layer.open({
+                type: 2,
+                title:"立卷",
+                area: ['800px', '100%'],
+                fixed: true, //不固定
+                maxmin: false,
+                scrollbar:false,
+                shadeClose:false,
+                content: "{:url('/file/add')}",
+                anim:2,
+                cancel: function(index, layero){
+                    layer.close(index);
+                    window.location.reload();
+                }
+            });
+        });
+        $(".sliderList").removeClass("sliderLists");
+        $("#slider6").addClass("sliderLists");
+    </script>
+</body>
+</html>

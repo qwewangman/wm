@@ -1,0 +1,70 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 25352
+ * Date: 2018/5/14
+ * Time: 13:41
+ */
+
+namespace app\index\model;
+
+use think\Model;
+use think\Db;
+
+
+
+class StudentsModel extends Model
+{
+    // 设置当前模型对应的完整数据表名称
+    protected $table = 'oa_students';
+
+    // 添加
+    public function saveStudent($data)
+    {
+        $data['addtime'] = date('Y-m-d H:i:s');
+        $this->insert($data);
+        $finId = $this->getLastInsID();
+        return $finId;
+    }
+    //导入数据
+    public function addStudent($data)
+    {
+        foreach($data as $v)
+        {
+            $this->insert($v);
+        }
+        $finId = $this->getLastInsID();
+        return $finId;
+    }
+
+    //未在档
+    public function getWzdList($data,$where)
+    {
+        $num = $data['limit'];
+        if($data['page']<=0) $data['page']=1;
+        $p = ($data['page']-1)*$num;
+        $lmt = "$p,".$num;
+
+
+        $arr = array();
+        $arr['count'] = $this->where($where)->field('id,file_number,grade,courtyard,major,class,sc_number,user_name,status')->select();
+        $arr['content'] = $this->where($where)->field('id,file_number,grade,courtyard,major,class,sc_number,user_name,status')->order('id desc')->limit($lmt)->select();
+        return $arr;
+    }
+    //查询单条
+    public function getFileId($id){
+        $arr['content'] = $this->where("id",$id)->select();
+        return $arr;
+    }
+
+
+
+
+
+
+
+
+
+
+
+}

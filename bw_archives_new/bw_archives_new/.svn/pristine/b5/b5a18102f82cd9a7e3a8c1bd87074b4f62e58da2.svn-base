@@ -1,0 +1,117 @@
+<?php
+// +----------------------------------------------------------------------
+// | ThinkPHP [ WE CAN DO IT JUST THINK ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2006~2016 http://thinkphp.cn All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+// +----------------------------------------------------------------------
+// | Author: liu21st <liu21st@gmail.com>
+// +----------------------------------------------------------------------
+
+
+
+use think\Route;
+//登陆
+Route::rule('/index','index/index/index');
+Route::rule('/login_do','index/index/login_do');
+Route::rule('/login_out','index/index/login_out');
+
+//首页
+Route::rule('/home','index/index/home');
+
+
+//案卷管理
+Route::rule('/lijuan','index/admin/index');
+Route::rule('/lj_add','index/admin/lj_add');
+Route::rule('/getZy','index/admin/getZy');
+Route::rule('/addExcel','index/admin/addExcel');
+Route::rule('/addExcel_do','index/admin/addExcel_do');
+
+
+Route::rule('/addFile','index/admin/addFile');
+Route::rule('/BdCls','index/admin/BdCls'); //批量变动
+Route::rule('/getWzd','index/admin/getWzd'); //批量档案接收文件接收
+Route::rule('/getWzdDw','index/admin/getWzdDw');
+Route::rule('/getFile','index/admin/getFile');  //单个文件接收页面数据渲染
+Route::rule('/getFileUpd','index/admin/getFileUpd');
+Route::rule('/updZd','index/admin/updZd');
+Route::rule('/addInsid','index/admin/addInsid');
+Route::rule('/inside','index/admin/Inside');
+Route::rule('/addFil','index/admin/addFil');
+Route::rule('/getInsideList','index/admin/getInsideList');
+Route::rule('/addInside','index/admin/addInside');
+Route::rule('/addInsides','index/admin/addInsides');
+Route::rule('/getZcl','index/admin/getZcl');
+Route::rule('/addFileW','index/admin/addFileW');
+Route::rule('/shInside','index/admin/shInside');
+Route::rule('/getShInside','index/admin/getShInside'); //文件批量接收
+Route::rule('/getShInsides','index/admin/getShInsides'); //档案状态记录
+Route::rule('/sHenHe','index/admin/sHenHe');
+Route::rule('/CkJn','index/admin/CkJn');
+Route::rule('/JnDwJs','index/admin/JnDwJs');
+Route::rule('/JsJn','index/admin/JsJn');
+Route::rule('/getZddA','index/admin/getZddA');
+Route::rule('/updJy','index/admin/updJy');
+Route::rule('/updJys','index/admin/updJys');
+Route::rule('/jyAdd','index/admin/jyAdd');
+Route::rule('/DaBd','index/admin/DaBd');
+Route::rule('/BdLb','index/admin/BdLb');
+Route::rule('/BdCl','index/admin/BdCl');
+Route::rule('/qcAdd','index/admin/qcAdd');
+
+
+//类目
+Route::rule('/LmBj','index/admin/LmBj');
+Route::rule('/LmAdd','index/admin/LmAdd');
+Route::rule('/addLm_do','index/admin/addLm_do');
+Route::rule('/LmUpd','index/admin/LmUpd');
+Route::rule('/LmDel','index/admin/LmDel');
+Route::rule('/updLm_do','index/admin/updLm_do');
+
+//案卷管理
+Route::rule('/ajgl','index/file/ajgl');
+Route::rule('/fileList','index/file/fileList');
+Route::rule('/dyFile','index/file/dyFile');
+Route::rule('/wjjs','index/file/wjjs');
+
+//变动记录
+Route::rule('/change_record','index/file/change_record');
+Route::rule('/record','index/admin/record');
+Route::rule('/record_details','index/admin/record_details');
+Route::rule('/sea_change','index/admin/sea_change');
+Route::rule('/qcAdd_t','index/admin/qcAdd_t');
+Route::rule('/qcAdd_f','index/admin/qcAdd_f');
+
+//借阅记录
+Route::rule('/borrow','index/admin/borrow');
+Route::rule('/borrow_info','index/admin/borrow_info');
+
+
+//系统设置
+Route::rule('/system','index/file/system');
+Route::rule('/YxDelar','index/file/YxDelar');
+Route::rule('/YxAdd','index/admin/YxAdd');  //院系设置 添加专业
+Route::rule('/addyx_do','index/admin/addyx_do');
+Route::rule('/YxUpd','index/admin/YxUpd');
+Route::rule('/updyx_do','index/admin/updyx_do');
+Route::rule('/fileLists','index/file/fileLists');
+
+
+Route::rule('/newfun','index/admin/newfun');
+Route::rule('/newfunn','index/admin/newfunn');
+Route::rule('/details','index/admin/details'); //单个用户档案接收文件接收
+Route::rule('/ajchange','index/admin/ajchange');
+
+
+
+
+
+
+
+
+
+
+
+
+

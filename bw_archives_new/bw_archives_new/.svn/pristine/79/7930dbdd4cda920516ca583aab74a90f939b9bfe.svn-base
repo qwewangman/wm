@@ -1,0 +1,53 @@
+{include file='nobodyheader' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+</style>
+<div class="contetnBox">
+    <div class="" style="background: white ; padding: 15px;">
+        <div class="layui-tab  layui-tab-brief"  lay-filter="docDemoTabBrief">
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <table class="layui-hide" id="stu_table" lay-filter="stu_table">
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        var table;
+        layui.use(['table','element'], function(){
+            table = layui.table;
+            var element = layui.element;
+
+            table.render({
+                elem: '#stu_table'
+                ,url:"{:url('/file/getChange')}?stu_id={$stu_id}"
+                ,title: '用户数据表'
+                ,cols: [[
+                    {field:'num',  title:'ID'}
+                    ,{field:'created_at', title:'变更时间'}
+                    ,{field:'name',  title:'变更项目'}
+                    ,{field:'before',  title:'变更前'}
+                    ,{field:'after',  title:'变更后'}
+                    ,{field:'content',  title:'变更原因'}
+                ]]
+            });
+        });
+    </script>
+</body>
+</html>

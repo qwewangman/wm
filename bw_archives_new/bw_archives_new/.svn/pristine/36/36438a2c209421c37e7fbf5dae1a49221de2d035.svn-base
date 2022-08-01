@@ -1,0 +1,85 @@
+.loginBox{
+	width: 100%;
+	background: url(../imgs/login_img.png) center top no-repeat;
+	background-size: 100%;
+	padding-top: 38px;
+}
+.logo{
+	width: 164px;
+	margin-bottom: 34px;
+	margin-left: 60px;
+}
+.logo>img{
+	width: 100%;
+}
+.login{
+	width: 418px;
+	background-color: #f0f2f5;
+	box-shadow: 0px 7px 18px 0px 
+		rgba(48, 48, 48, 0.26);
+	margin:0 auto;
+	padding: 68px 0 83px;
+}
+.topTitle{
+	width: 228px;
+	margin: 0 auto;
+}
+.topTitle>img{
+	width: 100%;
+}
+.name{
+	text-align: center;
+	margin:37px 0 48px;
+	font-size: 22px;
+	color: #333;
+}
+.loginInput{
+	width: 340px;
+	height: 42px;
+	border-radius: 4px;
+	border: solid 1px #d9d9d9;
+	display: block;
+	margin:0 auto 22px;
+	font-size: 14px;
+	color: rgba(0,0,0,0.85);
+	text-indent: 32px;
+}
+.loginInput:hover{
+	border-color: #f39c12;
+}
+#number{
+	background: url(../imgs/me.png) left 11px center no-repeat;
+	background-size: 12px;
+}
+#pass{
+	background: url(../imgs/pass.png) left 10px center no-repeat;
+	background-size: 14px;
+}
+.erron{
+	font-size: 14px;
+	color: #f4333c;
+	text-indent: 38px;
+}
+.subBtn{
+    display: block;
+    border: none;
+	width: 340px;
+	height: 41px;
+	background-color: #f39c12;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 14px;
+	line-height: 41px;
+	text-align: center;
+	margin: 19px auto 0;
+}
+
+
+
+
+
+
+
+
+
+

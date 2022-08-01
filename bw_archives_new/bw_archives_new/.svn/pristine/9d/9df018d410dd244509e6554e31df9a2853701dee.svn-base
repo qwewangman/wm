@@ -1,0 +1,141 @@
+{include file='header' }
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+<style type="text/css">
+    .contetnBox{
+        background-color: #ffffff;
+        padding: 20px;
+    }
+    .newRightBox{
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0 20px;
+    }
+    .layui-elem-field legend{
+        font-size: 16px;
+        color: #f09c4e;
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+    <div class="titleBox">
+        <!--<div class="title fl_left">案卷管理</div>-->
+        {include file='setfile' title='4' }
+    </div>
+
+    <form class="layui-form" action="{:url('/file/doupload')}" lay-filter="myallform">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">年　　级</label>
+                <div class="layui-input-block">
+                    <select name="grade" lay-filter="grade"  id="grade" lay-verify="required">
+                        <option value="" selected>请选择年级</option>
+                        {for start="(date('Y'))" end="1999" comparison="gt" step="-1"}
+                        <option value="{$i}" >{$i}级</option>
+                        {/for}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">院　　系</label>
+                <div class="layui-input-block">
+                    <select name="depart" lay-filter="yx" id="depart" lay-verify="required">
+                        <option value="" selected>请选择院系</option>
+                        {foreach name='departlist' item='v'}
+                        <option value="{$v.id}" >{$v.name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">专　　业</label>
+                <div class="layui-input-block">
+                    <select name="major"  id="zy">
+                        <option value="">请选专业</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">选择文件</label>
+                <div class="layui-input-block">
+                    <div class="layui-upload">
+                        <button type="button" class="layui-btn layui-btn-primary" id="upload">
+                            <i class="layui-icon layui-icon-upload "></i>上传文件
+                        </button>
+                        <span id="showtips" style="margin-left: 10px;color: #c67605">
+
+                        </span>
+                        <input type="hidden" name="excel" id="excel">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item" >
+            <div class="layui-input-block" >
+
+                <button class="layui-btn" lay-submit="" lay-filter="myform">
+                    <i class="layui-icon layui-icon-release "></i>确认导入
+                </button>
+            </div>
+        </div>
+        <div style="height: 150px">
+
+        </div>
+    </form>
+    </div>
+</div>
+<script type="application/javascript">
+
+    layui.use(['form'], function(){
+        var form = layui.form;
+        form.on('select(yx)', function(data){
+            var str = '';
+            var id = data.value; //院系id
+            if(id > 0)
+            {
+                $.post("{:url('/system/getzy')}",{id:id},function(res){
+                    var length = res.length;
+                    for (var i=0;i<length;i++) {
+                        str += '<option value="'+res[i].id+'">'+res[i].name+'</option>';
+                    }
+                    layui.$("#zy").html(str);
+                    form.render();
+                },'json');
+            }else{
+                layui.$("#zy").html(str);
+                form.render();
+            }
+        });
+    });
+    layui.use('upload', function(){
+        var upload = layui.upload;
+
+        //选完文件后不自动上传
+        upload.render({
+            elem: '#upload'
+            ,url: "{:url('/file/uploadexcel')}"
+            ,auto: true
+            ,accept: 'file'
+
+            ,done: function(res, index, upload){
+
+                if(res.code == 200){ //上传成功
+                    $("#excel").val(res.data.src);
+                    $("#showtips").html('<i class="layui-icon layui-icon-ok "></i>'+res.data.info.name);
+                }
+            }
+            ,error: function(index, upload){
+
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+{include file='nobodyheader' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+    .anjuan .jp span{
+        padding: 5px;
+        border: 1px solid #000;
+    }
+    .anjuan .name{
+        text-align: center;
+        font-size: 24px;
+        padding: 0 10px;
+        font-weight: bold;
+    }
+    .anjuan .wenj{
+        padding: 10px 10px 0;
+    }
+    .anjuan .wenj .xiahua{
+        padding: 0 5px;
+    }
+</style>
+<form class="layui-form" action="{:url('/file/dochange/')}" lay-filter="qiandang">
+    <div class="layui-form-item" pane="">
+        <label class="layui-form-label label1">　迁出原因：</label>
+        <div class="layui-input-block div1">
+            <input type="radio" name="type" value="毕业" title="毕业" checked>
+            <input type="radio" name="type" value="结(肄)业" title="结(肄)业">
+            <input type="radio" name="type" value="退学" title="退学" >
+        </div>
+    </div>
+
+    <div class="layui-form-item" pane="">
+        <label class="layui-form-label label1">　迁档方式：</label>
+        <div class="layui-input-block div1">
+            <input type="radio" name="qdtype" value="自带" title="自带" >
+            <input type="radio" name="qdtype" value="邮寄" title="邮寄" checked>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label label1">　　寄件人：</label>
+        <div class="layui-input-block div1" >
+            <input type="text" name="jiname" value="" autocomplete="off" class="layui-input" lay-verify="required">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label label1">　寄件电话：</label>
+        <div class="layui-input-block div1" >
+            <input type="text" name="jiphone" lay-verify="required|phone|number" value="" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label label1">收件人邮编：</label>
+        <div class="layui-input-block div1" >
+            <input type="text" name="shoucode" placeholder="请输入收件人邮编" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label label1">收件人地址：</label>
+        <div class="layui-input-block div1" >
+            <input type="text" name="shouaddress" placeholder="请输入收件人单位及地址" autocomplete="off" class="layui-input" lay-verify="required">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label label1">收件人姓名：</label>
+        <div class="layui-input-block div1" >
+            <input type="text" name="shouname" placeholder="请输入收件人姓名" autocomplete="off" class="layui-input" lay-verify="required">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label label1">收件人电话：</label>
+        <div class="layui-input-block div1" >
+            <input type="text" name="shouphone" placeholder="请输入收件人电话" autocomplete="off" class="layui-input" lay-verify="required|phone|number">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label label1">　内件数量：</label>
+        <div class="layui-input-block div1" >
+            <input type="text" name="shounum" placeholder="请输入内件数量" autocomplete="off" class="layui-input" lay-verify="required|number">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label label1">　迁档批次：</label>
+        <div class="layui-input-block div1" >
+            <input type="text" name="batch" placeholder="请输入迁档批次" autocomplete="off" class="layui-input" lay-verify="required">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label label1">　迁档时间：</label>
+        <div class="layui-input-block div1" >
+            <input type="text" name="qdrq" id="qdrq" autocomplete="off" class="layui-input" lay-verify="required">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label label1">　快递单号：</label>
+        <div class="layui-input-block div1" >
+            <input type="text" name="postnum" placeholder="请输入快递单号" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label label1">　　　备注：</label>
+        <div class="layui-input-block div1">
+            <textarea placeholder="请输入其他原因" name="note" class="layui-textarea"></textarea>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item" style="text-align: center">
+        <input type="hidden" name="ctype" value="qiandang">
+        <button class="layui-btn" lay-submit="" lay-filter="demo2">确认迁出</button>
+        <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+    </div>
+    <div style="height: 250px">
+
+    </div>
+</form>
+<script type="application/javascript">
+
+    layui.use(['form'], function(){
+
+        form.on('select(yx)', function(data){
+            var str = '<option value="0">请选专业</option>';
+            var id = data.value; //院系id
+            if(id > 0)
+            {
+                $.post("{:url('/system/getzy')}",{id:id},function(res){
+                    var length = res.length;
+                    for (var i=0;i<length;i++) {
+                        str += '<option value="'+res[i].id+'">'+res[i].name+'</option>';
+                    }
+                    layui.$("#zy").html(str);
+                    form.render();
+                },'json');
+            }else{
+                layui.$("#zy").html(str);
+                form.render();
+            }
+
+        });
+        form.on('radio(filetype)', function(data){
+            if(data.value == 1)
+            {
+                $("#show_file").hide();
+            }else {
+                $("#show_file").show();
+            }
+        });
+
+    });
+    layui.use('laydate', function() {
+        var laydate = layui.laydate;
+        //var dateline=$("#daterang").val();
+        //日期时间范围
+        laydate.render({
+            elem: '#daterang'
+            /* ,done: function(value){
+                 var date=value.getUTCDate();
+                $("#return").val(date);
+             }*/
+        });
+        //日期时间范围
+        laydate.render({
+            elem: '#return'
+        });
+
+    });
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+</body>
+</html>

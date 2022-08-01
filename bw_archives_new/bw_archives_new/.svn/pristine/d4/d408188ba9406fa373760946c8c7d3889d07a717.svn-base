@@ -1,0 +1,82 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:81:"D:\phpStudy\PHPTutorial\WWW\AAA\public/../application/index\view\index\index.html";i:1528352619;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>北京舞蹈学院档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/login.css">
+    <script type="text/javascript" src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/index.js"></script>
+    <style>
+        .imgss>img{
+            margin: 0 auto;
+        }
+        .yzmInput{
+            background: url(__STATIC__/imgs/yzm.png) left 10px center no-repeat;
+            background-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="loginBox">
+    <div class="logo">
+
+    </div>
+    <div class="login">
+        <div class="topTitle">
+            <img src="__STATIC__/imgs/login_text.png">
+        </div>
+
+        <form action="<?php echo url('/login_do'); ?>" method="post"  name="testForm" >
+            <div class="name">登录</div>
+            <input type="text" name="admin_name" class="loginInput" placeholder="账号" id="number">
+            <input type="password" name="admin_pwd" class="loginInput" placeholder="密码" id="pass">
+
+
+            <input type="text" name="verifyCode" class="loginInput yzmInput" placeholder="请输入验证码">
+            <div class="imgss"><img src="<?php echo captcha_src(); ?>" onclick="this.src='<?php echo captcha_src(); ?>?x='+Math.random();" /></div>
+
+
+            <div class="erron"></div>
+            <!--<a href="#" class="subBtn">提交</a>-->
+            <input type="button" class="subBtn"   onclick="SendForm()" value="提交"/>
+        </form>
+
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+
+//    window.location.reload()
+
+    var a = 0;
+    var b = 0;
+
+    function SendForm ()
+    {
+        var number = $('#number').val();
+        var ret = /^[a-zA-Z][a-zA-Z0-9_]{4,15}$/;    //帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)
+        if(ret.test(number)){
+            a = 1;
+        }
+
+        var pass   = $('#pass').val();
+        var ret = /^[a-zA-Z]\w{5,17}$/;            //密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)
+        if(ret.test(pass)){
+            b = 1;
+        }
+
+
+        if(a == 1 && b == 1)
+        {
+            document.testForm.submit();
+        }else{
+            alert('账号或密码格式有误');
+        }
+
+    }
+
+</script>

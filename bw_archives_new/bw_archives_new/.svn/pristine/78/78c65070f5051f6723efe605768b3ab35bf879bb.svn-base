@@ -1,0 +1,135 @@
+
+{include file='header' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+
+            {include file='setlayout' title='4' }
+        </div>
+        <div class="" style="background: white ; padding: 15px;">
+
+            <div class="layui-tab">
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+
+                        <table class="layui-hide" id="user_table" lay-filter="user_table">
+
+                        </table>
+
+                        <script type="text/html" id="doAction">
+                            <div class="layui-btn-container">
+                                <button class="layui-btn layui-btn-sm" lay-event="add">添加邮寄地址</button>
+                                <button class="layui-btn layui-btn-sm" lay-event="addAll">批量添加邮寄地址</button>
+                                <!--<a href="{:url('/system/addall')}" class="layui-btn">批量添加邮寄地址</a>-->
+                            </div>
+                        </script>
+                        <script type="text/html" id="oneAction">
+                            <a class="layui-btn layui-btn-xs" lay-event="fileChange">修改</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var table;
+    layui.use('table', function(){
+        table = layui.table;
+//#oneAction
+        table.render({
+            elem: '#user_table'
+            ,url:"{:url('/system/getpost')}"
+            ,toolbar: '#doAction'
+            ,defaultToolbar:['filter','exports']
+            ,title: '用户数据表'
+            ,cols: [[
+                {field:'id',width:'10%',title:'ID'}
+                ,{field:'province',width:'10%', title:'省份'}
+                ,{field:'city',width:'10%', title:'市区'}
+                ,{field:'name',width:'20%', title:'档案接收部门名称'}
+                ,{field:'address',width:'20%',  title:'具体地址'}
+                ,{field:'contact',width:'15%',  title:'联系方式'}
+                ,{toolbar: '#oneAction',width:'15%',  title:'操作'}
+            ]]
+            ,page: true
+
+        });
+        table.on('toolbar(user_table)', function(obj){
+            switch(obj.event){
+                case 'add':
+                    layer.open({
+                        type: 2,
+                        title:"添加",
+                        area: ['400px', '500px'],
+                        fixed: true, //不固定
+                        maxmin: false,
+                        scrollbar:false,
+                        shadeClose:true,
+                        content: "{:url('/system/addpost')}",
+                        anim:2
+                        ,end: function(index, layero){
+                            window.location.reload();
+                        }
+                    });
+                    break;
+                case 'addAll':
+                    layer.open({
+                        type: 2,
+                        title:"批量添加",
+                        area: ['400px', '500px'],
+                        fixed: true, //不固定
+                        maxmin: false,
+                        scrollbar:false,
+                        shadeClose:true,
+                        content: "{:url('/system/addall')}",
+                        anim:2
+                        ,end: function(index, layero){
+                            window.location.reload();
+                        }
+                    });
+                    break;
+            }
+        });
+        table.on('tool(user_table)', function(obj){
+            switch(obj.event){
+                case 'edit':
+                    layer.open({
+                        type: 2,
+                        title:"修改",
+                        area: ['400px', '500px'],
+                        fixed: true, //不固定
+                        maxmin: false,
+                        scrollbar:false,
+                        shadeClose:true,
+                        content: "{:url('/system/addpost')}",
+                        anim:2
+                        ,end: function(index, layero){
+                            window.location.reload();
+                        }
+                    });
+                    break;
+            };
+        });
+    });
+</script>
+</body>
+</html>

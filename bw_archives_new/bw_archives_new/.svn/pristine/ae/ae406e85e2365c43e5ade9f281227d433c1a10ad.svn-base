@@ -1,0 +1,27 @@
+
+<div class="sliderBox fl_left">
+    <a href="{:url('/home')}" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">首页</span>
+        <span class="clear"></span>
+    </a>
+    <a href="{:url('/ajgl')}" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-container"></span>
+        <span class="fl_left sliderThree block">档案管理</span>
+        <span class="clear"></span>
+    </a>
+    <a href="{:url('/change_record')}" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-detail"></span>
+        <span class="fl_left sliderThree block">迁出记录</span>
+        <span class="clear"></span>
+    </a>
+    <a href="{:url('/system')}" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-setting"></span>
+        <span class="fl_left sliderThree block">系统设置</span>
+        <span class="clear"></span>
+    </a>
+</div>

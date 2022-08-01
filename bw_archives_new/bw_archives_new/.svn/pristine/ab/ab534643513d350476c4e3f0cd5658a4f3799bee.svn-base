@@ -1,0 +1,305 @@
+{include file='header'}
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+<style type="text/css">
+    .contetnBox{
+        background-color: #ffffff;
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .newRightBox{
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0 20px;
+    }
+    .layui-form-label{
+        font-size: 14px;
+    }
+    .layui-elem-field legend{
+        font-size: 16px;
+        color: #f09c4e;
+    }
+    .sea{
+        font-size: 14px;
+        padding: 9px 15px;
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+</style>
+<div class="contetnBox">
+    <div class="newRightBox">
+
+        <fieldset class="layui-elem-field layui-field-title" >
+            <legend>搜索学号</legend>
+        </fieldset>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">学　　号：</label>
+                <div class="layui-input-block">
+                    <input type="number" id="sc_number" name="sc_number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">身份证号：</label>
+                <div class="layui-input-block">
+                    <input type="card" id="card" name="card" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+                <div class="layui-inline">
+                    <a class="layui-btn layui-btn-primary btu-color"  href="javascript:void(0)" id="sch">
+                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>搜索
+                    </a>
+                    <a class="layui-btn layui-btn-primary "  href="{:url('/file/join')}">
+                        <i class="layui-icon layui-icon-refresh"></i>重置搜索
+                    </a>
+                </div>
+        </div>
+
+        <fieldset class="layui-elem-field layui-field-title" id="checked" style="display: none;">
+            <legend>搜索结果</legend>
+        </fieldset>
+        <div id="search_div" style="margin: 15px 0" class="layui-form-item">
+
+        </div>
+        <fieldset class="layui-elem-field layui-field-title" >
+            <legend>已选择学生</legend>
+        </fieldset>
+
+        <div id="table_div">
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">已确认档案</li>
+                    <li>已提交档案</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-hide" id="stu_table" lay-filter="stu_table">
+
+                        </table>
+
+                    </div>
+
+
+                    <div class="layui-tab-item">
+                        <table class="layui-table" lay-data="{toolbar:'#doAction2', url:'{:url('/file/affiliatedFileList')}?type=2'}" id="stu_table2" lay-filter="stu_table2">
+                            <thead>
+                            <tr>
+                                <th lay-data="{field:'name'}">姓名</th>
+                                <th lay-data="{field:'sex'}">性别</th>
+                                <th lay-data="{field:'sc_number'}">学号</th>
+                                <th lay-data="{field:'join_date'}">操作时间</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/html" id="doAction">
+                <div class="layui-btn-container">
+                    <button class="layui-btn layui-btn-sm" lay-event="print">提交</button>
+                </div>
+            </script>
+            <script type="text/html" id="oneAction">
+                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" id="del">删除</a>
+            </script>
+            <script type="text/html" id="doAction2">
+                <div class="layui-btn-container">
+                </div>
+            </script>
+
+        </div>
+    </div>
+</div>
+<script>
+    var table;
+    $('#sch').click(function(){
+        var sc_number   = $('#sc_number').val();
+        var card   = $('#card').val();
+
+        $.post("{:url('/file/SearchSNum')}",{sc_number:sc_number,card:card},function(res){
+            if(res){
+                $str_name   = "<div class='layui-inline'>"+
+                    "<label class='layui-form-label'>学　　号：</label>"+
+                    "<div class='layui-input-inline sea' style='width: auto' id='str_sc_number'>"+
+                    res.sc_number+
+                    "</div>"+
+                    "</div>"+
+                    "<div class='layui-inline'>"+
+                    "<label class='layui-form-label '>学员姓名：</label>"+
+                    "<div class='layui-input-inline sea'  style='width: auto' id='str_name'>"+
+                    res.name+
+                    "</div>"+
+                    "</div>"+
+                    "<div class='layui-inline'>"+
+                    "<button class='layui-btn' lay-submit='' lay-filter='myform1' id='myform1' onclick='trigger()''>"+
+                    "<i class='layui-icon layui-icon-ok layuiadmin-button-btn'>"+"</i>"+
+                    "确认档案"+
+                    "</button>"+
+                    "</div>"+"<br>";
+                document.getElementById("checked").style.display="block";
+                $('#search_div').html($str_name);
+                form.render();
+            }else{
+                layer.msg('暂无该学生');
+            }
+        },'json');
+    });
+
+    function trigger(){
+        var sc_number   = $('#sc_number').val();
+        layer.confirm('确认是北舞附中学员档案吗', function(index){
+        layer.close(index);
+            $.post("{:url('/file/AddFileCheck')}",{sc_number:sc_number},function(res){
+                if(res.code == 1){
+                    layer.open({
+                      type: 1, 
+                      title:"该学生已确认",
+                      area: ['330px', '250px'],
+                      content: "<div class='layui-inline'>"+
+                                    "<label class='layui-form-label '>学员姓名：</label>"+
+                                    "<div class='layui-input-inline sea'  style='width: auto' id='str_name'>"+
+                                        res.student_name+
+                                    "</div>"+
+                                "</div>"+
+                                "<div class='layui-inline'>"+
+                                    "<label class='layui-form-label'>学　　号：</label>"+
+                                    "<div class='layui-input-inline sea' style='width: auto' id='str_sc_number'>"+
+                                        res.sc_number+
+                                    "</div>"+
+                                "</div>"+
+                                "<div class='layui-inline'>"+
+                                    "<label class='layui-form-label '>加入时间：</label>"+
+                                    "<div class='layui-input-inline sea'  style='width: auto' id='str_name'>"+
+                                        res.date+
+                                    "</div>"+
+                                "</div>",
+                    });
+                    // layer.msg('该学员已确认', function(){
+                    //     table.reload('stu_table', {
+                    //         url:"{:url('/file/affiliatedFileList')}"
+                    //         ,where: {sc_number:sc_number,type:1} 
+                    //     });
+                    // });
+
+                }else if(res.code == 2){
+                    layer.open({
+                      type: 1, 
+                      title:"该学生已提交",
+                      area: ['330px', '250px'],
+                      content: "<div class='layui-inline'>"+
+                                    "<label class='layui-form-label '>学员姓名：</label>"+
+                                    "<div class='layui-input-inline sea'  style='width: auto' id='str_name'>"+
+                                        res.student_name+
+                                    "</div>"+
+                                "</div>"+
+                                "<div class='layui-inline'>"+
+                                    "<label class='layui-form-label'>学　　号：</label>"+
+                                    "<div class='layui-input-inline sea' style='width: auto' id='str_sc_number'>"+
+                                        res.sc_number+
+                                    "</div>"+
+                                "</div>"+
+                                "<div class='layui-inline'>"+
+                                    "<label class='layui-form-label '>加入时间：</label>"+
+                                    "<div class='layui-input-inline sea'  style='width: auto' id='str_name'>"+
+                                        res.date+
+                                    "</div>"+
+                                "</div>",
+                    });
+
+                }else{
+
+                    window.location.reload();
+
+                }
+            },'json');
+        });
+    }
+    layui.use(['form','table','element'], function(){
+        var form = layui.form;
+        var element = layui.element;
+        table = layui.table;
+        table.render({
+            id:'stu_table'
+            ,elem: '#stu_table'
+            ,url:"{:url('/file/affiliatedFileList')}"
+            ,where:{type:1}
+            ,toolbar: '#doAction'
+            ,defaultToolbar:[]
+            ,title: '用户数据表'
+            ,cols: [[
+                {type: 'checkbox', fixed: 'left'}
+                ,{field:'name', fixed:true, title:'姓名'}
+                ,{field:'sex',  title:'性别'}
+                ,{field:'sc_number', title:'学号'}
+                ,{field:'join_date', title:'操作时间'}
+                ,{ toolbar: '#oneAction', width:110, title:'操作'}
+
+            ]]
+            
+        });
+
+        table.on('toolbar(stu_table)', function(obj){
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch(obj.event){
+                case 'print':
+                    var data = new Array();
+                    data = checkStatus.data;//huo这里
+                    var arr_tmp     = new Array(),stu_arr = new Array();
+                    for(var i=0,len=data.length;i<len;i++){
+                        arr_tmp.push(data[i]['id']);
+                        stu_arr.push(data[i]['stu_id']);
+                    }
+                    var str_tmp     = arr_tmp.join(",");
+                    var stu_ids     = stu_arr.join(",");
+                    $.post("{:url('/file/affiliatedDyFile')}",{str_tmp:str_tmp,stu_ids:stu_ids},function(res){
+                        if(res.code == 0)
+                        {
+                            window.location.reload();
+                            //window.location.href="{:url('/file/downloadpdf')}?stu_ids="+stu_ids;
+                        }
+                    },'json');
+                    
+                    break;
+
+
+            }
+        });
+        table.on('tool(stu_table)', function(obj) {
+            switch (obj.event) {
+                case 'del':
+                    var sc_number      = obj.data.sc_number;
+
+                    layer.confirm('真的删除行么', function(index){
+                        obj.del(); //删除对应行（tr）的DOM结构
+                        layer.close(index);
+                        //向服务端发送删除指令
+                        $.ajax({
+                            url:"/file/deletejoin",
+                            type:"post",
+                            data:{
+                                sc_number:sc_number
+                            },
+                            success:function(res){
+                                if(res>0){
+                                    layer.msg("删除成功");
+                                }
+
+                            },
+                            error:function(e){
+                                layer.msg("error");
+                            }
+                        });
+                    });
+                    break;
+            }
+
+        })
+
+    });
+
+</script>
+</body>
+</html>

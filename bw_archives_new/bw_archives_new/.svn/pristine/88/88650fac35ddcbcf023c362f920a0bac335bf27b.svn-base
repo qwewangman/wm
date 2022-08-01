@@ -1,0 +1,297 @@
+<html>
+<head>
+    <!-- content type -->
+    <meta content="text/html; charset=utf8" http-equiv="Content-Type">
+    <!-- viewport -->
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <!-- title -->
+    <title>查看</title>
+
+    <!-- add css -->
+    <link type="text/css" href="__STATIC__/turnpage/css/style.css" rel="stylesheet">
+
+    <!-- add js -->
+    <script src="__STATIC__/turnpage/js/jquery.js"></script>
+    <script src="__STATIC__/turnpage/js/turn.js"></script>
+    <script src="__STATIC__/turnpage/js/jquery.fullscreen.js"></script>
+    <script src="__STATIC__/turnpage/js/jquery.address-1.6.min.js"></script>
+    <script src="__STATIC__/turnpage/js/onload.js"></script>
+
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow:auto !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<!-- BEGIN FLIPBOOK STRUCTURE -->
+<div data-template="true" data-cat="book7" id="fb7-ajax">
+
+
+    <!-- BEGIN HTML BOOK -->
+    <div data-current="book7" class="fb7" id="fb7">
+
+        <!-- preloader -->
+        <div class="fb7-preloader">
+            <div id="wBall_1" class="wBall">
+                <div class="wInnerBall">
+                </div>
+            </div>
+            <div id="wBall_2" class="wBall">
+                <div class="wInnerBall">
+                </div>
+            </div>
+            <div id="wBall_3" class="wBall">
+                <div class="wInnerBall">
+                </div>
+            </div>
+            <div id="wBall_4" class="wBall">
+                <div class="wInnerBall">
+                </div>
+            </div>
+            <div id="wBall_5" class="wBall">
+                <div class="wInnerBall">
+                </div>
+            </div>
+        </div>
+
+        <!-- background for book -->
+        <div class="fb7-bcg-book" style="    background: burlywood;"></div>
+
+        <!-- BEGIN CONTAINER BOOK -->
+        <div id="fb7-container-book">
+
+            <!-- BEGIN deep linking -->
+            <section id="fb7-deeplinking">
+                <ul>
+                    {for start="0" end="$doc_info.enum+$doc_info.jiou" step="2"}
+                        {if condition="$i eq 0"}
+                            <li data-address="page1" data-page="1"></li>
+                        {else /}
+                            <li data-address="page{$i}-page{$i+1}" data-page="{$i}"></li>
+                            <li data-address="page{$i}-page{$i+1}" data-page="{$i+1}"></li>
+                        {/if}
+                    {/for}
+
+                    <li data-address="end" data-page="{$doc_info.enum+$doc_info.jiou}"></li>
+                </ul>
+            </section>
+            <!-- END deep linking -->
+
+
+            <!-- BEGIN ABOUT -->
+            <section id="fb7-about">
+                <h1><strong style="color: #000;">卷名：{$doc_info.osname}</strong></h1>
+                <h1><strong style="color: #000;">卷号：{$doc_info.file_number}</strong></h1>
+                <h1><strong style="color: #000;">文件目录：{$doc_info.name}</strong></h1>
+                <h1><strong style="color: #000;">文件类别：{$doc_info.ocname}</strong></h1>
+            </section>
+            <!-- END ABOUT -->
+
+
+            <!-- BEGIN PAGES -->
+            <div id="fb7-book">
+                <!-- BEGIN PAGE 0 -->
+                <div style="background-image:url()">
+
+                    <!-- begin container page book -->
+                    <div class="fb7-cont-page-book">
+
+                        <!-- description for page-->
+                        <div class="fb7-page-book">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <h1 style="text-align: center;">&nbsp;{$doc_info.name}</h1>
+                        </div>
+
+                    </div>
+                    <!-- end container page book -->
+
+                </div>
+                <!-- END PAGE 0 -->
+
+
+                {foreach name='doc_info.imgs' item='v' key="k"}
+
+                <!-- BEGIN PAGE -->
+                <div style="background-image:url({$v})">
+                    <!-- begin container page book -->
+                    <div class="fb7-cont-page-book">
+                        <!-- description for page -->
+                        <div class="fb7-page-book">
+
+                        </div>
+                        <!-- begin number page -->
+                        <div class="fb7-meta">
+                            <span class="fb7-num">{$k+2}</span>
+                        </div>
+                        <!-- end number page -->
+                    </div>
+                    <!-- end container page book -->
+                </div>
+                <!-- END PAGE -->
+
+
+                {/foreach}
+
+                <!-- BEGIN PAGE 0 -->
+                <div style="background-image:url()">
+
+                    <!-- begin container page book -->
+                    <div class="fb7-cont-page-book">
+
+                        <!-- description for page-->
+                        <div class="fb7-page-book">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <h1 style="text-align: center;">the end</h1>
+                        </div>
+
+                    </div>
+                    <!-- end container page book -->
+
+                </div>
+                <!-- END PAGE 0 -->
+
+
+            </div>
+            <!-- END PAGES -->
+
+
+            <!-- arrows -->
+            <a class="fb7-nav-arrow prev"></a>
+            <a class="fb7-nav-arrow next"></a>
+
+            <!-- shadow -->
+            <div class="fb7-shadow"></div>
+
+        </div>
+        <!-- END CONTAINER BOOK -->
+
+        <!-- BEGIN FOOTER -->
+        <div id="fb7-footer">
+
+            <div class="fb7-bcg-tools"></div>
+
+            <div class="fb7-menu" id="fb7-center">
+                <ul>
+
+                    <!-- margin left -->
+                    <li></li>
+
+                    <!-- icon_zoom_in -->
+                    <li>
+                        <a title="放大" class="fb7-zoom-in"></a>
+                    </li>
+
+
+                    <!-- icon_zoom_out -->
+                    <li>
+                        <a title="缩小" class="fb7-zoom-out"></a>
+                    </li>
+
+
+                    <!-- icon_zoom_original -->
+                    <li>
+                        <a title="原始比例" class="fb7-zoom-original"></a>
+                    </li>
+
+
+                    <!-- icon_allpages -->
+                    <li>
+                        <a title="全部文件" class="fb7-show-all"></a>
+                    </li>
+
+
+                    <!-- icon_home -->
+                    <li>
+                        <a title="首页" class="fb7-home"></a>
+                    </li>
+
+                    <!-- icon fullscreen -->
+                    <li>
+                        <a title="全屏" class="fb7-fullscreen"></a>
+                    </li>
+
+                    <!-- margin right -->
+                    <li></li>
+
+                </ul>
+            </div>
+
+            <div class="fb7-menu" id="fb7-right">
+                <ul>
+                    <!-- icon page manager -->
+                    <li class="fb7-goto">
+                        <label for="fb7-page-number" id="fb7-label-page-number"></label>
+                        <input type="text" id="fb7-page-number">
+                        <button type="button">Go</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+        <!-- BEGIN THUMBS -->
+        <div id="fb7-all-pages" class="fb7-overlay">
+            <section class="fb7-container-pages">
+                <div id="fb7-menu-holder">
+                    <ul id="fb7-slider">
+                        <!-- PAGE 1 - THUMB -->
+                        {foreach name='doc_info.imgs' item='v' key="k" }
+                        <li class="{$k}">
+                            <img alt="" src="{$v}" data-key="{$k}"  class="showimgs">
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <!-- END THUMBS -->
+    </div>
+    <!-- END HTML BOOK -->
+</div>
+<!-- END FLIPBOOK STRUCTURE -->
+
+<!-- CONFIGURATION FLIPBOOK -->
+
+<script>
+
+    jQuery('#fb7-ajax').data('config',
+        {
+            "page_width":"640",
+            "page_height":"920",
+            "go_to_page":"Page",
+            "gotopage_width":"45",
+            "zoom_double_click":"1",
+            "zoom_step":"0.06",
+            "tooltip_visible":"true",
+            "toolbar_visible":"true",
+            "deeplinking_enabled":"true",
+            "double_click_enabled":"true",
+            "rtl":"false"
+        })
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1407 @@
+---------------------------------------------------------------
+[ 2018-07-02T08:56:14+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] www.archives01.com/ [运行时间：0.053809s][吞吐率：18.58req/s] [内存消耗：1,474.63kb] [文件加载：46]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\www\bw_archives\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\www\bw_archives\public/../application/index\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-02T08:56:15+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/captcha.html
+[ info ] www.archives01.com/index.php/captcha.html [运行时间：0.375297s][吞吐率：2.66req/s] [内存消耗：1,245.43kb] [文件加载：39]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\www\bw_archives\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-02T08:56:29+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/login_do.html
+[ info ] www.archives01.com/index.php/login_do.html [运行时间：0.264796s][吞吐率：3.78req/s] [内存消耗：2,370.93kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'login_do',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9ktc0tnkgeqga5b2ru83beufh5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://www.archives01.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '50',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'admin_name' => 'admin',
+  'admin_pwd' => 'a00000',
+  'verifyCode' => 'cx2wn',
+)
+[ info ] [ RUN ] app\index\controller\Index->login_do[ D:\www\bw_archives\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001117s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_admin` [ RunTime:0.201605s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_admin` WHERE  `admin_name` = 'admin'  AND `admin_password` = 'a00000' [ RunTime:0.001214s ]
+---------------------------------------------------------------
+[ 2018-07-02T08:56:29+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/home.html
+[ info ] www.archives01.com/index.php/home.html [运行时间：0.087105s][吞吐率：11.48req/s] [内存消耗：2,333.96kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'home',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9ktc0tnkgeqga5b2ru83beufh5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/login_do.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->home[ D:\www\bw_archives\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives\public/../application/index\view\index\home.html [ array (
+  0 => 'dcl',
+  1 => 'kc',
+  2 => 'bks',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010157s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.030748s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` WHERE  `status` = 0 LIMIT 1 [ RunTime:0.006361s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` WHERE  (  status in (1,2) ) LIMIT 1 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` LIMIT 1 [ RunTime:0.000229s ]
+---------------------------------------------------------------
+[ 2018-07-02T08:56:33+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/wjjs.html
+[ info ] www.archives01.com/index.php/wjjs.html [运行时间：0.259670s][吞吐率：3.85req/s] [内存消耗：2,442.27kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'wjjs',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9ktc0tnkgeqga5b2ru83beufh5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/home.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->wjjs[ D:\www\bw_archives\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives\public/../application/index\view\file\wjjs.html [ array (
+  0 => 'departlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011060s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.072055s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000435s ]
+---------------------------------------------------------------
+[ 2018-07-02T08:56:34+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getInsideList.html?page=1&limit=10
+[ info ] www.archives01.com/index.php/getInsideList.html?page=1&limit=10 [运行时间：0.266045s][吞吐率：3.76req/s] [内存消耗：2,433.23kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'admin',
+    2 => 'getInsideList',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9ktc0tnkgeqga5b2ru83beufh5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/wjjs.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Admin->getInsideList[ D:\www\bw_archives\application\index\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009943s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.054077s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) [ RunTime:0.000685s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000601s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.011080s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.157832s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000332s ]
+---------------------------------------------------------------
+[ 2018-07-02T08:56:34+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getInsideList.html?page=1&limit=10
+[ info ] www.archives01.com/index.php/getInsideList.html?page=1&limit=10 [运行时间：0.068492s][吞吐率：14.60req/s] [内存消耗：2,433.23kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'admin',
+    2 => 'getInsideList',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9ktc0tnkgeqga5b2ru83beufh5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/wjjs.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Admin->getInsideList[ D:\www\bw_archives\application\index\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010562s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.013301s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) [ RunTime:0.000383s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.007744s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.008049s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000273s ]
+---------------------------------------------------------------
+[ 2018-07-02T08:56:35+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/JnDwJs.html?page=1&limit=10
+[ info ] www.archives01.com/index.php/JnDwJs.html?page=1&limit=10 [运行时间：0.149538s][吞吐率：6.69req/s] [内存消耗：2,405.64kb] [文件加载：54]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'admin',
+    2 => 'JnDwJs',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9ktc0tnkgeqga5b2ru83beufh5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/wjjs.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Admin->JnDwJs[ D:\www\bw_archives\application\index\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004203s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.090216s ]
+[ sql ] [ SQL ] SELECT `id`,`user_name` FROM `oa_students` WHERE  `type` = 2 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.026702s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 2  AND `status` = 0 [ RunTime:0.000418s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 3  AND `status` = 0 [ RunTime:0.000313s ]
+---------------------------------------------------------------
+[ 2018-07-02T09:17:53+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ info ] www.archives01.com/index.php/ajgl.html [运行时间：0.108098s][吞吐率：9.25req/s] [内存消耗：2,565.71kb] [文件加载：60]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'ajgl',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9ktc0tnkgeqga5b2ru83beufh5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/wjjs.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->ajgl[ D:\www\bw_archives\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives\public/../application/index\view\file\ajgl.html [ array (
+  0 => 'departlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000957s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.038118s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000248s ]
+---------------------------------------------------------------
+[ 2018-07-02T09:17:53+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ info ] www.archives01.com/index.php/fileList.html?page=1&limit=10 [运行时间：0.105439s][吞吐率：9.48req/s] [内存消耗：2,385.02kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'fileList',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9ktc0tnkgeqga5b2ru83beufh5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.archives01.com/index.php/ajgl.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->fileList[ D:\www\bw_archives\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000528s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.024297s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000358s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016026s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000179s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.014788s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000151s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.014619s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000159s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000118s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000105s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000108s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000103s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000101s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000106s ]
+---------------------------------------------------------------
+[ 2018-07-02T09:58:20+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] www.archives01.com/ [运行时间：0.024365s][吞吐率：41.04req/s] [内存消耗：1,474.49kb] [文件加载：46]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\www\bw_archives\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\www\bw_archives\public/../application/index\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-02T09:58:20+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/captcha.html
+[ info ] www.archives01.com/index.php/captcha.html [运行时间：0.072028s][吞吐率：13.88req/s] [内存消耗：1,245.30kb] [文件加载：39]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://www.archives01.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\www\bw_archives\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-02T09:58:33+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/login_do.html
+[ info ] www.archives01.com/index.php/login_do.html [运行时间：0.135065s][吞吐率：7.40req/s] [内存消耗：1,480.82kb] [文件加载：47]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'login_do',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=ttqagpklk6hvaq563mudnl2rn2',
+  'content-length' => '50',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'referer' => 'http://www.archives01.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'admin_name' => 'admin',
+  'admin_pwd' => 'a00000',
+  'verifyCode' => 'shko6',
+)
+[ info ] [ RUN ] app\index\controller\Index->login_do[ D:\www\bw_archives\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\www\bw_archives\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-02T09:58:37+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/captcha.html
+[ info ] www.archives01.com/index.php/captcha.html [运行时间：0.032337s][吞吐率：30.92req/s] [内存消耗：1,245.43kb] [文件加载：39]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=ttqagpklk6hvaq563mudnl2rn2',
+  'referer' => 'http://www.archives01.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\www\bw_archives\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-07-02T09:58:49+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/login_do.html
+[ info ] www.archives01.com/index.php/login_do.html [运行时间：0.079579s][吞吐率：12.57req/s] [内存消耗：2,370.46kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'login_do',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=ttqagpklk6hvaq563mudnl2rn2',
+  'content-length' => '50',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'referer' => 'http://www.archives01.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'admin_name' => 'admin',
+  'admin_pwd' => 'a00000',
+  'verifyCode' => 'wvrme',
+)
+[ info ] [ RUN ] app\index\controller\Index->login_do[ D:\www\bw_archives\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001005s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_admin` [ RunTime:0.047961s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_admin` WHERE  `admin_name` = 'admin'  AND `admin_password` = 'a00000' [ RunTime:0.000337s ]
+---------------------------------------------------------------
+[ 2018-07-02T09:58:49+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/home.html
+[ info ] www.archives01.com/index.php/home.html [运行时间：0.056446s][吞吐率：17.72req/s] [内存消耗：2,333.91kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'home',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=ttqagpklk6hvaq563mudnl2rn2',
+  'referer' => 'http://www.archives01.com/index.php/login_do.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->home[ D:\www\bw_archives\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives\public/../application/index\view\index\home.html [ array (
+  0 => 'dcl',
+  1 => 'kc',
+  2 => 'bks',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010964s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015599s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` WHERE  `status` = 0 LIMIT 1 [ RunTime:0.000501s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` WHERE  (  status in (1,2) ) LIMIT 1 [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` LIMIT 1 [ RunTime:0.000222s ]
+---------------------------------------------------------------
+[ 2018-07-02T09:58:57+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ info ] www.archives01.com/index.php/ajgl.html [运行时间：0.055399s][吞吐率：18.05req/s] [内存消耗：2,426.27kb] [文件加载：58]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'ajgl',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=ttqagpklk6hvaq563mudnl2rn2',
+  'referer' => 'http://www.archives01.com/index.php/home.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->ajgl[ D:\www\bw_archives\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\www\bw_archives\public/../application/index\view\file\ajgl.html [ array (
+  0 => 'departlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010379s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015957s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000321s ]
+---------------------------------------------------------------
+[ 2018-07-02T09:58:58+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ info ] www.archives01.com/index.php/fileList.html?page=1&limit=10 [运行时间：0.112541s][吞吐率：8.89req/s] [内存消耗：2,385.18kb] [文件加载：55]
+[ info ] [ LANG ] D:\www\bw_archives\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'file',
+    2 => 'fileList',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=ttqagpklk6hvaq563mudnl2rn2',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://www.archives01.com/index.php/ajgl.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+  'host' => 'www.archives01.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\File->fileList[ D:\www\bw_archives\application\index\controller\File.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000745s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.018131s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000382s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015123s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.024826s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000426s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.016138s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000194s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000178s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000182s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000321s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000160s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:42:51+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/login_do.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001590s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_admin` [ RunTime:0.047579s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_admin` WHERE  `admin_name` = 'admin'  AND `admin_password` = 'a00000' [ RunTime:0.000349s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:42:51+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/home.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011423s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.021765s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` WHERE  `status` = 0 LIMIT 1 [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` WHERE  (  status in (1,2) ) LIMIT 1 [ RunTime:0.000183s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` LIMIT 1 [ RunTime:0.000115s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:42:55+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/wjjs.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010649s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015231s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000256s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:42:55+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getInsideList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011413s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.019751s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014383s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016164s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000184s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:42:55+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getInsideList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000844s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.014976s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.025463s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.014467s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000295s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:42:56+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/JnDwJs.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010329s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.024414s ]
+[ sql ] [ SQL ] SELECT `id`,`user_name` FROM `oa_students` WHERE  `type` = 2 [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.014888s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 2  AND `status` = 0 [ RunTime:0.000365s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 3  AND `status` = 0 [ RunTime:0.000275s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:42:59+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010302s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.024934s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000305s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:42:59+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011067s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.024528s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000365s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000348s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014786s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.014937s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000367s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.014627s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000244s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:43:06+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/lijuan.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011019s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015767s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000356s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:43:27+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011074s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015902s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000366s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:43:27+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010268s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015028s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014917s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.013837s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.014023s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000209s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000208s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000202s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:43:30+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011640s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014974s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000390s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:43:31+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009911s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015216s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014997s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016229s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.015093s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000280s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:43:31+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/dyFile.html?dyid=
+[ error ] [8]Uninitialized string offset: 0
+---------------------------------------------------------------
+[ 2018-07-02T16:43:33+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011029s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015662s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000310s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:43:33+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010488s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015334s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.022798s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016036s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.015602s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000321s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000200s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:43:35+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/dyFile.html?dyid=2
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010575s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] select * from oa_students as s   JOIN department as d on s.courtyard = d.id join major as m on s.major = m.id  where s.id="2" [ RunTime:0.000664s ]
+[ sql ] [ SQL ] select * from oa_file_within  where  s_id ="2" ORDER BY within_time  asc [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.016387s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000290s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:43:51+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011454s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015688s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000312s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:43:52+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001607s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015774s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000491s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015139s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.021399s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000210s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.015288s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000159s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000155s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:43:56+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/dyFile.html?dyid=1,2
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010831s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] select * from oa_students as s   JOIN department as d on s.courtyard = d.id join major as m on s.major = m.id  where s.id="1" [ RunTime:0.000572s ]
+[ sql ] [ SQL ] select * from oa_file_within  where  s_id ="1" ORDER BY within_time  asc [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.016273s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000403s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.032205s ]
+[ sql ] [ SQL ] SELECT `id`,`class_num`,`class_name` FROM `oa_catelog` [ RunTime:0.000308s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:44:04+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011736s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015963s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000319s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:44:04+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012035s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015797s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000376s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.013665s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.023775s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.015523s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000193s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000184s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000182s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000256s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000220s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:44:41+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001502s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016111s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000263s ]
+---------------------------------------------------------------
+[ 2018-07-02T16:44:41+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001170s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.021856s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014278s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016163s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000188s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.014744s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000128s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000108s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000109s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000119s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000106s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000122s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:22+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/login_do.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002396s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_admin` [ RunTime:0.096827s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_admin` WHERE  `admin_name` = 'admin'  AND `admin_password` = 'a00000' [ RunTime:0.000643s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:22+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/home.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011103s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.023269s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` WHERE  `status` = 0 LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` WHERE  (  status in (1,2) ) LIMIT 1 [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` LIMIT 1 [ RunTime:0.000140s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:25+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010261s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015705s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000276s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:25+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010441s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.014093s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.013339s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.015088s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.024271s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000190s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000183s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000193s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000157s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000163s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:27+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/wjjs.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009983s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015340s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000262s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:27+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getInsideList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000855s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015668s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000195s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.017995s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.012498s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000147s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:28+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/JnDwJs.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010882s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.016732s ]
+[ sql ] [ SQL ] SELECT `id`,`user_name` FROM `oa_students` WHERE  `type` = 2 [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.025030s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 2  AND `status` = 0 [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 3  AND `status` = 0 [ RunTime:0.000435s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:31+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getInsideList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011258s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.016006s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014878s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.016329s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000276s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:31+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010851s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016113s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000285s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:31+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001065s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015865s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014502s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.014319s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000185s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.014364s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000163s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000113s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000103s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000104s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000103s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000142s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000195s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:32+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/wjjs.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010971s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015778s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000295s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:32+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getInsideList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000824s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.025763s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) [ RunTime:0.000363s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.021529s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000178s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.025614s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000335s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:33+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/JnDwJs.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000837s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.014623s ]
+[ sql ] [ SQL ] SELECT `id`,`user_name` FROM `oa_students` WHERE  `type` = 2 [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.014583s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 2  AND `status` = 0 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 3  AND `status` = 0 [ RunTime:0.000201s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:33+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getInsideList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010737s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015344s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) [ RunTime:0.000321s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015617s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.015432s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000247s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:35+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010424s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015034s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000391s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:35+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000987s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015118s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000400s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.024685s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.015452s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.014640s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000196s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000163s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000159s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000149s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000161s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000155s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:41+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/lijuan.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000832s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015400s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000278s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:49+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011074s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016415s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000397s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:49+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010537s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015140s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014895s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.015227s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.015487s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000151s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000147s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000158s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:54+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010735s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014096s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000276s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:10:55+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000931s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.013181s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000373s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.013137s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000151s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.022946s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000201s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.018601s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000318s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000240s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:11:17+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/dyFile.html?dyid=3
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001158s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] select * from oa_students as s   JOIN department as d on s.courtyard = d.id join major as m on s.major = m.id  where s.id="3" [ RunTime:0.000561s ]
+[ sql ] [ SQL ] select * from oa_file_within  where  s_id ="3" ORDER BY within_time  asc [ RunTime:0.000285s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.015694s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000291s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:11:32+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011280s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.016140s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000307s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:11:32+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000859s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.089145s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.018798s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.019267s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.014869s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000227s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:11:56+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/wjjs.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011587s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015581s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000278s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:11:56+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getInsideList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011577s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.016230s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000190s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.023994s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.013482s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000249s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:11:56+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/JnDwJs.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000807s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.013731s ]
+[ sql ] [ SQL ] SELECT `id`,`user_name` FROM `oa_students` WHERE  `type` = 2 [ RunTime:0.000183s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.013890s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 2  AND `status` = 0 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_file_within` WHERE  `s_id` = 3  AND `status` = 0 [ RunTime:0.000161s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:11:57+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getInsideList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010582s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015341s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (  status=1 and type =1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.017505s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.014895s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000275s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:12:08+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011047s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015219s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000291s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:12:08+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000886s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.016796s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015370s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.014580s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000182s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.014196s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000159s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000181s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000153s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:12:11+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/dyFile.html?dyid=1
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011501s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] select * from oa_students as s   JOIN department as d on s.courtyard = d.id join major as m on s.major = m.id  where s.id="1" [ RunTime:0.000727s ]
+[ sql ] [ SQL ] select * from oa_file_within  where  s_id ="1" ORDER BY within_time  asc [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.015817s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.015960s ]
+[ sql ] [ SQL ] SELECT `id`,`class_num`,`class_name` FROM `oa_catelog` [ RunTime:0.000298s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:13:22+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011551s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015517s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000222s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:13:22+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001026s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015276s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014980s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.014281s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.015295s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000156s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000206s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000159s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:13:26+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/lijuan.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011360s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015313s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000340s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:13:57+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/Lmbj.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011336s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_catelog` [ RunTime:0.015422s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'status' in 'where clause'
+---------------------------------------------------------------
+[ 2018-07-02T18:14:18+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/lijuan.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010841s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015207s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000291s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:15:09+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/home.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011031s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015503s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` WHERE  `status` = 0 LIMIT 1 [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` WHERE  (  status in (1,2) ) LIMIT 1 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_students` LIMIT 1 [ RunTime:0.000217s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:15:58+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010652s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015731s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000275s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:15:58+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000849s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.016159s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000206s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014951s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000163s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.014585s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000161s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.014755s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000116s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000103s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000105s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000101s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000097s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000103s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:16:10+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/ajgl.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010522s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.015806s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000303s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:16:10+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/fileList.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001082s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.015669s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) [ RunTime:0.000349s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_students` WHERE  (   1=1  ) ORDER BY `id`  desc LIMIT 0,10 [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.014793s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `major` [ RunTime:0.026948s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_file_within` [ RunTime:0.014188s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 3 LIMIT 1 [ RunTime:0.000162s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000113s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000186s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 2 LIMIT 1 [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SELECT `d_name` FROM `department` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000181s ]
+[ sql ] [ SQL ] SELECT `m_name` FROM `major` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `oa_file_within` WHERE  `s_id` = 1 LIMIT 1 [ RunTime:0.000118s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:17:27+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/addFile.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011307s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `department` [ RunTime:0.008721s ]
+[ sql ] [ SQL ] SELECT * FROM `department` [ RunTime:0.000297s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:17:27+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getWzdDw.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001060s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_Students` [ RunTime:0.009402s ]
+[ sql ] [ SQL ] SELECT * FROM `oa_Students` WHERE  (  status=0 and type = 2 ) [ RunTime:0.000266s ]
+---------------------------------------------------------------
+[ 2018-07-02T18:17:27+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/getWzd.html?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011198s ] mysql:host=127.0.0.1;dbname=bw_dangan;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `oa_students` [ RunTime:0.011039s ]
+[ sql ] [ SQL ] SELECT `courtyard`,`major`,`class`,`sc_number`,`user_name` FROM `oa_students` WHERE  (  status=0 and type =1  ) [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT `id`,`courtyard`,`major`,`class`,`sc_number`,`user_name` FROM `oa_students` WHERE  (  status=0 and type =1  ) LIMIT 0,10 [ RunTime:0.000333s ]

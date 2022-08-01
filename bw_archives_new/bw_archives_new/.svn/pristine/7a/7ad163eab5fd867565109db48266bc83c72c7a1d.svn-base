@@ -1,0 +1,417 @@
+{include file='header' }
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+    .anjuan{
+        font-size: 14px;
+        background: antiquewhite;
+        font-family: "Songti SC";
+        box-shadow: 2px 2px 5px #888888;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .anjuan .jp{
+        padding: 20px 15px;
+        text-align: right;
+    }
+    .anjuan .jp span{
+        padding: 5px;
+        border: 1px solid #000;
+    }
+    .anjuan .name{
+        text-align: center;
+        font-size: 24px;
+        padding: 0 10px;
+        font-weight: bold;
+    }
+    .anjuan .wenj{
+        padding: 10px 10px 0;
+    }
+    .anjuan .wenj .xiahua{
+        padding: 0 5px;
+    }
+    .action{
+        text-align: center;
+        padding: 10px 0;
+        border-top: 1px solid #000;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .batch{
+        background: #1dc5a3;border:none;color: #fff;
+    }
+    .action a{
+        padding: 0 5px;
+    }
+    .title1{
+        font-weight: bold;
+    }
+    .layui-container{
+        padding: 0 15px 0 0;
+    }
+    #pagediv{
+        text-align: center;
+    }
+    #pagestyle{
+        position: absolute;
+        right: 50px;
+        margin-top: -50px;
+    }
+    .thisstyle{
+        background: bisque;
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <!--<div class="title fl_left">案卷管理</div>-->
+            {include file='setdoc' title='3' }
+        </div>
+
+        <div class="" style="background: white ; padding: 15px;">
+            <fieldset class="layui-elem-field ">
+                <legend>搜索案卷</legend>
+                <div class="layui-field-box">
+
+                    <form class="layui-form">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <div class="layui-input-inline" style="width: 80px;">
+                                <select name="sstype" id="sstype">
+                                    <option value="1" selected>学号</option>
+                                    <option value="2" >卷号</option>
+                                    <option value="3" >身份证</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <input class="layui-input" name="number" id="number" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="layui-inline" >
+                            <a class="layui-btn layui-btn-primary btu-color"  href="javascript:void(0)" id="sch">
+                                <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>搜索
+                            </a>
+                        </div>
+                    </div>
+                    </form>
+
+                    <hr>
+                    <div id="stu_div">
+
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="layui-elem-field " >
+                <legend>添加文件</legend>
+                <div class="layui-field-box">
+
+                    <form class="layui-form" action="" lay-filter="myallform" >
+                    <table cellspacing="0" cellpadding="0" border="0" class="layui-table">
+                        <thead>
+                        <tr>
+                            <th>文件类别-文件名称</th>
+                            <th>文件备注</th>
+                            <th>形成日期</th>
+                            <th>件数</th>
+                            <th>页数</th>
+                            <th>电子版</th>
+                            <th>说明</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="addlist">
+
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <td colspan="10" align="center">
+                                    <button class="layui-btn layui-btn-primary" type="button"  id="adddoc">
+                                        <i class="layui-icon layui-icon-add-circle"></i> 添加
+                                    </button>
+                                    <button class="layui-btn"  id="savedoc"  type="button" >
+                                        <i class="layui-icon layui-icon-release"></i> 全部保存
+                                    </button>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                    </form>
+                </div>
+            </fieldset>
+        </div>
+        <div style="height: 200px">
+
+        </div>
+    </div>
+</div>
+
+<div style="display: none;" id="category_div">
+    <div class="layui-input-inline" style="width: 150px;">
+    <select name="category_id[]" lay-filter="category_id" class="category_id" lay-search>
+        <option value=""></option>
+        {foreach name='c_arr' item='v'}
+        <option value="{$v.id}" >{$v.name}</option>
+        {/foreach}
+    </select>
+    </div>
+    -
+    <div class="layui-input-inline" style="width: 150px;">
+    <select name="name[]"  lay-filter="name" class="cname"  lay-search>
+        <option value="">请选择名称</option>
+    </select>
+    <div class="rudang"></div>
+    </div>
+</div>
+
+<div style="display: none;" id="nian_div">
+    <div class="layui-input-inline" style="width: 80px;">
+        <select name="nian[]" >
+            <option value="" selected>年</option>
+            {for start="(date('Y'))" end="1999" comparison="gt" step="-1"}
+            <option value="{$i}" >{$i}</option>
+            {/for}
+        </select>
+    </div>
+    <div class="layui-input-inline" style="width: 60px;">
+        <select name="yue[]" >
+            <option value="" selected>月</option>
+            {for start="1" end="13" }
+            <option value="{$i}" >{$i}</option>
+            {/for}
+        </select>
+    </div>
+    <div class="layui-input-inline" style="width: 65px;">
+
+        <select name="ri[]" >
+            <option value="" selected>日</option>
+            {for start="1" end="32" }
+            <option value="{$i}" >{$i}</option>
+            {/for}
+        </select>
+    </div>
+</div>
+<div id="upload_div" style="display: none">
+    <div class="layui-upload">
+        <button type="button" class="layui-btn layui-btn-normal" id="addpic">选择图片</button>
+        <div class="layui-upload-list">
+            <table class="layui-table">
+                <thead>
+                <tr><th>文件</th>
+                    <th>大小</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr></thead>
+                <tbody id="picList"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    var form,upload,laydate;;
+    $("#adddoc").click(function () {
+        var html = "";
+        html += '<tr>';
+        html += '<td> '+$("#category_div").html()+'</td>';
+        html += '<td><input type="text" name="name_sub[]"  placeholder="填写附属信息，如年份"  autocomplete="off" class="layui-input" style="width: 160px"></td>';
+        html += '<td>'+$("#nian_div").html()+'</td>';
+        html += '<td><input type="number" name="item_num[]"  autocomplete="off" class="layui-input" style="width: 50px"></td>';
+        html += '<td><input type="number" name="page_num[]"  autocomplete="off" class="layui-input" style="width: 50px"></td>';
+        html += '<td><i class="layui-icon layui-icon-carousel upload_img" style="font-size: 30px;cursor: pointer"></i>   </td>';
+        html += '<td><input type="number" name="content[]"  autocomplete="off" class="layui-input"></td></td>';
+        html += '<td><i class="layui-icon layui-icon-delete delete_tr" style="font-size: 20px;color: #FF0000;cursor: pointer"></i>   </td>';
+        html += '</tr>';
+
+        $("#addlist").append(html);
+        //綁定刪除按鈕
+        $(".delete_tr").click(function () {
+            $(this).parent().parent().remove();
+        });
+        //select重新渲染
+        form.render('select');
+
+        //綁定select變動
+        form.on('select(category_id)', function(data){
+            var cdom    = data.elem;
+            var str = '<option value="">请选择名称</option>';
+            var id = data.value; //院系id
+            if(id > 0)
+            {
+                $.post("{:url('/system/getcategorylist')}",{id:id},function(res){
+                    var length = res.length;
+                    for (var i=0;i<length;i++) {
+                        str += '<option value="'+res[i].name+'">'+res[i].name+'</option>';
+                    }
+                    $(cdom).parent(".layui-input-inline").siblings(".layui-input-inline").children(".cname").html(str);
+                    form.render();
+                },'json');
+            }else{
+                $(cdom).parent(".layui-input-inline").siblings(".layui-input-inline").children(".cname").html(str);
+                form.render();
+            }
+        });
+
+        form.on('select(name)', function(data){
+            var id = data.value; //院系id
+            var cdom    = data.elem;
+            if(id == "入党志愿书")
+            {
+                var str = '';
+                str     += '<label class="layui-form-label">正式党员：</label>';
+                str     += '<div class="layui-input-inline">';
+                str     += '<input type="text" name="formal_time"  lay-verify="required|date" autocomplete="off" class="layui-input formal_time">';
+                str     += '</div>';
+                $(cdom).siblings(".rudang") .html(str);
+
+                laydate.render({
+                    elem: '.formal_time' //指定元素
+                });
+
+            }else{
+                var str = '';
+                $(cdom).siblings(".rudang") .html(str);
+            }
+        });
+    });
+    $("#addlist").delegate(".upload_img","click",function () {
+        layer.open({
+            type: 1,
+            anim: 2,
+            shadeClose: true, //开启遮罩关闭
+            area:['60%', '80%'],
+            content: $("#upload_div").html()
+        });
+
+    });
+    layui.use(['form','upload','laydate'], function(){
+        form = layui.form;
+        upload = layui.upload;
+        laydate = layui.laydate;
+    });
+
+
+    //上传
+    layui.use('upload', function(){
+        var $ = layui.jquery
+            ,upload = layui.upload;
+
+        //多文件列表示例
+        var demoListView = $('#demoList')
+            ,uploadListIns = upload.render({
+            elem: '#testList'
+            ,url: "{:url('/system/upload')}?range="+(new Date().getTime())
+            ,accept: 'images'
+            ,multiple: false
+            ,data:{
+                id: function(){
+                    return (new Date().getTime())+""+Math.random().toString(36).substr(2, 15);
+                }
+            }
+            ,choose: function(obj){
+                var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
+                //读取本地文件
+                obj.preview(function(index, file, result){
+                    var tr = $(['<tr class="btr" id="upload-'+ index +'">'
+                        ,'<td><img src="'+result+'" style=" height: 100px" class="bigimg"></td>'
+                        ,'<td>'+ (file.size/1014).toFixed(1) +'kb</td>'
+                        ,'<td>等待上传</td>'
+                        ,'<td>'
+                        ,'<button class="layui-btn layui-btn-xs demo-reload layui-hide">重传</button>'
+                        ,'<button class="layui-btn layui-btn-xs layui-btn-danger demo-delete">删除</button>'
+                        ,'</td>'
+                        ,'</tr>'].join(''));
+
+                    //单个重传
+                    tr.find('.demo-reload').on('click', function(){
+
+                        obj.upload(index, file);
+                    });
+
+                    //删除
+                    tr.find('.demo-delete').on('click', function(){
+                        delete files[index]; //删除对应的文件
+                        tr.remove();
+                        uploadListIns.config.elem.next()[0].value = ''; //清空 input file 值，以免删除后出现同名文件不可选
+                    });
+
+                    demoListView.append(tr);
+                });
+            }
+            ,done: function(res, index, upload){
+                if(res.code == 200){ //上传成功
+                    var tr = demoListView.find('tr#upload-'+ index)
+
+                        ,tds = tr.children();
+                    tds.eq(2).html('<span style="color: #5FB878;">上传成功</span>');
+                    tds.eq(3).html('<input type="hidden" name="imgs[]" id="hidden_img" value="'+res.data.src+'">'); //清空操作
+                    return delete this.files[index]; //删除文件队列已经上传成功的文件
+                }
+                this.error(index, upload);
+            }
+            ,error: function(index, upload){
+                var tr = demoListView.find('tr#upload-'+ index)
+                    ,tds = tr.children();
+                tds.eq(2).html('<span style="color: #FF5722;">上传失败</span>');
+                tds.eq(3).find('.demo-reload').removeClass('layui-hide'); //显示重传
+            }
+        });
+
+
+    });
+
+    $('#sch').click(function(){
+        var sstype      = $("#sstype").val();
+        var number      = $("#number").val();
+
+        var data    = {};
+        if(sstype==1)
+        {
+            data    = {"sc_number":number};
+        }else if(sstype == 2){
+            data    = {"file_number":number};
+        }else{
+            data    = {"card":number};
+        }
+        $.post("{:url('/file/searchSnum')}",data,function(res){
+            if(res){
+                var  html = '<div class="layui-card"> <div class="layui-card-body"><div class="layui-row"><div class="layui-col-md4">';
+
+                html += "<p>姓　名："+res.name+"</p>";
+                html += "<p>性　别："+res.sex+"</p>";
+                html += "<p>卷　号："+res.file_number+"</p>";
+                html += "<p>学　号："+res.sc_number+"</p>";
+                html += "<p>身份证："+res.card+"</p>";
+                html += '</div><div class="layui-col-md4">';
+                html += "<p>院　系："+res.dname+"</p>";
+                html += "<p>专　业："+res.mname+"</p>";
+                html += "<p>年　级："+res.grade+"</p>";
+                html += "<p>手机号："+res.phone+"</p>";
+                html += "<p>存放位置："+(res.file_derice==null?"-":res.file_derice)+"</p>";
+
+                html += '</div></div></div> </div>';
+                $("#stu_div").html(html);
+                $("#student_id").val(res.id);
+            }else{
+                layer.msg('暂无该学生信息');
+            }
+        },'json');
+
+    });
+</script>
+</body>
+</html>

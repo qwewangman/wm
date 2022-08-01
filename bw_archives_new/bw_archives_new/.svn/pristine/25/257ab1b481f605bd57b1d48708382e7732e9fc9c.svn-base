@@ -1,0 +1,102 @@
+{include file='nobodyheader'}
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+<style type="text/css">
+    .contetnBox{
+        background-color: #ffffff;
+    }
+    .newRightBox{
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0 20px;
+    }
+    .layui-form-label{
+        font-size: 14px;
+    }
+    .layui-elem-field legend{
+        font-size: 16px;
+        color: #f09c4e;
+    }
+</style>
+<div class="contetnBox">
+
+    <form class="layui-form" action="{:url('/system/savepost')}">
+        <div class="layui-form" lay-filter="layuiadmin-form-admin" style="padding: 20px 30px 0 0;">
+            <div class="layui-form-item">
+                <label class="layui-form-label">名　　称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="name"  lay-verify="required" placeholder="请输入档案接收部门名称" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">省　　份</label>
+                <div class="layui-input-inline">
+                    <select name="province" lay-filter="shengfen" id="shengfen"  lay-verify="required">
+                        <option value="" selected>请选择省份</option>
+                        {foreach name='pro_arr' item='v'}
+                        <option value="{$v.id}" >{$v.province}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">市　　区</label>
+                <div class="layui-input-inline">
+                    <select name="city"  id="city"  lay-verify="required">
+                        <option value="">请选市区</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">详细地址</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="address"  lay-verify="required" placeholder="请输入详细地址" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">邮　　编</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="code"  lay-verify="required|number" placeholder="请输入邮编" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">联系方式</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="contact"   placeholder="请输入联系方式" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"></label>
+                <div class="layui-input-inline">
+                    <button class="layui-btn" lay-submit="" lay-filter="myform">确认</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="application/javascript">
+    layui.use(['form'], function(){
+        var form = layui.form;
+
+        form.on('select(shengfen)', function(data){
+            var str = '<option value="">请选市区</option>';
+            var id = data.value; //院系id
+            if(id > 0)
+            {
+                $.post("{:url('/system/getcity')}",{id:id},function(res){
+                    var length = res.length;
+                    for (var i=0;i<length;i++) {
+                        str += '<option value="'+res[i].city+'">'+res[i].city+'</option>';
+                    }
+                    layui.$("#city").html(str);
+                    form.render();
+                },'json');
+            }else{
+                layui.$("#city").html(str);
+                form.render();
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

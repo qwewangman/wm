@@ -1,0 +1,371 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\www\bw_archives_new\public/../application/index\view\file\syst.html";i:1533718631;s:67:"D:\www\bw_archives_new\public/../application/index\view\layout.html";i:1533717939;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="__STATIC__/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__STATIC__/css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+
+    <script src="__STATIC__/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__STATIC__/js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="__STATIC__/js/content.min.js?v=1.0.0"></script>
+    <script src="__STATIC__/js/jquery.nestable.js"></script>
+    <script>
+        $(document).ready(function(){var updateOutput=function(e){var list=e.length?e:$(e.target),output=list.data("output");if(window.JSON){output.val(window.JSON.stringify(list.nestable("serialize")))}else{output.val("浏览器不支持")}};$("#nestable").nestable({group:1}).on("change",updateOutput);$("#nestable2").nestable({group:1}).on("change",updateOutput);updateOutput($("#nestable").data("output",$("#nestable-output")));updateOutput($("#nestable2").data("output",$("#nestable2-output")));$("#nestable-menu").on("click",function(e){var target=$(e.target),action=target.data("action");if(action==="expand-all"){$(".dd").nestable("expandAll")}if(action==="collapse-all"){$(".dd").nestable("collapseAll")}})});
+    </script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+</head>
+<style>
+    #ad1,#del1,#upd1{
+        cursor: pointer;
+    }
+    #ad2,#del2,#upd2{
+        cursor: pointer;
+    }
+    #ad1,#del1,#upd1{
+        cursor: pointer;
+    }
+</style>
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <div class="fl_right signOut"><a href="<?php echo url('/login_out'); ?>"  style="color: white">退出</a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div class="contetnBox">
+
+    <div class="sliderBox fl_left">
+    <a href="<?php echo url('/home'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">首页</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/ajgl'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">档案管理</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/syst'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">系统设置</span>
+        <span class="clear"></span>
+    </a>
+    <!--<a href="<?php echo url('/lijuan'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-home"></span>-->
+        <!--<span class="fl_left sliderThree block">立卷</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/addFile'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-container"></span>-->
+        <!--<span class="fl_left sliderThree block">档案接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/inside'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-export"></span>-->
+        <!--<span class="fl_left sliderThree block">卷内文件接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/ajy'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-detail"></span>-->
+        <!--<span class="fl_left sliderThree block">案卷借阅</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/DaBd'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案变动</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+
+    <!--<a href="<?php echo url('/LmBj'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案类目</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+</div>
+
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+
+            <div class="title fl_left">系统设置</div>
+            <!--<div class="fl_right detaBox">-->
+            <!--<div class="detaBtn fl_left"><a href="<?php echo url('/addExcel'); ?>" style="color: #333">批量导入</a></div>-->
+            <!--</div>-->
+            <div class="clear"></div>
+        </div>
+        <!--<div class="details">-->
+
+        <div class="" style="background: white ; padding: 50px 30px; overflow: hidden">
+
+
+            <!------------------------------------------------------------------------------------------------------------------->
+
+            <div class="layui-tab">
+                <ul class="layui-tab-title">
+                    <li id="sta1" class="layui-this">院系设置</li>
+                    <li id="sta2">类目设置</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                        -->
+                        <div style="float: left" class="newRightBox">
+                            <div style="width: 60% ;">
+                                <!------------------------------------------------------------------------------------------------------------------->
+                                <div class="dd" id="nestable2">
+                                    <ol class="dd-list">
+                                        <li class="dd-item" data-id="1">
+                                            <div class="dd-handle">
+                                                <span class="label label-info"><i class="fa fa-users"></i></span> 群组
+                                            </div>
+                                            <ol class="dd-list">
+                                                <li class="dd-item" data-id="2">
+                                                    <div class="dd-handle">
+                                                        <span class="pull-right"> 12:00 </span>
+                                                        <span class="label label-info"><i class="fa fa-cog"></i></span> 设置
+                                                    </div>
+                                                </li>
+                                                <li class="dd-item" data-id="3">
+                                                    <div class="dd-handle">
+                                                        <span class="pull-right"> 11:00 </span>
+                                                        <span class="label label-info"><i class="fa fa-bolt"></i></span> 筛选
+                                                    </div>
+                                                </li>
+                                                <li class="dd-item" data-id="4">
+                                                    <div class="dd-handle">
+                                                        <span class="pull-right"> 11:00 </span>
+                                                        <span class="label label-info"><i class="fa fa-laptop"></i></span> 电脑
+                                                    </div>
+                                                </li>
+                                            </ol>
+                                        </li>
+
+                                        <li class="dd-item" data-id="5">
+                                            <div class="dd-handle">
+                                                <span class="label label-warning"><i class="fa fa-users"></i></span> 用户
+                                            </div>
+                                            <ol class="dd-list">
+                                                <li class="dd-item" data-id="6">
+                                                    <div class="dd-handle">
+                                                        <span class="pull-right"> 15:00 </span>
+                                                        <span class="label label-warning"><i class="fa fa-users"></i></span> 列用户表
+                                                    </div>
+                                                </li>
+                                                <li class="dd-item" data-id="7">
+                                                    <div class="dd-handle">
+                                                        <span class="pull-right"> 16:00 </span>
+                                                        <span class="label label-warning"><i class="fa fa-bomb"></i></span> 炸弹
+                                                    </div>
+                                                </li>
+                                                <li class="dd-item" data-id="8">
+                                                    <div class="dd-handle">
+                                                        <span class="pull-right"> 21:00 </span>
+                                                        <span class="label label-warning"><i class="fa fa-child"></i></span> 子元素
+                                                    </div>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <!--<div class="layui-collapse" lay-accordion="">
+                                    <?php if(is_array($deparjor) || $deparjor instanceof \think\Collection || $deparjor instanceof \think\Paginator): if( count($deparjor)==0 ) : echo "" ;else: foreach($deparjor as $key=>$v): ?>
+                                    <div class="layui-colla-item">
+                                        <h2 class="layui-colla-title"><?php echo $v['d_name']; ?>   <i class="layui-icon " id="ad1" about="<?php echo $v['id']; ?>" style="float: right;"></i></h2>
+                                        <div class="layui-colla-content">
+                                            &lt;!&ndash;<div class="layui-colla-content layui-show">&ndash;&gt;
+                                            <?php if(is_array($v['major']) || $v['major'] instanceof \think\Collection || $v['major'] instanceof \think\Paginator): if( count($v['major'])==0 ) : echo "" ;else: foreach($v['major'] as $key=>$vv): if(is_array($vv)): ?>
+                                            <div class="layui-collapse" lay-accordion="">
+                                                <div class="layui-colla-item">
+                                                    <h6 class="layui-colla-title" style="background-color: #f2f2f2;"><?php echo $vv['m_name']; ?> <i class="layui-icon"  id="del1" about="<?php echo $vv['id']; ?>" style="float: right;"></i>     <i class="layui-icon"  id="upd1" about="<?php echo $vv['id']; ?>" style="float: right;"></i>  </h6>
+                                                    <div class="layui-colla-content" >
+                                                        <?php if(!(empty($vv['content']) || (($vv['content'] instanceof \think\Collection || $vv['content'] instanceof \think\Paginator ) && $vv['content']->isEmpty()))): ?>
+                                                        <p style="padding-left: 20px"> <span style="padding-right: 5px">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注:</span> <?php echo $vv['content']; ?></p>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?php endif; endforeach; endif; else: echo "" ;endif; ?>
+                                        </div>
+                                    </div>
+                                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                                </div>-->
+                                <br>
+                                <script>
+
+                                    $(document).on('click','#ad1',function()
+                                    {
+                                        var id= $(this).attr('about');
+                                        var url = "<?php echo url('/YxAdd'); ?>?id="+id;
+                                        location.href=url
+                                    })
+
+                                    $(document).on('click','#upd1',function()
+                                    {
+                                        var id= $(this).attr('about');
+                                        var url = "<?php echo url('/YxUpd'); ?>?id="+id;
+                                        location.href=url
+                                    })
+
+                                    $(document).on('click','#del1',function()
+                                    {
+                                        var id= $(this).attr('about');
+                                        var url = "<?php echo url('/YxDelar'); ?>?id="+id;
+                                        var msg = "您真的确定要删除吗？\n\n请确认！";
+                                        if (confirm(msg)==true){
+                                            location.href=url
+                                        }else{
+                                            return false;
+                                        }
+
+                                    })
+                                </script>
+                                <!------------------------------------------------------------------------------------------------------------------->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-tab-item">
+
+                        <div class="newRightBox">
+                            <div style="width: 60% ;">
+                                <!------------------------------------------------------------------------------------------------------------------->
+                                <div class="layui-collapse" lay-accordion="">
+                                    <?php if(is_array($result) || $result instanceof \think\Collection || $result instanceof \think\Paginator): if( count($result)==0 ) : echo "" ;else: foreach($result as $key=>$v): ?>
+                                    <div class="layui-colla-item">
+                                        <h2 class="layui-colla-title"><?php echo $v['class_num']; ?> . <?php echo $v['class_name']; ?>   <i class="layui-icon " id="ad2" about="<?php echo $v['id']; ?>" style="float: right;"></i></h2>
+                                        <div class="layui-colla-content">
+                                            <!--<div class="layui-colla-content layui-show">-->
+                                            <?php if(is_array($v['cent']) || $v['cent'] instanceof \think\Collection || $v['cent'] instanceof \think\Paginator): if( count($v['cent'])==0 ) : echo "" ;else: foreach($v['cent'] as $key=>$vv): if(is_array($vv)): ?>
+                                            <div class="layui-collapse" lay-accordion="">
+                                                <div class="layui-colla-item">
+                                                    <h6 class="layui-colla-title" style="background-color: #f2f2f2;"><?php echo $vv['class_num']; ?> . <?php echo $vv['class_name']; ?> <i class="layui-icon"  id="del2" about="<?php echo $vv['id']; ?>" style="float: right;"></i>     <i class="layui-icon"  id="upd2" about="<?php echo $vv['id']; ?>" style="float: right;"></i>  </h6>
+                                                    <div class="layui-colla-content" >
+                                                        <?php if(!(empty($vv['content']) || (($vv['content'] instanceof \think\Collection || $vv['content'] instanceof \think\Paginator ) && $vv['content']->isEmpty()))): ?>
+                                                        <p style="padding-left: 20px"> <span style="padding-right: 5px">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注:</span> <?php echo $vv['content']; ?></p>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?php endif; endforeach; endif; else: echo "" ;endif; ?>
+                                        </div>
+                                    </div>
+                                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                                </div>
+                                <br>
+
+                                <script>
+
+                                    $(document).on('click','#ad2',function()
+                                    {
+                                        var id= $(this).attr('about');
+                                        var url = "<?php echo url('/LmAdd'); ?>?id="+id;
+                                        location.href=url
+                                    })
+
+                                    $(document).on('click','#upd2',function()
+                                    {
+                                        var id= $(this).attr('about');
+                                        var url = "<?php echo url('/LmUpd'); ?>?id="+id;
+                                        location.href=url
+                                    })
+
+                                    $(document).on('click','#del2',function()
+                                    {
+                                        var id= $(this).attr('about');
+                                        var url = "<?php echo url('/LmDel'); ?>?id="+id;
+                                        var msg = "您真的确定要删除吗？\n\n请确认！";
+                                        if (confirm(msg)==true){
+                                            location.href=url
+                                        }else{
+                                            return false;
+                                        }
+                                    })
+                                </script>
+                                <!------------------------------------------------------------------------------------------------------------------->
+                            </div>
+                        </div>
+                    </div>
+                    <!------------------------------------------------------------------------------------------------------------------->
+                    <script>
+                        window.onload = function(){
+                            if(location.href.indexOf('#reloaded')==-1){
+                                location.href=location.href+"#reloaded";
+                                location.reload();
+                            }
+                        }
+                        layui.use('element', function(){
+                            var $ = layui.jquery
+                                ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+                            //触发事件
+                            var active = {
+                                tabAdd: function(){
+                                    //新增一个Tab项
+                                    element.tabAdd('demo', {
+                                        title: '新选项'+ (Math.random()*1000|0) //用于演示
+                                        ,content: '内容'+ (Math.random()*1000|0)
+                                        ,id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+                                    })
+                                }
+                                ,tabDelete: function(othis){
+                                    //删除指定Tab项
+                                    element.tabDelete('demo', '44'); //删除：“商品管理”
+
+
+                                    othis.addClass('layui-btn-disabled');
+                                }
+                                ,tabChange: function(){
+                                    //切换到指定Tab项
+                                    element.tabChange('demo', '22'); //切换到：用户管理
+                                }
+                            };
+
+                            $('.site-demo-active').on('click', function(){
+                                var othis = $(this), type = othis.data('type');
+                                active[type] ? active[type].call(this, othis) : '';
+                            });
+
+                            //Hash地址的定位
+                            var layid = location.hash.replace(/^#test=/, '');
+                            element.tabChange('test', layid);
+
+                            element.on('tab(test)', function(elem){
+                                location.hash = 'test='+ $(this).attr('lay-id');
+                            });
+
+                        });
+                    </script>
+
+
+
+                    <!------------------------------------------------------javascriptEnd------------------------------------------------------------->
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>

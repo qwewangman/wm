@@ -1,0 +1,240 @@
+
+{include file='header' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">借阅管理</div>
+
+        </div>
+        <div class="" style="background: white ; padding: 15px;">
+
+            <div class="layui-tab">
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">卷名</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="name" id="name" autocomplete="off">
+
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学号</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="sc_number" id="sc_number" autocomplete="off">
+
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">卷号</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="file_number" id="file_number" autocomplete="off">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="layui-form-item" style="text-align: center;">
+                                <div class="layui-inline" style="margin-left: 9px">
+                                    <a class="layui-btn layui-btn-primary btu-color"  href="javascript:void(0)" id="sch">
+                                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>搜索
+                                    </a>
+                                    <a class="layui-btn layui-btn-primary "  href="{:url('/change/getjielist')}">
+                                        <i class="layui-icon layui-icon-refresh"></i>重置搜索
+                                    </a>
+
+                                </div>
+                            </div>
+                        </form>
+                        <table class="layui-hide" id="stu_table" lay-filter="stu_table">
+
+                        </table>
+                        <script type="text/html" id="oneAction">
+                            <a class="layui-btn layui-btn-xs" lay-event="check">详情</a>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="setdate" style="display: none">
+        <form style="    padding: 20px;" class="layui-form" action="{:url('/change/setjieyue')}" lay-filter="jieyue">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">归还日期：</label>
+                <div class="layui-input-inline" >
+                    <input type="text" name="true_time" class="layui-input" id="true_time" lay-verify="required" >
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="text-align: center">
+                <input type="hidden" name="id" id="jid" value="">
+                <input type="hidden" name="sid" id="jsid" value="">
+                <input type="hidden" name="number" id="number" value="">
+                <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+            </div>
+            <div style="height: 250px">
+
+            </div>
+        </form>
+    </div>
+</div>
+    <script>
+        var table,laydate;
+        layui.use('laydate', function() {
+             laydate = layui.laydate;
+
+
+        });
+        layui.use('table', function(){
+            table = layui.table;
+///
+            table.render({
+                elem: '#stu_table'
+                ,url:"{:url('/change/getjielist')}"
+                ,defaultToolbar:['filter','exports']
+                ,title: '用户数据表'
+                ,cols: [[
+                    {type: 'checkbox', fixed: 'left'}
+                    ,{field:'file_number', width:150, fixed:true, title:'卷号'}
+                    ,{field:'dname', width:150, fixed:true, title:'卷名'}
+                    ,{field:'file_derice', width:112, fixed:true, title:'存放位置'}
+                    ,{field:'addtime', width:200, fixed:true, title:'立卷日期'}
+                    ,{field:'sc_number', width:220, fixed:true, title:'学号'}
+                    ,{field:'grade', width:105, fixed:true, title:'年级'}
+                    ,{field:'depart', width:180, fixed:true, title:'院系'}
+                    ,{field:'major', width:220, fixed:true, title:'专业'}
+                    ,{fixed: 'right', toolbar: '#oneAction', width:150, title:'操作'}
+                    //,{field:'file_number', width:120, fixed:true, title:'卷号'}
+                    /*,{field:'number', width:120,fixed:true, title:'借阅号'}
+                    ,{field:'type', width:100 , title:'借阅类型'}
+                    ,{field:'file_type', width:100 , title:'全卷借阅？',event:"showfile",style:"color:#c7782e"}
+                    ,{field:'name', width:100, title:'借阅人'}
+                    ,{field:'phone', width:130, title:'联系方式'}
+                    ,{field:'start_time', width:200, title:'借出时间'}
+                    ,{field:'end_time',width:200, title:'应还时间'}
+                    ,{field:'true_time',width:200, title:'实还日期',event:"guihuan"}
+                    ,{field:'content', width:120, title:'借阅原因'}
+                    ,{field:'statuscon',width:120, title:'状态'}*/
+                ]]
+                ,page: true
+                ,limit:10
+                ,limits:[10,50,100]
+            });
+            table.on('tool(stu_table)', function(obj){
+                var jid     = obj.data.id;
+                var jsid     = obj.data.student_id;
+                var number     = obj.data.number;
+                switch(obj.event){
+                    case 'check':
+                        var  index= layer.open({
+                            type: 2,
+                            title:"借阅管理-"+obj.data.dname,
+                            area: ['90%', '100%'],
+                            fixed: true, //不固定
+                            maxmin: false,
+                            scrollbar:false,
+                            shadeClose:true,
+                            //之前的
+                            //content: "{:url('/change/borrowmanage')}?stu_id="+obj.data.student_id,
+                            content: "{:url('/change/borrowdetail')}?stu_id="+obj.data.student_id,
+                            anim:2
+                            ,btn: [ '关闭']//'迁出','降级', '参军', '院系变更','借阅',
+                            ,yes: function(index, layero){
+                                layer.close(index);
+                            }
+                        });
+                        break;
+                    case 'guihuan':
+                        $("#jid").val(jid);
+                        $("#jsid").val(jsid);
+                        $("#number").val(number);
+                        layer.open({
+                            type: 1,
+                            title:"归还",
+                            skin: 'layui-layer-rim', //加上边框
+                            area: ['420px', '240px'], //宽高
+                            content: $("#setdate").html()
+                        });
+                        //日期时间范围
+                        laydate.render({
+                            elem: '#true_time'
+                            ,type: 'datetime'
+                            ,range: false
+                        });
+                        break;
+
+                    case 'showfile':
+                        var docstr     = obj.data.docstr;
+                        layer.open({
+                            type: 1,
+                            title:"文件借阅",
+                            skin: 'layui-layer-rim', //加上边框
+                            area: ['420px', '240px'], //宽高
+                            content: docstr
+                        });
+                        break;
+                };
+            });
+        });
+        layui.use(['form'], function(){
+            var form = layui.form;
+            form.on('select(yx)', function(data){
+                var str = '<option value="">请选专业</option>';
+                var id = data.value; //院系id
+                if(id > 0)
+                {
+                    $.post("{:url('/system/getzy')}",{id:id},function(res){
+                        var length = res.length;
+                        for (var i=0;i<length;i++) {
+                            str += '<option value="'+res[i].id+'">'+res[i].name+'</option>';
+                        }
+                        layui.$("#zy").html(str);
+                        form.render();
+                    },'json');
+                }else{
+                    layui.$("#zy").html(str);
+                    form.render();
+                }
+            });
+        });
+        $('#sch').click(function(){
+            var name = $("#name").val();//卷名
+            var sc_number   = $("#sc_number").val();//学号
+            var file_number        = $("#file_number").val();//卷号
+            // var file_derice    = $("#file_derice").val();
+            // var grade       = $("#grade").val();
+            // var depart      = $("#depart").val();
+            // var zy      = $("#zy").val();
+            // var batch      = $("#batch").val();
+            table.reload('stu_table', {
+                url:"{:url('/change/getjielist')}"
+                ,page: {
+                    curr: 1 //重新从第 1 页开始
+                }
+                ,where: {name:name,sc_number:sc_number,file_number:file_number} //设定异步数据接口的额外参数
+            });
+        });
+        $(".sliderList").removeClass("sliderLists");
+        $("#slider7").addClass("sliderLists");
+    </script>
+</body>
+</html>

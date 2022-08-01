@@ -1,0 +1,148 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:78:"D:\www\bw_archives_new\public/../application/index\view\admin\record_keep.html";i:1535624701;s:67:"D:\www\bw_archives_new\public/../application/index\view\layout.html";i:1534989209;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+</head>
+<style>
+    .layui-btn-disableds{
+        border: 1px solid #e6e6e6;
+        background-color: #FBFBFB;
+        color: #C9C9C9;
+        cursor: not-allowed;
+        opacity: 1;
+        height: 28px;
+        line-height: 28px;
+        padding: 0 10px;
+        font-size: 12px;
+    }
+</style>
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <a href="<?php echo url('/login_out'); ?>"  style="color: white"><div class="fl_right signOut">退出</div></a>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="contetnBox">
+    <div class="sliderBox fl_left">
+    <a href="<?php echo url('/home'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">首页</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/ajgl'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-container"></span>
+        <span class="fl_left sliderThree block">档案管理</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/change_record'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-detail"></span>
+        <span class="fl_left sliderThree block">变动记录</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/system'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-setting"></span>
+        <span class="fl_left sliderThree block">系统设置</span>
+        <span class="clear"></span>
+    </a>
+    <!--<a href="<?php echo url('/lijuan'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-home"></span>-->
+        <!--<span class="fl_left sliderThree block">立卷</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/addFile'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-container"></span>-->
+        <!--<span class="fl_left sliderThree block">档案接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/inside'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-export"></span>-->
+        <!--<span class="fl_left sliderThree block">卷内文件接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/ajy'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-detail"></span>-->
+        <!--<span class="fl_left sliderThree block">案卷借阅</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/DaBd'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案变动</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+
+    <!--<a href="<?php echo url('/LmBj'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案类目</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+</div>
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <a href="<?php echo url('/change_record'); ?>"><div class="fl_right" style="width: 110px;height: 34px;border: solid 1px #666666;line-height: 34px;text-align: center;margin-top: 20px;color: #333;">返回</div></a>
+            <div class="clear"></div>
+        </div>
+        <div class="details">
+            <div class="deaBox">
+                <div class="deaHead jn_text"><span>详情</span></div>
+                <input type="hidden" value="<?php echo $id; ?>" id="bl">
+                <div class="tableBox">
+                    <table cellspacing="0" cellpadding="0" class="layui-hide" id="file_status">
+
+                    </table>
+                </div>
+                <script>
+                    layui.use('table', function(){
+                        var id = '';
+                        $(document).ready(function () {
+                            id = $('#bl').val();
+                        });
+                        var url = "<?php echo url('/sea_change'); ?>?id="+id;
+                        var table = layui.table
+                            ,form = layui.form;
+                        table.render({
+                            elem: '#file_status'
+                            ,url: url
+                            ,cols: [[
+                                {field:'j_uname',title:'姓名'}
+                                ,{field:'d_name',title:'院系'}
+                                ,{field:'m_name', title:'专业', templet: '#usernameTpl'}
+                                ,{field:'yuanyin', title:'原因'}
+                                ,{field:'content', title:'备注'}
+                                ,{field:'tys',title:'状态'}
+                            ]]
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+</body>
+</html>

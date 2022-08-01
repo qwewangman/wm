@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+</head>
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <a href="{:url('/login_out')}"  style="color: white"><div class="fl_right signOut">退出</div></a>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div class="contetnBox">
+
+    {include file='layout'}
+
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+
+            <div class="title fl_left">变动处理</div>
+            <a href="{:url('/ajgl')}"><div class="fl_right back">返回上一页</div></a>
+            <div class="clear"></div>
+        </div>
+        <div class="" style="background: white ; padding: 50px 30px;">
+            <!------------------------------------------------------------------------------------------------------------------->
+            <div class="layui-tab">
+                <ul class="layui-tab-title">
+                    <li id="sta1" class="layui-this">迁出</li>
+                    <li id="sta2">保留学籍</li>
+                    <li id="sta3">降级</li>
+                    <li id="sta4">院系变更</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                        -->
+                        <div class="newRightBox">
+                            <div style="width: 60% ; margin: 0 auto">
+                                <!------------------------------------------------------------------------------------------------------------------->
+                                <form class="layui-form" action="{:url('/qcAdd')}" method="post">
+                                    <input type="hidden" name="tys" value="1"/>
+                                    <input type="hidden" name="s_id" value=""  id="pl_id">
+                                    <div class="layui-form-item">
+                                            <label class="layui-form-label">迁档原因</label>
+                                            <div class="layui-input-block">
+                                                <input type="radio" name="yuanyin" value="毕业" title="毕业" checked="">
+                                                <input type="radio" name="yuanyin" value="退学" title="退学">
+                                            </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">迁档日期</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" name="q_date" id="Jdate" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">迁档批次</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="q_pc" lay-verify="" autocomplete="off" placeholder="请输入" class="layui-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                            <label class="layui-form-label">迁档方式</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="q_type" lay-verify="" autocomplete="off" placeholder="请输入姓名" class="layui-input">
+                                            </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">递档人</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="d_person" lay-verify="" autocomplete="off" placeholder="请输入姓名" class="layui-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                            <label class="layui-form-label">寄件人电话</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="j_phone" lay-verify="required|phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                                            </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">文件形成日期</label>
+                                        <div class="layui-input-inline">
+                                            <select name="nian">
+                                                <option value="">年</option>
+                                                {for start="1970" end="2100"}
+                                                <option value="{$i}">{$i}年</option>
+                                                {/for}
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="yue">
+                                                <option value="">月</option>
+                                                {for start="1" end="13"}
+                                                <option value="{$i}">{$i}月</option>
+                                                {/for}
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="ri">
+                                                <option value="">日</option>
+                                                {for start="1" end="32"}
+                                                <option value="{$i}">{$i}日</option>
+                                                {/for}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">备注</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="请输入内容" class="layui-textarea" name="content"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--<script src="__STATIC__/js/jquery-2.1.1.min.js"></script>-->
+
+                            <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                            <script>
+                                function GetRequest() {
+                                    var url = location.search; //获取url中"?"符后的字串
+                                    var theRequest = new Object();
+                                    if (url.indexOf("?") != -1) {
+                                        var str = url.substr(1);
+                                        strs = str.split("&");
+                                        for(var i = 0; i < strs.length; i ++) {
+                                            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+                                        }
+                                    }
+                                    return theRequest;
+                                }
+                                $(document).ready(function () {
+
+                                    data = GetRequest();
+                                    if (data.id != null){
+                                        pl_id = data.id;
+                                        $("#pl_id").val(pl_id);
+                                        $("#box").css('display','block');
+                                        $("#table1").css('display','none');
+                                    }
+                                });
+                                //批量接收按钮
+                                $('#sub').click(function()
+                                {
+                                        if(idss != ''){
+                                            var url = "{:url('/BdCls')}?id="+idss;
+                                            window.location.href = url;
+                                        }else{
+                                            var url = "{:url('/BdCls')}?id="+ids;
+                                            window.location.href = url;
+                                        }
+                                });
+                                var ids =[];
+                                var idss = '';
+                                layui.use('table', function(){
+                                    var table = layui.table;
+                                    //监听表格复选框选择
+                                    table.on('checkbox(demo)', function(obj){
+                                        if(obj.checked == true)
+                                        {
+                                            if(obj.type == 'all'){
+                                                idss = obj.type;
+                                            }
+                                            var k = ids.length;
+                                            ids[k]= obj.data.id;
+                                        }else{
+                                            if(obj.type == 'all'){
+                                                idss = 'end';
+                                            }
+                                            var n = [];
+                                            var kk =0;
+                                            for(var i=0 ;i<ids.length ;i++)
+                                            {
+                                                if(obj.data.id != ids[i])
+                                                {
+                                                    n[kk] =ids[i];
+                                                    kk++
+                                                }
+                                            }
+                                            ids = n;
+                                        }
+                                    });
+//                                -------------------------------------------------------------------
+
+//方法级渲染
+                                    table.render({
+                                        elem: '#LAY_table_user'
+                                        ,url: "{:url('/fileList')}" //数据接口
+                                        ,cols: [[  //表头
+                                            {checkbox: true, fixed: true}
+                                            ,{field:'file_number', title: '卷号',fixed: true}
+                                            ,{field:'sc_number', title: '学号'}
+                                            ,{field:'user_name', title: '姓名'}
+                                            ,{field:'addtime', title: '立卷日期'}
+                                        ]]
+                                        ,id: 'testReload'   //设定容器唯一ID
+                                        ,page:true  //开启分页
+
+                                    });
+                                    var $ = layui.$, active = {
+                                        reload: function(){
+                                            var courtyard = $('#courtyard');  //院系id
+                                            var zy = $('#zy');  //专业id
+                                            var sc_number = $('#sc_number'); //学号
+                                            var user_name = $('#user_name'); //姓名
+                                            var file_number = $('#file_number'); //卷号
+                                            //执行重载
+                                            table.reload('testReload', {
+                                                page: {
+                                                    curr: 1 //重新从第 1 页开始
+                                                }
+                                                ,where: {   //设定异步数据接口的额外参数，任意设
+                                                    key: {
+                                                        courtyard: courtyard.val(),
+                                                        major: zy.val(),
+                                                        file_number:file_number.val(),
+                                                        sc_number: sc_number.val(),
+                                                        user_name: user_name.val()
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    };
+//                               --------------------------------------------------------------------
+                                    //监听工具条
+                                    table.on('tool(demo)', function(obj){
+                                        var data = obj.data;
+                                        var id = data.id;
+                                        if(obj.event === 'detail'){
+                                            var url = "{:url('/CaKa')}?id="+id;
+                                            window.location.href = url
+                                        } else if(obj.event === 'del'){  //用户变动
+                                            var url = "{:url('/BdCl')}?id="+id;
+                                            window.location.href = url
+                                        } else if(obj.event === 'edit'){
+                                            var url = "{:url('/updJy')}?id="+id;
+                                            window.location.href = url
+                                        } else if(obj.event === 'jis'){
+                                            var url = "{:url('/addFile')}";
+                                            window.location.href = url;
+                                        }
+                                    });
+                                    $('.demoTable .layui-btn').on('click', function(){
+                                        var type = $(this).data('type');
+                                        active[type] ? active[type].call(this) : '';
+                                    });
+                                });
+                            </script>
+                            <script>
+                                layui.use(['form', 'laydate','upload'], function(){
+                                    var form = layui.form;
+                                    form.on('select(yx)', function(data){
+                                        var str = '<option value="0">请选专业</option>';
+                                        var id = data.value;
+                                        $.post("{:url('/getZy')}",{id:id},function(res){
+                                            var length = res.length;
+                                            for (var i=0;i<length;i++) {
+                                                str += '<option value="'+res[i].id+'">'+res[i].m_name+'</option>';
+                                            }
+                                            layui.$("#zy").html(str);
+                                            form.render();
+                                        },'json');
+                                    });
+                                });
+                                layui.use(['form', 'layedit', 'laydate'], function(){
+                                    var form = layui.form
+                                        ,layer = layui.layer
+                                        ,layedit = layui.layedit
+                                        ,laydate = layui.laydate;
+
+                                    //日期
+                                    laydate.render({
+                                        elem: '#Jdate'
+                                    });
+                                    laydate.render({
+                                        elem: '#Hdate'
+                                    });
+
+                                    //创建一个编辑器
+                                    var editIndex = layedit.build('LAY_demo_editor');
+
+                                    //自定义验证规则
+                                    form.verify({
+                                        title: function(value){
+                                            if(value.length < 0){
+                                                return '不能为空';
+                                            }
+                                        }
+                                        ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+                                        ,content: function(value){
+                                            layedit.sync(editIndex);
+                                        }
+                                    });
+                                    //监听指定开关
+                                    form.on('switch(switchTest)', function(data){
+                                        layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                                            offset: '6px'
+                                        });
+                                        layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+                                    });
+
+                                    //监听提交
+                                    form.on('submit(demo1)', function(data){
+//                            layer.alert(JSON.stringify(data.field), {
+//                                title: '最终的提交信息'
+//                            })
+//                            return false;
+                                    });
+                                });
+                            </script>
+
+                            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        </div>
+                    </div>
+                    <div class="layui-tab-item">
+
+                        <div class="newRightBox">
+                            <div style="width: 60% ; margin: 0 auto">
+                                <!------------------------------------------------------------------------------------------------------------------->
+                                <form class="layui-form" action="{:url('/qcAdd')}" method="post">
+                                    <div id="table2">
+                                        <table class="layui-table"  id="LAY_table_user2"  lay-data="{ url:'', page:true, id:'idTest'}" lay-filter="demo">
+                                        </table>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label"><div id="sub2" class="layui-btn" lay-event="bia">添加用户</div></label>
+                                        </div>
+                                    </div>
+
+                                    <input type="hidden" name="tys" value="2"/>
+                                    <input type="hidden" name="s_id" value=""  id="pl_id2">
+                                    <div id="box2" style="display: none">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">原因</label>
+                                        <div class="layui-input-block">
+                                            <input type="radio" name="yuanyin" value="服兵役" title="服兵役" checked="">
+                                            <input type="radio" name="yuanyin" value="休学" title="休学">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">文件形成日期</label>
+                                        <div class="layui-input-inline">
+                                            <select name="nian">
+                                                <option value="">年</option>
+                                                {for start="1970" end="2100"}
+                                                <option value="{$i}">{$i}年</option>
+                                                {/for}
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="yue">
+                                                <option value="">月</option>
+                                                {for start="1" end="13"}
+                                                <option value="{$i}">{$i}月</option>
+                                                {/for}
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="ri">
+                                                <option value="">日</option>
+                                                {for start="1" end="32"}
+                                                <option value="{$i}">{$i}日</option>
+                                                {/for}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">备注</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="请输入内容" class="layui-textarea" name="content"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--<script src="__STATIC__/js/jquery-2.1.1.min.js"></script>-->
+
+                            <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                            <script>
+                                function GetRequest() {
+                                    var url = location.search; //获取url中"?"符后的字串
+                                    var theRequest = new Object();
+                                    if (url.indexOf("?") != -1) {
+                                        var str = url.substr(1);
+                                        strs = str.split("&");
+                                        for(var i = 0; i < strs.length; i ++) {
+                                            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+                                        }
+                                    }
+                                    return theRequest;
+                                }
+                                $(document).ready(function () {
+                                    data = GetRequest();
+                                    if (data.id != null){
+                                        pl_id = data.id;
+                                        $("#pl_id2").val(pl_id);
+                                        $("#box2").css('display','block');
+                                        $("#table2").css('display','none');
+                                    }
+
+                                });
+                                //批量接收按钮
+                                $('#sub2').click(function()
+                                {
+                                    if(idss != ''){
+                                        var url = "{:url('/BdCls')}?id="+idss;
+                                        window.location.href = url;
+                                    }else{
+                                        var url = "{:url('/BdCls')}?id="+ids;
+                                        window.location.href = url;
+                                    }
+                                })
+                                var ids =[];
+                                var idss = '';
+                                layui.use('table', function(){
+                                    var table = layui.table;
+                                    //监听表格复选框选择
+                                    table.on('checkbox(demo)', function(obj){
+                                        if(obj.checked == true)
+                                        {
+                                            if(obj.type == 'all'){
+                                                idss = obj.type;
+                                            }
+                                            var k = ids.length;
+                                            ids[k]= obj.data.id;
+                                        }else{
+                                            if(obj.type == 'all'){
+                                                idss = 'end';
+                                            }
+                                            var n = [];
+                                            var kk =0;
+                                            for(var i=0 ;i<ids.length ;i++)
+                                            {
+                                                if(obj.data.id != ids[i])
+                                                {
+                                                    n[kk] =ids[i];
+                                                    kk++
+                                                }
+                                            }
+                                            ids = n;
+                                        }
+                                    });
+//                                -------------------------------------------------------------------
+
+//方法级渲染
+                                    table.render({
+                                        elem: '#LAY_table_user2'
+                                        ,url: "{:url('/fileList')}" //数据接口
+                                        ,cols: [[  //表头
+                                            {checkbox: true, fixed: true}
+                                            ,{field:'file_number', title: '卷号',fixed: true , width:213}
+                                            ,{field:'sc_number', title: '学号' , width:213}
+                                            ,{field:'user_name', title: '姓名' , width:213}
+                                            ,{field:'addtime', title: '立卷日期' , width:213}
+                                        ]]
+                                        ,id: 'testReload'   //设定容器唯一ID
+                                        ,page:true  //开启分页
+
+                                    });
+
+                                    var $ = layui.$, active = {
+                                        reload: function(){
+                                            var courtyard = $('#courtyard');  //院系id
+                                            var zy = $('#zy');  //专业id
+                                            var sc_number = $('#sc_number'); //学号
+                                            var user_name = $('#user_name'); //姓名
+                                            var file_number = $('#file_number'); //卷号
+                                            //执行重载
+                                            table.reload('testReload', {
+                                                page: {
+                                                    curr: 1 //重新从第 1 页开始
+                                                }
+                                                ,where: {   //设定异步数据接口的额外参数，任意设
+                                                    key: {
+                                                        courtyard: courtyard.val(),
+                                                        major: zy.val(),
+                                                        file_number:file_number.val(),
+                                                        sc_number: sc_number.val(),
+                                                        user_name: user_name.val()
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    };
+
+
+
+//                               --------------------------------------------------------------------
+
+                                    //监听工具条
+                                    table.on('tool(demo)', function(obj){
+                                        var data = obj.data;
+                                        var id = data.id;
+                                        if(obj.event === 'detail'){
+                                            var url = "{:url('/CaKa')}?id="+id;
+                                            window.location.href = url
+                                        } else if(obj.event === 'del'){  //用户变动
+                                            var url = "{:url('/BdCl')}?id="+id;
+                                            window.location.href = url
+                                        } else if(obj.event === 'edit'){
+                                            var url = "{:url('/updJy')}?id="+id;
+                                            window.location.href = url
+                                        } else if(obj.event === 'jis'){
+                                            var url = "{:url('/addFile')}";
+                                            window.location.href = url;
+                                        }
+                                    });
+
+
+                                    $('.demoTable .layui-btn').on('click', function(){
+                                        var type = $(this).data('type');
+                                        active[type] ? active[type].call(this) : '';
+                                    });
+                                });
+                            </script>
+                            <script>
+
+
+                                layui.use(['form', 'laydate','upload'], function(){
+                                    var form = layui.form;
+                                    form.on('select(yx)', function(data){
+                                        var str = '<option value="0">请选专业</option>';
+                                        var id = data.value;
+                                        $.post("{:url('/getZy')}",{id:id},function(res){
+                                            var length = res.length;
+                                            for (var i=0;i<length;i++) {
+                                                str += '<option value="'+res[i].id+'">'+res[i].m_name+'</option>';
+                                            }
+                                            layui.$("#zy").html(str);
+                                            form.render();
+                                        },'json');
+                                    });
+                                })
+
+
+                                layui.use(['form', 'layedit', 'laydate'], function(){
+                                    var form = layui.form
+                                        ,layer = layui.layer
+                                        ,layedit = layui.layedit
+                                        ,laydate = layui.laydate;
+
+                                    //日期
+                                    laydate.render({
+                                        elem: '#Jdate'
+                                    });
+                                    laydate.render({
+                                        elem: '#Hdate'
+                                    });
+
+                                    //创建一个编辑器
+                                    var editIndex = layedit.build('LAY_demo_editor');
+
+                                    //自定义验证规则
+                                    form.verify({
+                                        title: function(value){
+                                            if(value.length < 0){
+                                                return '不能为空';
+                                            }
+                                        }
+                                        ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+                                        ,content: function(value){
+                                            layedit.sync(editIndex);
+                                        }
+                                    });
+
+                                    //监听指定开关
+                                    form.on('switch(switchTest)', function(data){
+                                        layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                                            offset: '6px'
+                                        });
+                                        layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+                                    });
+
+                                    //监听提交
+                                    form.on('submit(demo1)', function(data){
+//                            layer.alert(JSON.stringify(data.field), {
+//                                title: '最终的提交信息'
+//                            })
+//                            return false;
+                                    });
+                                });
+
+
+
+                            </script>
+
+                            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        </div>
+
+
+
+                    </div>
+                    <div class="layui-tab-item">
+
+                        <div class="newRightBox">
+                            <div style="width: 60% ; margin: 0 auto">
+                                <!------------------------------------------------------------------------------------------------------------------->
+                                <form class="layui-form" action="{:url('/qcAdd_t')}" method="post">
+                                    <div id="table3">
+                                        <table class="layui-table"  id="LAY_table_user3"  lay-data="{ url:'', page:true, id:'idTest'}" lay-filter="demo">
+                                        </table>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label"><div id="sub3" class="layui-btn" lay-event="bia">添加用户</div></label>
+                                        </div>
+                                    </div>
+
+                                    <input type="hidden" name="tys" value="3"/>
+                                    <input type="hidden" name="s_id" value=""  id="pl_id3">
+                                    <div id="box3" style="display: none">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">变动后班级</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="class" lay-verify="" autocomplete="off"  placeholder="请输入"  class="layui-input">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">文件形成日期</label>
+                                        <div class="layui-input-inline">
+                                            <select name="nian">
+                                                <option value="">年</option>
+                                                {for start="1970" end="2100"}
+                                                <option value="{$i}">{$i}年</option>
+                                                {/for}
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="yue">
+                                                <option value="">月</option>
+                                                {for start="1" end="13"}
+                                                <option value="{$i}">{$i}月</option>
+                                                {/for}
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="ri">
+                                                <option value="">日</option>
+                                                {for start="1" end="32"}
+                                                <option value="{$i}">{$i}日</option>
+                                                {/for}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">备注</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="请输入内容" class="layui-textarea" name="content"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--<script src="__STATIC__/js/jquery-2.1.1.min.js"></script>-->
+
+                            <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                            <script>
+                                function GetRequest() {
+                                    var url = location.search; //获取url中"?"符后的字串
+                                    var theRequest = new Object();
+                                    if (url.indexOf("?") != -1) {
+                                        var str = url.substr(1);
+                                        strs = str.split("&");
+                                        for(var i = 0; i < strs.length; i ++) {
+                                            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+                                        }
+                                    }
+                                    return theRequest;
+                                }
+                                $(document).ready(function () {
+                                    data = GetRequest();
+                                    if (data.id != null){
+                                        pl_id = data.id;
+                                        $("#pl_id3").val(pl_id);
+                                        $("#box3").css('display','block');
+                                        $("#table3").css('display','none');
+                                    }
+
+                                });
+                                //批量接收按钮
+                                $('#sub3').click(function()
+                                {
+                                    if(idss != ''){
+                                        var url = "{:url('/BdCls')}?id="+idss;
+                                        window.location.href = url;
+                                    }else{
+                                        var url = "{:url('/BdCls')}?id="+ids;
+                                        window.location.href = url;
+                                    }
+                                })
+                                var ids =[];
+                                var idss = '';
+                                layui.use('table', function(){
+                                    var table = layui.table;
+                                    //监听表格复选框选择
+                                    table.on('checkbox(demo)', function(obj){
+                                        if(obj.checked == true)
+                                        {
+                                            if(obj.type == 'all'){
+                                                idss = obj.type;
+                                            }
+                                            var k = ids.length;
+                                            ids[k]= obj.data.id;
+                                        }else{
+                                            if(obj.type == 'all'){
+                                                idss = 'end';
+                                            }
+                                            var n = [];
+                                            var kk =0;
+                                            for(var i=0 ;i<ids.length ;i++)
+                                            {
+                                                if(obj.data.id != ids[i])
+                                                {
+                                                    n[kk] =ids[i];
+                                                    kk++
+                                                }
+                                            }
+                                            ids = n;
+                                        }
+                                    });
+//                                -------------------------------------------------------------------
+
+//方法级渲染
+                                    table.render({
+                                        elem: '#LAY_table_user3'
+                                        ,url: "{:url('/fileList')}" //数据接口
+                                        ,cols: [[  //表头
+                                            {checkbox: true, fixed: true}
+                                            ,{field:'file_number', title: '卷号',fixed: true , width:213}
+                                            ,{field:'sc_number', title: '学号' , width:213}
+                                            ,{field:'user_name', title: '姓名' , width:213}
+                                            ,{field:'addtime', title: '立卷日期' , width:213}
+                                        ]]
+                                        ,id: 'testReload'   //设定容器唯一ID
+                                        ,page:true  //开启分页
+
+                                    });
+
+                                    var $ = layui.$, active = {
+                                        reload: function(){
+                                            var courtyard = $('#courtyard');  //院系id
+                                            var zy = $('#zy');  //专业id
+                                            var sc_number = $('#sc_number'); //学号
+                                            var user_name = $('#user_name'); //姓名
+                                            var file_number = $('#file_number'); //卷号
+                                            //执行重载
+                                            table.reload('testReload', {
+                                                page: {
+                                                    curr: 1 //重新从第 1 页开始
+                                                }
+                                                ,where: {   //设定异步数据接口的额外参数，任意设
+                                                    key: {
+                                                        courtyard: courtyard.val(),
+                                                        major: zy.val(),
+                                                        file_number:file_number.val(),
+                                                        sc_number: sc_number.val(),
+                                                        user_name: user_name.val()
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    };
+
+
+
+//                               --------------------------------------------------------------------
+
+                                    //监听工具条
+                                    table.on('tool(demo)', function(obj){
+                                        var data = obj.data;
+                                        var id = data.id;
+                                        if(obj.event === 'detail'){
+                                            var url = "{:url('/CaKa')}?id="+id;
+                                            window.location.href = url
+                                        } else if(obj.event === 'del'){  //用户变动
+                                            var url = "{:url('/BdCl')}?id="+id;
+                                            window.location.href = url
+                                        } else if(obj.event === 'edit'){
+                                            var url = "{:url('/updJy')}?id="+id;
+                                            window.location.href = url
+                                        } else if(obj.event === 'jis'){
+                                            var url = "{:url('/addFile')}";
+                                            window.location.href = url;
+                                        }
+                                    });
+
+
+                                    $('.demoTable .layui-btn').on('click', function(){
+                                        var type = $(this).data('type');
+                                        active[type] ? active[type].call(this) : '';
+                                    });
+                                });
+                            </script>
+                            <script>
+
+
+                                layui.use(['form', 'laydate','upload'], function(){
+                                    var form = layui.form;
+                                    form.on('select(yx)', function(data){
+                                        var str = '<option value="0">请选专业</option>';
+                                        var id = data.value;
+                                        $.post("{:url('/getZy')}",{id:id},function(res){
+                                            var length = res.length;
+                                            for (var i=0;i<length;i++) {
+                                                str += '<option value="'+res[i].id+'">'+res[i].m_name+'</option>';
+                                            }
+                                            layui.$("#zy").html(str);
+                                            form.render();
+                                        },'json');
+                                    });
+                                })
+
+
+                                layui.use(['form', 'layedit', 'laydate'], function(){
+                                    var form = layui.form
+                                        ,layer = layui.layer
+                                        ,layedit = layui.layedit
+                                        ,laydate = layui.laydate;
+
+                                    //日期
+                                    laydate.render({
+                                        elem: '#Jdate'
+                                    });
+                                    laydate.render({
+                                        elem: '#Hdate'
+                                    });
+
+                                    //创建一个编辑器
+                                    var editIndex = layedit.build('LAY_demo_editor');
+
+                                    //自定义验证规则
+                                    form.verify({
+                                        title: function(value){
+                                            if(value.length < 0){
+                                                return '不能为空';
+                                            }
+                                        }
+                                        ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+                                        ,content: function(value){
+                                            layedit.sync(editIndex);
+                                        }
+                                    });
+
+                                    //监听指定开关
+                                    form.on('switch(switchTest)', function(data){
+                                        layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                                            offset: '6px'
+                                        });
+                                        layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+                                    });
+
+                                    //监听提交
+                                    form.on('submit(demo1)', function(data){
+//                            layer.alert(JSON.stringify(data.field), {
+//                                title: '最终的提交信息'
+//                            })
+//                            return false;
+                                    });
+                                });
+
+
+
+                            </script>
+
+                            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        </div>
+
+
+                    </div>
+                    <div class="layui-tab-item">
+
+                        <div class="newRightBox">
+                            <div style="width: 60% ; margin: 0 auto">
+                                <!------------------------------------------------------------------------------------------------------------------->
+                                <form class="layui-form" action="{:url('/qcAdd_f')}" method="post">
+                                    <div id="table4">
+                                        <table class="layui-table"  id="LAY_table_user4"  lay-data="{ url:'', page:true, id:'idTest4'}" lay-filter="demo">
+                                        </table>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label"><div id="sub4" class="layui-btn" lay-event="bia">添加用户</div></label>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="tys" value="4"/>
+                                    <input type="hidden" name="s_id" value=""  id="pl_id4">
+                                    <div id="box4" style="display: none">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">院系专业</label>
+                                        <div class="layui-input-inline">
+                                            <select name="xibie" lay-filter="yx">
+                                                <option value="" selected>请选择院系</option>
+                                                {foreach name='departlist' item='v'}
+                                                <option value="{$v.id}" >{$v.d_name}</option>
+                                                {/foreach}
+                                            </select>
+                                        </div>
+
+                                        <div class="layui-input-inline">
+                                            <select name="zhuanye"  id="zy">
+                                                <option value="">请选专业</option>
+                                            </select>
+                                        </div>
+                                        <div class="layui-form-mid layui-word-aux"></div>
+                                    </div>
+
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">文件形成日期</label>
+                                        <div class="layui-input-inline">
+                                            <select name="nian">
+                                                <option value="">年</option>
+                                                {for start="1970" end="2100"}
+                                                <option value="{$i}">{$i}年</option>
+                                                {/for}
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="yue">
+                                                <option value="">月</option>
+                                                {for start="1" end="13"}
+                                                <option value="{$i}">{$i}月</option>
+                                                {/for}
+                                            </select>
+                                        </div>
+                                        <div class="layui-input-inline">
+                                            <select name="ri">
+                                                <option value="">日</option>
+                                                {for start="1" end="32"}
+                                                <option value="{$i}">{$i}日</option>
+                                                {/for}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">备注</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="请输入内容" class="layui-textarea" name="content"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--<script src="__STATIC__/js/jquery-2.1.1.min.js"></script>-->
+
+                            <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                            <script>
+                                function GetRequest() {
+                                    var url = location.search; //获取url中"?"符后的字串
+                                    var theRequest = new Object();
+                                    if (url.indexOf("?") != -1) {
+                                        var str = url.substr(1);
+                                        strs = str.split("&");
+                                        for(var i = 0; i < strs.length; i ++) {
+                                            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+                                        }
+                                    }
+                                    return theRequest;
+                                }
+                                $(document).ready(function () {
+                                    data = GetRequest();
+                                    if (data.id != null){
+                                        pl_id = data.id;
+                                        $("#pl_id4").val(pl_id);
+                                        $("#box4").css('display','block');
+                                        $("#table4").css('display','none');
+                                    }
+
+                                });
+                                //批量接收按钮
+                                $('#sub4').click(function()
+                                {
+                                    if(idss != ''){
+                                        var url = "{:url('/BdCls')}?id="+idss;
+                                        window.location.href = url;
+                                    }else{
+                                        var url = "{:url('/BdCls')}?id="+ids;
+                                        window.location.href = url;
+                                    }
+                                });
+                                var ids =[];
+                                var idss = '';
+                                layui.use('table', function(){
+                                    var table = layui.table;
+                                    //监听表格复选框选择
+                                    table.on('checkbox(demo)', function(obj){
+                                        if(obj.checked == true)
+                                        {
+                                            if(obj.type == 'all'){
+                                                idss = obj.type;
+                                            }
+                                            var k = ids.length;
+                                            ids[k]= obj.data.id;
+                                        }else{
+                                            if(obj.type == 'all'){
+                                                idss = 'end';
+                                            }
+                                            var n = [];
+                                            var kk =0;
+                                            for(var i=0 ;i<ids.length ;i++)
+                                            {
+                                                if(obj.data.id != ids[i])
+                                                {
+                                                    n[kk] =ids[i];
+                                                    kk++
+                                                }
+                                            }
+                                            ids = n;
+                                        }
+                                    });
+//                                -------------------------------------------------------------------
+
+//方法级渲染
+                                    table.render({
+                                        elem: '#LAY_table_user4'
+                                        ,url: "{:url('/fileList')}" //数据接口
+                                        ,cols: [[  //表头
+                                            {checkbox: true, fixed: true}
+                                            ,{field:'file_number', title: '卷号',fixed: true , width:213}
+                                            ,{field:'sc_number', title: '学号' , width:213}
+                                            ,{field:'user_name', title: '姓名' , width:213}
+                                            ,{field:'addtime', title: '立卷日期' , width:213}
+                                        ]]
+                                        ,id: 'testReload4'   //设定容器唯一ID
+                                        ,page:true  //开启分页
+
+                                    });
+
+                                    var $ = layui.$, active = {
+                                        reload: function(){
+                                            var courtyard = $('#courtyard');  //院系id
+                                            var zy = $('#zy');  //专业id
+                                            var sc_number = $('#sc_number'); //学号
+                                            var user_name = $('#user_name'); //姓名
+                                            var file_number = $('#file_number'); //卷号
+                                            //执行重载
+                                            table.reload('testReload', {
+                                                page: {
+                                                    curr: 1 //重新从第 1 页开始
+                                                }
+                                                ,where: {   //设定异步数据接口的额外参数，任意设
+                                                    key: {
+                                                        courtyard: courtyard.val(),
+                                                        major: zy.val(),
+                                                        file_number:file_number.val(),
+                                                        sc_number: sc_number.val(),
+                                                        user_name: user_name.val()
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    };
+
+
+
+//                               --------------------------------------------------------------------
+
+                                    //监听工具条
+                                    table.on('tool(demo)', function(obj){
+                                        var data = obj.data;
+                                        var id = data.id;
+                                        if(obj.event === 'detail'){
+                                            var url = "{:url('/CaKa')}?id="+id;
+                                            window.location.href = url
+                                        } else if(obj.event === 'del'){  //用户变动
+                                            var url = "{:url('/BdCl')}?id="+id;
+                                            window.location.href = url
+                                        } else if(obj.event === 'edit'){
+                                            var url = "{:url('/updJy')}?id="+id;
+                                            window.location.href = url
+                                        } else if(obj.event === 'jis'){
+                                            var url = "{:url('/addFile')}";
+                                            window.location.href = url;
+                                        }
+                                    });
+
+
+                                    $('.demoTable .layui-btn').on('click', function(){
+                                        var type = $(this).data('type');
+                                        active[type] ? active[type].call(this) : '';
+                                    });
+                                });
+                            </script>
+                            <script>
+
+
+                                layui.use(['form', 'laydate','upload'], function(){
+                                    var form = layui.form;
+                                    form.on('select(yx)', function(data){
+                                        var str = '<option value="0">请选专业</option>';
+                                        var id = data.value;
+                                        $.post("{:url('/getZy')}",{id:id},function(res){
+                                            var length = res.length;
+                                            for (var i=0;i<length;i++) {
+                                                str += '<option value="'+res[i].id+'">'+res[i].m_name+'</option>';
+                                            }
+                                            layui.$("#zy").html(str);
+                                            form.render();
+                                        },'json');
+                                    });
+                                })
+
+
+                                layui.use(['form', 'layedit', 'laydate'], function(){
+                                    var form = layui.form
+                                        ,layer = layui.layer
+                                        ,layedit = layui.layedit
+                                        ,laydate = layui.laydate;
+
+                                    //日期
+                                    laydate.render({
+                                        elem: '#Jdate'
+                                    });
+                                    laydate.render({
+                                        elem: '#Hdate'
+                                    });
+
+                                    //创建一个编辑器
+                                    var editIndex = layedit.build('LAY_demo_editor');
+
+                                    //自定义验证规则
+                                    form.verify({
+                                        title: function(value){
+                                            if(value.length < 0){
+                                                return '不能为空';
+                                            }
+                                        }
+                                        ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+                                        ,content: function(value){
+                                            layedit.sync(editIndex);
+                                        }
+                                    });
+
+                                    //监听指定开关
+                                    form.on('switch(switchTest)', function(data){
+                                        layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                                            offset: '6px'
+                                        });
+                                        layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+                                    });
+
+                                    //监听提交
+                                    form.on('submit(demo1)', function(data){
+//                            layer.alert(JSON.stringify(data.field), {
+//                                title: '最终的提交信息'
+//                            })
+//                            return false;
+                                    });
+                                });
+
+
+
+                            </script>
+
+                            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                layui.use('element', function(){
+                    var $ = layui.jquery
+                        ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+                    //触发事件
+                    var active = {
+                        tabAdd: function(){
+                            //新增一个Tab项
+                            element.tabAdd('demo', {
+                                title: '新选项'+ (Math.random()*1000|0) //用于演示
+                                ,content: '内容'+ (Math.random()*1000|0)
+                                ,id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+                            })
+                        }
+                        ,tabDelete: function(othis){
+                            //删除指定Tab项
+                            element.tabDelete('demo', '44'); //删除：“商品管理”
+
+
+                            othis.addClass('layui-btn-disabled');
+                        }
+                        ,tabChange: function(){
+                            //切换到指定Tab项
+                            element.tabChange('demo', '22'); //切换到：用户管理
+                        }
+                    };
+
+                    $('.site-demo-active').on('click', function(){
+                        var othis = $(this), type = othis.data('type');
+                        active[type] ? active[type].call(this, othis) : '';
+                    });
+
+                    //Hash地址的定位
+                    var layid = location.hash.replace(/^#test=/, '');
+                    element.tabChange('test', layid);
+
+                    element.on('tab(test)', function(elem){
+                        location.hash = 'test='+ $(this).attr('lay-id');
+                    });
+
+                });
+            </script>
+
+
+
+            <!------------------------------------------------------javascriptEnd------------------------------------------------------------->
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

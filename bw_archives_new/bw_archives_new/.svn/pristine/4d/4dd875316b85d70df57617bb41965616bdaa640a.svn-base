@@ -1,0 +1,35 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 25352
+ * Date: 2018/5/15
+ * Time: 10:51
+ */
+namespace app\index\model;
+
+use think\Model;
+use think\Db;
+
+
+class BranchModel extends Model
+{
+    // 设置当前模型对应的完整数据表名称
+    protected $table = 'oa_department';
+
+
+    //获取某部门
+    public function getBranch($j_bumen)
+    {
+        return $this->where("dep_number",$j_bumen)->find();
+    }
+
+
+
+
+
+
+
+
+
+
+}

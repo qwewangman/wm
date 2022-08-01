@@ -1,0 +1,188 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:80:"D:\phpStudy\PHPTutorial\WWW\AAA\public/../application/index\view\index\home.html";i:1529575784;s:76:"D:\phpStudy\PHPTutorial\WWW\AAA\public/../application/index\view\layout.html";i:1529566323;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/index.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/js/echarts.min.js"></script>
+    <script src="__STATIC__/js/ecStat.min.js"></script>
+    <script src="__STATIC__/js/ecStat.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/echarts.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/js/ecolor.js"></script>
+    <script src="__STATIC__/js/index.js"></script>
+</head>
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <div class="fl_right signOut"><a href="<?php echo url('/login_out'); ?>"  style="color: white">退出</a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="contetnBox">
+    <div class="sliderBox fl_left">
+    <a href="<?php echo url('/home'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">首页</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/ajgl'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">案卷管理</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="<?php echo url('/wjjs'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">文件接收</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="<?php echo url('/LmBj'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">文件类目</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">设置</span>
+        <span class="clear"></span>
+    </a>
+    <!--<a href="<?php echo url('/lijuan'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-home"></span>-->
+        <!--<span class="fl_left sliderThree block">立卷</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/addFile'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-container"></span>-->
+        <!--<span class="fl_left sliderThree block">档案接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/inside'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-export"></span>-->
+        <!--<span class="fl_left sliderThree block">卷内文件接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/ajy'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-detail"></span>-->
+        <!--<span class="fl_left sliderThree block">案卷借阅</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/DaBd'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案变动</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+
+    <!--<a href="<?php echo url('/LmBj'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案类目</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+</div>
+    <div class="rightBox fl_right">
+        <div class="heaTitle">
+            <div class="heaList heaList1"><span>待处理档案</span><i><?php echo $dcl; ?></i></div>
+            <div class="heaList heaList2"><span>库存档案</span><i><?php echo $kc; ?></i></div>
+            <div class="heaList heaList3"><span>本科生档案</span><i><?php echo $bks; ?></i></div>
+            <div class="heaList heaList4"><span>研究生档案</span><i>(暂未获取)</i></div>
+        </div>
+        <div class="yearNum">
+            <div class="yearNumTitle">年入库量</div>
+            <div id="container" style="width:100%;height:360px;"></div>
+        </div>
+        <div class="conteRtent">
+            <div class="mainOne">
+                <div class="yearNumTitle">库房</div>
+                <div id="main" style="width:100%;height:318px;"></div>
+            </div>
+            <div class="mainTwo">
+                <div class="yearNumTitle">年迁出量</div>
+                <div id="main2" style="width:100%;height:318px;"></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<input type="hidden" id="wjs" value=""/>
+<input type="hidden" id="zd" value=""/>
+<input type="hidden" id="jc" value=""/>
+<input type="hidden" id="qc" value=""/>
+
+<script type="text/javascript">
+    // 库房
+    var myChart = echarts.init(document.getElementById('main'), 'customed');
+    var option = {
+        tooltip: {},
+        xAxis: {
+            data: ["未接收","在档","借出","迁出"]
+        },
+        yAxis: {},
+        series: [{
+            name: '库存',
+            type: 'bar',
+            data: [5, 20, 36, 10]
+        }]
+    };
+    myChart.setOption(option);
+    // 年迁出量
+    var myChart2 = echarts.init(document.getElementById('main2'), 'customed');
+    var option2 = {
+        tooltip: {},
+        xAxis: {
+            data: ["自带","邮寄","接收挡位自取"]
+        },
+        yAxis: {},
+        series: [{
+            name: '迁出量',
+            type: 'bar',
+            data: [5, 20, 36]
+        }]
+    };
+    myChart2.setOption(option2);
+    // 年入库量
+    var dom = document.getElementById("container");
+    var myChart1 = echarts.init(dom, 'customed');
+    var app = {};
+    option1 = null;
+    option1 = {
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: [ '2012', '2013', '2014', '2015', '2016', '2017','2018']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [300, 932, 901, 934, 1290, 1330, 1320],
+            type: 'line',
+            areaStyle: {}
+        }]
+    };
+    ;
+    if (option1 && typeof option1 === "object") {
+        myChart1.setOption(option1, true);
+    }
+</script>
+</body>
+</html>

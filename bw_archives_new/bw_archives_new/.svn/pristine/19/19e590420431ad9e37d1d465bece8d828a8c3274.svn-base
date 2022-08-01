@@ -1,0 +1,196 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\www\bw_archives\public/../application/index\view\admin\jnsh.html";i:1531802003;s:63:"D:\www\bw_archives\public/../application/index\view\layout.html";i:1530838991;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+
+</head>
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <div class="fl_right signOut"><a href="<?php echo url('/login_out'); ?>"  style="color: white">退出</a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="contetnBox">
+
+    <div class="sliderBox fl_left">
+    <a href="<?php echo url('/home'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">首页</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/ajgl'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">案卷管理</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="<?php echo url('/wjjs'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">文件接收</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="<?php echo url('/Lmbj'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">文件类目</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">设置</span>
+        <span class="clear"></span>
+    </a>
+    <!--<a href="<?php echo url('/lijuan'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-home"></span>-->
+        <!--<span class="fl_left sliderThree block">立卷</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/addFile'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-container"></span>-->
+        <!--<span class="fl_left sliderThree block">档案接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/inside'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-export"></span>-->
+        <!--<span class="fl_left sliderThree block">卷内文件接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/ajy'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-detail"></span>-->
+        <!--<span class="fl_left sliderThree block">案卷借阅</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/DaBd'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案变动</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+
+    <!--<a href="<?php echo url('/LmBj'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案类目</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+</div>
+
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">卷内文件审核</div>
+
+            <div class="clear"></div>
+        </div>
+        <!--<div class="details">-->
+
+        <div class="newRightBox">
+            <a style="margin-left:100px" type="reset" class="layui-btn layui-btn-primary" href="<?php echo url('/wjjs'); ?>">返回</a>
+            <div style="width: 80% ; margin: 0 auto">
+                <!------------------------------------------------------------------------------------------------------------------->
+
+                <div>
+                    <table class="layui-hide" id="test">
+
+
+                    </table>
+                </div>
+                <div>
+                    <button class="layui-btn layui-btn-normal layui-btn-radius" id="s" style="float:right;margin-top: 50px">确定接收</button>
+                </div>
+
+                <input type="hidden" id="ids" value="<?php echo $id; ?>"/>
+                <script type="text/html" id="checkboxTpl">
+                    <input type="checkbox" name="lock" value="{{d.id}}" title="接收" lay-filter="lockDemo" >
+                </script>
+
+
+                <script>
+                    layui.use('table', function(){
+                        var id = $('#ids').val()
+                        var url = "<?php echo url('/getShInside'); ?>?id="+id;
+                        var table = layui.table
+                                ,form = layui.form;
+
+                        table.render({
+                            elem: '#test'
+                            ,url: url
+                            ,cellMinWidth: 80
+                            ,cols: [[
+                                {type: 'checkbox'}
+                                ,{field:'lb_name', title:'文件类别', templet: '#usernameTpl'}
+                                ,{field:'wh_name', title:'文件目录'}
+                                ,{field:'within_time', title: '形成时间'}
+                                ,{field:'within_num', title:'件数'}
+                                ,{field:'page_num', title:'页数'}
+                                ,{field:'lock', title:'', width:110, templet: '#checkboxTpl', unresize: true}
+                            ]]
+                            ,page: true
+                        });
+
+                        //监听性别操作
+                        form.on('switch(sexDemo)', function(obj){
+                            layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+                        });
+
+                        var standards = ''
+                        //监听锁定操作
+                        form.on('checkbox(lockDemo)', function(obj){
+//                                    layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+                            $("input:checkbox[name='lock']:checked").each(function() { // 遍历name=standard的多选框
+                                standards += ',' + $(this).val();
+                            });
+                        });
+
+
+                        $('#s').click(function()
+                        {
+                            $.post("<?php echo url('/sHenHe'); ?>",{id:standards},function(res){
+                                if(res.code == 1)
+                                {
+                                    alert('接收成功');
+                                    history.go(0)
+                                }
+
+                                form.render();
+                            },'json');
+                        })
+
+
+
+                    });
+                </script>
+
+
+
+            <!------------------------------------------------------------------------------------------------------------------->
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<style type="text/css">
+    .layui-tab-brief>.layui-tab-more li.layui-this:after, .layui-tab-brief>.layui-tab-title .layui-this:after{
+        border-bottom: 2px solid #c7782e;
+    }
+    .layui-this a{
+        color: #c7782e;
+    }
+    .titleBox{
+        background: #fff;
+    }
+</style>
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+        <li {if [title]==1} class="layui-this" {/if}>
+        <a href="" >搜索</a>
+        </li>
+        <li {if [title]==2} class="layui-this" {/if}>
+        <a href="" >批量添加文件</a>
+        </li>
+        <!--<a class="layui-btn layui-btn-primary "  href="JavaScript:void(0)" id="addfile">-->
+            <!--<i class="layui-icon layui-icon-add-1 layuiadmin-button-btn"></i>批量添加文件-->
+        <!--</a>-->
+        <!-- <li {if [title]==4} class="layui-this" {/if}>
+            <a href="{:url('/system/post')}" >邮寄设置</a>
+        </li>
+        <li {if [title]==5} class="layui-this" {/if}>
+            <a href="{:url('/system/user')}" >管理员设置</a>
+        </li> -->
+    </ul>
+</div>
+
+<script>
+
+    $(".sliderList").removeClass("sliderLists");
+    $("#slider4").addClass("sliderLists");
+</script>

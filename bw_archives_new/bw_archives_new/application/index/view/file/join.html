@@ -1,0 +1,381 @@
+{include file='/index/head' }
+<script type="text/javascript" src="__STATIC__/js/echarts.min.js"></script>
+<script type="text/javascript" src="__STATIC__/js/echarts/renderers.js"></script>
+<script type="text/javascript" src="__STATIC__/js/echarts/core.js"></script>
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+    .showimg{
+        height: 80px;
+    }
+    .layui-table-cell{
+        height: auto;
+
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+        </div>
+        <div class="" style="background: white ; padding: 15px;">
+
+            <div class="layui-tab">
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form class="layui-form">
+
+                            <div class="layui-form-item" style="text-align: center;">
+                                <div class="layui-inline" style="margin-left: 9px">
+                                </div>
+                            </div>
+                        </form>
+
+                        <div id="main" style="width:50%;height:400px;float:right; ">
+
+
+                        </div>
+
+
+                        <div id="humidity" style="width:50%;height:400px;">
+
+
+                        </div>
+
+
+                        <script type="text/html" id="doAction">
+
+                        </script>
+                        <script type="text/html" id="oneAction">
+                            <a class="layui-btn layui-btn-xs" lay-event="fileChange">修改</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //温度
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+    option = {
+        series: [
+            {
+                type: 'gauge',
+                center: ['50%', '60%'],
+                startAngle: 200,
+                endAngle: -20,
+                min: -100,
+                max: 100,
+                splitNumber: 10,
+                itemStyle: {
+                    color: '#FFAB91'
+                },
+                progress: {
+                    show: false,
+                    width: 30
+                },
+                pointer: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        width: 30
+                    }
+                },
+                axisTick: {
+
+                    distance: -45,
+                    splitNumber: 5,
+                    lineStyle: {
+                        width: 2,
+                        color: '#999'
+                    }
+                },
+                // splitLine: {
+                //     distance: -65,
+                //     length: 14,
+                //     lineStyle: {
+                //         width: 3,
+                //         color: '#999'
+                //     }
+                // },
+                axisLabel: {
+
+                    distance: -65,
+                    color: '#999',
+                    fontSize: 20
+                },
+                anchor: {
+                    show: true
+                },
+                title: {
+                    show: false
+                },
+                detail: {
+                    valueAnimation: true,
+                    width: '60%',
+                    lineHeight: 40,
+                    borderRadius: 8,
+                    offsetCenter: [0, '-15%'],
+                    fontSize: 40,
+                    fontWeight: 'bolder',
+                    formatter: '{value} °C',
+                    color: 'auto'
+                },
+                data: [
+                    {
+                        value: 20
+                    }
+                ]
+            },
+
+            {
+                type: 'gauge',
+                center: ['50%', '60%'],
+                startAngle: 200,
+                endAngle: -20,
+                min: -100,
+                max: 100,
+                itemStyle: {
+                    color: '#FD7347'
+                },
+                progress: {
+                    show: true,
+                    width: 8
+                },
+                pointer: {
+                    show: true
+                },
+                axisLine: {
+                    show: true
+                },
+                axisTick: {
+                    show: true
+                },
+                splitLine: {
+                    show: true
+                },
+                axisLabel: {
+                    show: true
+                },
+                detail: {
+                    show: true
+                },
+                data: [
+                    {
+                        value: 20
+                    }
+                ]
+            }
+        ]
+    };
+    setInterval(function () {
+
+
+        $.ajax({
+            url: "getHomeInfo",
+            async : false,
+            cache:false,
+            dataType: 'json',
+            success: function (obj) {
+                myChart.setOption({
+                    series: [
+                        {
+                            data: [
+                                {
+                                    value: obj.temperature
+                                }
+                            ]
+                        },
+                        {
+                            data: [
+                                {
+                                    value: obj.temperature
+                                }
+                            ]
+                        }
+                    ]
+                });
+
+            }
+
+        });
+
+
+    }, 2000);
+
+    option && myChart.setOption(option);
+</script>
+
+<script>
+    //湿度
+    var chartDoms = document.getElementById('humidity');
+    var myCharts = echarts.init(chartDoms);
+    var options;
+    options = {
+        series: [
+            {
+                type: 'gauge',
+                center: ['50%', '60%'],
+                startAngle: 200,
+                endAngle: -20,
+                min: 0,
+                max: 100,
+                splitNumber: 10,
+                itemStyle: {
+                    color: '#FFAB91'
+                },
+                progress: {
+                    show: false,
+                    width: 30
+                },
+                pointer: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        width: 30
+                    }
+                },
+                axisTick: {
+
+                    distance: -45,
+                    splitNumber: 5,
+                    lineStyle: {
+                        width: 2,
+                        color: '#999'
+                    }
+                },
+                // splitLine: {
+                //     distance: -65,
+                //     length: 14,
+                //     lineStyle: {
+                //         width: 3,
+                //         color: '#999'
+                //     }
+                // },
+                axisLabel: {
+
+                    distance: -65,
+                    color: '#999',
+                    fontSize: 20
+                },
+                anchor: {
+                    show: true
+                },
+                title: {
+                    show: true
+                },
+                detail: {
+                    valueAnimation: true,
+                    width: '60%',
+                    lineHeight: 40,
+                    borderRadius: 8,
+                    offsetCenter: [0, '-15%'],
+                    fontSize: 40,
+                    fontWeight: 'bolder',
+                    formatter: '{value} %',
+                    color: 'auto'
+                },
+                data: [
+                    {
+                        value: 20,
+
+                    }
+                ]
+            },
+
+            {
+                type: 'gauge',
+                center: ['50%', '60%'],
+                startAngle: 200,
+                endAngle: -20,
+                min: 0,
+                max: 100,
+                itemStyle: {
+                    color: '#FD7347'
+                },
+                progress: {
+                    show: true,
+                    width: 8
+                },
+                pointer: {
+                    show: true
+                },
+                axisLine: {
+                    show: true
+                },
+                axisTick: {
+                    show: true
+                },
+                splitLine: {
+                    show: true
+                },
+                axisLabel: {
+                    show: true
+                },
+                detail: {
+                    show: true
+                },
+                data: [
+                    {
+                        value: 20
+                    }
+                ]
+            }
+        ]
+    };
+
+    setInterval(function () {
+
+        $.ajax({
+            url: "getHomeInfo",
+            async : false,
+            cache:false,
+            dataType: 'json',
+            success: function (obj) {
+                myCharts.setOption({
+                    series: [
+                        {
+                            data: [
+                                {
+                                    value: obj.humidity
+                                }
+                            ]
+                        },
+                        {
+                            data: [
+                                {
+                                    value: obj.humidity
+                                }
+                            ]
+                        }
+                    ]
+                });
+
+            }
+
+        });
+
+    }, 2000);
+    options && myCharts.setOption(options);
+</script>
+</div>
+</body>
+</html>

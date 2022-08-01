@@ -1,0 +1,123 @@
+
+{include file='nobodyheader' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+</style>
+<div class="" style="background: white ; padding: 15px;">
+
+    <div class="layui-tab">
+
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+                <table class="layui-hide" id="depart_table" lay-filter="depart_table">
+
+                </table>
+                <script type="text/html" id="doAction">
+                    <div class="layui-btn-container">
+                        <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+                    </div>
+                </script>
+                <script type="text/html" id="oneAction">
+                    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var table;
+    layui.use('table', function(){
+        table = layui.table;
+
+        table.render({
+            elem: '#depart_table'
+            ,url:"{:url('/system/getmajor')}?id={$id}"
+            ,defaultToolbar:['filter','exports']
+            ,title: '用户数据表'
+            ,toolbar: '#doAction'
+            ,cols: [[
+                {field:'id',width:'10%',title:'ID'}
+                ,{field:'name',width:'40%',  title:'名称'}
+                ,{field:'status',width:'30%',  title:'状态'}
+                ,{toolbar: '#oneAction',width:'20%',  title:'操作'}
+            ]]
+            ,page: false
+        });
+
+        table.on('toolbar(depart_table)', function(obj){
+            switch(obj.event){
+                case 'add':
+                    layer.prompt({
+                        title:'添加专业'
+                        ,formType:2
+                        ,value: '请填写专业名称'
+                    }, function(value, index){
+                        $.post("{:url('/system/updatemajor')}",{id:0,did:"{$id}",type:4,value:value},function(res){
+                            if(res.code == 200)
+                            {
+                                alert("成功！");
+                                window.location.reload();
+                            }
+                        },'json');
+                    });
+                    break;
+            }
+        });
+        table.on('tool(depart_table)', function(obj){
+            switch(obj.event){
+                case 'edit':
+                    layer.prompt({
+                        title:'编辑专业名称'
+                        ,formType:2
+                        ,value: obj.data.name
+                    }, function(value, index){
+                        $.post("{:url('/system/updatemajor')}",{id:obj.data.id,type:1,value:value},function(res){
+                            if(res.code == 200)
+                            {
+                                alert("更改成功！");
+                                window.location.reload();
+                            }
+                        },'json');
+                    });
+                    break;
+                case 'del':
+                    layer.confirm('确认禁用吗？禁用之后，需要调用的地方将不显示', function(index){
+                        $.post("{:url('/system/updatemajor')}",{id:obj.data.id,type:2},function(res){
+                            if(res.code == 200)
+                            {
+                                alert("更改成功！");
+                                window.location.reload();
+                            }
+                        },'json');
+                    });
+                    break;
+                case 'nodel':
+                    layer.confirm('确认启用吗？启用之后，需要调用的地方将显示', function(index){
+                        $.post("{:url('/system/updatemajor')}",{id:obj.data.id,type:3},function(res){
+                            if(res.code == 200)
+                            {
+                                alert("更改成功！");
+                                window.location.reload();
+                            }
+                        },'json');
+                    });
+                    break;
+            };
+        });
+    });
+</script>
+</body>
+</html>

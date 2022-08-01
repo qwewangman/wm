@@ -1,0 +1,548 @@
+{include file='nobodyheader'}
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+<style type="text/css">
+    .contetnBox{
+        background-color: #ffffff;
+        padding: 20px;
+    }
+    .newRightBox{
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0 20px;
+    }
+    .layui-elem-field legend{
+        font-size: 16px;
+        color: #f09c4e;
+    }
+    .layui-icon{
+        font-size: 12px;
+    }
+    .label1{
+        width: 100px;
+    }
+    .div1{
+        margin-left: 130px;
+    }
+</style>
+<div class="contetnBox">
+    <div class="layui-tab layui-tab-card" lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">
+                <i class="layui-icon layui-icon-download-circle"></i> 报道接收
+            </li>
+            <li >
+                <i class="layui-icon layui-icon-download-circle"></i> 学籍异动
+            </li>
+            <li>
+                <i class="layui-icon layui-icon-template" ></i> 院系变更
+            </li>
+            <li>
+                <i class="layui-icon layui-icon-read"></i> 档案借阅
+            </li>
+            <li >
+                <i class="layui-icon layui-icon-location" ></i> 档案暂存
+            </li>
+            <li >
+                <i class="layui-icon layui-icon-location" ></i> 案卷迁出
+            </li>
+        </ul>
+        <div class="layui-tab-content" >
+            <div class="layui-tab-item layui-show">
+
+                <form class="layui-form" action="{:url('/file/dochange/'.$stu_info['id'])}" lay-filter="baodao">
+                    <div class="layui-form-item" pane="">
+                        <label class="layui-form-label">报道状态：</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="type" value="1" title="正常报道" checked>
+                            <input type="radio" name="type" value="2" title="档案不合格" >
+                            <input type="radio" name="type" value="3" title="档案未携带" >
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">其他说明：</label>
+                        <div class="layui-input-block">
+                            <textarea placeholder="请输入原因" name="note" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item" style="text-align: center">
+                        <input type="hidden" name="ctype" value="baodao">
+                        <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+
+                        <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+                    </div>
+                    <div style="height: 250px">
+
+                    </div>
+                </form>
+            </div>
+            <div class="layui-tab-item">
+
+                <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">降级</li>
+                        <li>保留学籍</li>
+                        <li>休学</li>
+                        <li>恢复学籍</li>
+                        <li>升本校研究生</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            <form class="layui-form" action="{:url('/file/dochange/'.$stu_info['id'])}" lay-filter="jiangji">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">年　　级：</label>
+                                        <div class="layui-input-inline">
+                                            <select name="grade" lay-filter="grade" lay-verify="required">
+                                                <option value="" selected>请选择年级</option>
+                                                {for start="(date('Y'))" end="1999" comparison="gt" step="-1"}
+                                                <option value="{$i}" >{$i}级</option>
+                                                {/for}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item layui-form-text">
+                                    <label class="layui-form-label">降级原因：</label>
+                                    <div class="layui-input-block">
+                                        <textarea placeholder="请输入原因" name="note" class="layui-textarea"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item" style="text-align: center">
+                                    <input type="hidden" name="ctype" value="jiangji">
+                                    <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+                                    <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+                                </div>
+                                <div style="height: 250px">
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="layui-tab-item">
+                            <form class="layui-form" action="{:url('/file/dochange/'.$stu_info['id'])}" lay-filter="baoliu">
+                                <div class="layui-form-item" pane="">
+                                    <label class="layui-form-label">保留学籍：</label>
+                                    <div class="layui-input-block">
+                                        <input type="radio" name="type" value="因病保留" title="休学保留" checked>
+                                        <input type="radio" name="type" value="入伍保留" title="入伍保留" >
+                                        <input type="radio" name="type" value="其他原因" title="其他原因" >
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item layui-form-text">
+                                    <label class="layui-form-label">保留原因：</label>
+                                    <div class="layui-input-block">
+                                        <textarea placeholder="请输入保留学籍的其他原因" name="note" class="layui-textarea"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item" style="text-align: center">
+                                    <input type="hidden" name="ctype" value="baoliu">
+                                    <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+                                    <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+                                </div>
+                                <div style="height: 250px">
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="layui-tab-item">
+                            <form class="layui-form" action="{:url('/file/dochange/'.$stu_info['id'])}" lay-filter="xiuxue">
+                                <div class="layui-form-item" pane="">
+                                    <label class="layui-form-label">休学原因：</label>
+                                    <div class="layui-input-block">
+                                        <input type="radio" name="type" value="因病休学" title="因病休学" checked>
+                                        <input type="radio" name="type" value="因事休学" title="因事休学" >
+                                        <input type="radio" name="type" value="其他特殊原因" title="其他特殊原因" >
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item layui-form-text">
+                                    <label class="layui-form-label">休学原因：</label>
+                                    <div class="layui-input-block">
+                                        <textarea placeholder="请输入休学原因，缺课超过一学期上课时间三分之一以上者" name="note" class="layui-textarea"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item" style="text-align: center">
+                                    <input type="hidden" name="ctype" value="xiuxue">
+                                    <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+                                </div>
+                                <div style="height: 250px">
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="layui-tab-item">
+                            <form class="layui-form" action="{:url('/file/dochange/'.$stu_info['id'])}" lay-filter="huifu">
+
+                                <div class="layui-form-item layui-form-text">
+                                    <label class="layui-form-label">恢复原因：</label>
+                                    <div class="layui-input-block">
+                                        <textarea placeholder="请输入恢复学籍原因" name="note" class="layui-textarea"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item" style="text-align: center">
+                                    <input type="hidden" name="ctype" value="huifu">
+                                    <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+                                    <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+                                </div>
+                                <div style="height: 250px">
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="layui-tab-item">
+                            <form class="layui-form" action="{:url('/file/dochange/'.$stu_info['id'])}" lay-filter="shengxue">
+
+                                <div class="layui-form-item layui-form-text">
+                                    <label class="layui-form-label">升学备注：</label>
+                                    <div class="layui-input-block">
+                                        <textarea placeholder="请输入升学备注" name="note" class="layui-textarea"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item" style="text-align: center">
+                                    <input type="hidden" name="ctype" value="shengxue">
+                                    <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+                                    <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+                                </div>
+                                <div style="height: 250px">
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-tab-item">
+
+                <form class="layui-form" action="{:url('/file/dochange/'.$stu_info['id'])}" lay-filter="yuanxi">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">院　　系：</label>
+                            <div class="layui-input-inline">
+                                <select name="depart" lay-filter="yx" id="depart" lay-verify="required">
+                                    <option value="" selected>请选择院系</option>
+                                    {foreach name='departlist' item='v'}
+                                    <option value="{$v.id}" >{$v.name}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">专　　业：</label>
+                            <div class="layui-input-inline">
+                                <select name="major"  id="zy" lay-filter="major" lay-verify="required">
+                                    <option value="">请选专业</option>
+                                    {foreach name='m_arr' item='v'}
+                                    <option value="{$v.id}" >{$v.name}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">变更原因：</label>
+                        <div class="layui-input-block">
+                            <textarea placeholder="请输入更改院系原因" name="note" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item" style="text-align: center">
+                        <input type="hidden" name="ctype" value="yuanxi">
+                        <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+                        <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+                    </div>
+                    <div style="height: 250px">
+
+                    </div>
+                </form>
+            </div>
+            <div class="layui-tab-item">
+                <form class="layui-form" action="{:url('/file/dochange/'.$stu_info['id'])}" lay-filter="jieyue">
+
+                    <div class="layui-form-item" pane="">
+                        <label class="layui-form-label">借阅类型：</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="type" value="1" title="普通借阅" checked>
+                            <input type="radio" name="type" value="2" title="室内查阅" >
+                            <input type="radio" name="type" value="3" title="在线查阅" >
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item" pane="">
+                        <label class="layui-form-label">借阅部门：</label>
+                        <div class="layui-input-block">
+                            <select name="department_id" lay-verify="required">
+                                {foreach name='alldepart' item='v'}
+                                <option value="{$v.id}" >{$v.name}</option>
+                                {/foreach}
+                                <option value="0" selected>校外借阅</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item" pane="">
+                        <label class="layui-form-label">借阅文件：</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="filetype" value="1" title="全卷借阅" lay-filter="filetype" checked>
+                            <input type="radio" name="filetype" value="2" title="分文件借阅"  lay-filter="filetype">
+                            <br>
+                            <div id="show_file" style="margin-top: 10px;display: none">
+                                {foreach name='d_list' item='v'}
+                                <fieldset class="layui-elem-field">
+                                    <legend style="color: #000;font-size: 14px">{$v.name}</legend>
+                                    <div class="layui-field-box">
+                                        {foreach $v.doc as $vo}
+                                        <input type="checkbox" name="doc[]" title="{$vo.name}" value="{$vo.id}" lay-skin="primary"><br>
+                                        {/foreach}
+                                    </div>
+                                </fieldset>
+                                {/foreach}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">　借阅人：</label>
+                        <div class="layui-input-block" >
+                            <input type="text" name="name" placeholder="请输入借阅人或公司名称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">联系方式：</label>
+                        <div class="layui-input-block" >
+                            <input type="text" name="phone" placeholder="请输入借阅联系方式" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">借阅起始：</label>
+                        <div class="layui-input-block" >
+                            <input type="text" name="daterang" class="layui-input" id="daterang" placeholder=" - ">
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">借阅理由：</label>
+                        <div class="layui-input-block">
+                            <textarea placeholder="请输入借阅原因" name="content" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item" style="text-align: center">
+                        <input type="hidden" name="ctype" value="jieyue">
+                        <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+                        <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+                    </div>
+                    <div style="height: 250px">
+
+                    </div>
+                </form>
+            </div>
+            <div class="layui-tab-item ">
+                <form class="layui-form" action="{:url('/file/dochange/'.$stu_info['id'])}" lay-filter="zancun">
+                    <div class="layui-form-item" pane="">
+                        <label class="layui-form-label">暂存原因：</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="type" value="1" title="毕业暂存" checked>
+                            <input type="radio" name="type" value="2" title="村官暂存" >
+                            <input type="radio" name="type" value="4" title="入伍暂存" >
+                            <input type="radio" name="type" value="3" title="其他原因" >
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">其他原因：</label>
+                        <div class="layui-input-block">
+                            <textarea placeholder="请输入其他原因" name="note" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item" style="text-align: center">
+                        <input type="hidden" name="ctype" value="zancun">
+                        <button class="layui-btn" lay-submit="" lay-filter="demo2">提交</button>
+                        <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+                    </div>
+                    <div style="height: 250px">
+
+                    </div>
+                </form>
+            </div>
+            <div class="layui-tab-item ">
+                <form class="layui-form" action="{:url('/file/dochange/'.$stu_info['id'])}" lay-filter="qiandang">
+                    <div class="layui-form-item" pane="">
+                        <label class="layui-form-label label1">　迁出原因：</label>
+                        <div class="layui-input-block div1">
+                            <input type="radio" name="type" value="毕业" title="毕业" checked>
+                            <input type="radio" name="type" value="退学" title="退学" >
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item" pane="">
+                        <label class="layui-form-label label1">　迁档方式：</label>
+                        <div class="layui-input-block div1">
+                            <input type="radio" name="qdtype" value="自带" title="自带" >
+                            <input type="radio" name="qdtype" value="邮寄" title="邮寄" checked>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label label1">　　寄件人：</label>
+                        <div class="layui-input-block div1" >
+                            <input type="text" name="jiname" value="{$stu_info.name}" autocomplete="off" class="layui-input" lay-verify="required">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label label1">　寄件电话：</label>
+                        <div class="layui-input-block div1" >
+                            <input type="text" name="jiphone" lay-verify="required|phone|number" value="{$stu_info.phone}" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label label1">收件人邮编：</label>
+                        <div class="layui-input-block div1" >
+                            <input type="text" name="shoucode" placeholder="请输入收件人邮编" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label label1">收件人地址：</label>
+                        <div class="layui-input-block div1" >
+                            <input type="text" name="shouaddress" placeholder="请输入收件人单位及地址" autocomplete="off" class="layui-input" lay-verify="required">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label label1">收件人姓名：</label>
+                        <div class="layui-input-block div1" >
+                            <input type="text" name="shouname" placeholder="请输入收件人姓名" autocomplete="off" class="layui-input" lay-verify="required">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label label1">收件人电话：</label>
+                        <div class="layui-input-block div1" >
+                            <input type="text" name="shouphone" placeholder="请输入收件人电话" autocomplete="off" class="layui-input" lay-verify="required|phone|number">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label label1">　内件数量：</label>
+                        <div class="layui-input-block div1" >
+                            <input type="text" name="shounum" placeholder="请输入内件数量" autocomplete="off" class="layui-input" lay-verify="required|number">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label label1">　迁档批次：</label>
+                        <div class="layui-input-block div1" >
+                            <input type="text" name="batch" placeholder="请输入迁档批次" autocomplete="off" class="layui-input" lay-verify="required">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label label1">　迁档时间：</label>
+                        <div class="layui-input-block div1" >
+                            <input type="text" name="qdrq" id="qdrq" autocomplete="off" class="layui-input" lay-verify="required">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label label1">　快递单号：</label>
+                        <div class="layui-input-block div1" >
+                            <input type="text" name="postnum" placeholder="请输入快递单号" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label label1">　　　备注：</label>
+                        <div class="layui-input-block div1">
+                            <textarea placeholder="请输入其他原因" name="note" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="layui-form-item" style="text-align: center">
+                        <input type="hidden" name="ctype" value="qiandang">
+                        <button class="layui-btn" lay-submit="" lay-filter="demo2">确认迁出</button>
+                        <button class="layui-btn" lay-submit="" lay-filter="demo2">关闭</button>
+                    </div>
+                    <div style="height: 250px">
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+
+    layui.use(['form'], function(){
+        var form = layui.form;
+        form.val("jiangji", {
+            "grade":"{$stu_info['grade']}"
+        });
+        form.val("yuanxi", {
+            "depart":"{$stu_info['depart']}"
+            ,"major":"{$stu_info['major']}"
+        });
+
+        form.on('select(yx)', function(data){
+            var str = '<option value="0">请选专业</option>';
+            var id = data.value; //院系id
+            if(id > 0)
+            {
+                $.post("{:url('/system/getzy')}",{id:id},function(res){
+                    var length = res.length;
+                    for (var i=0;i<length;i++) {
+                        str += '<option value="'+res[i].id+'">'+res[i].name+'</option>';
+                    }
+                    layui.$("#zy").html(str);
+                    form.render();
+                },'json');
+            }else{
+                layui.$("#zy").html(str);
+                form.render();
+            }
+
+        });
+        form.on('radio(filetype)', function(data){
+            if(data.value == 1)
+            {
+                $("#show_file").hide();
+            }else {
+                $("#show_file").show();
+            }
+        });
+
+    });
+    layui.use('laydate', function() {
+        var laydate = layui.laydate;
+        //日期时间范围
+        laydate.render({
+            elem: '#daterang'
+            ,type: 'datetime'
+            ,range: '~'
+        });
+        //日期时间范围
+        laydate.render({
+            elem: '#qdrq'
+            ,type: 'datetime'
+            ,range: false
+        });
+
+    });
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+</body>
+</html>

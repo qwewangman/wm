@@ -1,0 +1,850 @@
+<?php
+
+namespace app\index\controller;
+use think;
+use think\Db;
+use think\Route;
+use app\index\controller\Base;
+use TCPDF;
+use app\index\model\FilewithinModel;
+
+
+use app\index\model\StudentsModel;
+use app\index\model\DepartmentModel;
+use app\index\model\FileModel;
+use app\index\model\LogModel;
+use app\index\model\MajorModel;
+use app\index\model\FileJoinModel;
+
+class File extends Base
+{
+    //立卷页面
+    public function addFile()
+    {
+        $d = new DepartmentModel();
+        $dep = $d->getDepartList();
+        $this->assign('departlist',$dep);
+        return view('addfile');
+    }
+
+    //编辑页面
+    public function editFile($id)
+    {
+        $d      = new DepartmentModel();
+        $dep    = $d->getDepartList();
+
+        $stu_obj    = new FileModel();
+        $stu_info   = $stu_obj->getInfoById($id);
+
+        $m      = new MajorModel();
+        $m_arr  = $m->getMajorList($stu_info['depart']);
+
+        $this->assign('m_arr',$m_arr);
+        $this->assign('stu_info',$stu_info);
+        $this->assign('departlist',$dep);
+        return view('editfile');
+    }
+    //获取列表
+    public function getFileList()
+    {
+        $d = new DepartmentModel();
+        $dep = $d->getDepartList();//所有舞系
+        $this->assign('departlist',$dep);
+        return view('filelist');
+
+    }
+
+    //获取单一条数据
+    public function profile(){
+
+        $data = input('param.');
+
+        $f      = new FileModel();
+        $wzd    = $f->getStudentOne($data['id']);
+
+        switch ($wzd['status'])
+        {
+            case 0:
+                $status = "未接收";
+                break;
+            case 1:
+                $status = "在档-正常";
+                break;
+            case 2:
+                $status = "借出";
+                break;
+            case 3:
+                $status = "已迁出";
+                break;
+            case 4:
+                $status = "已退档";
+                break;
+            case 5:
+                $status = "转研究生";
+                break;
+            case 6:
+                $status = "在档-毕业暂存";
+                break;
+            case 7:
+                $status = "在档-村官暂存";
+                break;
+        }
+        $wzd['status']  = $status;
+
+        $this->assign('info',$wzd);//学生基本信息
+
+        return view('profile');
+    }
+
+
+    public function fileList()
+    {
+        $data   = input('param.');
+
+        $type   = session("type");
+        $f      = new FileModel();
+        $wzd    = $f->getStudentsList($data,$type);
+
+        $count  = $wzd['count'];
+
+        $result = $wzd['content'];
+        foreach($result as &$v)
+        {
+
+            switch ($v['status'])
+            {
+                case 0:
+                    $status = "未接收";
+                    break;
+                case 1:
+                    $status = "在档-正常";
+                    break;
+                case 2:
+                    $status = "借出";
+                    break;
+                case 3:
+                    $status = "已迁出";
+                    break;
+                case 4:
+                    $status = "已退档";
+                    break;
+                case 5:
+                    $status = "转研究生";
+                    break;
+                case 6:
+                    $status = "在档-毕业暂存";
+                    break;
+                case 7:
+                    $status = "在档-村官暂存";
+                    break;
+            }
+            $v['status']    = $status;
+            $v['dname']     = $v['dname']."-".$v['mname'];
+            $v['name']      = "<a href='javascript:void(0)' style='color: #c7782e' lay-event='showOne'  title='点击查看详情'>".$v['name']."</a>";
+        }
+        $result = array("code"=>0,"msg"=>"","count"=>$count,"data"=>$result,"page"=>$data['page']);
+        echo json_encode($result);
+    }
+
+    //保存添加
+    public function saveFile()
+    {
+        $data   = input('param.');
+        $sc_number  = $data['sc_number'];
+        $grade      = $data['grade'];
+        $file_derice      = $data['file_derice'];
+        if($sc_number <= 0)
+        {
+            /*
+            $re_arr = array();
+            $re_arr['code'] = 100;
+            $re_arr['msg']  = '学号错误';
+            $this->output($re_arr);
+            */
+            $this->error("学号错误");
+        }
+        if($grade <= 0)
+        {
+            /*
+            $re_arr = array();
+            $re_arr['code'] = 100;
+            $re_arr['msg']  = '年级错误';
+            $this->output($re_arr);
+            */
+            $this->error("年级错误");
+        }
+        //判断学号是否存在
+        $f_obj      = new FileModel();
+        $stu_info   = $f_obj->getInfoByNum($sc_number);
+        if(!empty($stu_info))
+        {
+            /*
+            $re_arr = array();
+            $re_arr['code'] = 101;
+            $re_arr['msg']  = '学号已存在';
+            $this->output($re_arr);
+            */
+            $this->error("学号已存在");
+        }
+        //判断位置是否被占用
+        if($file_derice != "")
+        {
+            $stu_info   = $f_obj->getInfoByDerice($file_derice);
+            if(!empty($stu_info))
+            {
+                /*
+                $re_arr = array();
+                $re_arr['code'] = 101;
+                $re_arr['msg']  = '存放位置是否被占用';
+                $this->output($re_arr);
+                */
+                $this->error("存放位置是否被占用");
+            }
+        }
+        $type   = session('type');
+        if($type <= 0)
+        {
+            $type = 1;
+        }
+
+        //获取最后一条数据
+        $num    = 0;
+        $sinfo  = $f_obj->getInfoByGrade($grade);
+        if(!empty($sinfo))
+        {
+            $num    = $sinfo['serial_number'];
+        }
+        //生产入档号
+        $filing_number  = $this->createStuNumber($grade,$num,1);
+        //生产卷号
+        $file_number    = $this->createStuNumber($grade,$num,2);
+
+        $data['type']           = $type;
+        $data['filing_number']  = $filing_number;
+        $data['file_number']    = $file_number;
+        $data['serial_number']  = $num+1;
+
+        $stu_id   = $f_obj->createData($data);
+
+        //写变动日志
+        $admin_arr  = session('admin');
+        $log_obj    = new LogModel();
+        $save_arr   = array();
+        $save_data  = array();
+        $save_data['stu_id']        = $stu_id;
+        $save_data['act_id']        = $admin_arr['id'];
+        $save_data['created_at']    = date("Y-m-d H:i:s");
+        $save_data['name']          = "添加学生信息";
+        $save_data['after']         = $data['name']."信息已入库";
+
+        $save_arr[] = $save_data;
+
+        $save_data['name']      = "立卷";
+        $save_data['after']     = "生成卷号:".$file_number;
+        $save_arr[] = $save_data;
+
+        if($data['status'] == 1)
+        {
+            $save_data['name']      = "接收档案";
+            $save_data['after']     = "生成收档号:".$filing_number;
+
+            $save_arr[] = $save_data;
+        }
+        $log_obj->createAllData($save_arr);
+        $this->success("添加成功，可继续添加",url("/file/add"));
+    }
+
+    //保存添加
+    public function updateFile($id)
+    {
+        $data   = input('param.');
+        $sc_number  = $data['sc_number'];
+        $grade      = $data['grade'];
+        $file_derice      = $data['file_derice'];
+        if($sc_number <= 0)
+        {
+            /*
+            $re_arr = array();
+            $re_arr['code'] = 100;
+            $re_arr['msg']  = '学号错误';
+            $this->output($re_arr);
+            */
+            $this->error("学号错误");
+        }
+        if($grade <= 0)
+        {
+            /*
+            $re_arr = array();
+            $re_arr['code'] = 100;
+            $re_arr['msg']  = '年级错误';
+            $this->output($re_arr);
+            */
+            $this->error("年级错误");
+        }
+        //判断学号是否存在
+        $f_obj      = new FileModel();
+        $stu_info   = $f_obj->getInfoByNum($sc_number,$id);
+        if(!empty($stu_info))
+        {
+            /*
+            $re_arr = array();
+            $re_arr['code'] = 101;
+            $re_arr['msg']  = '学号已存在';
+            $this->output($re_arr);
+            */
+            $this->error("学号已存在");
+        }
+        //判断位置是否被占用
+        if($file_derice != "")
+        {
+            $stu_info   = $f_obj->getInfoByDerice($file_derice,$id);
+            if(!empty($stu_info))
+            {
+                /*
+                $re_arr = array();
+                $re_arr['code'] = 101;
+                $re_arr['msg']  = '存放位置是否被占用';
+                $this->output($re_arr);
+                */
+                $this->error("存放位置是否被占用");
+            }
+        }
+
+        $stu_id   = $f_obj->updateData($data,$id);
+
+        //写变动日志
+        $admin_arr  = session('admin');
+        $log_obj    = new LogModel();
+        $save_arr   = array();
+        $save_data  = array();
+        $save_data['stu_id']        = $stu_id;
+        $save_data['act_id']        = $admin_arr['id'];
+        $save_data['created_at']    = date("Y-m-d H:i:s");
+        $save_data['name']          = "修改学生信息";
+        $save_data['after']         = $data['name']."信息已入库";
+
+        $save_arr[] = $save_data;
+
+        $log_obj->createAllData($save_arr);
+        $this->success("编辑成功，可继续添加",url("/file/getone")."?id=".$id);
+    }
+
+
+    public function isHavNum()
+    {
+        $data   = input('param.');
+        $type   = $data['type'];
+        $num    = $data['num'];
+
+        $result = array("code"=>0);
+        $f_obj      = new FileModel();
+        if($type == 1)
+        {
+            $ishav  = $f_obj->getInfoByNum($num);
+            if(!empty($ishav))
+            {
+                $result = array("code"=>200);
+            }
+        }elseif ($type == 2){
+            $ishav  = $f_obj->getInfoByDerice($num);
+            if(!empty($ishav))
+            {
+                $result = array("code"=>200);
+            }
+        }
+        echo json_encode($result);
+    }
+
+    //集体交接
+    public  function join()
+    {
+        $data = input('param.');
+        $a = array(
+            'sc_number' => 111,
+            'name'      => 'ceshi',
+        );
+        $this->assign('a',$a);
+        return view('join');
+    }
+
+
+    //集体交接
+    public  function receive()
+    {
+        $fj_obj     = new FileJoinModel();
+        $result     = $fj_obj->getCount();
+        $this->assign('num',$result);
+        return view('receive');
+    }
+
+    public function getReceiveList()
+    {
+        $data   = input('param.');
+        $st     = 2;
+        if(isset($data['st']))
+            $st     = $data['st'];
+
+        $fj_obj     = new FileJoinModel();
+        $result     = $fj_obj->getList($st);
+        $result = array("code"=>0,"msg"=>"","data"=>$result);
+        echo json_encode($result);
+    }
+
+    //确认接收
+    public function setReceive()
+    {
+        $data   = input('param.');
+
+        $ids        = $data['id'];
+        $stu_ids    = $data['stu_ids'];
+        $fj_obj     = new FileJoinModel();
+
+        $save_data  = array();
+        $save_data['status']    = 3;
+        $fj_obj->setReceive($save_data,$ids);
+
+        $file_obj   = new FileModel();
+        $save_data  = array();
+        $save_data['status']    = 1;
+        $file_obj->setStatus($save_data,$stu_ids);
+
+        $result = array("code"=>200,"msg"=>"","data"=>"");
+        echo json_encode($result);
+    }
+
+    //获取案卷变动
+    public function change()
+    {
+
+        $data   = input('param.');
+        $stu_id     = $data['stu_id'];
+        $this->assign('stu_id',$stu_id);
+        return view('change');
+    }
+    //获取案卷变动
+    public function getChange()
+    {
+        $data      = input('param.');
+        $stu_id    = $data['stu_id'];
+
+        $f         = new LogModel();
+        $result    = $f->getList($stu_id);
+
+        foreach($result as $k=>&$v)
+        {
+            $v['num']    = $k+1;
+        }
+        $result = array("code"=>0,"msg"=>"","data"=>$result);
+        echo json_encode($result);
+    }
+
+
+    //获取案卷变动
+    public function file()
+    {
+
+        $data   = input('param.');
+        $stu_id     = $data['stu_id'];
+        $this->assign('stu_id',$stu_id);
+        return view('file');
+    }
+    //获取案卷变动
+    public function getFile()
+    {
+        $data      = input('param.');
+        $stu_id    = $data['stu_id'];
+
+        $f         = new FilewithinModel();
+        $result    = $f->getList($stu_id);
+
+        foreach($result as $k=>&$v)
+        {
+            $v['num']    = $k+1;
+        }
+        $result = array("code"=>0,"msg"=>"","data"=>$result);
+        echo json_encode($result);
+    }
+    //搜索学生档案
+    public function search_s_num(){
+        $data       = input('param.');
+        $s          = new StudentsModel();
+        $success    = $s->getStudent_sc_number($data['sc_number']);
+        echo json_encode($success);
+    } 
+    //提交学生档案 状态为已确认 同时刷新table表
+    public function add_file_check(){
+        $data       = input('param.');
+        $s          = new StudentsModel();
+        $f          = new FileJoinModel();
+        $success    = $s->getStudent_sc_number($data['sc_number']);//学生信息
+        // $status     = 0;
+        $f_mes      = $f->getFileStudentId($success['id']);//提交表
+        $admin      = session('admin');
+
+        if($f_mes){
+            if($f_mes['status'] == 2){
+                $data = array(
+                    'code'          =>  2,
+                    'status'        =>  '该学生您已提交',//状态提示
+                    'admin_name'    =>  $admin['name'],
+                    'date'          =>  $f_mes['join_date'],
+                    'student_name'  =>  $success['name'],
+                    'sc_number'     =>  $success['sc_number'],
+                );
+            }elseif($f_mes['status'] == 1){
+                $data = array(
+                    'code'          =>  1,
+                    'status'        =>  '该学生您已确认档案',//状态提示
+                    'admin_name'    =>  $admin['name'],
+                    'date'          =>  $f_mes['join_date'],
+                    'student_name'  =>  $success['name'],
+                    'sc_number'     =>  $success['sc_number'],
+                );
+            }else{
+                $data  = array(
+                    'code'  =>  0,
+                    'id'    => $f_mes['id'],
+                );
+            }
+            return $data;
+        }else{
+            $data = array(
+                'student_id'    =>  $success['id'],
+                'admin_id'      =>  $admin['id'],
+                'status'        =>  1,
+                'join_date'     =>  date('Y-m-d H:i:s',time()),
+            );
+            $mes    = $f->AddStudentJoin($data);
+            $array  = array(
+                'code'  =>  0,
+                'id'    => $mes,
+            );
+            return $array;
+        }
+    }
+    //附中 学生列表
+    public function affiliatedFileList(){
+        $data       = input('param.');
+        $s          = new StudentsModel();
+        $f          = new FileJoinModel();
+        $wzd    = $f->getStudentsList($data);
+        
+
+        $result = $wzd['content'];
+        
+        $result = array("code"=>0,"msg"=>"","data"=>$result);
+        echo json_encode($result);
+    }
+    //附中 修改状态
+    public function affiliatedDyFile()
+    {
+        $data       = input('param.');
+        $ids        = $data['str_tmp'];
+
+        $files      = New FileJoinModel();
+
+        $save_arr   = array();
+        $save_arr['status'] = 2;
+
+        // $files->updateJoinByIds($save_arr,$ids);
+
+        $result = array("code"=>0,"msg"=>"");
+        echo json_encode($result);
+    }
+
+    //附中 打开pdf
+    public function downloadPdf()
+    {
+
+        $data       = input('param.');
+        $stu_ids    = $data['stu_ids'];
+        $s          = new StudentsModel();
+        $stu_arr    = $s->getFileByIds($stu_ids);
+
+        
+        $lj_time        = date('Y年m月d日');
+
+$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+$pdf->SetCreator(PDF_CREATOR);
+$pdf->SetAuthor('Nicola Asuni');
+$pdf->SetTitle('案卷信息');
+$pdf->SetSubject('TCPDF Tutorial');
+$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 001', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
+$pdf->setFooterData(array(0,64,0), array(0,64,128));
+$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+$pdf->setPrintHeader(false);
+
+if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
+            require_once(dirname(__FILE__).'/lang/eng.php');
+            $pdf->setLanguageArray($l);
+        }
+
+
+$pdf->setFontSubsetting(true);
+$pdf->SetFont('stsongstdlight','', 20);
+$pdf->AddPage();
+$pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
+$html = '<!doctype html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <title>档案列表</title>
+    </head>
+    <body>
+    <div class="content">
+    <p align="center" style="color: #0a6ebd;font-size: 24px" ><b>档案列表</b></p>
+     <div style="color:#6a6a6a;letter-spacing:4px">';
+$html .= '<table border rules=none cellspacing=0 align=center>
+          <tr>
+            <th>姓名：</th>
+            <th>学号：</th>
+            <th>性别：</th>
+            <th>时间：</th>
+          </tr>';
+        foreach ($stu_arr as $k => $v) {
+            
+                $html .= '<tr>';
+                $html .= '<td>';
+                $html .=     $v['name'];
+                $html .= ' </td>';
+                $html .= ' <td>';
+                $html .=    $v['sc_number'];
+                $html .= '</td>';
+                $html .= '<td>';
+                $html .=    $v['sex'];
+                $html .= '</td>';
+                $html .= '<td>';
+                $html .=   date('Y年m月d日');
+                $html .= '</td>';
+                $html .= '</tr>';
+           
+
+            // $html .= '<p style=font-size: 20px><b>';
+            // $html .=    $k + 1;
+            // $html .=  '</p>';
+            // $html .= '<p style=" font-size: 14px">姓名：<span style="color:#0a6ebd;">';
+            // $html .=     $v['name'];
+            // $html .= '</span></p>';
+            // $html .= '<p style=" font-size: 14px">学号：<span style="color:#0a6ebd;">';
+            // $html .=     $v['sc_number'];
+            // $html .= '</span></p>';
+            // $html .= '<p style=" font-size: 14px">性别：<span style="color:red;">';
+            // $html .=    $v['sex'];
+            // $html .= '</span></p>';
+            // $html .= '<p style=" font-size: 14px">时间：<span style="color:red;">';
+            // $html .=    date('Y年m月d日');
+            // $html .= '</span></p>';
+        }
+$html .= '</table>';
+$html .= '</div>
+    </body>
+    </html>';
+$pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
+$pdf->Output('example_001.pdf', 'D');
+
+        print_r($pdf);die;
+
+    }
+    
+
+    //打印
+    public function printFile()
+    {
+        $data = input('param.');
+
+        $stu_id    = $data['stu_id'];
+        $files = New FileModel();
+        $result = $files->getStudentOne($stu_id);
+        $file_name      = $result['name'];
+        $file_number    = $result['file_number'];
+        $sc_number      = $result['sc_number'];
+        $file_address   = $result['file_derice'];
+        $addtime        = date("Y年m月d日",strtotime($result['addtime']));
+//        $file_num       = $result['file_num'];
+        $file_num       = 20;//Db::table('oa_file_within')->where('s_id',$data['dyid'])->count();
+        $yx             = $result['dname'];
+        $zy             = $result['mname'];
+        $lj_time           = date('Y年m月d日');
+
+        //实例化
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        // 设置文档信息
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Nicola Asuni');
+        $pdf->SetTitle('案卷信息');
+        $pdf->SetSubject('TCPDF Tutorial');
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+
+        // 设置页眉和页脚信息
+//        $pdf->SetHeaderData('', '', '电脑人机工程评估报告', '', array(0,64,255), array(0,64,128));
+//        $pdf->setFooterData(array(0,64,0), array(0,64,128));
+
+        // 设置页眉和页脚字体
+        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+        // 设置默认等宽字体
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+        // 设置间距
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+        // 设置分页
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+        // set image scale factor
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+
+        // ---------------------------------------------------------
+
+        // set default font subsetting mode
+        $pdf->setFontSubsetting(true);
+
+        //设置字体
+        $pdf->SetFont('dejavusans', '', 14, '', true);
+        $pdf->SetFont('stsongstdlight', '', 10);
+
+        // Add a page
+        // This method has several options, check the source code documentation for more information.
+        $pdf->AddPage();
+
+        // set text shadow effect
+        $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
+
+        $n = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+        // 内容
+
+        $f_obj      = new FilewithinModel();
+        $file_arr   = $f_obj->getList($stu_id);
+
+        $html = <<<EOD
+<h1 style="text-align: center;line-height:150px">北京舞蹈学院学生档案</h1>
+<div style="text-indent:130px;">
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2>卷 $n 名 $n $file_name</h2>
+<h2>卷 $n 号 $n $file_number</h2>
+<h2>学 $n 号 $n $sc_number</h2>
+<h2>存放位置 $n $file_address</h2>
+<h2>立卷时间 $n $addtime</h2>
+<h2>总 &nbsp;件 &nbsp;数 $n $file_num</h2>
+</div>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p> <span>$lj_time $n$n</span>  <span>案卷管理 $n$n </span> 学生档案  </p>
+<p>__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.</p>
+<p></p>
+<p>卷号:$file_number $n 存放位置:$file_address $n 学号:$sc_number &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 卷名:$file_name </p>
+
+<p></p>
+<h3 style="text-align: center;">北京舞蹈学院学生档案卷内目录</h3>
+<p><span style="text-align: center;">(本科)</span><p></p>  <span><p  style="text-align:left">院系:$yx $n $n $n 专业:$zy</p> <p  style="text-align:right">卷名:$file_name</p></span></p>
+
+
+EOD;
+
+
+
+
+        // Print text using writeHTMLCell()
+        $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
+
+
+
+        $pdf->MultiCell(30, 10, "序号", $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+        //$pdf->MultiCell(30, 10, "类别", $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+        $pdf->MultiCell(30, 10, "文件题名", $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+        $pdf->MultiCell(60, 10, "形成日期", $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+        $pdf->MultiCell(30, 10, "件数", $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+        $pdf->MultiCell(30, 10, "页数", $border=1, $align='C',$fill=false, $ln=1, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+
+
+        //$pdf->MultiCell(30, 15, $file_number, $border=1, $align='C',$fill=true, $ln=1, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+       foreach ($file_arr AS $i=>$val)
+        {
+            $pdf->MultiCell(30, 15, $this->numeral($i+1), $border=1, $align='C',$fill=true, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(30, 15, $val['ocname'], $border=1, $align='C',$fill=true, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(20, 15, '年', $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(20, 15, '月', $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(20, 15, '日', $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(30, 15, '', $border=1, $align='C',$fill=false, $ln=0, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+            $pdf->MultiCell(30, 15, '', $border=1, $align='C',$fill=false, $ln=1, $x='', $y='',  $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='M', $fitcell=true);
+
+        }
+
+
+
+        // ---------------------------------------------------------
+        //        http://archives.test.ez366.com/index.php/yelPdf.html
+        // Close and output PDF document
+        // This method has several options, check the source code documentation for more information.
+        $dtime = date('Y-m-d');
+        $pdf->Output($dtime.'.pdf', 'I');
+
+        //============================================================+
+        // END OF FILE
+        //============================================================+
+
+        print_r($pdf);die;
+
+    }
+
+    public function array_unset_tt($arr,$key){  //二维数组根据某字段去重
+        $res = array();
+        foreach ($arr as $value) {
+            if(isset($res[$value[$key]])){
+                unset($value[$key]);
+            }
+            else{
+                $res[$value[$key]] = $value;
+            }
+        }
+        return $res;
+    }
+
+    public function numeral($key){
+        switch ($key){
+            case 1: $key = '一';
+                break;
+            case 2: $key = '二';
+                break;
+            case 3: $key = '三';
+                break;
+            case 4: $key = '四';
+                break;
+            case 5: $key = '五';
+                break;
+            case 6: $key = '六';
+                break;
+            case 7: $key = '七';
+                break;
+            case 8: $key = '八';
+                break;
+            case 9: $key = '九';
+                break;
+            case 10: $key = '十';
+                break;
+        }
+        return $key;
+    }
+}

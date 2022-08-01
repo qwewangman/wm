@@ -1,0 +1,275 @@
+
+{include file='header' }
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+    .showimg{
+        height: 80px;
+    }
+    .layui-table-cell{
+        height: auto;
+
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <!--<div class="title fl_left">文件管理</div>-->
+            {include file='setdoc' title='1' }
+        </div>
+        <div class="" style="background: white ; padding: 15px;">
+
+            <div class="layui-tab">
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学号</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="sc_number" id="sc_number" autocomplete="off">
+
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">卷号</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="file_number" id="file_number" autocomplete="off">
+                                    </div>
+                                </div>
+
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">年级</label>
+                                    <div class="layui-input-inline">
+                                        <select name="grade" lay-filter="grade"  id="grade">
+                                            <option value="" selected>请选择年级</option>
+                                            {for start="(date('Y'))" end="1999" comparison="gt" step="-1"}
+                                            <option value="{$i}" >{$i}级</option>
+                                            {/for}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">院系</label>
+                                    <div class="layui-input-inline">
+                                        <select name="department" lay-filter="department" id="department">
+                                            <option value="" selected>请选择院系</option>
+                                            {foreach name='departlist' item='v'}
+                                            <option value="{$v.id}" >{$v.name}</option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">类别</label>
+                                    <div class="layui-input-inline">
+                                        <select name="category" lay-filter="category" id="category">
+                                            <option value="" selected>请选择类别</option>
+                                            {foreach name='c_arr' item='v'}
+                                            <option value="{$v.id}" >{$v.name}</option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">文件</label>
+                                    <div class="layui-input-inline">
+                                        <input class="layui-input" name="name" id="name" autocomplete="off">
+
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">状态</label>
+                                    <div class="layui-input-inline">
+                                        <select name="status" lay-filter="nj" id="status">
+                                            <option value="-1" selected>请选择状态</option>
+                                            <option value="0" >未接收</option>
+                                            <option value="1">在卷</option>
+                                            <option value="2">退件</option>
+                                            <option value="3">关闭</option>
+                                            <option value="4">借出</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item" style="text-align: center;">
+                                <div class="layui-inline" style="margin-left: 9px">
+                                    <a class="layui-btn layui-btn-primary btu-color"  href="javascript:void(0)" id="sch">
+                                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>搜索
+                                    </a>
+                                    <a class="layui-btn layui-btn-primary "  href="{:url('/doc/getdoc')}">
+                                        <i class="layui-icon layui-icon-refresh"></i>重置搜索
+                                    </a>
+                                    <!--<a class="layui-btn layui-btn-primary "  href="JavaScript:void(0)" id="addfile">-->
+                                    <!--<i class="layui-icon layui-icon-add-1 layuiadmin-button-btn"></i>批量添加文件-->
+                                    <!--</a>-->
+                                </div>
+                            </div>
+                        </form>
+                        <table class="layui-hide" id="stu_table" lay-filter="stu_table">
+
+                        </table>
+                        <!--
+                        <a class="layui-btn layui-btn-xs" lay-event="print">打印交接表</a>
+                        <a class="layui-btn layui-btn-xs" lay-event="queren">确认接收</a>
+                        <a class="layui-btn layui-btn-xs" lay-event="fileChange">修改</a>
+                        -->
+                        <script type="text/html" id="doAction">
+
+                        </script>
+                        <script type="text/html" id="oneAction">
+                            <a class="layui-btn layui-btn-xs" lay-event="fileChange">修改</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var table;
+    layui.use('table', function(){
+        table = layui.table;
+
+        table.render({
+            elem: '#stu_table'
+            ,url:"{:url('/doc/getdoclist')}"
+            ,title: '用户数据表'
+            ,toolbar: '#doAction'
+            ,cols: [[
+                {type: 'checkbox' }
+                ,{field:'number', width:140,  title:'件号'}
+                ,{field:'file_number', width:120,  title:'卷号',event:'showOne',style:'color:#f09c4e;cursor: pointer;'}
+                ,{field:'osname',  title:'卷名'}
+                ,{field:'sc_number',  title:'学号'}
+                ,{field:'ocname',  title:'类别'}
+                ,{field:'name',  title:'文件目录'}
+                ,{field:'within_time',width:100, title:'形成日期'}
+                ,{field:'item_num', width:60, title:'件数'}
+                ,{field:'page_num', width:60, title:'页数'}
+                ,{field:'showimg',width:90,title:'电子版',event:'showimg',style:'cursor: pointer;'}
+                ,{field:'status',width:80, title:'状态'}
+                ,{ toolbar: '#oneAction', width:110, title:'操作'}
+            ]]
+            ,page: true
+            ,limit:10
+            ,limits:[10,50,100]
+        });
+        table.on('tool(stu_table)', function(obj){
+            switch(obj.event){
+                case 'showimg':
+                    var id = obj.data.id;
+                    window.open("{:url('/doc/getonedoc')}?id="+id)
+                    break;
+
+                case "showOne":
+                    var id      = obj.data.student_id;
+                    var osname  = obj.data.osname;
+                    layer.open({
+                        type: 2,
+                        title:"案卷信息-"+osname,
+                        area: ['80%', '100%'],
+                        fixed: true, //不固定
+                        maxmin: false,
+                        scrollbar:false,
+                        shadeClose:true,
+                        content: "{:url('/file/getone')}?id="+id,
+                        anim:2
+                    });
+                    break;
+                case "fileChange":
+                    var id      = obj.data.id
+                    var osname  = obj.data.name;
+                    layer.open({
+                        type: 2,
+                        title:"修改-"+osname,
+                        area: ['80%', '100%'],
+                        fixed: true, //不固定
+                        maxmin: false,
+                        scrollbar:false,
+                        shadeClose:true,
+                        content: "/doc/editdoc/"+id,
+                        anim:2
+                    });
+                    break;
+                 case "del":
+                     var id      = obj.data.id;
+                     layer.confirm('真的删除行么', function(index){
+
+                         obj.del(); //删除对应行（tr）的DOM结构
+                         layer.close(index);
+                         //向服务端发送删除指令
+                         $.ajax({
+                             url:"/doc/deletedoc",
+                             type:"post",
+                             data:{
+                                 id:id
+                             },
+                             success:function(res){
+                                 if(res>0){
+                                     layer.msg("删除成功");
+                                 }
+
+                             },
+                             error:function(e){
+                                 layer.msg("error");
+                             }
+                         });
+                     });
+                     break;
+            };
+        });
+    });
+
+    $('#sch').click(function(){
+        var file_number = $("#file_number").val();
+        var sc_number   = $("#sc_number").val();
+        var name        = $("#name").val();
+        var category    = $("#category").val();
+        var grade       = $("#grade").val();
+        var department =$("#department").val();
+        var status      = $("#status").val();
+        table.reload('stu_table', {
+            url:"{:url('/doc/getdoclist')}"
+            ,page: {
+                curr: 1 //重新从第 1 页开始
+            }
+            ,where: {category:category,file_number:file_number,sc_number:sc_number,name:name,grade:grade,status:status,department:department} //设定异步数据接口的额外参数
+        });
+    });
+    $("#addfile").click(function () {
+
+        var index = layer.open({
+            type: 2,
+            title:"批量添加文件",
+            area: ['90%', '100%'],
+            fixed: true, //不固定
+            maxmin: false,
+            scrollbar:false,
+            shadeClose:false,
+            content: "{:url('/doc/addalldoc')}",
+            anim:2,
+            cancel: function(index, layero){
+                layer.close(index);
+                window.location.reload();
+            }
+        });
+    });
+</script>
+</body>
+</html>

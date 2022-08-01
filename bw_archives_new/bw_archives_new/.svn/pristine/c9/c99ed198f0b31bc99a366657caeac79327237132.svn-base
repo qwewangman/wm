@@ -1,0 +1,36 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 25352
+ * Date: 2018/1/22
+ * Time: 10:18
+ */
+
+
+namespace app\index\model;
+
+use think\Model;
+
+class UserModel extends Model
+{
+    // 设置当前模型对应的完整数据表名称
+    protected $table = 'oa_admin';
+
+    // 获取所有用户的所有数据
+    public function getUser($name,$pwd)
+    {
+        $more_datas = $this->where("admin_name",$name)->where('admin_password',$pwd)->select();          // 查询所有用户的所有字段资料
+        if (empty($more_datas)) {                 // 判断是否出错
+            return false;
+        }
+        return $more_datas;   // 返回修改后的数据
+    }
+
+    public function getUserName($id)
+    {
+        return $this->where("id",$id)->select();
+    }
+
+
+
+}

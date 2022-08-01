@@ -1,0 +1,290 @@
+{include file='/index/head' }
+<script type="text/javascript" src="__STATIC__/js/echarts.min.js"></script>
+<script type="text/javascript" src="__STATIC__/js/echarts/renderers.js"></script>
+<script type="text/javascript" src="__STATIC__/js/echarts/core.js"></script>
+<style type="text/css">
+    .layui-btn{
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-btn .layui-icon{
+        font-size: 14px;
+    }
+    .layui-form-label{
+        width: auto;
+    }
+    .btu-color{
+        background: #f09c4e;border:none;color: #fff;
+    }
+    .showimg{
+        height: 80px;
+    }
+    .layui-table-cell{
+        height: auto;
+
+    }
+</style>
+<div class="contetnBox">
+    {include file='layout' }
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+
+        </div>
+        <div class="" style="background: white ; padding: 15px;">
+
+            <div class="layui-tab">
+
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form class="layui-form">
+
+                            <div class="layui-form-item">
+
+                                                 <div class="layui-inline"><label class="layui-form-label">开始时间：</label>
+                                                     <div class="layui-input-inline">
+                                                        <input type="text" name="beginDate" id="beginDate" autocomplete="off" class="layui-input laydate" placeholder="年-月-日">
+                                                     </div>
+                                                </div>
+
+                                                 <div class="layui-inline">
+                                                    <label class="layui-form-label">结束时间：</label>
+                                                     <div class="layui-input-inline">
+                                                         <input type="text" name="endDate" id="endDate" autocomplete="off" class="layui-input laydate" placeholder="年-月-日">
+                                                     </div>
+                                                 </div>
+
+                                             </div>
+
+
+
+
+                            <div class="layui-form-item" style="text-align: center;">
+                                <div class="layui-inline" style="margin-left: 9px">
+                                    <a class="layui-btn layui-btn-primary btu-color"  href="javascript:void(0)" id="sch">
+                                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>搜索
+                                    </a>
+
+                                    <a class="layui-btn layui-btn-primary "  href="{:url('/doc/getdoc')}">
+                                        <i class="layui-icon layui-icon-refresh"></i>重置搜索
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </form>
+
+                        <div id="main" style="width:100%;height:500px; "></div>
+
+                        <script type="text/html" id="doAction">
+
+                        </script>
+                        <script type="text/html" id="oneAction">
+                            <a class="layui-btn layui-btn-xs" lay-event="fileChange">修改</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="hidMinListDate" value="1998-01-01" />
+32 <input type="hidden" id="hidMaxListDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+
+<script>
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+        $.ajax({
+            url: "/file/getdataInfo",
+            async : false,
+            cache:false,
+           // data:"beginDate="+$("#beginDate").val()+"&endDate="+$("#endDate").val(),
+            dataType: 'json',
+            success: function (obj) {
+                option = {
+                    title: {
+                        text: '温湿度',
+
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['温度', '湿度'],
+
+                    },
+                    grid: {
+                        left: '2%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: obj.date
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        name: '温度',
+                        type: 'line',
+                        stack: 'Total',
+                        data: obj.temperature
+                    },
+                        {
+                            name: '湿度',
+                            type: 'line',
+                            stack: 'Total',
+                            data: obj.humidity
+                        },
+
+                    ]
+                };
+
+            }
+
+        });
+
+    $("#sch").click(function() {
+        $.ajax({
+            url: "/file/getdataInfo",
+            async : false,
+            cache:false,
+             data:"beginDate="+$("#beginDate").val()+"&endDate="+$("#endDate").val(),
+            dataType: 'json',
+            success: function (obj) {
+                option = {
+                    title: {
+                        text: '温湿度',
+
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['温度', '湿度'],
+
+                    },
+                    grid: {
+                        left: '2%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: obj.date
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        name: '温度',
+                        type: 'line',
+                        stack: 'Total',
+                        data: obj.temperature
+                    },
+                        {
+                            name: '湿度',
+                            type: 'line',
+                            stack: 'Total',
+                            data: obj.humidity
+                        },
+
+                    ]
+                };
+
+            }
+
+        });
+        option && myChart.setOption(option);
+    });
+
+option && myChart.setOption(option);
+</script>
+
+<script>
+     layui.use('laydate', function () {
+             var laydate = layui.laydate;
+             var minListDate = $('#hidMinListDate').val();//最小可选时间，例：1990-02-01
+            var maxListDate = $('#hidMaxListDate').val();//最大可选时间，例：2200-12-31
+            var begin = "#beginDate", end = "#endDate";//开始时间选择框、结束时间选择框：文本框
+             var endChange = function (val, date) {
+                     if (date && date.year)
+                            begindate.config.max = {
+                              year: date.year,
+                                 month: date.month - 1,//必须减1才是正确值
+                                 date: date.date,
+                                hours: date.hours,
+                                minutes: date.minutes,
+                                 seconds: date.seconds
+                        };
+                     else {
+                            var dateInit = new Date(maxListDate.replace(/-/g, "/"));
+                            begindate.config.max = {
+                                  year: dateInit.getFullYear(),
+                                     month: dateInit.getMonth(),
+                                     date: dateInit.getDate(),
+                                     hours: dateInit.getHours(),
+                                     minutes: dateInit.getMinutes(),
+                                     seconds: dateInit.getSeconds()
+                             };
+                         }
+                 };
+             var beginChange = function (val, date) {
+                     if (date && date.year)
+                             enddate.config.min = {
+                                 year: date.year,
+                                 month: date.month - 1,
+                                 date: date.date,
+                                 hours: date.hours,
+                                 minutes: date.minutes,
+                                 seconds: date.seconds
+                         };
+                     else {
+                             var dateInit = new Date(minListDate.replace(/-/g, "/"));
+                             enddate.config.min = {
+                                     year: dateInit.getFullYear(),
+                                     month: dateInit.getMonth(),
+                                     date: dateInit.getDate(),
+                                     hours: dateInit.getHours(),
+                                    minutes: dateInit.getMinutes(),
+                                     seconds: dateInit.getSeconds()
+                             };
+                         }
+                 };
+             var enddate = laydate.render({
+                     elem: end,
+                     format: 'yyyy-MM-dd',
+                     min: minListDate,
+                     max: maxListDate,
+                     done: endChange
+             });
+             var begindate = laydate.render({
+                     elem: begin,
+                     format: 'yyyy-MM-dd',
+                     min: minListDate,
+                     max: maxListDate,
+                    done: beginChange
+             });
+         });
+
+
+</script>>
+
+</body>
+</html>

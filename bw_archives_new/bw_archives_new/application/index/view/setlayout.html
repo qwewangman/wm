@@ -1,0 +1,42 @@
+<style type="text/css">
+    .layui-tab-brief>.layui-tab-more li.layui-this:after, .layui-tab-brief>.layui-tab-title .layui-this:after{
+        border-bottom: 2px solid #c7782e;
+    }
+    .layui-this a{
+        color: #c7782e;
+        font-weight:bold;
+    }
+    .titleBox{
+        background: #fff;
+    }
+</style>
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+        <li {if [title]==6} class="layui-this" {/if}>
+        <a href="{:url('/system/sethouse')}" >园区设置</a>
+        </li>
+        <li {if [title]==6} class="layui-this" {/if}>
+        <a href="{:url('/system/setdepart')}" >控制器设置</a>
+        </li>
+        <li {if [title]==7} class="layui-this" {/if}>
+        <a href="{:url('/system/user')}" >管理员设置</a>
+        </li>
+       <li {if [title]==2} class="layui-this" {/if}>
+            <a href="{:url('/system/category')}" >大棚设置</a>
+        </li>
+        <li {if [title]==3} class="layui-this" {/if}>
+            <a href="{:url('/system/getcode')}" >地块设置</a>
+        </li>
+
+<!--        <li {if [title]==4} class="layui-this" {/if}>-->
+<!--            <a href="{:url('/system/post')}" >温湿度设置</a>-->
+<!--        </li>-->
+
+    </ul>
+</div>
+
+<script>
+
+    $(".sliderList").removeClass("sliderLists");
+    $("#slider4").addClass("sliderLists");
+</script>

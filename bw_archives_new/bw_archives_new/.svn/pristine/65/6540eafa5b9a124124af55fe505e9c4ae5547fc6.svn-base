@@ -1,0 +1,210 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:80:"D:\phpStudy\PHPTutorial\WWW\AAA\public/../application/index\view\admin\AjJy.html";i:1528732512;s:76:"D:\phpStudy\PHPTutorial\WWW\AAA\public/../application/index\view\layout.html";i:1528858439;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+</head>
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <div class="fl_right signOut"><a href="<?php echo url('/login_out'); ?>"  style="color: white">退出</a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="contetnBox">
+
+    <div class="sliderBox fl_left">
+    <a href="<?php echo url('/home'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">首页</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/lijuan'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">立卷</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/addFile'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-container"></span>
+        <span class="fl_left sliderThree block">档案接收</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/inside'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-export"></span>
+        <span class="fl_left sliderThree block">卷内文件接收</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/ajy'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-detail"></span>
+        <span class="fl_left sliderThree block">案卷借阅</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/DaBd'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-setting"></span>
+        <span class="fl_left sliderThree block">变动记录</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="<?php echo url('/LmBj'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-setting"></span>
+        <span class="fl_left sliderThree block">类目编辑</span>
+        <span class="clear"></span>
+    </a>
+</div>
+
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">案卷借阅</div>
+            <!--<div class="fl_right detaBox">-->
+            <!--<div class="detaBtn fl_left"><a href="<?php echo url('/addExcel'); ?>" style="color: #333">批量导入</a></div>-->
+            <!--</div>-->
+            <div class="clear"></div>
+        </div>
+        <!--<div class="details">-->
+
+        <div class="" style="background: white ; padding: 50px 30px; overflow: hidden">
+
+
+
+
+
+
+            <!------------------------------------------------------------------------------------------------------------------->
+
+
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form"  >
+                    <div class="demoTable">
+                        <label class="layui-form-label">院系专业</label>
+                        <div class="layui-input-inline">
+                            <select name="courtyard" lay-filter="yx" id="courtyard">
+                                <option value="" selected>请选择院系</option>
+                                <?php if(is_array($departlist) || $departlist instanceof \think\Collection || $departlist instanceof \think\Paginator): if( count($departlist)==0 ) : echo "" ;else: foreach($departlist as $key=>$v): ?>
+                                <option value="<?php echo $v['id']; ?>" ><?php echo $v['d_name']; ?></option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                            </select>
+                        </div>
+
+                        <div class="layui-input-inline">
+                            <select name="major"  id="zy">
+                                <option value="">请选专业</option>
+                            </select>
+                        </div>
+                        <div class="layui-form-mid layui-word-aux"></div>
+
+                        学号：
+                        <div class="layui-inline">
+                            <input class="layui-input" name="sc_number" id="sc_number" autocomplete="off">
+                        </div>
+                        姓名：
+                        <div class="layui-inline">
+                            <input class="layui-input" name="user_name" id="user_name" autocomplete="off">
+                        </div>
+
+                        <!--<button class="layui-btn" data-type="reload">搜索</button>-->
+                        <div class="layui-btn" data-type="reload" style="width: 100px">搜索</div>
+                    </div>
+                </form>
+                <table class="layui-hide" id="LAY_table_user" lay-filter="user">
+
+
+                </table>
+
+                <script>
+
+                    layui.use(['form', 'laydate','upload'], function(){
+                        var form = layui.form;
+                        form.on('select(yx)', function(data){
+                            var str = '<option value="0">请选专业</option>';
+                            var id = data.value;
+                            $.post("<?php echo url('/getZy'); ?>",{id:id},function(res){
+                                var length = res.length;
+                                for (var i=0;i<length;i++) {
+                                    str += '<option value="'+res[i].id+'">'+res[i].m_name+'</option>';
+                                }
+                                layui.$("#zy").html(str);
+                                form.render();
+                            },'json');
+                        });
+                    })
+
+
+                    layui.use('table', function(){
+                        var table = layui.table;
+
+                        //方法级渲染
+                        table.render({
+                            elem: '#LAY_table_user'
+                            ,url: "<?php echo url('/getZddA'); ?>"
+                            ,cols: [[
+                                {field:'d_name', title: '院系',fixed: true}
+                                ,{field:'m_name', title: '专业'}
+                                ,{field:'class', title: '班级'}
+                                ,{field:'sc_number', title: '学号'}
+                                ,{field:'user_name', title: '姓名'}
+                                ,{field:'url', title: '操作'}
+                            ]]
+                            ,id: 'testReload'
+                            ,page: true
+
+                        });
+
+                        var $ = layui.$, active = {
+                            reload: function(){
+                                var courtyard = $('#courtyard');
+                                var zy = $('#zy');
+                                var sc_number = $('#sc_number');
+                                var user_name = $('#user_name');
+
+                                //执行重载
+                                table.reload('testReload', {
+                                    page: {
+                                        curr: 1 //重新从第 1 页开始
+                                    }
+                                    ,where: {
+                                        key: {
+                                            courtyard: courtyard.val(),
+                                            major: zy.val(),
+                                            sc_number: sc_number.val(),
+                                            user_name: user_name.val()
+                                        }
+                                    }
+                                });
+                            }
+                        };
+
+                        $('.demoTable .layui-btn').on('click', function(){
+                            var type = $(this).data('type');
+                            active[type] ? active[type].call(this) : '';
+                        });
+                    });
+
+                </script>
+
+            <!------------------------------------------------------javascriptEnd------------------------------------------------------------->
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

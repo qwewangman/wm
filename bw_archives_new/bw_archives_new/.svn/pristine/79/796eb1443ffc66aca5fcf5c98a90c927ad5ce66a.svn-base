@@ -1,0 +1,929 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 25352
+ * Date: 2018/5/14
+ * Time: 10:05
+ */
+namespace app\index\controller;
+use app\index\model\FileModel;
+use think;
+use think\Db;
+use think\Route;
+use app\index\controller\Base;
+use TCPDF;
+
+
+use app\index\model\StudentsModel;
+use app\index\model\DepartmentModel;
+use app\index\model\MajorModel;
+
+class Admin extends Base
+{
+    //立卷页面
+    public function index()
+    {
+        $d = new DepartmentModel();
+        $dep = $d->getDepartList();
+
+
+
+        $this->assign('departlist',$dep);
+
+        return view('lijuan');
+    }
+    //获取专业
+    public function getZy()
+    {
+        $data  = input('param.');
+        $m = new MajorModel();
+        $maj = $m->getMajorList($data['id']);
+
+        return $maj;
+
+    }
+    //立卷添加
+    public function lj_add()
+    {
+        $data  = input('param.');
+
+        $rr = Db::table('oa_students')->order("id desc")->select();
+        $u  = $rr[0]['file_number'];
+
+        $year = date('Y');
+        $b    = substr($u,1,4);
+        if(empty($u) || ($b != $year))
+        {
+            $jyh = "B".$year."-".'001';
+        }else
+        {
+            if((substr($u,6)+1) < 10)
+            {
+                $lj = '-00';
+            }else if((substr($u,6)+1) >= 10 && (substr($u,6)+1) < 100 ){
+                $lj = '-0';
+            }else{
+                $lj = '-';
+            }
+
+            $jyh = 'B'.$year.$lj.(substr($u,6)+1);
+        }
+        $data['file_number'] = $jyh;
+        $data['card_term'] = $data['card_create']."-".$data['card_end'];
+        $data['type']       = 1 ;                                                         //个人档案
+        unset($data['card_create']);
+        unset($data['card_end']);
+
+        $s = new StudentsModel();
+        $result  = $s->saveStudent($data);
+        if($result){
+            //设置成功后跳转页面的地址，默认的返回页面是$_SERVER['HTTP_REFERER']
+            $this->success('新增成功', url('/lijuan'));
+        } else {
+            //错误页面的默认跳转页面是返回前一页，通常不需要设置
+            $this->error('新增失败');
+        }
+    }
+
+    public function addExcel()
+    {
+        return view('ljFile');
+    }
+
+    //立卷导入
+    public function addExcel_do()
+    {
+
+        vendor("PHPExcel.PHPExcel"); //方法一
+        $objPHPExcel = new \PHPExcel();
+
+        //获取表单上传文件
+        $file = request()->file('file');
+        $info = $file->validate(['size'=>156780,'ext'=>'xlsx,xls,csv'])->move(ROOT_PATH . 'public' . DS . 'excel');
+
+        if($info){
+            $exclePath = $info->getSaveName();  //获取文件名
+            $file_name = ROOT_PATH . 'public' . DS . 'excel' . DS . $exclePath;   //上传文件的地址
+            $objReader =\PHPExcel_IOFactory::createReader('Excel2007');
+            $obj_PHPExcel =$objReader->load($file_name, $encode = 'utf-8');  //加载文件内容,编码utf-8
+//            echo "<pre>";
+            $excel_array=$obj_PHPExcel->getsheet(0)->toArray();   //转换为数组格式
+
+            array_shift($excel_array);  //删除第一个数组(标题);
+
+            $data = [];
+            $i=0;
+
+            foreach($excel_array as $k=>$v) {
+
+
+
+//------------------------------------------------------------------------------------------------------------------------
+
+                $rr = Db::table('oa_students')->order("id desc")->select();
+                $u  = $rr[0]['file_number'];
+
+                $year = date('Y');
+                $b    = substr($u,1,4);
+                if(empty($u) || ($b != $year))
+                {
+                    $jyh = "B".$year."-".'001';
+                }else
+                {
+                    if((substr($u,6)+1) < 10)
+                    {
+                        $lj = '-00';
+                    }else if((substr($u,6)+1) >= 10 && (substr($u,6)+1) < 100 ){
+                        $lj = '-0';
+                    }else{
+                        $lj = '-';
+                    }
+
+                    $jyh = 'B'.$year.$lj.(substr($u,6)+1+$i);
+                }
+
+
+//------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+                if($v[2] == '男')
+                {
+                    $sex = 0;
+                }else{
+                    $sex = 1;
+                }
+
+                $d = new DepartmentModel();
+
+                $dep = $d->getDepId($v[3]);
+                $dep_id = $dep['id'];
+
+
+                $m = new MajorModel();
+                $maj = $m->getMajorId($v[4],$dep_id);
+                $maj_id = $maj['id'];
+
+
+
+                $data[$k]['user_name'] = $v[0];
+                $data[$k]['file_number'] = $jyh;
+                $data[$k]['sc_number'] = $v[1];
+                $data[$k]['sex'] = $sex;             //性别
+                $data[$k]['courtyard'] = $dep_id;
+                $data[$k]['major'] = $maj_id;
+                $data[$k]['grade'] = $v[5];
+                $data[$k]['class'] = $v[6];
+                $data[$k]['phone'] = $v[7];
+                $data[$k]['card'] = $v[8];
+                $data[$k]['card_term'] = $v[9];
+                $data[$k]['country'] = $v[10];
+                $data[$k]['nation'] = $v[11];
+                $data[$k]['type'] = 2;
+                $data[$k]['addtime'] = date("Y-m-d H:i:s");
+
+                $i++;
+            }
+
+//            $success=Db::name('students')->insertAll($data); //批量插入数据
+            $s   = new StudentsModel();
+            $success = $s->addStudent($data);
+            if($success)
+            {
+                $result = array("code"=>0,"msg"=>"上传成功","data"=>array("src"=>""));
+                echo json_encode($result);
+            }
+        }else{
+            // 上传失败获取错误信息
+            echo $file->getError();
+        }
+
+    }
+    //档案接收页
+    public function addFile()
+    {
+        $d = new DepartmentModel();
+        $dep = $d->getDepartList();
+
+        $this->assign('departlist',$dep);
+        return view('dajs');
+    }
+
+
+
+    //未在档档案列表
+    public function getWzd()
+    {
+        $data  = input('param.');
+
+        $where = 'status=0 and type =1 ';                                    //     status=0
+
+        if(!empty($data['key']))
+        {
+            if ($data['key']['courtyard'] > 0)
+            {
+                $where .= "  and courtyard = '".$data['key']['courtyard']."'";
+            }
+            if($data['key']['major']  > 0)
+            {
+                $where .= "  and major = '".$data['key']['major']."'";
+            }
+            if(!empty($data['key']['sc_number']))
+            {
+                $where .= "  and sc_number = '".$data['key']['sc_number']."'";
+            }
+
+            if(!empty($data['key']['user_name']))
+            {
+                $where .= "  and user_name = '".$data['key']['user_name']."'";
+            }
+        }
+        $s = new StudentsModel();
+        $wzd = $s->getWzdList($data,$where);
+        $count = count($wzd['count']);
+
+        $result = array();
+        foreach($wzd['content'] as $k=>$v)
+        {
+            $url = url('/updZd',['id'=>$v['id']]);
+            $v['url'] = "<a href='$url'>   <button class='layui-btn layui-btn-sm'>确定接收</button></a>";
+            $d = Db::table('department')->where('id', $v['courtyard'])->field('d_name')->find();
+            $v['d_name'] = $d['d_name'];
+            $m = Db::table('major')->where('id', $v['major'])->field('m_name')->find();
+            $v['m_name'] = $m['m_name'];
+            $result[]=$v;
+        }
+        $result = array("code"=>0,"msg"=>"","count"=>$count,"data"=>$result);
+        echo json_encode($result);
+
+    }
+
+    //未在档档案列表
+    public function getWzdDw()
+    {
+        $data  = input('param.');
+
+        $where = 'status=0 and type = 2';
+
+        $res= Db::table('oa_Students')->where($where)->select();
+        $count = count($res);
+        $result = array();
+        foreach($res as $v)
+        {
+            if($v['sex'] == 0)
+            {
+                $v['sex'] = '男';
+            }else{
+                $v['sex'] = '女';
+            }
+            $result[] = $v;
+        }
+
+        $result = array("code"=>0,"msg"=>"","count"=>$count,"data"=>$result);
+        echo json_encode($result);
+
+    }
+
+    //确认接收
+    public function updZd()
+    {
+        $data   = input('param.');
+        $data['id'] = ltrim($data['id'],',');
+        $id = explode(",",$data['id']);
+        $id = array_unique($id);
+
+        foreach($id as $v)
+        {
+            $result = Db::table('oa_Students')->where('id',$v)->update(['status' => '1']);
+        }
+        if($result){
+            //设置成功后跳转页面的地址，默认的返回页面是$_SERVER['HTTP_REFERER']
+            $this->success('接收成功');
+        } else {
+            //错误页面的默认跳转页面是返回前一页，通常不需要设置
+            $this->error('接收失败,稍后重试');
+        }
+
+    }
+    //卷内文件页面
+    public function Inside()
+    {
+        $d = new DepartmentModel();
+        $dep = $d->getDepartList();
+
+        $this->assign('departlist',$dep);
+        return view('jnwj');
+    }
+
+    //卷内文件数据
+    public function getInsideList()
+    {
+        $data  = input('param.');
+
+        $where = 'status=1 and type =1 ';                    //在档个人           status=1
+
+        if(!empty($data['key']))
+        {
+            if ($data['key']['courtyard'] > 0)
+            {
+                $where .= "  and courtyard = '".$data['key']['courtyard']."'";
+            }
+            if($data['key']['major']  > 0)
+            {
+                $where .= "  and major = '".$data['key']['major']."'";
+            }
+            if(!empty($data['key']['sc_number']))
+            {
+                $where .= "  and sc_number = '".$data['key']['sc_number']."'";
+            }
+
+            if(!empty($data['key']['user_name']))
+            {
+                $where .= "  and user_name = '".$data['key']['user_name']."'";
+            }
+        }
+
+        $s = new FileModel();
+        $wzd = $s->getStudentsList($data,$where);
+
+
+        $count = count($wzd['count']);
+        $result = array();
+        foreach($wzd['content'] as $k=>$v)
+        {
+            $v['url'] = '<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+                            <a class="layui-btn layui-btn-xs" lay-event="edit">文件接收</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">文件录入</a>';
+
+
+            $d = Db::table('department')->where('id', $v['courtyard'])->field('d_name')->find();
+            $v['d_name'] = $d['d_name'];
+            $m = Db::table('major')->where('id', $v['major'])->field('m_name')->find();
+            $v['m_name'] = $m['m_name'];
+            $result[]=$v;
+        }
+
+
+        $result = array("code"=>0,"msg"=>"","count"=>$count,"data"=>$result);
+        echo json_encode($result);
+
+
+    }
+    //卷内文件添加操作
+    public function addInside()
+    {
+        $data  = input('param.');
+        $id = $data['id'];
+
+        $c = Db::table('oa_catelog')->where('branch_id', 0)->field('id,class_num,class_name')->order('id')->select();
+
+        $this->assign('id',$id);
+        $this->assign('c',$c);
+        return view('tjjn');
+
+
+    }
+    public function getZcl()
+    {
+        $data  = input('param.');
+        $id = $data['id'];
+        $result = Db::table('oa_catelog')->where('branch_id', $id)->field('id,class_num,class_name')->order('id')->select();
+        echo json_encode($result);
+    }
+
+    //卷内文件添加
+    public function addFileW()
+    {
+        $data  = input('param.');
+
+        $rr = Db::table('oa_file_within')->where('s_id',$data['s_id'])->order("addtime desc")->select();
+
+
+
+        $stu = Db::table('oa_students')->where('id',$data['s_id'])->field('file_number')->find();
+        if(empty($rr))
+        {
+            $jyh = $stu['file_number']."-".'01';
+        }else
+        {
+            $u  = $rr[0]['within_number'];
+            if((substr($u,10)+1) < 10)
+            {
+                $lj = '-0';
+            }else{
+                $lj = '-';
+            }
+
+            $jyh = $stu['file_number'].$lj.(substr($u,10)+1);
+        }
+        $data['within_number'] = $jyh;
+
+
+        $data['addtime'] = date("Y-m-d H:i:s");
+
+        $result = Db::table('oa_file_within')->insert($data);
+
+        if($result){
+            //设置成功后跳转页面的地址，默认的返回页面是$_SERVER['HTTP_REFERER']
+            $this->success('添加成功');
+        } else {
+            //错误页面的默认跳转页面是返回前一页，通常不需要设置
+            $this->error('添加失败,请重新操作');
+        }
+    }
+
+    //卷内文件审核
+    public function shInside()
+    {
+        $data  = input('param.');
+        $id = $data['id'];
+
+        $this->assign('id',$id);
+        return view('jnsh');
+    }
+
+    public function getShInside()
+    {
+        $data  = input('param.');
+        $id = $data['id'];
+        $wzd  = Db::table('oa_file_within')->where('s_id',$id)->where('status',0)->order('within_type')->select();
+
+        $result = array();
+        foreach($wzd as $k=>$v)
+        {
+            $d = Db::table('oa_catelog')->where('id', $v['within_type'])->field('class_name')->find();
+            $v['lb_name'] = $d['class_name'];
+            $m = Db::table('oa_catelog')->where('id', $v['within_name'])->field('class_name')->find();
+            $v['wh_name'] = $m['class_name'];
+            $result[]=$v;
+        }
+        $result = array("code"=>0,"msg"=>"","data"=>$result);
+        echo json_encode($result);
+
+    }
+    public function sHenHe()
+    {
+        $data  = input('param.');
+
+        $data['id'] = ltrim($data['id'],',');
+        $id = explode(",",$data['id']);
+        $id = array_unique($id);
+
+        foreach($id as $v)
+        {
+            $result = Db::table('oa_file_within')->where('id',$v)->update(['status' => '1']);
+        }
+        if($result){
+            //设置成功后跳转页面的地址，默认的返回页面是$_SERVER['HTTP_REFERER']
+            $this->success('接收成功');
+        } else {
+            //错误页面的默认跳转页面是返回前一页，通常不需要设置
+            $this->error('接收失败,稍后重试');
+        }
+
+    }
+
+    public function ChaKan()
+    {
+        $data  = input('param.');
+        $id    = $data['id'];
+        $result = Db::table('oa_file_within')->where('s_id',$id)->select();
+        $this->assign('id',$id);
+        return view('chAkAn');
+    }
+    public function CkJn()
+    {
+        $data  = input('param.');
+        $id    = $data['id'];
+
+        $wzd = Db::table('oa_file_within')->where('s_id',$id)->select();
+
+        $result = array();
+        foreach($wzd as $k=>$v)
+        {
+            $d = Db::table('oa_catelog')->where('id', $v['within_type'])->field('class_num,class_name')->find();
+            $v['lb_name'] =$d['class_num'].'.'. $d['class_name'];
+            $m = Db::table('oa_catelog')->where('id', $v['within_name'])->field('class_num,class_name')->find();
+            $v['wh_name'] = $m['class_num'].'.'.$m['class_name'];
+            if($v['status'] == 0)
+            {
+                $v['status'] = '未接收';
+            }else if($v['status'] == 1){
+                $v['status'] = '在档';
+            }else if($v['status'] == 2)
+            {
+                $v['status'] = '借出';
+            }
+
+
+            $result[]=$v;
+        }
+        $result = array("code"=>0,"msg"=>"","data"=>$result);
+        echo json_encode($result);
+
+    }
+
+    public function JnDwJs()
+    {
+        $dw = Db::table('oa_students')->where('type', 2)->field('id,user_name')->select();
+
+        $res = array();
+        foreach($dw as $k=> $v)
+        {
+            $res[] = Db::table('oa_file_within')->where('s_id', $v['id'])->where('status',0)->select();
+        }
+
+        $arr2=array();
+        foreach ($res as $k=>$v) {
+            if (is_array($v)) {
+                foreach ($v as $k2=>$v2)
+                    $arr2[]=$v2;
+            }
+        }
+
+        $arr3 = array();
+        foreach($arr2 as $k=>$v)
+        {
+            $d = Db::table('oa_catelog')->where('id', $v['within_type'])->field('class_name')->find();
+            $v['lb_name'] = $d['class_name'];
+            $m = Db::table('oa_catelog')->where('id', $v['within_name'])->field('class_name')->find();
+            $v['wh_name'] = $m['class_name'];
+            $s = Db::table('oa_students')->where('id',$v['s_id'])->field('user_name,file_number')->find();
+            $v['file_number'] = $s['file_number'];
+            $v['user_name']   = $s['user_name'];
+
+            $arr3[] = $v;
+        }
+
+        $result = array("code"=>0,"msg"=>"","data"=>$arr3);
+
+
+        echo json_encode($result);
+
+    }
+
+    //案卷借阅
+    public function ajy()
+    {
+        $d = new DepartmentModel();
+        $dep = $d->getDepartList();
+
+        $this->assign('departlist',$dep);
+        return view('AjJy');
+    }
+
+
+    public function getZddA()
+    {
+        $data  = input('param.');
+
+        $where = 'status=1 ';
+
+        if(!empty($data['key']))
+        {
+            if ($data['key']['courtyard'] > 0)
+            {
+                $where .= "  and courtyard = '".$data['key']['courtyard']."'";
+            }
+            if($data['key']['major']  > 0)
+            {
+                $where .= "  and major = '".$data['key']['major']."'";
+            }
+            if(!empty($data['key']['sc_number']))
+            {
+                $where .= "  and sc_number = '".$data['key']['sc_number']."'";
+            }
+
+            if(!empty($data['key']['user_name']))
+            {
+                $where .= "  and user_name = '".$data['key']['user_name']."'";
+            }
+        }
+        $s = new StudentsModel();
+        $wzd = $s->getWzdList($data,$where);
+        $count = count($wzd['count']);
+
+        $result = array();
+        foreach($wzd['content'] as $k=>$v)
+        {
+            if($v['status'] == 1)
+            {
+                $url = url('/updJy',['id'=>$v['id']]);
+                $v['url'] = "<a href='$url'>   <button class='layui-btn layui-btn-sm'>借阅</button></a>";
+            }
+            $d = Db::table('department')->where('id', $v['courtyard'])->field('d_name')->find();
+            $v['d_name'] = $d['d_name'];
+            $m = Db::table('major')->where('id', $v['major'])->field('m_name')->find();
+            $v['m_name'] = $m['m_name'];
+
+//            ---------------------------------------------------------------------------------------------------------
+
+
+            $result[]=$v;
+        }
+
+        $result = array("code"=>0,"msg"=>"","count"=>$count,"data"=>$result);
+        echo json_encode($result);
+
+    }
+
+    public function updJy()
+    {
+        $data  = input('param.');
+
+
+        $id = $data['id'];
+
+        $file = Db::table('oa_file_within')->where('s_id', $id)->where('status',1)->select();
+
+        $res = array();
+        foreach($file as $v)
+        {
+            $within = Db::table('oa_catelog')->where('id', $v['within_name'])->find();
+            $v['class_name'] = $within['class_name'];
+            $res[] = $v;
+        }
+        $dep  = Db::table('oa_department')->where('status',0)->select();
+        $this->assign('dep',$dep);
+        $this->assign('file',$res);
+        $this->assign('id',$id);
+        return view('JyAdd');
+    }
+    public function jyAdd()
+    {
+        $data  = input('param.');
+
+        $rr = Db::table('oa_borrow')->order("id desc")->select();
+        $u = $rr[0]['j_number'];
+        if(empty($u))
+        {
+            $jyh = "J2001";
+        }else
+        {
+            $jyh = 'J'.(substr($u,1)+1);
+        }
+        $data['j_number'] = $jyh;
+        $res = Db::table('oa_borrow')->insert($data);
+        if($data['j_on'] == 0)
+        {
+            $where = 's_id = '.$data['j_id'];
+            $where1= 'id   =' .$data['j_id'];
+
+        }else{
+            $where = 'id ='.$data['j_on'];
+        }
+
+
+        $result = Db::table('oa_file_within')->where($where)->update(['status' => '2']);
+        $result2 = Db::table('oa_students')->where($where1)->update(['status' => '2']);
+        if($res && $result && $result2){
+            $this->success('操作成功');
+        } else {
+            $this->error('操作失败,稍后重试');
+        }
+    }
+    public function DaBd()
+    {
+        $d = new DepartmentModel();
+        $dep = $d->getDepartList();
+
+        $this->assign('departlist',$dep);
+        return view('BdJl');
+    }
+
+    public function BdLb()
+    {
+        $data  = input('param.');
+
+        $where = 'status=1 ';
+
+        if(!empty($data['key']))
+        {
+            if ($data['key']['courtyard'] > 0)
+            {
+                $where .= "  and courtyard = '".$data['key']['courtyard']."'";
+            }
+            if($data['key']['major']  > 0)
+            {
+                $where .= "  and major = '".$data['key']['major']."'";
+            }
+            if(!empty($data['key']['sc_number']))
+            {
+                $where .= "  and sc_number = '".$data['key']['sc_number']."'";
+            }
+
+            if(!empty($data['key']['user_name']))
+            {
+                $where .= "  and user_name = '".$data['key']['user_name']."'";
+            }
+        }
+        $s = new StudentsModel();
+        $wzd = $s->getWzdList($data,$where);
+        $count = count($wzd['count']);
+
+        $result = array();
+        foreach($wzd['content'] as $k=>$v)
+        {
+            $url = url('/BdCl',['id'=>$v['id'],'xh'=>$v['sc_number'],'name'=>$v['user_name']]);
+            $v['url'] = "<a href='$url'>   <button class='layui-btn layui-btn-sm'>编辑</button></a>";
+            $d = Db::table('department')->where('id', $v['courtyard'])->field('d_name')->find();
+            $v['d_name'] = $d['d_name'];
+            $m = Db::table('major')->where('id', $v['major'])->field('m_name')->find();
+            $v['m_name'] = $m['m_name'];
+
+//            ---------------------------------------------------------------------------------------------------------
+
+
+            $result[]=$v;
+        }
+
+        $result = array("code"=>0,"msg"=>"","count"=>$count,"data"=>$result);
+        echo json_encode($result);
+    }
+    public function BdCl()
+    {
+        $data  = input('param.');
+        $id    = $data['id'];
+
+        $s = Db::table('oa_students')->where('id', $id)->find();
+
+        $d = new DepartmentModel();
+        $dep = $d->getDepartList();
+
+        $this->assign('departlist',$dep);
+
+        $this->assign('xh',$s['sc_number']);
+        $this->assign('id',$id);
+        $this->assign('name',$s['user_name']);
+        return view('bdcl');
+    }
+
+    public function qcAdd()
+    {
+        $data  = input('param.');
+        $data['addtime'] = date("Y-m-d H:i:s");
+
+        $result = Db::table('oa_change')->insert($data);
+
+        if($result){
+            $this->success('操作成功');
+        } else {
+            $this->error('操作失败,稍后重试');
+        }
+
+    }
+
+    public function LmBj()
+    {
+
+        $res = Db::table('oa_catelog')->where('branch_id',0)->where('status',0)->select();
+        $result = array();
+        foreach($res as $k=>$v)
+        {
+            $v['cent'] = Db::table('oa_catelog')->where('branch_id',$v['id'])->where('status',0)->select();
+            $result[]  = $v;
+        }
+//echo "<pre>";
+//print_r($result);
+        $this->assign('result',$result);
+        return view('lmbj');
+    }
+
+    public function LmAdd()
+    {
+        $data  = input('param.');
+
+        $id    = $data['id'];
+
+        $cate = Db::table('oa_catelog')->where('id',$id)->find();
+        $this->assign('id',$id);
+        $this->assign('cate',$cate);
+        return view('lmadd');
+    }
+    public function addLm_do()
+    {
+        $data  = input('param.');
+
+        if(empty($data['class_name']))
+        {
+            $this->error('请填写类目名称');
+        }
+//        if(empty($data['year']) || empty($data['month']))
+//        {
+//            $this->error('请选择文件形成年月');
+//        }
+
+        $cate = Db::table('oa_catelog')->where('branch_id',$data['branch_id'])->order('id desc')->select();
+
+
+        if(!empty($cate[0]['class_num']))
+        {
+            $data['class_num'] = ($cate[0]['class_num'] +1);
+        }else{
+            $data['class_num'] = 1;
+        }
+
+
+        $data['addtime'] = date("Y-m-d H:i:s");
+        $result = Db::table('oa_catelog')->insert($data);
+
+        if($result){
+            $this->success('添加成功', url('/LmBj'));
+        } else {
+            $this->error('操作失败,稍后重试');
+        }
+
+    }
+
+
+    public function LmUpd()
+    {
+        $data  = input('param.');
+
+        $id    = $data['id'];
+
+        $cate = Db::table('oa_catelog')->where('id',$id)->find();
+        $lm   = Db::table('oa_catelog')->where('branch_id',0)->select();
+
+        $nian = array();
+        for($i=1970; $i<=date("Y");$i++)
+        {
+            $nian[] =$i;
+        }
+
+        $yue = array();
+        for($i=1; $i<13;$i++)
+        {
+            $yue[] =$i;
+        }
+
+        $ri = array();
+        for($i=1; $i<32;$i++)
+        {
+            $ri[] =$i;
+        }
+        $this->assign('id',$id);
+        $this->assign('lm',$lm);
+        $this->assign('nian',$nian);
+        $this->assign('yue',$yue);
+        $this->assign('ri',$ri);
+        $this->assign('cate',$cate);
+        return view('lmupd');
+    }
+
+    public function updLm_do()
+    {
+        $data  = input('param.');
+        $id = $data['id'];
+        $result = Db::table('oa_catelog')->where('id',$id)->update($data);
+        if($result){
+            $this->success('修改成功', url('/LmBj'));
+        } else {
+            $this->error('操作失败,稍后重试');
+        }
+    }
+
+
+    public function LmDel()
+    {
+        $data  = input('param.');
+
+        $id    = $data['id'];
+
+        $result = Db::table('oa_catelog')->where('id',$id)->update(['status' => '1']);
+
+        if($result){
+            $this->success('删除成功', url('/LmBj'));
+        } else {
+            $this->error('操作失败,稍后重试');
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

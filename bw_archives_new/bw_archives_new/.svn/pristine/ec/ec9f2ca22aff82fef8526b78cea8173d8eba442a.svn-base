@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>北京舞蹈学院</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <meta name="_token" content="Nuq7FVMq530Blo3a5rz2vSeHcczimfDcNsbGaMiC"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link href="http://manage.kjy.ez366.com/back/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="http://manage.kjy.ez366.com/back/css/studentlist.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <style type="text/css">
+        .contentBox{
+            padding: 5px 0;
+            background-color:initial;
+        }
+        .btu-color{
+            background: #f09c4e;border:none;color: #fff;
+        }.stulistTdiv{
+             position:inherit;
+             padding-left: 183px;
+         }
+        .stulistTimg{
+            left: 20px;
+        }
+        .stulistTdiv > ul{
+            height: auto;
+        }
+        .content{
+            border:initial;
+        }
+        .stu_listTop{
+            height:auto;
+        }
+        .stulistTimg{
+            height:auto;
+            text-align: center;
+            line-height: 35px;
+        }
+        .layui-btn{
+            padding: 0 15px;
+        }
+        .stulistTdiv>ul{
+            width: 50%;
+        }
+        .stulistTdiv>ul>li>em{
+            width: auto;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+
+<body >
+<!-- content开始 -->
+<div class="contentBox">
+    <div class="content">
+
+        <!-- 注释：conteRtents == 这个类名是display:blok,模块展示用这个 -->
+        <!-- 右侧列表开始 -->
+
+        <!-- 考生列表 -->
+        <div class="conteRtent conteRtents">
+
+            <div class="stu_list " >
+                <div class="stu_listTop">
+                    <div class="stulistTimg">
+                        {if $info.photo != ""}
+                            <img src="{$info.photo}" alt="" class="showimg" key="0">
+                        {else /}
+
+                            <img src="__STATIC__/imgs/default.png" alt="" key="0">
+                        <span>未上传头像</span>
+
+                        {/if}
+
+                        <button type="button" class="layui-btn layui-btn-xs layui-btn-primary" id="test1" style="margin: 10px;    color: #fff;">
+                            <i class="layui-icon">&#xe67c;</i>修改头像
+                        </button>
+
+                    </div>
+                    <div class="stulistTdiv">
+
+                        <ul class="fl_left">
+                            <li>
+                                <span>姓　　名：</span>
+                                <em>{$info.name}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>性　　别：</span>
+                                <em>{$info.sex}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>身份号码：</span>
+                                <em>{$info.card}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>出生日期：</span>
+                                <em>{$info.brithday}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>政治面貌：</span>
+                                <em>{$info.polity}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>宗教信仰：</span>
+                                <em>{$info.religion}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>联系电话：</span>
+                                <em>{$info.phone}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>国　　籍：</span>
+                                <em>{$info.country}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>生源地　：</span>
+                                <em>{$info.native}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>民　　族：</span>
+                                <em>{$info.nation}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>家庭住址：</span>
+                                <em>{$info.address}</em>
+                                <div class="clear"></div>
+                            </li>
+
+                        </ul>
+
+                        <ul class="fl_left">
+
+                            <li>
+                                <span>卷　　号：</span>
+                                <em>{$info.file_number}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>存放位置：</span>
+                                <em>{$info.file_derice}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>学　　号：</span>
+                                <em>{$info.sc_number}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>年　　级：</span>
+                                <em>{$info.grade}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>院　　系：</span>
+                                <em>{$info.dname}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>专　　业：</span>
+                                <em>{$info.mname}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>班　　级：</span>
+                                <em>{$info.class}</em>
+                                <div class="clear"></div>
+                            </li>
+                            {if condition="$info.type = 2"}
+                            <li>
+                                <span>学习方式：</span>
+                                <em>{$info.learn_style}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>毕业年月：</span>
+                                <em>{$info.graduate_year}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>毕业专业：</span>
+                                <em>{$info.graduate_major}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>毕业单位：</span>
+                                <em>{$info.graduate_school}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>档案所在单位：</span>
+                                <em>{$info.file_located}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>档案所在地：</span>
+                                <em>{$info.file_live}</em>
+                                <div class="clear"></div>
+                            </li>
+                            {/if}
+                            <li>
+                                <span>案卷状态：</span>
+                                <em class="ztColor1">{$info.status}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>立卷日期：</span>
+                                <em class="ztColor1">{$info.addtime}</em>
+                                <div class="clear"></div>
+                            </li>
+
+                            <li>
+                                <span>类　　型：</span>
+                                <em class="ztColor1">{$info.type==1?"本科":"研究生"}</em>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                                <span>添加时间：</span>
+                                <em>{$info.created_at}</em>
+                                <div class="clear"></div>
+                            </li>
+                        </ul>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="stu_list " style="text-align: center;margin-top: 10px;padding: 15px 0;background: #f5f5f5;border: 1px solid #dfdfdf;">
+                <div class="layui-inline" >
+
+                    <a class="layui-btn layui-btn-xs btu-color"  href="{:url('/file/edit/'.$info.id)}">
+                        <i class="layui-icon layui-icon-edit"></i>编辑
+                    </a>
+                    <a class="layui-btn layui-btn-danger layui-btn-xs" href="javascript:void(0)" id="del">
+                        <i class="layui-icon layui-icon-delete"></i>删除
+                    </a>
+                    <a class="layui-btn layui-btn-xs" href="javascript:void(0)" id="addfile" style="background-color: black;">
+                        <i class="layui-icon layui-icon-add-1"></i>添加文件
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧列表结束 -->
+        <!-- 右侧列表结束 -->
+    </div>
+</div>
+<!-- content结束 -->
+<!-- layer-->
+<script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+<script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+<script>
+    ;!function(){
+        var layer = layui.layer,form = layui.form;
+    }();
+</script>
+<!-- BEGIN THEME GLOBAL SCRIPTS -->
+<script type="application/javascript" >
+    $(".showimg").click(function(){
+        var key = $(this).attr("key");
+        layer.photos({
+            photos: {
+                "title": "", //相册标题
+                "start": key, //初始显示的图片序号，默认0
+                "data": [   //相册包含的图片，数组格式
+                    {
+                        "alt": "照片",
+                        "src": "{$info.photo}", //原图地址
+                    }
+                ]
+            }
+            ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+        });
+    });
+    $("#del").click(function () {
+        if(confirm("确认删除吗？此操作不可恢复，请谨慎操作"))
+        {
+            $.post("{:url('/file/del')}",{id:"{$info.id}"},function(res){
+                alert("删除成功");
+                window.top.location.reload();
+            },'json');
+        }
+    });
+
+    $("#addfile").click(function () {
+        var id      = "{$info.id}";
+        var name    = "{$info.name}";
+        layer.open({
+            type: 2,
+            title:"添加文件-"+name,
+            area: ['90%', '100%'],
+            fixed: true, //不固定
+            maxmin: false,
+            scrollbar:false,
+            shadeClose:true,
+            content: "{:url('/doc/adddoc')}?id="+id,
+            anim:2
+        });
+    });
+
+    layui.use('upload', function(){
+        var upload = layui.upload;
+
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#test1' //绑定元素
+            ,url: "{:url('/system/upload')}" //上传接口
+            ,done: function(res){
+                if(res.code == 200){ //上传成功
+
+                    $.post("{:url('/file/update/'.$info.id)}",{ftype:1,photo:res.data.src},function(res){
+
+                        window.location.reload();
+                    },'json');
+                }
+            }
+            ,error: function(){
+                //请求异常回调
+            }
+        });
+    });
+
+</script>
+
+</body>
+
+</html>

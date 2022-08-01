@@ -1,0 +1,160 @@
+{include file='header'}
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+<style type="text/css">
+    .contetnBox{
+        background-color: #ffffff;
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .newRightBox{
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0 20px;
+    }
+    .layui-form-label{
+        font-size: 14px;
+    }
+    .layui-elem-field legend{
+        font-size: 16px;
+        color: #f09c4e;
+    }
+    .sea{
+        font-size: 14px;
+        padding: 9px 15px;
+        width: auto;
+    }
+</style>
+<div class="contetnBox">
+    <div class="newRightBox">
+
+        <fieldset class="layui-elem-field layui-field-title" >
+            <legend>搜索学号</legend>
+        </fieldset>
+        <div class="layui-form-item">
+
+            <div class="layui-inline">
+                <label class="layui-form-label">学　　号：</label>
+                <div class="layui-input-block">
+                    <input type="number" name="sc_number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <button class="layui-btn" lay-submit="" lay-filter="myform">
+                    <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                    搜索
+                </button>
+            </div>
+        </div>
+
+        <fieldset class="layui-elem-field layui-field-title" >
+            <legend>搜索结果</legend>
+        </fieldset>
+        <div id="search_div" style="margin: 15px 0" class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">学　　号：</label>
+                <div class="layui-input-inline sea" style="width: auto">
+                    201412112212
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label ">学员姓名：</label>
+                <div class="layui-input-inline sea"  style="width: auto">
+                    张小乐
+                </div>
+            </div>
+            <div class="layui-inline">
+                <button class="layui-btn" lay-submit="" lay-filter="myform">
+                    <i class="layui-icon layui-icon-ok layuiadmin-button-btn"></i>
+                    确认档案
+                </button>
+            </div><br>
+            调用搜索接口，使用StudentsModel查询学号,查询完成之后 ，给一个按钮，点击按钮提示文字"确认是北舞附中学员档案吗？"确认之后进入已确认列表
+        </div>
+        <fieldset class="layui-elem-field layui-field-title" >
+            <legend>已选择学生</legend>
+        </fieldset>
+
+        <div id="table_div">
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">已确认档案</li>
+                    <li>已提交档案</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-hide" id="stu_table" lay-filter="stu_table">
+
+                        </table>
+                    </div>
+                    <div class="layui-tab-item">
+                        <table class="layui-hide" id="stu_table2" lay-filter="stu_table">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/html" id="doAction">
+                <div class="layui-btn-container">
+                    <button class="layui-btn layui-btn-sm" lay-event="print">提交并打印交接表</button>
+                </div>
+            </script>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    layui.use(['form','table','element'], function(){
+        var form = layui.form;
+        var element = layui.element;
+
+        var table = layui.table;
+
+        table.render({
+            elem: '#stu_table'
+            ,url:"{:url('/file/filelist')}"
+            ,toolbar: '#doAction'
+            ,defaultToolbar:['filter']
+            ,title: '用户数据表'
+            ,cols: [[
+                {type: 'checkbox', fixed: 'left'}
+                ,{field:'file_number', fixed:true, title:'卷号'}
+                ,{field:'name', fixed:true, title:'姓名'}
+                ,{field:'sex',  title:'性别'}
+                ,{field:'sc_number', title:'学号'}
+
+            ]]
+            ,page: true
+            ,limit:10
+            ,limits:[10,50,100]
+        });
+        table.render({
+            elem: '#stu_table2'
+            ,url:"{:url('/file/filelist')}"
+            ,defaultToolbar:['filter']
+            ,title: '用户数据表'
+            ,cols: [[
+                {type: 'checkbox', fixed: 'left'}
+                ,{field:'file_number',  fixed:true, title:'卷号'}
+                ,{field:'name', fixed:true, title:'姓名'}
+                ,{field:'sex',  title:'性别'}
+                ,{field:'sc_number', title:'学号'}
+            ]]
+            ,page: true
+            ,limit:10
+            ,limits:[10,50,100]
+        });
+
+
+        table.on('toolbar(stu_table)', function(obj){
+            switch(obj.event){
+                case 'print':
+                    layer.msg('打印');
+                    break;
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

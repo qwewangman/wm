@@ -1,0 +1,397 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:80:"D:\phpStudy\PHPTutorial\WWW\AAA\public/../application/index\view\admin\dajs.html";i:1528735444;s:76:"D:\phpStudy\PHPTutorial\WWW\AAA\public/../application/index\view\layout.html";i:1529564754;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京舞蹈学院学生档案管理系统</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/records.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style.css">
+
+
+    <script src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+    <script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+    <script src="__STATIC__/js/index.js"></script>
+
+    <style>
+        .layui-tab-title{position:relative;left:0;height:40px;white-space:nowrap;font-size:0;border-bottom-width:1px;border-bottom-style:solid;transition:all .2s;-webkit-transition:all .2s;width:500px;margin: 0 auto}
+    </style>
+
+</head>
+<body>
+<div class="hederBox">
+    <div class="fl_left logo">北京舞蹈学院学生档案管理系统</div>
+    <div class="fl_right">
+        <div class="fl_left user">管理员</div>
+        <div class="fl_right signOut"><a href="<?php echo url('/login_out'); ?>"  style="color: white">退出</a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="contetnBox">
+
+    <div class="sliderBox fl_left">
+    <a href="<?php echo url('/home'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">首页</span>
+        <span class="clear"></span>
+    </a>
+    <a href="<?php echo url('/ajgl'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">案卷管理</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="<?php echo url('/wjjs'); ?>" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">文件接收</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">文件类目</span>
+        <span class="clear"></span>
+    </a>
+
+    <a href="" class="sliderList">
+        <span class="fl_left sliderOne block"></span>
+        <span class="fl_left sliderTwo block iconfont icon-home"></span>
+        <span class="fl_left sliderThree block">设置</span>
+        <span class="clear"></span>
+    </a>
+    <!--<a href="<?php echo url('/lijuan'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-home"></span>-->
+        <!--<span class="fl_left sliderThree block">立卷</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/addFile'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-container"></span>-->
+        <!--<span class="fl_left sliderThree block">档案接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/inside'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-export"></span>-->
+        <!--<span class="fl_left sliderThree block">卷内文件接收</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/ajy'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-detail"></span>-->
+        <!--<span class="fl_left sliderThree block">案卷借阅</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+    <!--<a href="<?php echo url('/DaBd'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案变动</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+
+    <!--<a href="<?php echo url('/LmBj'); ?>" class="sliderList">-->
+        <!--<span class="fl_left sliderOne block"></span>-->
+        <!--<span class="fl_left sliderTwo block iconfont icon-setting"></span>-->
+        <!--<span class="fl_left sliderThree block">档案类目</span>-->
+        <!--<span class="clear"></span>-->
+    <!--</a>-->
+</div>
+
+    <div class="rightBox fl_right">
+        <div class="titleBox">
+            <div class="title fl_left">档案接收</div>
+            <!--<div class="fl_right detaBox">-->
+            <!--<div class="detaBtn fl_left"><a href="<?php echo url('/addExcel'); ?>" style="color: #333">批量导入</a></div>-->
+            <!--</div>-->
+            <div class="clear"></div>
+        </div>
+        <!--<div class="details">-->
+
+        <div class="" style="background: white ; padding: 50px 30px; overflow: hidden">
+
+
+
+
+
+
+            <!------------------------------------------------------------------------------------------------------------------->
+
+            <div class="layui-tab">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">接收个人</li>
+                    <li>接收单位</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <!--                个人                    -->
+                    <div class="layui-tab-item layui-show">
+                        <form class="layui-form"  >
+                            <div class="demoTable">
+                                <label class="layui-form-label">院系专业</label>
+                                <div class="layui-input-inline">
+                                    <select name="courtyard" lay-filter="yx" id="courtyard">
+                                        <option value="" selected>请选择院系</option>
+                                        <?php if(is_array($departlist) || $departlist instanceof \think\Collection || $departlist instanceof \think\Paginator): if( count($departlist)==0 ) : echo "" ;else: foreach($departlist as $key=>$v): ?>
+                                        <option value="<?php echo $v['id']; ?>" ><?php echo $v['d_name']; ?></option>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                    </select>
+                                </div>
+
+                                <div class="layui-input-inline">
+                                    <select name="major"  id="zy">
+                                        <option value="">请选专业</option>
+                                    </select>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux"></div>
+
+                                学号：
+                                <div class="layui-inline">
+                                    <input class="layui-input" name="sc_number" id="sc_number" autocomplete="off">
+                                </div>
+                                姓名：
+                                <div class="layui-inline">
+                                    <input class="layui-input" name="user_name" id="user_name" autocomplete="off">
+                                </div>
+
+                                <!--<button class="layui-btn" data-type="reload">搜索</button>-->
+                                <div class="layui-btn" data-type="reload" style="width: 100px">搜索</div>
+                            </div>
+                        </form>
+                        <table class="layui-hide" id="LAY_table_user" lay-filter="user">
+
+
+                        </table>
+
+                        <script>
+
+
+
+
+                            layui.use('table', function(){
+                                var table = layui.table;
+
+                                //方法级渲染
+                                table.render({
+                                    elem: '#LAY_table_user'
+                                    ,url: "<?php echo url('/getWzd'); ?>"
+                                    ,cols: [[
+                                        {checkbox: true, fixed: true}
+                                        ,{field:'d_name', title: '院系',fixed: true}
+                                        ,{field:'m_name', title: '专业'}
+                                        ,{field:'class', title: '班级'}
+                                        ,{field:'sc_number', title: '学号'}
+                                        ,{field:'user_name', title: '姓名'}
+                                        ,{field:'url', title: '操作'}
+                                    ]]
+                                    ,id: 'testReload'
+                                    ,page: true
+
+                                });
+
+                                var $ = layui.$, active = {
+                                    reload: function(){
+                                        var courtyard = $('#courtyard');
+                                        var zy = $('#zy');
+                                        var sc_number = $('#sc_number');
+                                        var user_name = $('#user_name');
+
+                                        //执行重载
+                                        table.reload('testReload', {
+                                            page: {
+                                                curr: 1 //重新从第 1 页开始
+                                            }
+                                            ,where: {
+                                                key: {
+                                                    courtyard: courtyard.val(),
+                                                    major: zy.val(),
+                                                    sc_number: sc_number.val(),
+                                                    user_name: user_name.val()
+                                                }
+                                            }
+                                        });
+                                    }
+                                };
+
+                                $('.demoTable .layui-btn').on('click', function(){
+                                    var type = $(this).data('type');
+                                    active[type] ? active[type].call(this) : '';
+                                });
+                            });
+
+                        </script>
+
+
+
+                    </div>
+                    <!--                  单位                    -->
+
+                    <div class="layui-tab-item">
+
+                        <div>
+                            <table class="layui-hide" id="test">
+
+
+                            </table>
+                        </div>
+                        <div>
+                            <button class="layui-btn layui-btn-normal layui-btn-radius" id="s" style="float:right;margin-top: 50px">确定接收</button>
+                        </div>
+
+
+                        <script type="text/html" id="checkboxTpl">
+                            <!-- 这里的 checked 的状态只是演示 -->
+                            <input type="checkbox" name="lock" value="{{d.id}}" title="存在" lay-filter="lockDemo" >
+                        </script>
+
+
+                        <script>
+                            layui.use('table', function(){
+                                var table = layui.table
+                                        ,form = layui.form;
+
+                                table.render({
+                                    elem: '#test'
+                                    ,url:"<?php echo url('/getWzdDw'); ?>"
+                                    ,cellMinWidth: 80
+                                    ,cols: [[
+                                        {type:'numbers'}
+                                        ,{type: 'checkbox'}
+                                        ,{field:'id', title:'ID', width:100, unresize: true, sort: true}
+                                        ,{field:'user_name', title:'姓名', templet: '#usernameTpl'}
+                                        ,{field:'sc_number', title:'学号'}
+                                        ,{field:'sex', title:'性别', width:85, templet: '#switchTpl', unresize: true}
+                                        ,{field:'lock', title:'是否存在', width:110, templet: '#checkboxTpl', unresize: true}
+                                    ]]
+                                    ,page: true
+                                });
+
+                                //监听性别操作
+                                form.on('switch(sexDemo)', function(obj){
+                                    layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+                                });
+                                var standards = ''
+                                //监听锁定操作
+                                form.on('checkbox(lockDemo)', function(obj){
+//                                    layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+                                    $("input:checkbox[name='lock']:checked").each(function() { // 遍历name=standard的多选框
+                                        standards += ',' + $(this).val();
+                                    });
+                                });
+
+
+                                $('#s').click(function()
+                                {
+                                    $.post("<?php echo url('/updZd'); ?>",{id:standards},function(res){
+                                        if(res.code == 1)
+                                        {
+                                            alert('接收成功');
+                                            history.go(0)
+                                        }
+
+                                        form.render();
+                                    },'json');
+                                })
+
+                            });
+
+
+
+
+
+
+                        </script>
+
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+            <!-------------------------------------------------javascript------------------------------------------------------------------>
+            <script>
+
+                layui.use(['form', 'laydate','upload'], function(){
+                    var form = layui.form;
+                    form.on('select(yx)', function(data){
+                        var str = '<option value="0">请选专业</option>';
+                        var id = data.value;
+                        $.post("<?php echo url('/getZy'); ?>",{id:id},function(res){
+                            var length = res.length;
+                            for (var i=0;i<length;i++) {
+                                str += '<option value="'+res[i].id+'">'+res[i].m_name+'</option>';
+                            }
+                            layui.$("#zy").html(str);
+                            form.render();
+                        },'json');
+                    });
+                })
+
+
+
+
+
+                layui.use('element', function(){
+                    var $ = layui.jquery
+                            ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+                    //触发事件
+                    var active = {
+                        tabAdd: function(){
+                            //新增一个Tab项
+                            element.tabAdd('demo', {
+                                title: '新选项'+ (Math.random()*1000|0) //用于演示
+                                ,content: '内容'+ (Math.random()*1000|0)
+                                ,id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+                            })
+                        }
+                        ,tabDelete: function(othis){
+                            //删除指定Tab项
+                            element.tabDelete('demo', '44'); //删除：“商品管理”
+
+
+                            othis.addClass('layui-btn-disabled');
+                        }
+                        ,tabChange: function(){
+                            //切换到指定Tab项
+                            element.tabChange('demo', '22'); //切换到：用户管理
+                        }
+                    };
+
+                    $('.site-demo-active').on('click', function(){
+                        var othis = $(this), type = othis.data('type');
+                        active[type] ? active[type].call(this, othis) : '';
+                    });
+
+                    //Hash地址的定位
+                    var layid = location.hash.replace(/^#test=/, '');
+                    element.tabChange('test', layid);
+
+                    element.on('tab(test)', function(elem){
+                        location.hash = 'test='+ $(this).attr('lay-id');
+                    });
+
+                });
+            </script>
+
+            <!------------------------------------------------------javascriptEnd------------------------------------------------------------->
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
